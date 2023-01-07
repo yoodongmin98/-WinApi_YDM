@@ -1,11 +1,12 @@
 #pragma once
+#include <Windows.h>
 #include <assert.h>
+#include <string>
 
 // Ό³Έν :
 class GameEngineDebug
 {
 public:
-	// constrcuter destructer
 
 	// delete Function
 	GameEngineDebug(const GameEngineDebug& _Other) = delete;
@@ -13,15 +14,16 @@ public:
 	GameEngineDebug& operator=(const GameEngineDebug& _Other) = delete;
 	GameEngineDebug& operator=(GameEngineDebug&& _Other) noexcept = delete;
 
+	static void LeakCheck();
 
-	static void LeckCheck();
 protected:
+
 private:
+	// constrcuter destructer
 	GameEngineDebug();
 	~GameEngineDebug();
 
 };
 
-void LeckCheck();
 
-//#define MessageBoxAssert(MsgText) MessageBoxA(nullptr, MsgText, "Error", MB_OK);	assert(false);
+#define MsgAssert(MsgText) std::string ErrorText = MsgText; MessageBoxA(nullptr, ErrorText.c_str(), "Error", MB_OK); assert(false);

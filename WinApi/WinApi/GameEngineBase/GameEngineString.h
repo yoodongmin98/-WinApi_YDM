@@ -2,8 +2,6 @@
 class GameEngineString
 {
 public:
-	GameEngineString();
-	~GameEngineString();
 
 	GameEngineString(const GameEngineString& _Other) = delete;
 	GameEngineString(GameEngineString&& _Other)noexcept = delete;
@@ -12,5 +10,7 @@ public:
 protected:
 
 private:
+	GameEngineString();
+	~GameEngineString();
 };
 
