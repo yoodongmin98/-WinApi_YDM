@@ -28,7 +28,7 @@ void GameEngineCore::GlobalEnd()
 	Core->End();
 }
 
-
+//코어가 시작되면 바로leak체크
 GameEngineCore::GameEngineCore()
 {
 	GameEngineDebug::LeakCheck();

@@ -7,7 +7,7 @@
 // core도 여러개 만들어진다고 생각하지는 않을겁니다.
 
 // 설명 : 엔진에서 응당 로드해야할 필수적인 리소스나 
-// 순수가상함수가 있으니까 추상클래이다.
+// 순수가상함수가 있으니까 추상클래스이다.
 class GameEngineLevel;
 class GameEngineCore
 {
@@ -27,7 +27,7 @@ public:
 	GameEngineCore& operator=(const GameEngineCore& _Other) = delete;
 	GameEngineCore& operator=(GameEngineCore&& _Other) noexcept = delete;
 
-	void CoreStart(HINSTANCE _instance);
+	void CoreStart(HINSTANCE _instance);  //게임스타트?
 
 
 protected:
@@ -36,7 +36,7 @@ protected:
 	{
 		// Title을 만들었는데
 		// 또 Title을 만들겠다고 한 상황
-		if (Levels.end() != Levels.find(_Name.data()))
+		if (Levels.end() != Levels.find(_Name.data())) //찾는데이터가 end까지 도달하지못했다면
 		{
 			std::string Name = _Name.data();
 			MsgAssert(Name + "이미 존재하는 이름의 레벨을 만들려고 했습니다");

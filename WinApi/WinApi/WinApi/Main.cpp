@@ -1,5 +1,7 @@
 #include <Windows.h>
-#include <Isaac/StudyGameCore.h>//아이작으로고칠것
+#include <Isaac/IsaacCore.h>
+
+
 
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -8,7 +10,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_ int       nCmdShow)
 {
 
+	IsaacCore::GetInst().CoreStart(hInstance);
 	
-	//StudyGameCore::GetInst().CoreStart(hInstance);
 	return 1;
 }
