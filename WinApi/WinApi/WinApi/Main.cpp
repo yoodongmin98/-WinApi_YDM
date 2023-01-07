@@ -7,7 +7,7 @@ int main()
 {
 	GameEngineDebug::LeckCheck();
 	
-
+	printf("")
 	return 1;
 }      
 
