@@ -35,7 +35,7 @@ private:
 	// 생성자를 막아.
 	// constrcuter destructer
 	IsaacCore();
-	IsaacCore();
+	~IsaacCore();
 
 	// 자기를 자신이 가지면
 	// 프로그램을 통틀어서 오직 1개의 객체만 만들어진다

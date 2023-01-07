@@ -27,7 +27,7 @@ public:
 	GameEngineCore& operator=(const GameEngineCore& _Other) = delete;
 	GameEngineCore& operator=(GameEngineCore&& _Other) noexcept = delete;
 
-	void CoreStart(HINSTANCE _instance);  //게임스타트?
+	void CoreStart(HINSTANCE _instance);  //게임스타트
 
 
 protected:

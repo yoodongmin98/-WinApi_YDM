@@ -3,11 +3,21 @@
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include "GameEngineLevel.h"
 
-GameEngineCore* Core;
+GameEngineCore* Core; 
+//코어가 시작되면 전역변수를 선언하고
+
+
+GameEngineCore::GameEngineCore()
+{
+	GameEngineDebug::LeakCheck(); //시작되면 leak check
+	
+	Core = this; //나자신을 담는다.
+}
+
 
 void GameEngineCore::GlobalStart()
 {
-	Core->Start();
+	Core->Start(); //자식쪽에서 start로감(가상함수)
 }
 
 void GameEngineCore::GlobalUpdate()
@@ -28,14 +38,6 @@ void GameEngineCore::GlobalEnd()
 	Core->End();
 }
 
-//코어가 시작되면 바로leak체크
-GameEngineCore::GameEngineCore()
-{
-	GameEngineDebug::LeakCheck();
-	// 나는 자식중에 하나일수밖에 없다.
-	// 나는 절대만들어질수 없기 때문이다.
-	Core = this;
-}
 
 GameEngineCore::~GameEngineCore()
 {
