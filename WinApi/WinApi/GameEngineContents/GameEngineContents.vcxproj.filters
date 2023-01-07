@@ -4,6 +4,6 @@
     <ClInclude Include="IsaacCore.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IsaacCore.cpp" />
+    <ClCompile Include="..\Isaac\IsaacCore.cpp" />
   </ItemGroup>
 </Project>

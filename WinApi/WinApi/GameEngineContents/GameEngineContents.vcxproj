@@ -158,10 +158,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IsaacCore.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="..\Isaac\IsaacCore.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
