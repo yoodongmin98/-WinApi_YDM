@@ -41,6 +41,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Isaac", "GameEngineContents
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level4", "Level4", "{B088AF07-69C7-4567-8DA9-53CE8AF02995}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc(기능정리)", "Doc(기능정리)", "{357E0600-4026-46AA-8742-23B3D5BF2C89}"
+	ProjectSection(SolutionItems) = preProject
+		기본기능들.txt = 기본기능들.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

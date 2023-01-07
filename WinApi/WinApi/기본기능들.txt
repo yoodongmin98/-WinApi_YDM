@@ -1,0 +1,34 @@
+프레임워크 기능들모음
+
+미정리
+GameEngineDirectory  GameEngineFile GameEnginePath GameEngineResources GameEngineImage
+
+■■■■■■■■■■■■■■■ GameEngineDebug ■■■■■■■■■■■■■■
+
+GameEngineDebug::LeakCheck(); ->남는Leak을 체크해주는함수
+MsgAssert(" "); ->프로그램 터지게해줌
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+■■■■■■■■■■■■■■■ GameEngineMath ■■■■■■■■■■■■■■■
+
+GameEngineMath::PIE; ->3.14					float4::Left	float4::Right
+GameEngineMath::PIE2; ->3.14*2				float4::Up		float4::Down
+
+int 로 출력해주는 float::ix(),iy()...		값의 절반을 리턴해주는 float4::half()
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+
+■■■■■■■■■■■■■■■ GameEngineWindow ■■■■■■■■■■■■■■
+
+GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view& _TitleName, float4 _Size, float4 _Pos) 윈도우생성
+GameEngineWindow::SettingWindowSize(float4 _Size); //윈도우 사이즈
+GameEngineWindow::SettingWindowPos(float4 _Pos); //윈도우 위치
+float4 GetScreenSize(); // 스크린사이즈
+static HWND GetHWnd(); //핸들값 가져오기
+static HDC GetDrawHdc();
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+

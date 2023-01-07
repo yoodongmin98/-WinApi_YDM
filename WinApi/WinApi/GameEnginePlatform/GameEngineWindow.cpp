@@ -5,7 +5,7 @@
 
 HWND GameEngineWindow::HWnd = nullptr;
 HDC GameEngineWindow::DrawHdc = nullptr;
-float4 GameEngineWindow::WindowSize = { 800, 600 };
+float4 GameEngineWindow::WindowSize = { 800, 600 }; //디폴트값들
 float4 GameEngineWindow::WindowPos = { 100, 100 };
 float4 GameEngineWindow::ScreenSize = { 800, 600 };
 
@@ -57,6 +57,7 @@ GameEngineWindow::GameEngineWindow()
 
 GameEngineWindow::~GameEngineWindow()
 {
+   
 }
 
 
@@ -74,12 +75,15 @@ void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view
     wcex.cbWndExtra = 0;
     wcex.hInstance = _hInstance;
     // 넣어주지 않으면 윈도우 기본Icon이 됩니다.
-    wcex.hIcon = nullptr;//LoadIcon(_hInstance, MAKEINTRESOURCE(IDI_WINDOWSPROJECT1));
+    wcex.hIcon = nullptr;
+    //LoadIcon(_hInstance, MAKEINTRESOURCE(IDI_WINDOWSPROJECT1));
     wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1); // 흰색 
-    wcex.lpszMenuName = nullptr;//MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
-    wcex.lpszClassName = "GameEngineWindowDefault";
-    wcex.hIconSm = nullptr;//LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+    wcex.lpszMenuName = nullptr;
+    //MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
+    wcex.lpszClassName = "GameEngineWindowDefault"; 
+    wcex.hIconSm = nullptr;
+    //LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     // 윈도우에게 이런 내용을 window클래스를 GameEngineWindowDefault라는 이름으로 등록해줘.
     // 나중에 윈도우 만들때 쓸꺼냐.
@@ -138,9 +142,7 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
     while (IsWindowUpdate)
     {
         //if (!TranslateAccelerator(msg.hwnd, nullptr, &msg))
-        //{
-        //}
-
+     
         // 윈도우 메세지를 처리한다.
         // GetMessage는 동기함수이기 때문에 애초에 게임을 만들수 있는 메세지 방식이 아니다
         // => 게임은 쉴새없이 돌아야 하는데
