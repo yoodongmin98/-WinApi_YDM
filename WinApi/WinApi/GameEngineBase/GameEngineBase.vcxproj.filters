@@ -1,35 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{51cbe392-8669-4fff-af20-bb71cbbd9277}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Math">
+      <UniqueIdentifier>{a96a107d-c938-44e0-9dc8-ed3c347df606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{cfd54b9e-fd15-4646-a242-0aef0bda26b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO%28File%29">
+      <UniqueIdentifier>{f8ae27b5-466f-40a4-b24e-b58d69e0a334}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineDebug.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineMath.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="GameEngineString.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>String</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineDirectory.cpp">
+      <Filter>IO%28File%29</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineFile.cpp">
+      <Filter>IO%28File%29</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnginePath.cpp">
+      <Filter>IO%28File%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngineDebug.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineMath.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineString.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>String</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineDirectory.h">
+      <Filter>IO%28File%29</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineFile.h">
+      <Filter>IO%28File%29</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnginePath.h">
+      <Filter>IO%28File%29</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

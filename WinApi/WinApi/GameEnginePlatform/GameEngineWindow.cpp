@@ -5,8 +5,8 @@
 
 HWND GameEngineWindow::HWnd = nullptr;
 HDC GameEngineWindow::DrawHdc = nullptr;
-float4 GameEngineWindow::WindowSize = { 800, 600 }; //윈도우 기본사이즈
-float4 GameEngineWindow::WindowPos = { 100, 100 }; 
+float4 GameEngineWindow::WindowSize = { 800, 600 };
+float4 GameEngineWindow::WindowPos = { 100, 100 };
 float4 GameEngineWindow::ScreenSize = { 800, 600 };
 
 
@@ -62,6 +62,8 @@ GameEngineWindow::~GameEngineWindow()
 
 void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view& _TitleName, float4 _Size, float4 _Pos)
 {
+    // 윈도우를 찍어낼수 있는 class를 만들어내는 것이다.
+    // 나는 이러이러한 윈도우를 만들어줘...
     WNDCLASSEX wcex;
 
     wcex.cbSize = sizeof(WNDCLASSEX);
