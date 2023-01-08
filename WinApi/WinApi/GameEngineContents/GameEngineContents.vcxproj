@@ -18,6 +18,42 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IsaacCore.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="IsaacOpenning.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="IsaacPlay.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="IsaacTitle.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IsaacCore.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="IsaacOpenning.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="IsaacPlay.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="IsaacTitle.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -151,31 +187,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="IsaacCore.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="IsaacPlay.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-    <ClInclude Include="IsaacTitle.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Isaac\IsaacCore.cpp" />
-    <ClCompile Include="IsaacPlay.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="IsaacTitle.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

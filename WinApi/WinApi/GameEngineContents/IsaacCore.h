@@ -18,15 +18,22 @@ public:
 	{
 		return Core;
 	}
+
+	// 포인터로 만들시에는 중간에 삭제가 용이하다는 장점이 있다.
+	//static StudyGameCore& Destroy()
+	//{
+	//	delete Core;
+	//}
+
 protected:
-	//GameEngineCore 상속받아서
-	void Start() override; //오버라이딩되는 함수라는걸 명시적으로 적어주기.
+	void Start() override;
 	void Update() override;
 	void End() override;
 
 
 private:
-	// 생성자를 막아 -> 단 한개밖에 존재할수밖에없게한다.
+	// 생성자를 막아.
+	// constrcuter destructer
 	IsaacCore();
 	~IsaacCore();
 
@@ -37,5 +44,3 @@ private:
 
 };
 
-//싱글톤 >>생성자를막고 프로그램내에서 딱 1개만 존재할수있게한다
-//static이랑 별 다를건 없따...

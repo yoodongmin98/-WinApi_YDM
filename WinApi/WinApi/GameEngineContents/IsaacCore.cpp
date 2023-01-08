@@ -1,8 +1,9 @@
 #include "IsaacCore.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
-#include "IsaacPlay.h"
-#include "IsaacTitle"
 
+#include "IsaacPlay.h"
+#include "IsaacTitle.h"
+#include "IsaacOpenning.h"
 
 // StudyGameCore StudyGameCore::Core = new StudyGameCore();
 
@@ -20,18 +21,18 @@ IsaacCore::~IsaacCore()
 
 void IsaacCore::Start()
 {
-	//윈도우 사이즈를 정할수있음.
-	GameEngineWindow::SettingWindowSize({ 1200.0f, 800.0f });
+	// 정수의 연산 결과값은? 무조건 정수만 나옵니다.
+	// 실수 1.2 원한다면 
+	GameEngineWindow::SettingWindowSize({ 1200.0f, (1200.0f / 800.0f) * 600.0f });
 
 	new int();
 
 	CreateLevel<IsaacTitle>("Title");
-	CreateLevel<OpenningLevel>("Openning");
-	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Play");
-
+	CreateLevel<IsaacOpenning>("Openning");
+	CreateLevel<IsaacPlay>("Play");
 	// static_assert
 	// CreateLevel<HPlayer>("Title1");
+	ChangeLevel("Play");
 }
 
 void IsaacCore::Update()
