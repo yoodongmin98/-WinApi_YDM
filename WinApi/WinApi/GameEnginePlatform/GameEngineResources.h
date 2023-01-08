@@ -24,7 +24,7 @@ protected:
 	void ImageLoad(const std::string_view& _Path);
 
 private:
-	static GameEngineResources Inst;
+	static GameEngineResources Inst; //ΩÃ±€≈Ê
 
 	GameEngineResources();
 	~GameEngineResources();
