@@ -19,9 +19,9 @@ GameEngineLevel::~GameEngineLevel()
 		}
 	}
 
-	Actors.clear();
+	Actors.clear(); //??
 }
-
+//===============================actor관리============================
 void GameEngineLevel::ActorStart(GameEngineActor* _Actor)
 {
 	if (nullptr == _Actor)
@@ -30,16 +30,16 @@ void GameEngineLevel::ActorStart(GameEngineActor* _Actor)
 		return;
 	}
 
-	_Actor->Start();
+	_Actor->Start(); //헤도순환참조방지용 actor start
 }
 
-void GameEngineLevel::ActorsUpdate()
+void GameEngineLevel::ActorsUpdate()//map안에서 for문돌면서 이름이같은node를찾았다면
 {
 	std::list<GameEngineActor*>::iterator StartIter = Actors.begin();
 	std::list<GameEngineActor*>::iterator EndIter = Actors.end();
 	for (; StartIter != EndIter; ++StartIter)
 	{
-		(*StartIter)->Update();
+		(*StartIter)->Update();//그노드(액터)를 업데이트
 	}
 }
 
@@ -49,6 +49,7 @@ void GameEngineLevel::ActorsRender()
 	std::list<GameEngineActor*>::iterator EndIter = Actors.end();
 	for (; StartIter != EndIter; ++StartIter)
 	{
-		(*StartIter)->Render();
+		(*StartIter)->Render(); //똑같이 돌면서 렌더링
 	}
 }
+//====================================================================

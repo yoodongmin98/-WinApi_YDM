@@ -39,8 +39,6 @@ public:
 
 
 protected:
-	
-
 	// 시작하기전에 뭔가 준비해야할것이 있으면 여기서
 	virtual void Start() {}
 
@@ -52,5 +50,6 @@ protected:
 
 private:
 	float4 Pos = { 0.0f, 0.0f };
+	//위치를 가지고있어야한다.
 };
 

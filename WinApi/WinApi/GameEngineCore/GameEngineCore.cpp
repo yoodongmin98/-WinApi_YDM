@@ -49,8 +49,8 @@ void GameEngineCore::GlobalUpdate()
 		return;
 	}
 
-	Core->MainLevel->ActorsUpdate();
-	Core->MainLevel->ActorsRender();
+	Core->MainLevel->ActorsUpdate(); //메인레벨에 액터를 업데이트하고
+	Core->MainLevel->ActorsRender(); //렌더링한다(그린다)
 }
 
 void GameEngineCore::GlobalEnd()
@@ -83,7 +83,7 @@ void GameEngineCore::ChangeLevel(const std::string_view& _Name)
 }
 //==============================================================
 
-void GameEngineCore::LevelLoading(GameEngineLevel* _Level)
+void GameEngineCore::LevelLoading(GameEngineLevel* _Level)//레벨을 로딩
 {
 	if (nullptr == _Level)
 	{

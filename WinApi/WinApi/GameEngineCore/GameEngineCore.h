@@ -54,6 +54,7 @@ protected:
 	virtual void End() = 0;
 
 private:
+	//key를 string을사용해서 어떠한"이름"으로 실행시키려고
 	std::map<std::string, GameEngineLevel*> Levels;
 
 	GameEngineLevel* MainLevel = nullptr;
