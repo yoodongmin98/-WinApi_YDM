@@ -16,7 +16,7 @@ public:
 	IsaacTitle& operator=(IsaacTitle&& _Other) noexcept = delete;
 
 protected:
-	// 문법은 지나침 없이 fm대로 적어야 합니다.
+	// 문법은 지나침 없이 fm대로!
 	void Loading() override;
 	void Update() override;
 

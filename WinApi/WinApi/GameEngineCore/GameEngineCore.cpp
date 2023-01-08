@@ -33,7 +33,7 @@ GameEngineCore::~GameEngineCore()
 
 
 
-//====================가상함수부분====================
+//====================가상함수부분============================
 
 void GameEngineCore::GlobalStart()
 {
@@ -81,6 +81,7 @@ void GameEngineCore::ChangeLevel(const std::string_view& _Name)
 
 	MainLevel = FindIter->second;
 }
+//==============================================================
 
 void GameEngineCore::LevelLoading(GameEngineLevel* _Level)
 {
