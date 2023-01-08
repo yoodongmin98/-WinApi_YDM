@@ -36,15 +36,15 @@ protected:
 	{
 		// Title을 만들었는데
 		// 또 Title을 만들겠다고 한 상황
-		if (Levels.end() != Levels.find(_Name.data())) //찾는데이터가 end까지 도달하지못했다면
+		if (Levels.end() != Levels.find(_Name.data())) //find한 데이터가 end노드와 다르다면 터진다(같은이름이다.)
 		{
-			std::string Name = _Name.data();
+			std::string Name = _Name.data(); 
 			MsgAssert(Name + "이미 존재하는 이름의 레벨을 만들려고 했습니다");
 			return;
 		}
 
 		// 업캐스팅이 벌어지죠?
-		GameEngineLevel* Level = new LevelType();
+		GameEngineLevel* Level = new LevelType(); //만들게임(클래스)에따른 데이터타입을 템플릿으로만듬.
 		LevelLoading(Level);
 		// Level->Loading();
 		// insert할때마다 새로운 string이 생기면서 자신만의 메모리를 가지게 됩니다.

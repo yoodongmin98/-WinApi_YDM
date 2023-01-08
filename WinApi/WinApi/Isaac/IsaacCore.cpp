@@ -1,10 +1,8 @@
 #include "IsaacCore.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
-#include "IsaacCore.h"
+#include "IsaacPlay.h"
+#include "IsaacTitle"
 
-//#include "PlayLevel.h"
-//#include "TitleLevel.h"
-//#include "OpenningLevel.h"
 
 // StudyGameCore StudyGameCore::Core = new StudyGameCore();
 
@@ -27,10 +25,10 @@ void IsaacCore::Start()
 
 	new int();
 
-	/*CreateLevel<TitleLevel>("Title");
+	CreateLevel<IsaacTitle>("Title");
 	CreateLevel<OpenningLevel>("Openning");
 	CreateLevel<PlayLevel>("Play");
-	ChangeLevel("Play");*/
+	ChangeLevel("Play");
 
 	// static_assert
 	// CreateLevel<HPlayer>("Title1");

@@ -156,9 +156,25 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="IsaacPlay.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="IsaacTitle.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Isaac\IsaacCore.cpp" />
+    <ClCompile Include="IsaacPlay.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="IsaacTitle.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

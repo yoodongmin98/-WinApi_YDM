@@ -1,7 +1,7 @@
 #pragma once
 #include <list>
 
-// 설명 :
+// 설명 : level==타이틀화면
 class GameEngineCore;
 class GameEngineActor;
 class GameEngineLevel

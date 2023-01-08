@@ -41,18 +41,18 @@ void GameEngineCore::GlobalEnd()
 
 GameEngineCore::~GameEngineCore()
 {
-	std::map<std::string, GameEngineLevel*>::iterator StartIter = Levels.begin();
-	std::map<std::string, GameEngineLevel*>::iterator EndIter = Levels.end();
+	std::map<std::string, GameEngineLevel*>::iterator StartIter = Levels.begin(); //iterator로 순회돌아서
+	std::map<std::string, GameEngineLevel*>::iterator EndIter = Levels.end(); //begin과end값을 찾기
 
 	for (size_t i = 0; StartIter != EndIter; ++StartIter)
 	{
 		if (nullptr != StartIter->second)
 		{
-			delete StartIter->second;
+			delete StartIter->second; //헤더에서 new해줬으니까 돌면서 삭제
 		}
 	}
 
-	Levels.clear();
+	Levels.clear(); // ????
 }
 
 void GameEngineCore::CoreStart(HINSTANCE _instance)
