@@ -19,6 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ContentsEnum.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Isaac.h">
       <SubType>
       </SubType>
