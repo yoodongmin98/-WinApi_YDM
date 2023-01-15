@@ -11,6 +11,9 @@
     <ClInclude Include="IsaacTitle.h">
       <Filter>Title</Filter>
     </ClInclude>
+    <ClInclude Include="TitleBack.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IsaacCore.cpp" />
@@ -21,6 +24,9 @@
       <Filter>Play</Filter>
     </ClCompile>
     <ClCompile Include="IsaacTitle.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBack.cpp">
       <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>

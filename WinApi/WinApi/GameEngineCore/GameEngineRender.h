@@ -8,7 +8,7 @@ class GameEngineActor;
 class GameEngineLevel;
 class GameEngineRender : public GameEngineObject
 {
-	friend GameEngineActor;
+	friend GameEngineActor; //렌더는 액터와 레벨(장면)을 그리는데 사용한다(friend)
 	friend GameEngineLevel;
 
 public:
