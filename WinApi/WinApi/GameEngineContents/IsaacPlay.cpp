@@ -34,6 +34,7 @@ void IsaacPlay::Loading()
 	if (false == GameEngineInput::IsKey("PlayerOff"))
 	{
 		GameEngineInput::CreateKey("PlayerOff", 'R');
+		GameEngineInput::CreateKey("Bomb", 'F');
 	}
 }
 
@@ -43,6 +44,11 @@ void IsaacPlay::Update(float _DeltaTime)
 	{
 		Isaac::MainPlayer->OnOffSwtich();
 		
+	}
+	if (GameEngineInput::IsDown("Bomb"))
+	{
+		Isaac::MainPlayer->OnOffSwtich();
+
 	}
 }
 
