@@ -1,6 +1,12 @@
 #include "Isaac.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEngineBase/GameEnginePath.h>
+#include <GameEngineCore/GameEngineResources.h>
+#include <GameEngineCore/GameEngineRender.h>
+#include <GameEnginePlatform/GameEngineInput.h>
+#include "ContentsEnums.h"
+
+Isaac* Isaac::MainPlayer;
 
 Isaac::Isaac()
 {
@@ -12,31 +18,52 @@ Isaac::~Isaac()
 
 void Isaac::Start()
 {
+	MainPlayer = this;
+
 	SetMove(GameEngineWindow::GetScreenSize().half());
+
+
+	if (false == GameEngineInput::IsKey("LeftMove"))
+	{
+		GameEngineInput::CreateKey("LeftMove", 'A');
+		GameEngineInput::CreateKey("RightMove", 'D');
+		GameEngineInput::CreateKey("DownMove", 'S');
+		GameEngineInput::CreateKey("UpMove", 'W');
+	}
+
+	{
+		GameEngineRender* Render = CreateRender("Heros.bmp", IsaacOrder::BackGround);
+		Render->SetScale({ 100, 100 });
+		Render->SetFrame(4);
+	}
 }
 
-void Isaac::Update() //위치 업데이트
+void Isaac::Update(float _DeltaTime)
 {
-	SetMove(float4::Left * 0.0001f);
+	if (true == GameEngineInput::IsPress("LeftMove"))
+	{
+		SetMove(float4::Left * MoveSpeed * _DeltaTime);
+	}
+
+	if (true == GameEngineInput::IsPress("RightMove"))
+	{
+		SetMove(float4::Right * MoveSpeed * _DeltaTime);
+	}
+
+	if (true == GameEngineInput::IsPress("UpMove"))
+	{
+		SetMove(float4::Up * MoveSpeed * _DeltaTime);
+	}
+
+	if (true == GameEngineInput::IsPress("DownMove"))
+	{
+		SetMove(float4::Down * MoveSpeed * _DeltaTime);
+	}
+
+	
 }
 
-void Isaac::Render()
+void Isaac::Render(float _DeltaTime)
 {
-	float4 PlayerPos = GetPos();
-
-	//GameEnginePath Path;
-
-	//std::string PathText = Path.GetPathToString();
-
-	// TextOutA(GameEngineWindow::GetDrawHdc(), 0, 0, PathText.c_str(), PathText.size());
-
-
-	Rectangle(
-		GameEngineWindow::GetDrawHdc(),
-		PlayerPos.ix() - 50,
-		PlayerPos.iy() - 50,
-		PlayerPos.ix() + 50,
-		PlayerPos.iy() + 50
-	);
-
+	// 디버깅용.
 }

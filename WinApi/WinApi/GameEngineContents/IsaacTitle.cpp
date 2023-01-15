@@ -6,11 +6,11 @@
 #include <GameEnginePlatform/GameEngineInput.h>
 #include "TitleBack.h"
 
-IsaacTitle::TitleLevel()
+IsaacTitle::IsaacTitle()
 {
 }
 
-IsaacTitle::~TitleLevel()
+IsaacTitle::~IsaacTitle()
 {
 }
 

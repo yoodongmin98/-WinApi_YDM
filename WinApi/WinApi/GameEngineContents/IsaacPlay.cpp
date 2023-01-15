@@ -1,6 +1,9 @@
 #include "IsaacPlay.h"
-//#include "Isaac.h"
+#include "Isaac.h"
+
 #include <GameEngineBase/GameEngineDirectory.h>
+#include <GameEngineCore/GameEngineResources.h>
+#include <GameEnginePlatform/GameEngineInput.h>
 
 IsaacPlay::IsaacPlay()
 {
@@ -12,43 +15,34 @@ IsaacPlay::~IsaacPlay()
 
 void IsaacPlay::Loading()
 {
-	// 이런 경로를 절대 경로.
-	// "D:\Project\AR45\WINAPI\APIApp\ContentsResources\Iamge\Heros.bmp";
-
-	// std::string Text = "D:\Project\AR45\WINAPI\APIApp\ContentsResources\Iamge\Heros.bmp";
-
+	// 상대경로 탐색
 	GameEngineDirectory Dir;
-
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
 	Dir.Move("Image");
+	Dir.Move("Play");
 
-	Dir.GetPlusFileName("Heros.BMP");
+	// 이미지 로드
+	{
+		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Heros.BMP"));
+		Image->Cut({ 2, 12 }, { 949,38 }, 32, 1);
+	}
 
+	// 액터 생성
+	CreateActor<Isaac>();
 
-
-
-	//if (true == Path.IsExistsToPlusString("\\Heros.bmp"))
-	//{
-	//	int a = 0;
-	//}
-
-	//bool Result = false;
-	//Result = Path.IsExistsToPlusString("\\ContentsResources");
-	//Path.MoveParent();
-	//Result = Path.IsExistsToPlusString("\\ContentsResources");
-	//Path.MoveParent();
-	//Result = Path.IsExistsToPlusString("\\ContentsResources");
-	//Path.MoveParent();
-	//Result = Path.IsExistsToPlusString("\\ContentsResources");
-	//Path.MoveParent();
-
-
-	// 만들어야할 것들을 만드는 시점이 Loading시점입니다.
-	//CreateActor<Isaac>();
+	if (false == GameEngineInput::IsKey("PlayerOff"))
+	{
+		GameEngineInput::CreateKey("PlayerOff", 'R');
+	}
 }
 
-void IsaacPlay::Update()
+void IsaacPlay::Update(float _DeltaTime)
 {
-
+	if (GameEngineInput::IsDown("PlayerOff"))
+	{
+		Isaac::MainPlayer->OnOffSwtich();
+		
+	}
 }
+

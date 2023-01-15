@@ -14,7 +14,7 @@
     <ClInclude Include="TitleBack.h">
       <Filter>Title</Filter>
     </ClInclude>
-    <ClInclude Include="ContentsEnum.h" />
+    <ClInclude Include="ContentsEnums.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IsaacCore.cpp" />

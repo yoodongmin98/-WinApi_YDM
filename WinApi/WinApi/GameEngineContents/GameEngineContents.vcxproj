@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ContentsEnum.h">
+    <ClInclude Include="ContentsEnums.h">
       <SubType>
       </SubType>
     </ClInclude>
