@@ -30,10 +30,7 @@ public:
 	template<typename ActorType>
 	void CreateActor(int _Order = 0)
 	{
-		//if (Actors.end() == Actors.find(_Order))
-		//{
-		//	Actors.insert(std::make_pair(_Order, std::list<GameEngineActor*>()));
-		//}
+		
 
 		GameEngineActor* Actor = new ActorType();
 

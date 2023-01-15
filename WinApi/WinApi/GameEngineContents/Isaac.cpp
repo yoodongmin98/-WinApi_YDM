@@ -32,7 +32,7 @@ void Isaac::Start()
 	}
 
 	{
-		GameEngineRender* Render = CreateRender("Heros.bmp", IsaacOrder::BackGround);
+		GameEngineRender* Render = CreateRender("TitleBack1.BMP", IsaacOrder::BackGround);
 		Render->SetScale({ 100, 100 });
 		Render->SetFrame(4);
 	}

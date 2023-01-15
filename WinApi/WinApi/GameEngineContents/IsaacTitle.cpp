@@ -25,7 +25,7 @@ void IsaacTitle::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("TitleBack.BMP"));
+		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("TitleBack2.BMP"));
 	}
 
 	if (false == GameEngineInput::IsKey("LevelChange"))

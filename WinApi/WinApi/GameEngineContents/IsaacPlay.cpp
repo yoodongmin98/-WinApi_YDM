@@ -24,8 +24,8 @@ void IsaacPlay::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Heros.BMP"));
-		Image->Cut({ 2, 12 }, { 949,38 }, 32, 1);
+		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("TitleBack1.BMP"));
+		Image->Cut({ 0, 0 }, { 63,64 }, 2,3);
 	}
 
 	// 액터 생성
