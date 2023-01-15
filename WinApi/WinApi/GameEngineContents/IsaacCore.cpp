@@ -22,9 +22,9 @@ void IsaacCore::Start()
 
 	
 	GameEngineWindow::SettingWindowSize({ 1200.0f, 800.0f });
-	CreateLevel<IsaacTitle>("Title");
-	CreateLevel<IsaacPlay>("Play");
-	ChangeLevel("Title");
+	CreateLevel<IsaacTitle>("IsaacTitle");
+	CreateLevel<IsaacPlay>("IsaacPlay");
+	ChangeLevel("IsaacTitle");
 }
 
 void IsaacCore::Update()

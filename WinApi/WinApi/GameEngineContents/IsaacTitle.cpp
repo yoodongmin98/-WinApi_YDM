@@ -40,7 +40,6 @@ void IsaacTitle::Update(float _DeltaTime)
 {
 	if (true == GameEngineInput::IsDown("LevelChange"))
 	{
-		GameEngineCore::GetInst()->ChangeLevel("PlayLevel");
+		GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
 	}
-	int a = 0;
 }
