@@ -27,10 +27,6 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="IsaacOpenning.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="IsaacPlay.h">
       <SubType>
       </SubType>
@@ -46,10 +42,6 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="IsaacCore.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
-    <ClCompile Include="IsaacOpenning.cpp">
       <SubType>
       </SubType>
     </ClCompile>

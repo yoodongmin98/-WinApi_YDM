@@ -1,5 +1,6 @@
 #include "GameEngineLevel.h"
 #include "GameEngineActor.h"
+#include "GameEngineRender.h"
 #include <GameEngineBase/GameEngineDebug.h>
 
 GameEngineLevel::GameEngineLevel()
@@ -9,20 +10,25 @@ GameEngineLevel::GameEngineLevel()
 GameEngineLevel::~GameEngineLevel()
 {
 	// 편하게 for문을 돌리게 하기 위해서 17인부터 
-	for (GameEngineActor* Actor : Actors)
+	for (std::pair<int, std::list<GameEngineActor*>> UpdateGroup : Actors)
 	{
-		// Actors.erase()
-		if (nullptr != Actor)
+		std::list<GameEngineActor*>& ActorList = UpdateGroup.second;
+
+		for (GameEngineActor* Actor : ActorList)
 		{
-			delete Actor;
-			Actor = nullptr;
+			// Actors.erase()
+			if (nullptr != Actor)
+			{
+				delete Actor;
+				Actor = nullptr;
+			}
 		}
 	}
 
-	Actors.clear(); //??
+	Actors.clear();
 }
-//===============================actor관리============================
-void GameEngineLevel::ActorStart(GameEngineActor* _Actor)
+
+void GameEngineLevel::ActorStart(GameEngineActor* _Actor, int _Order)
 {
 	if (nullptr == _Actor)
 	{
@@ -30,26 +36,110 @@ void GameEngineLevel::ActorStart(GameEngineActor* _Actor)
 		return;
 	}
 
-	_Actor->Start(); //헤도순환참조방지용 actor start
+	_Actor->Level = this;
+	_Actor->SetOrder(_Order);
+	_Actor->Start();
 }
 
-void GameEngineLevel::ActorsUpdate()//map안에서 for문돌면서 이름이같은node를찾았다면
+void GameEngineLevel::ActorsUpdate(float _DeltaTime)
 {
-	std::list<GameEngineActor*>::iterator StartIter = Actors.begin();
-	std::list<GameEngineActor*>::iterator EndIter = Actors.end();
-	for (; StartIter != EndIter; ++StartIter)
 	{
-		(*StartIter)->Update();//그노드(액터)를 업데이트
+		std::map<int, std::list<GameEngineActor*>>::iterator GroupStartIter = Actors.begin();
+		std::map<int, std::list<GameEngineActor*>>::iterator GroupEndIter = Actors.end();
+
+		for (; GroupStartIter != GroupEndIter; ++GroupStartIter)
+		{
+			std::list<GameEngineActor*>& ActorList = GroupStartIter->second;
+
+			for (GameEngineActor* Actor : ActorList)
+			{
+				// Actors.erase()
+				if (nullptr == Actor || false == Actor->IsUpdate())
+				{
+					continue;
+				}
+
+				Actor->LiveTime += _DeltaTime;
+				Actor->Update(_DeltaTime);
+			}
+		}
+	}
+
+	{
+		std::map<int, std::list<GameEngineActor*>>::iterator GroupStartIter = Actors.begin();
+		std::map<int, std::list<GameEngineActor*>>::iterator GroupEndIter = Actors.end();
+
+		for (; GroupStartIter != GroupEndIter; ++GroupStartIter)
+		{
+			std::list<GameEngineActor*>& ActorList = GroupStartIter->second;
+
+			for (GameEngineActor* Actor : ActorList)
+			{
+				// Actors.erase()
+				if (nullptr == Actor || false == Actor->IsUpdate())
+				{
+					continue;
+				}
+
+				Actor->LateUpdate(_DeltaTime);
+			}
+		}
 	}
 }
 
-void GameEngineLevel::ActorsRender()
+void GameEngineLevel::ActorsRender(float _DeltaTime)
 {
-	std::list<GameEngineActor*>::iterator StartIter = Actors.begin();
-	std::list<GameEngineActor*>::iterator EndIter = Actors.end();
-	for (; StartIter != EndIter; ++StartIter)
+
 	{
-		(*StartIter)->Render(); //똑같이 돌면서 렌더링
+		std::map<int, std::list<GameEngineRender*>>::iterator GroupStartIter = Renders.begin();
+		std::map<int, std::list<GameEngineRender*>>::iterator GroupEndIter = Renders.end();
+
+		for (; GroupStartIter != GroupEndIter; ++GroupStartIter)
+		{
+			std::list<GameEngineRender*>& RenderList = GroupStartIter->second;
+
+			for (GameEngineRender* Renderer : RenderList)
+			{
+				// Actors.erase()
+				if (nullptr == Renderer || false == Renderer->IsUpdate())
+				{
+					continue;
+				}
+
+				Renderer->Render(_DeltaTime);
+			}
+		}
+	}
+
+	{
+		std::map<int, std::list<GameEngineActor*>>::iterator GroupStartIter = Actors.begin();
+		std::map<int, std::list<GameEngineActor*>>::iterator GroupEndIter = Actors.end();
+
+		for (; GroupStartIter != GroupEndIter; ++GroupStartIter)
+		{
+			std::list<GameEngineActor*>& ActorList = GroupStartIter->second;
+
+			for (GameEngineActor* Actor : ActorList)
+			{
+				// Actors.erase()
+				if (nullptr == Actor || false == Actor->IsUpdate())
+				{
+					continue;
+				}
+
+				Actor->Render(_DeltaTime);
+			}
+		}
 	}
 }
-//====================================================================
+
+void GameEngineLevel::PushRender(GameEngineRender* _Render)
+{
+	if (nullptr == _Render)
+	{
+		MsgAssert("nullptr인 랜더를 랜더링 그룹속에 넣으려고 했습니다.");
+	}
+
+	// 먼저 이미 들어가있을수도 있다.
+	Renders[_Render->GetOrder()].push_back(_Render);
+}

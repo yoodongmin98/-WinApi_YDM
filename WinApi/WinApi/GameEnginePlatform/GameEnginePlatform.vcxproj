@@ -23,7 +23,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngineResources.h">
+    <ClInclude Include="GameEngineInput.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -37,7 +37,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEngineResources.cpp">
+    <ClCompile Include="GameEngineInput.cpp">
       <SubType>
       </SubType>
     </ClCompile>

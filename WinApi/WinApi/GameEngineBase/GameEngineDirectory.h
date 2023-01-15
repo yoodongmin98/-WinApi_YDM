@@ -31,14 +31,12 @@ public:
 	GameEnginePath GetPlusFileName(const std::string_view& _String);
 
 
-	// std::vector<GameEngineFile> GetAllFile();
-
-	// void MoveParent();
+	
 
 protected:
 
 private:
-	// "D:\Project\AR45\WINAPI\APIApp\ContentsResources\Iamge\";
+	// "D:\Project\AR45\WINAPI\APIApp\ContentsResources\Image\";
 	GameEnginePath Path;
 };
 

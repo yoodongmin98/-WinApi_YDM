@@ -1,89 +1,118 @@
 #include "GameEngineCore.h"
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
+#include <GameEnginePlatform/GameEngineInput.h>
 #include "GameEngineLevel.h"
+#include "GameEngineResources.h"
+#include <GameEngineBase/GameEngineTime.h>
 
-GameEngineCore* Core; 
-//코어가 시작되면 전역변수를 선언
+GameEngineCore* Core;
 
-
-//====================생성자,소멸자===================
-
-GameEngineCore::GameEngineCore()
+GameEngineCore* GameEngineCore::GetInst()
 {
-	GameEngineDebug::LeakCheck(); //시작되면 leak check
-	
-	Core = this; //나자신을 담는다.
+	return Core;
 }
-
-GameEngineCore::~GameEngineCore()
-{
-	std::map<std::string, GameEngineLevel*>::iterator StartIter = Levels.begin(); //iterator로 순회돌아서
-	std::map<std::string, GameEngineLevel*>::iterator EndIter = Levels.end(); //begin과end값을 찾기
-
-	for (size_t i = 0; StartIter != EndIter; ++StartIter)
-	{
-		if (nullptr != StartIter->second)
-		{
-			delete StartIter->second; //헤더에서 new해줬으니까 돌면서 삭제
-		}
-	}
-	Levels.clear(); // ????
-}
-
-
-
-//====================가상함수부분============================
 
 void GameEngineCore::GlobalStart()
 {
-	Core->Start(); //자식쪽에서 start로감(가상함수)
+	Core->Start();
+
+	GameEngineTime::GlobalTime.Reset();
 }
 
 void GameEngineCore::GlobalUpdate()
 {
-	Core->Update();
-	if (nullptr == Core->MainLevel) //메인 장면이 nullptr이면
+	// 여기에서 처리한다
+	if (nullptr != Core->NextLevel)
 	{
-		MsgAssert("레벨을 지정해주지 않은 상태로 코어를 실행했습니다"); //터진당
+		GameEngineLevel* PrevLevel = Core->MainLevel;
+		GameEngineLevel* NextLevel = Core->NextLevel;
+
+		if (nullptr != PrevLevel)
+		{
+			PrevLevel->LevelChangeEnd(NextLevel);
+		}
+
+		Core->MainLevel = NextLevel;
+		Core->NextLevel = nullptr;
+
+		if (nullptr != NextLevel)
+		{
+			NextLevel->LevelChangeStart(PrevLevel);
+		}
+	}
+
+	// 프레임 시작할때 한번 델타타임을 정하고
+	float TimeDeltaTime = GameEngineTime::GlobalTime.TimeCheck();
+	GameEngineInput::Update(TimeDeltaTime);
+
+	Core->Update();
+	if (nullptr == Core->MainLevel)
+	{
+		MsgAssert("레벨을 지정해주지 않은 상태로 코어를 실행했습니다");
 		return;
 	}
 
-	Core->MainLevel->ActorsUpdate(); //메인레벨에 액터를 업데이트하고
-	Core->MainLevel->ActorsRender(); //렌더링한다(그린다)
+	Core->MainLevel->Update(TimeDeltaTime);
+	Core->MainLevel->ActorsUpdate(TimeDeltaTime);
+	GameEngineWindow::DoubleBufferClear();
+	Core->MainLevel->ActorsRender(TimeDeltaTime);
+	GameEngineWindow::DoubleBufferRender();
 }
 
 void GameEngineCore::GlobalEnd()
 {
 	Core->End();
+
+	GameEngineResources::GetInst().Release();
 }
 
-//============================================================
-//윈도우 시작하는함수
+
+GameEngineCore::GameEngineCore()
+{
+	GameEngineDebug::LeakCheck();
+	// 나는 자식중에 하나일수밖에 없다.
+	// 나는 절대만들어질수 없기 때문이다.
+	Core = this;
+}
+
+GameEngineCore::~GameEngineCore()
+{
+	std::map<std::string, GameEngineLevel*>::iterator StartIter = Levels.begin();
+	std::map<std::string, GameEngineLevel*>::iterator EndIter = Levels.end();
+
+	for (size_t i = 0; StartIter != EndIter; ++StartIter)
+	{
+		if (nullptr != StartIter->second)
+		{
+			delete StartIter->second;
+		}
+	}
+
+	Levels.clear();
+}
+
 void GameEngineCore::CoreStart(HINSTANCE _instance)
 {
 	GameEngineWindow::WindowCreate(_instance, "MainWindow", { 1280, 720 }, { 0, 0 });
 	GameEngineWindow::WindowLoop(GameEngineCore::GlobalStart, GameEngineCore::GlobalUpdate, GameEngineCore::GlobalEnd);
 }
 
-//==============================================================
-//장면전환
 void GameEngineCore::ChangeLevel(const std::string_view& _Name)
 {
 	std::map<std::string, GameEngineLevel*>::iterator FindIter = Levels.find(_Name.data());
 
-	if (FindIter == Levels.end())//넣어준 이름을 못찾았다면(찾고자하는 노드가 맵의 끝노드와 같다면)
+	if (FindIter == Levels.end())
 	{
 		std::string Name = _Name.data();
 		MsgAssert(Name + "존재하지 않는 레벨을 실행시키려고 했습니다");
 		return;
 	}
 
-	MainLevel = FindIter->second;
+	NextLevel = FindIter->second;
 }
-//==============================================================
 
-void GameEngineCore::LevelLoading(GameEngineLevel* _Level)//레벨을 로딩
+void GameEngineCore::LevelLoading(GameEngineLevel* _Level)
 {
 	if (nullptr == _Level)
 	{

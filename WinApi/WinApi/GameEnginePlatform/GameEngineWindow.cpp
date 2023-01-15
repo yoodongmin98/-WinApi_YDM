@@ -1,13 +1,17 @@
 #include "GameEngineWindow.h"
 #include <GameEngineBase/GameEngineDebug.h>
+#include <GameEnginePlatform/GameEngineImage.h>
 
 // LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM)
 
 HWND GameEngineWindow::HWnd = nullptr;
-HDC GameEngineWindow::DrawHdc = nullptr;
-float4 GameEngineWindow::WindowSize = { 800, 600 }; //디폴트값들
+HDC GameEngineWindow::WindowBackBufferHdc = nullptr;
+float4 GameEngineWindow::WindowSize = { 800, 600 };
 float4 GameEngineWindow::WindowPos = { 100, 100 };
 float4 GameEngineWindow::ScreenSize = { 800, 600 };
+GameEngineImage* GameEngineWindow::BackBufferImage = nullptr;
+GameEngineImage* GameEngineWindow::DoubleBufferImage = nullptr;
+
 
 
 bool IsWindowUpdate = true;
@@ -57,9 +61,8 @@ GameEngineWindow::GameEngineWindow()
 
 GameEngineWindow::~GameEngineWindow()
 {
-   
-}
 
+}
 
 void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view& _TitleName, float4 _Size, float4 _Pos)
 {
@@ -75,15 +78,12 @@ void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view
     wcex.cbWndExtra = 0;
     wcex.hInstance = _hInstance;
     // 넣어주지 않으면 윈도우 기본Icon이 됩니다.
-    wcex.hIcon = nullptr;
-    //LoadIcon(_hInstance, MAKEINTRESOURCE(IDI_WINDOWSPROJECT1));
+    wcex.hIcon = nullptr;//LoadIcon(_hInstance, MAKEINTRESOURCE(IDI_WINDOWSPROJECT1));
     wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1); // 흰색 
-    wcex.lpszMenuName = nullptr;
-    //MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
-    wcex.lpszClassName = "GameEngineWindowDefault"; 
-    wcex.hIconSm = nullptr;
-    //LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+    wcex.lpszMenuName = nullptr;//MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
+    wcex.lpszClassName = "GameEngineWindowDefault";
+    wcex.hIconSm = nullptr;//LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     // 윈도우에게 이런 내용을 window클래스를 GameEngineWindowDefault라는 이름으로 등록해줘.
     // 나중에 윈도우 만들때 쓸꺼냐.
@@ -110,7 +110,9 @@ void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view
         return;
     }
 
-    DrawHdc = GetDC(HWnd);
+    // 윈도우가 만들어지면서부터 만들어진 색깔의 2차원배열의 수정권한을 얻어오는 것이다.
+    WindowBackBufferHdc = GetDC(HWnd);
+
 
     ShowWindow(HWnd, SW_SHOW);
     UpdateWindow(HWnd);
@@ -118,7 +120,24 @@ void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view
     SettingWindowSize(_Size);
     SettingWindowPos(_Pos);
 
+    // 크기 바꾸고 얻어온다.
+    BackBufferImage = new GameEngineImage();
+    BackBufferImage->ImageCreate(WindowBackBufferHdc);
+
+
     return;
+}
+
+void GameEngineWindow::DoubleBufferClear()
+{
+    DoubleBufferImage->ImageClear();
+}
+
+void GameEngineWindow::DoubleBufferRender()
+{
+    //static GameEngineImage* BackBufferImage;
+    //static GameEngineImage* DoubleBufferImage;
+    BackBufferImage->BitCopy(DoubleBufferImage, WindowSize.half(), WindowSize);
 }
 
 int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
@@ -142,7 +161,9 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
     while (IsWindowUpdate)
     {
         //if (!TranslateAccelerator(msg.hwnd, nullptr, &msg))
-     
+        //{
+        //}
+
         // 윈도우 메세지를 처리한다.
         // GetMessage는 동기함수이기 때문에 애초에 게임을 만들수 있는 메세지 방식이 아니다
         // => 게임은 쉴새없이 돌아야 하는데
@@ -181,6 +202,15 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
         _End();
     }
 
+    if (nullptr != BackBufferImage)
+    {
+        delete DoubleBufferImage;
+        DoubleBufferImage = nullptr;
+
+        delete BackBufferImage;
+        BackBufferImage = nullptr;
+    }
+
     return (int)msg.wParam;
 }
 
@@ -200,6 +230,19 @@ void GameEngineWindow::SettingWindowSize(float4 _Size)
     WindowSize = { static_cast<float>(Rc.right - Rc.left), static_cast<float>(Rc.bottom - Rc.top) };
     // 0을 넣어주면 기존의 크기를 유지한다.
     SetWindowPos(HWnd, nullptr, WindowPos.ix(), WindowPos.iy(), WindowSize.ix(), WindowSize.iy(), SWP_NOZORDER);
+
+    // 완전히 똑같은 크기의 이미지입니다.
+
+    if (nullptr != DoubleBufferImage)
+    {
+        delete DoubleBufferImage;
+        DoubleBufferImage = nullptr;
+    }
+
+    DoubleBufferImage = new GameEngineImage();
+    DoubleBufferImage->ImageCreate(ScreenSize);
+
+
 }
 void GameEngineWindow::SettingWindowPos(float4 _Pos)
 {

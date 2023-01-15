@@ -2,16 +2,34 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="IsaacCore.h" />
-    <ClInclude Include="IsaacTitle.h" />
-    <ClInclude Include="IsaacOpenning.h" />
-    <ClInclude Include="IsaacPlay.h" />
-    <ClInclude Include="Isaac.h" />
+    <ClInclude Include="Isaac.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacPlay.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacTitle.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IsaacCore.cpp" />
-    <ClCompile Include="IsaacTitle.cpp" />
-    <ClCompile Include="IsaacOpenning.cpp" />
-    <ClCompile Include="IsaacPlay.cpp" />
-    <ClCompile Include="Isaac.cpp" />
+    <ClCompile Include="Isaac.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacPlay.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacTitle.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Play">
+      <UniqueIdentifier>{8708d13d-46d4-4ca6-b4c0-5fec17ab9199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{80c72e4d-d8b9-4f22-9b9c-d1e79fe89893}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
