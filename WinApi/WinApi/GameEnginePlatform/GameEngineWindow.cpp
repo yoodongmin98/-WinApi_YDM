@@ -1,22 +1,22 @@
 #include "GameEngineWindow.h"
 #include <GameEngineBase/GameEngineDebug.h>
 #include <GameEnginePlatform/GameEngineImage.h>
+#include "GameEngineInput.h"
 
 // LRESULT(CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM)
 
 HWND GameEngineWindow::HWnd = nullptr;
 HDC GameEngineWindow::WindowBackBufferHdc = nullptr;
-float4 GameEngineWindow::WindowSize = { 800, 600 };
+float4 GameEngineWindow::WindowSize = {800, 600};
 float4 GameEngineWindow::WindowPos = { 100, 100 };
 float4 GameEngineWindow::ScreenSize = { 800, 600 };
 GameEngineImage* GameEngineWindow::BackBufferImage = nullptr;
 GameEngineImage* GameEngineWindow::DoubleBufferImage = nullptr;
+bool GameEngineWindow::IsWindowUpdate = true;
 
 
 
-bool IsWindowUpdate = true;
-
-LRESULT CALLBACK MessageFunction(HWND _hWnd, UINT _message, WPARAM _wParam, LPARAM _lParam)
+LRESULT CALLBACK GameEngineWindow::MessageFunction(HWND _hWnd, UINT _message, WPARAM _wParam, LPARAM _lParam)
 {
     switch (_message)
     {
@@ -25,7 +25,7 @@ LRESULT CALLBACK MessageFunction(HWND _hWnd, UINT _message, WPARAM _wParam, LPAR
         int a = 0;
         break;
     }
-    // 내 윈도우가 선택되었다.
+        // 내 윈도우가 선택되었다.
     case WM_SETFOCUS:
     {
         int a = 0;
@@ -39,6 +39,11 @@ LRESULT CALLBACK MessageFunction(HWND _hWnd, UINT _message, WPARAM _wParam, LPAR
     case WM_KILLFOCUS:
     {
         int a = 0;
+        break;
+    }
+    case WM_KEYDOWN:
+    {
+        GameEngineInput::IsAnyKeyOn();
         break;
     }
     case WM_DESTROY:
@@ -55,13 +60,13 @@ LRESULT CALLBACK MessageFunction(HWND _hWnd, UINT _message, WPARAM _wParam, LPAR
     return 0;
 }
 
-GameEngineWindow::GameEngineWindow()
+GameEngineWindow::GameEngineWindow() 
 {
 }
 
-GameEngineWindow::~GameEngineWindow()
+GameEngineWindow::~GameEngineWindow() 
 {
-
+    
 }
 
 void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view& _TitleName, float4 _Size, float4 _Pos)
@@ -73,7 +78,7 @@ void GameEngineWindow::WindowCreate(HINSTANCE _hInstance, const std::string_view
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc = MessageFunction;
+    wcex.lpfnWndProc = &GameEngineWindow::MessageFunction;
     wcex.cbClsExtra = 0;
     wcex.cbWndExtra = 0;
     wcex.hInstance = _hInstance;
@@ -149,7 +154,7 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
     {
         _Start();
     }
-
+    
 
     MSG msg;
 
@@ -176,7 +181,7 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
         // 메세지가 있든 없든 리턴됩니다.
         // 쌓여있는 메세지를 삭제하라는 명령입니다.
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
-            // 동기 메세지 있어? 없어 난 갈께.
+        // 동기 메세지 있어? 없어 난 갈께.
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
@@ -186,8 +191,10 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
             {
                 _Loop();
             }
+
+            GameEngineInput::IsAnyKeyOff();
             continue;
-        }
+        } 
 
         // 데드타임
         // 데드타임에 게임을 실행하는것. 
@@ -195,6 +202,8 @@ int GameEngineWindow::WindowLoop(void(*_Start)(), void(*_Loop)(), void(*_End)())
         {
             _Loop();
         }
+
+        GameEngineInput::IsAnyKeyOff();
     }
 
     if (nullptr != _End)
@@ -227,7 +236,7 @@ void GameEngineWindow::SettingWindowSize(float4 _Size)
     // 내가 원하는 크기를 넣으면 타이틀바까지 고려한 크기를 리턴주는 함수.
     AdjustWindowRect(&Rc, WS_OVERLAPPEDWINDOW, FALSE);
 
-    WindowSize = { static_cast<float>(Rc.right - Rc.left), static_cast<float>(Rc.bottom - Rc.top) };
+    WindowSize = { static_cast<float>(Rc.right - Rc.left), static_cast<float>(Rc.bottom - Rc.top)};
     // 0을 넣어주면 기존의 크기를 유지한다.
     SetWindowPos(HWnd, nullptr, WindowPos.ix(), WindowPos.iy(), WindowSize.ix(), WindowSize.iy(), SWP_NOZORDER);
 

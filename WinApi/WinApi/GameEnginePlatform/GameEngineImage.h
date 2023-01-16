@@ -36,9 +36,9 @@ struct ImageCutData
 	float SizeX = 0.0f;
 	float SizeY = 0.0f;
 
-	float4 GetStartPos()
+	float4 GetStartPos() 
 	{
-		return { StartX, StartY };
+		return {StartX, StartY};
 	}
 
 	float4 GetScale()
@@ -82,7 +82,7 @@ public:
 		return float4{ static_cast<float>(Info.bmWidth), static_cast<float>(Info.bmHeight) };
 	}
 
-	bool IsImageCutting()
+	bool IsImageCutting() 
 	{
 		return IsCut;
 	}
@@ -98,7 +98,7 @@ public:
 		{
 			return false;
 		}
-
+		
 		return true;
 	}
 

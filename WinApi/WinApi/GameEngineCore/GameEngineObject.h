@@ -6,7 +6,7 @@ class GameEngineObject
 public:
 	// constrcuter destructer
 	GameEngineObject();
-	~GameEngineObject();
+	virtual ~GameEngineObject();
 
 	// delete Function
 	GameEngineObject(const GameEngineObject& _Other) = delete;
@@ -14,29 +14,29 @@ public:
 	GameEngineObject& operator=(const GameEngineObject& _Other) = delete;
 	GameEngineObject& operator=(GameEngineObject&& _Other) noexcept = delete;
 
-	bool IsUpdate()
+	bool IsUpdate() 
 	{
 		//         조건          ?              true 일때                                      :         false 일때
-		return nullptr != Parent ? (ObjectUpdate && false == ObjectDeath && Parent->IsUpdate()) : (ObjectUpdate && false == ObjectDeath);
+		return nullptr != Parent ? ((ObjectUpdate && false == IsDeath()) || Parent->IsUpdate()) : (ObjectUpdate && false == IsDeath());
 
 		// return nullptr != Parent ? 1000 : 200;
 	}
 
 	bool IsDeath()
 	{
-		return nullptr != Parent ? (true == ObjectDeath && Parent->IsDeath()) : (true == ObjectDeath);
+		return nullptr != Parent ? (true == ObjectDeath || Parent->IsDeath()) : (true == ObjectDeath);
 	}
 
-	void Death()
+	void Death() 
 	{
 		ObjectDeath = true;
 	}
 
-	void On()
+	void On() 
 	{
 		ObjectUpdate = true;
 	}
-	void Off()
+	void Off() 
 	{
 		ObjectUpdate = false;
 	}

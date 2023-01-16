@@ -1,8 +1,8 @@
 #pragma once
 
 
-// final >> 더이상 상속내리지못하게한다.
-
+// final 더이상 상속내릴지 못한다.
+// 상속도 못하고 만들지도 못하게 만든 상태로
 
 class GameEngineMath final
 {
@@ -31,23 +31,24 @@ public:
 	float y = 0.0f;
 	float z = 0.0f;
 	float w = 1.0f;
+	// 마지막이 1인지는 3d 때 배우게 될겁니다.
 
 	int ix() const
 	{
 		return static_cast<int>(x);
 	}
 
-	int iy() const
+	int iy() const 
 	{
 		return static_cast<int>(y);
 	}
 
-	int iz() const
+	int iz() const 
 	{
 		return static_cast<int>(z);
 	}
 
-	int iw() const
+	int iw() const 
 	{
 		return static_cast<int>(w);
 	}
@@ -74,7 +75,7 @@ public:
 
 	float4 half() const
 	{
-		return { x * 0.5f,y * 0.5f,z * 0.5f,w };
+		return {x * 0.5f,y * 0.5f,z * 0.5f,w};
 	}
 
 	bool IsZero() const
@@ -101,8 +102,6 @@ public:
 		return Return;
 	}
 
-
-
 	float4 operator -(const float4 _Value) const
 	{
 		float4 Return;
@@ -112,8 +111,12 @@ public:
 		return Return;
 	}
 
+	float4 operator -() const
+	{
+		return {-x, -y, -z, 1.0f};
+	}
 
-	float4& operator +=(const float4& _Other)
+	float4& operator +=(const float4& _Other) 
 	{
 		x += _Other.x;
 		y += _Other.y;

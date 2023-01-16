@@ -1,11 +1,11 @@
 #include "GameEngineActor.h"
 #include "GameEngineRender.h"
 
-GameEngineActor::GameEngineActor()
+GameEngineActor::GameEngineActor() 
 {
 }
 
-GameEngineActor::~GameEngineActor()
+GameEngineActor::~GameEngineActor() 
 {
 	for (GameEngineRender* _Render : RenderList)
 	{

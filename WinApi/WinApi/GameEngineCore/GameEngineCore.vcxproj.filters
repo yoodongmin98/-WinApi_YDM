@@ -1,50 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Object">
-      <UniqueIdentifier>{f3ea77d4-3a22-477f-b2b0-9ec0a7284521}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Rendering">
-      <UniqueIdentifier>{4df97920-c91d-457c-b12b-a8f89c479ae7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{6d42f828-30be-4ba9-b2ec-845acd48f8a2}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GameEngineActor.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineLevel.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineCore.cpp" />
-    <ClCompile Include="GameEngineRender.cpp">
-      <Filter>Object\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineObject.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameEngineResources.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GameEngineLevel.h">
-      <Filter>Object</Filter>
-    </ClInclude>
+    <ClInclude Include="GameEngineCore.h" />
     <ClInclude Include="GameEngineActor.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineCore.h" />
+    <ClInclude Include="GameEngineLevel.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineResources.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
     <ClInclude Include="GameEngineRender.h">
       <Filter>Object\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="GameEngineObject.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineResources.h">
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameEngineCore.cpp" />
+    <ClCompile Include="GameEngineActor.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineLevel.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineResources.cpp">
       <Filter>Resources</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="GameEngineRender.cpp">
+      <Filter>Object\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Object">
+      <UniqueIdentifier>{61da20f2-294b-4815-92ca-64566381bc26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{cb8b7483-77a1-440c-8145-8b00a4990342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Rendering">
+      <UniqueIdentifier>{9ff5ea44-4985-468d-a75e-87b94cde0ce8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

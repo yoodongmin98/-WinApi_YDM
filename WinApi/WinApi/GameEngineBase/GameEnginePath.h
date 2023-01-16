@@ -29,7 +29,8 @@ public:
 	bool IsExists();
 	bool IsExistsToPlusString(const std::string_view& _String);
 
-	
+	// bool MoveParentToChildPath(const std::string_view& _IOName );
+
 	bool IsRoot();
 
 	bool Move(const std::string_view& _Path);

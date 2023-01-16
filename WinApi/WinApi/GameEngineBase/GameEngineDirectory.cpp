@@ -1,11 +1,11 @@
 #include "GameEngineDirectory.h"
 #include <GameEngineBase/GameEngineDebug.h>
 
-GameEngineDirectory::GameEngineDirectory()
+GameEngineDirectory::GameEngineDirectory() 
 {
 }
 
-GameEngineDirectory::~GameEngineDirectory()
+GameEngineDirectory::~GameEngineDirectory() 
 {
 }
 void GameEngineDirectory::MoveParentToDirectory(const std::string_view& _String)
@@ -29,9 +29,8 @@ GameEnginePath GameEngineDirectory::GetPlusFileName(const std::string_view& _Str
 	std::string PathString = Path.GetPathToString();
 	PathString += "\\";
 	PathString += _String;
-	GameEnginePath NewPath = PathString;
 
-	return NewPath;
+	return GameEnginePath(PathString);
 }
 
 bool GameEngineDirectory::MoveParent()
