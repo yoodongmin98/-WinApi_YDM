@@ -13,14 +13,14 @@ GameEngineCore* GameEngineCore::GetInst()
 	return Core;
 }
 
-void GameEngineCore::GlobalStart() 
+void GameEngineCore::GlobalStart()
 {
 	Core->Start();
 
 	GameEngineTime::GlobalTime.Reset();
 }
 
-void GameEngineCore::GlobalUpdate() 
+void GameEngineCore::GlobalUpdate()
 {
 	// 여기에서 처리한다
 	if (nullptr != Core->NextLevel)
@@ -60,7 +60,7 @@ void GameEngineCore::GlobalUpdate()
 	GameEngineWindow::DoubleBufferRender();
 }
 
-void GameEngineCore::GlobalEnd() 
+void GameEngineCore::GlobalEnd()
 {
 	Core->End();
 
@@ -68,7 +68,7 @@ void GameEngineCore::GlobalEnd()
 }
 
 
-GameEngineCore::GameEngineCore() 
+GameEngineCore::GameEngineCore()
 {
 	GameEngineDebug::LeakCheck();
 	// 나는 자식중에 하나일수밖에 없다.
@@ -76,7 +76,7 @@ GameEngineCore::GameEngineCore()
 	Core = this;
 }
 
-GameEngineCore::~GameEngineCore() 
+GameEngineCore::~GameEngineCore()
 {
 	std::map<std::string, GameEngineLevel*>::iterator StartIter = Levels.begin();
 	std::map<std::string, GameEngineLevel*>::iterator EndIter = Levels.end();
@@ -98,7 +98,7 @@ void GameEngineCore::CoreStart(HINSTANCE _instance)
 	GameEngineWindow::WindowLoop(GameEngineCore::GlobalStart, GameEngineCore::GlobalUpdate, GameEngineCore::GlobalEnd);
 }
 
-void GameEngineCore::ChangeLevel(const std::string_view& _Name) 
+void GameEngineCore::ChangeLevel(const std::string_view& _Name)
 {
 	std::map<std::string, GameEngineLevel*>::iterator FindIter = Levels.find(_Name.data());
 

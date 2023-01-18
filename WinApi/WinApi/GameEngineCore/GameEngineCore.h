@@ -19,7 +19,7 @@ private:
 
 public:
 	// constrcuter destructer
-	
+
 	GameEngineCore();
 	~GameEngineCore();
 
@@ -37,7 +37,7 @@ public:
 
 protected:
 	template<typename LevelType>
-	void CreateLevel(const std::string_view& _Name) 
+	void CreateLevel(const std::string_view& _Name)
 	{
 		// Title을 만들었는데
 		// 또 Title을 만들겠다고 한 상황
@@ -56,6 +56,16 @@ protected:
 		Levels.insert(std::make_pair(_Name.data(), Level));
 	}
 
+	void DebugSwitch()
+	{
+		IsDebugValue = !IsDebugValue;
+	}
+
+	bool IsDebug()
+	{
+		return IsDebugValue;
+	}
+
 
 	virtual void Start() = 0;
 	virtual void Update() = 0;
@@ -72,6 +82,8 @@ private:
 	GameEngineLevel* MainLevel = nullptr;
 
 	void LevelLoading(GameEngineLevel* _Level);
+
+	bool IsDebugValue = false;
 
 };
 
