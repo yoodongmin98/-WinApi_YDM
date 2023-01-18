@@ -38,7 +38,7 @@ void IsaacTitle::Loading()
 }
 void IsaacTitle::Update(float _DeltaTime)
 {
-	if (true == GameEngineInput::IsDown("LevelChange"))
+	if (true == GameEngineInput::IsAnyKey())
 	{
 		GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
 	}

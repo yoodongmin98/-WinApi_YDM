@@ -28,5 +28,7 @@ private:
 	float MoveSpeed = 100.0f;
 	Isaac* Bomb;
 
+	GameEngineRender* AnimationRender;
+
 };
 

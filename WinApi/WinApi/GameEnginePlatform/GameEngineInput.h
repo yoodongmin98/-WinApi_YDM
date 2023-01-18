@@ -10,7 +10,7 @@ class GameEngineInput
 	friend GameEngineWindow;
 
 public:
-	class GameEngineKey 
+	class GameEngineKey
 	{
 		friend GameEngineInput;
 
@@ -22,7 +22,7 @@ public:
 		float PressTime; // 몇초간 눌렀다.
 		int Key = -1;
 
-		bool KeyCheck() 
+		bool KeyCheck()
 		{
 			return 0 != GetAsyncKeyState(Key);
 		}
@@ -50,7 +50,7 @@ public:
 	static bool IsFree(const std::string_view& _Name);
 	static float GetPressTime(const std::string_view& _Name);
 
-	static bool IsAnyKey() 
+	static bool IsAnyKey()
 	{
 		return IsAnyKeyValue;
 	}

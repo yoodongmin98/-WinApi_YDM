@@ -3,11 +3,11 @@
 #include "GameEngineRender.h"
 #include <GameEngineBase/GameEngineDebug.h>
 
-GameEngineLevel::GameEngineLevel() 
+GameEngineLevel::GameEngineLevel()
 {
 }
 
-GameEngineLevel::~GameEngineLevel() 
+GameEngineLevel::~GameEngineLevel()
 {
 	// 편하게 for문을 돌리게 하기 위해서 17인부터 
 	for (std::pair<int, std::list<GameEngineActor*>> UpdateGroup : Actors)
@@ -36,7 +36,7 @@ void GameEngineLevel::ActorStart(GameEngineActor* _Actor, int _Order)
 		return;
 	}
 
-	_Actor->Level = this;
+	_Actor->SetOwner(this);
 	_Actor->SetOrder(_Order);
 	_Actor->Start();
 }
@@ -89,7 +89,6 @@ void GameEngineLevel::ActorsUpdate(float _DeltaTime)
 
 void GameEngineLevel::ActorsRender(float _DeltaTime)
 {
-
 	{
 		std::map<int, std::list<GameEngineRender*>>::iterator GroupStartIter = Renders.begin();
 		std::map<int, std::list<GameEngineRender*>>::iterator GroupEndIter = Renders.end();
@@ -131,6 +130,7 @@ void GameEngineLevel::ActorsRender(float _DeltaTime)
 			}
 		}
 	}
+
 }
 
 void GameEngineLevel::PushRender(GameEngineRender* _Render)

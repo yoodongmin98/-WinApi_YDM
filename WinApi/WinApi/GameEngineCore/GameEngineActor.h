@@ -44,10 +44,7 @@ public:
 		Pos += _MovePos;
 	}
 
-	inline GameEngineLevel* GetLevel()
-	{
-		return Level;
-	}
+	GameEngineLevel* GetLevel();
 
 #pragma region CreateRenderEnumOverLoadings
 
@@ -91,11 +88,9 @@ protected:
 	}
 
 private:
-	GameEngineLevel* Level;
-
 	int Order;
 	float LiveTime = 0.0;
-	float4 Pos = {0.0f, 0.0f};
+	float4 Pos = { 0.0f, 0.0f };
 	std::list<GameEngineRender*> RenderList;
 
 
