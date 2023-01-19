@@ -22,7 +22,7 @@ void GameEngineCore::GlobalStart()
 
 void GameEngineCore::GlobalUpdate()
 {
-	// 여기에서 처리한다
+	// 여기에서 처리
 	if (nullptr != Core->NextLevel)
 	{
 		GameEngineLevel* PrevLevel = Core->MainLevel;
@@ -71,8 +71,6 @@ void GameEngineCore::GlobalEnd()
 GameEngineCore::GameEngineCore()
 {
 	GameEngineDebug::LeakCheck();
-	// 나는 자식중에 하나일수밖에 없다.
-	// 나는 절대만들어질수 없기 때문이다.
 	Core = this;
 }
 

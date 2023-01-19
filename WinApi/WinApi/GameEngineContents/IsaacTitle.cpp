@@ -5,6 +5,9 @@
 #include <GameEngineCore/GameEngineCore.h>
 #include <GameEnginePlatform/GameEngineInput.h>
 #include "TitleBack.h"
+#include <GameEngineCore/GameEngineActor.cpp>
+#include "ContentsEnums.h"
+
 
 IsaacTitle::IsaacTitle()
 {
@@ -25,8 +28,12 @@ void IsaacTitle::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("TitleBack2.BMP"));
+		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("IsaacTitleTest.BMP"));
+		GameEngineImage* Image1 = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackTitle.BMP"));
 	}
+
+
+
 
 	if (false == GameEngineInput::IsKey("LevelChange"))
 	{

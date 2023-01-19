@@ -15,6 +15,9 @@
       <Filter>Title</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnums.h" />
+    <ClInclude Include="BackGround.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IsaacCore.cpp" />
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="Isaac_State.cpp">
       <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

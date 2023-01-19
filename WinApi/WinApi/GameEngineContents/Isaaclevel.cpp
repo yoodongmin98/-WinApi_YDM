@@ -29,21 +29,19 @@ void IsaacLevel::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("IsaacBase.BMP"));
-		Image->Cut(2, 2);
+		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
+		Image->Cut(8, 5);
 	}
-	
-
 	// 액터 생성
+	{
+		Isaac* Actor = CreateActor<Isaac>();
+	}
 	/*{
 		BackGround* Actor = CreateActor<BackGround>();
 	}
 	{
 		Map* Actor = CreateActor<Map>();
 	}*/
-	{
-		Isaac* Actor = CreateActor<Isaac>();
-	}
 
 
 	if (false == GameEngineInput::IsKey("PlayerOff"))
