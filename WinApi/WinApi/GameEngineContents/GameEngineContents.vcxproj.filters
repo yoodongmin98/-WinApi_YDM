@@ -16,7 +16,7 @@
     </ClInclude>
     <ClInclude Include="ContentsEnums.h" />
     <ClInclude Include="BackGround.h">
-      <Filter>Title</Filter>
+      <Filter>Play</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -37,7 +37,7 @@
       <Filter>Play</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
-      <Filter>Title</Filter>
+      <Filter>Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

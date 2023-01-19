@@ -15,11 +15,9 @@ BackGround::~BackGround()
 void BackGround::Start()
 {
 	{
-		GameEngineRender* BackGroundRender = CreateRender(IsaacOrder::BackGround);
-		BackGroundRender->SetPosition(GameEngineWindow::GetScreenSize().half());
-		BackGroundRender->SetScale(GameEngineWindow::GetScreenSize());
-		BackGroundRender->CreateAnimation({ .AnimationName = "Back",  .ImageName = "BackGround.BMP" });
-		BackGroundRender->ChangeAnimation("Back");
+		GameEngineRender* Render = CreateRender("BackGround.BMP", IsaacOrder::BackGround);
+		Render->SetPosition(GameEngineWindow::GetScreenSize().half());
+		Render->SetScale(GameEngineWindow::GetScreenSize());
 	}
 
 

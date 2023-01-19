@@ -7,6 +7,7 @@
 
 // 나랑 같은 등급의 헤더들
 #include "Isaac.h"
+#include "BackGround.h"
 //#include "Map.h"
 //#include "BackGround.h"
 
@@ -31,15 +32,16 @@ void IsaacLevel::Loading()
 	{
 		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
 		Image->Cut(8, 5);
+		
+		GameEngineImage* Image2 = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround.BMP"));
 	}
 	// 액터 생성
 	{
 		Isaac* Actor = CreateActor<Isaac>();
+		BackGround* Back = CreateActor<BackGround>();
 	}
+
 	/*{
-		BackGround* Actor = CreateActor<BackGround>();
-	}
-	{
 		Map* Actor = CreateActor<Map>();
 	}*/
 

@@ -4,5 +4,6 @@ enum class IsaacOrder
 {
 	BackGround,
 	Map,
-	Player,
+	PlayerHead,
+	PlayerBody,
 };
