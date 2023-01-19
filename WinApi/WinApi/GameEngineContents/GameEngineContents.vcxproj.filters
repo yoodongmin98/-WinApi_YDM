@@ -5,7 +5,7 @@
     <ClInclude Include="Isaac.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="IsaacPlay.h">
+    <ClInclude Include="Isaaclevel.h">
       <Filter>Play</Filter>
     </ClInclude>
     <ClInclude Include="IsaacTitle.h">
@@ -21,7 +21,7 @@
     <ClCompile Include="Isaac.cpp">
       <Filter>Play</Filter>
     </ClCompile>
-    <ClCompile Include="IsaacPlay.cpp">
+    <ClCompile Include="Isaaclevel.cpp">
       <Filter>Play</Filter>
     </ClCompile>
     <ClCompile Include="IsaacTitle.cpp">
@@ -29,6 +29,9 @@
     </ClCompile>
     <ClCompile Include="TitleBack.cpp">
       <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Isaac_State.cpp">
+      <Filter>Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

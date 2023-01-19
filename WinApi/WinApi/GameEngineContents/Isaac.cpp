@@ -33,13 +33,13 @@ void Isaac::Start()
 
 	{
 		AnimationRender = CreateRender(IsaacOrder::Player);
-		AnimationRender->SetScale({ 200, 200 });
+		AnimationRender->SetScale({ 100, 100});
 
-		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Right_Player.bmp", .Start = 0, .End = 2, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Right_Player.bmp", .Start = 3, .End = 7 });
+		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "IsaacBase.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "IsaacBase.bmp", .Start = 2, .End = 3 });
 
-		AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Left_Player.bmp", .Start = 0, .End = 2, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Left_Player.bmp", .Start = 3, .End = 7 });
+		AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "IsaacBase.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "IsaacBase.bmp", .Start = 2, .End = 3 });
 	}
 
 	ChangeState(IsaacState::IDLE);

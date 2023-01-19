@@ -1,6 +1,6 @@
 #include "IsaacCore.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
-#include "IsaacPlay.h"
+#include "IsaacLevel.h"
 #include "IsaacTitle.h"
 
 
@@ -23,7 +23,7 @@ void IsaacCore::Start()
 	
 	GameEngineWindow::SettingWindowSize({ 1200.0f, 800.0f });
 	CreateLevel<IsaacTitle>("IsaacTitle");
-	CreateLevel<IsaacPlay>("IsaacPlay");
+	CreateLevel<IsaacLevel>("IsaacPlay");
 	ChangeLevel("IsaacTitle");
 }
 
