@@ -1,16 +1,24 @@
 #pragma once
-class BackGround
+#include <GameEngineCore/GameEngineActor.h>
+
+
+class BackGround : public GameEngineActor
 {
 public:
+	// constrcuter destructer
 	BackGround();
 	~BackGround();
 
+	// delete Function
 	BackGround(const BackGround& _Other) = delete;
-	BackGround(BackGround&& _Other)noexcept = delete;
-	BackGround operator=(BackGround&& _Other) = delete;
-	BackGround operator=(const BackGround& _Other) noexcept= delete;
+	BackGround(BackGround&& _Other) noexcept = delete;
+	BackGround& operator=(const BackGround& _Other) = delete;
+	BackGround& operator=(BackGround&& _Other) noexcept = delete;
+
 protected:
+	void Start() override;
 
 private:
+
 };
 
