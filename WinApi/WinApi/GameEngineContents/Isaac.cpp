@@ -38,8 +38,8 @@ void Isaac::Start()
 		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "IsaacBase.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "IsaacBase.bmp", .Start = 2, .End = 3 });
 
-		AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "IsaacBase.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "IsaacBase.bmp", .Start = 2, .End = 3 });
+		//AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "IsaacBase.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
+		//AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "IsaacBase.bmp", .Start = 2, .End = 3 });
 	}
 
 	ChangeState(IsaacState::IDLE);
