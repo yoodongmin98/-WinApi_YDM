@@ -40,10 +40,10 @@ void IsaacLevel::Loading()
 	}
 	{
 		Map* Actor = CreateActor<Map>();
-	}
-	{
-		Player* Actor = CreateActor<Player>();
 	}*/
+	{
+		Isaac* Actor = CreateActor<Isaac>();
+	}
 
 
 	if (false == GameEngineInput::IsKey("PlayerOff"))

@@ -72,15 +72,5 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 
 void Isaac::Render(float _DeltaTime)
 {
-	HDC DoubleDC = GameEngineWindow::GetDoubleBufferImage()->GetImageDC();
-	float4 ActorPos = GetPos();
 
-	Rectangle(DoubleDC,
-		ActorPos.ix() - 5,
-		ActorPos.iy() - 5,
-		ActorPos.ix() + 5,
-		ActorPos.iy() + 5
-	);
-
-	// µð¹ö±ë¿ë.
 }
