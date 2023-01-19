@@ -66,10 +66,10 @@ void Isaac::IdleStart()
 }
 void Isaac::IdleUpdate(float _Time)
 {
-	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove"))
+	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove")|| GameEngineInput::IsPress("UpMove") || GameEngineInput::IsPress("DownMove"))
 	{
 		ChangeState(IsaacState::MOVE);
-		return; // 보통 스테이트를 체인지하면 아래 코드를 실행되면 
+		return; 
 	}
 }
 void Isaac::IdleEnd() {
@@ -84,7 +84,9 @@ void Isaac::MoveUpdate(float _Time)
 {
 	if (
 		false == GameEngineInput::IsPress("LeftMove") &&
-		false == GameEngineInput::IsPress("RightMove")
+		false == GameEngineInput::IsPress("RightMove") &&
+		false == GameEngineInput::IsPress("UpMove") &&
+		false == GameEngineInput::IsPress("DownMove")
 		)
 	{
 		// 
@@ -100,7 +102,14 @@ void Isaac::MoveUpdate(float _Time)
 	else if (true == GameEngineInput::IsPress("RightMove"))
 	{
 		SetMove(float4::Right * MoveSpeed * _Time);
-		// GetLevel()->SetCameraMove(float4::Right * _Time * MoveSpeed);
+	}
+	else if (true == GameEngineInput::IsPress("UpMove"))
+	{
+		SetMove(float4::Up * MoveSpeed * _Time);
+	}
+	else if (true == GameEngineInput::IsPress("DownMove"))
+	{
+		SetMove(float4::Down * MoveSpeed * _Time);
 	}
 
 	DirCheck("Move");
