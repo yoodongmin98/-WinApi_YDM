@@ -15,17 +15,15 @@ IsaacPlay::~IsaacPlay()
 
 void IsaacPlay::Loading()
 {
-	// 상대경로 탐색
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
 	Dir.Move("Image");
 	Dir.Move("Play");
 
-	// 이미지 로드
 	{
-		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("TitleBack1.BMP"));
-		Image->Cut({ 0, 0 }, { 63,64 }, 2,3);
+		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("IsaacBase.BMP"));
+		Image->Cut(2,2);
 	}
 
 	// 액터 생성

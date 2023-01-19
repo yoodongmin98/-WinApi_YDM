@@ -32,38 +32,55 @@ void Isaac::Start()
 	}
 
 	{
-		AnimationRender = CreateRender(IsaacOrder::BackGround);
-		AnimationRender->SetScale({ 100, 100 });
-		
+		AnimationRender = CreateRender(IsaacOrder::Player);
+		AnimationRender->SetScale({ 200, 200 });
+
+		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Right_Player.bmp", .Start = 0, .End = 2, .InterTime = 0.3f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Right_Player.bmp", .Start = 3, .End = 7 });
+
+		AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Left_Player.bmp", .Start = 0, .End = 2, .InterTime = 0.3f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Left_Player.bmp", .Start = 3, .End = 7 });
 	}
+
+	ChangeState(IsaacState::IDLE);
 }
 
 void Isaac::Update(float _DeltaTime)
 {
-	if (true == GameEngineInput::IsPress("LeftMove"))
+	UpdateState(_DeltaTime);
+}
+
+void Isaac::DirCheck(const std::string_view& _AnimationName)
+{
+	std::string PrevDirString = DirString;
+	AnimationRender->ChangeAnimation(DirString + _AnimationName.data());
+
+	if (GameEngineInput::IsPress("LeftMove"))
 	{
-		SetMove(float4::Left * MoveSpeed * _DeltaTime);
+		DirString = "Left_";
+	}
+	else if (GameEngineInput::IsPress("RightMove"))
+	{
+		DirString = "Right_";
 	}
 
-	if (true == GameEngineInput::IsPress("RightMove"))
+	if (PrevDirString != DirString)
 	{
-		SetMove(float4::Right * MoveSpeed * _DeltaTime);
+		AnimationRender->ChangeAnimation(DirString + _AnimationName.data());
 	}
-
-	if (true == GameEngineInput::IsPress("UpMove"))
-	{
-		SetMove(float4::Up * MoveSpeed * _DeltaTime);
-	}
-
-	if (true == GameEngineInput::IsPress("DownMove"))
-	{
-		SetMove(float4::Down * MoveSpeed * _DeltaTime);
-	}
-
-	
 }
 
 void Isaac::Render(float _DeltaTime)
 {
+	HDC DoubleDC = GameEngineWindow::GetDoubleBufferImage()->GetImageDC();
+	float4 ActorPos = GetPos();
+
+	Rectangle(DoubleDC,
+		ActorPos.ix() - 5,
+		ActorPos.iy() - 5,
+		ActorPos.ix() + 5,
+		ActorPos.iy() + 5
+	);
+
 	// µð¹ö±ë¿ë.
 }

@@ -1,7 +1,11 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 
-// 설명 :
+enum class IsaacState
+{
+	IDLE,
+	MOVE,
+};
 class Isaac : public GameEngineActor
 {
 public:
@@ -28,7 +32,25 @@ private:
 	float MoveSpeed = 100.0f;
 	Isaac* Bomb;
 
-	GameEngineRender* AnimationRender;
+	std::string DirString = "Right_";
+	IsaacState StateValue = IsaacState::IDLE;
+
+	GameEngineRender* AnimationRender = nullptr;
+
+	void DirCheck(const std::string_view& _AnimationName);
+
+	// State
+	void ChangeState(IsaacState _State);
+	void UpdateState(float _Time);
+
+	// FSM 내가 어떤일을 할때 이동하면서 가만히 있을수 없다.
+	void IdleStart();
+	void IdleUpdate(float _Time);
+	void IdleEnd();
+
+	void MoveStart();
+	void MoveUpdate(float _Time);
+	void MoveEnd();
 
 };
 
