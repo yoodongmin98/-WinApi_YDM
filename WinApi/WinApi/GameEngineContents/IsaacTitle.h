@@ -24,6 +24,6 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
-	GameEngineRender* BackRender = nullptr;
+	
 };
 

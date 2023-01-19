@@ -27,6 +27,9 @@ void TitleBack::Start()
 	GameEngineRender* Render1 = CreateRender("IsaacTitleTest.BMP", IsaacOrder::BackGround);
 	Render1->SetPosition(GameEngineWindow::GetScreenSize().half());
 	Render1->SetScale(GameEngineWindow::GetScreenSize());
+
+	
+	
 	
 	
 }
