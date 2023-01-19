@@ -24,7 +24,7 @@ public:
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
-	void Render(float _Time) override;
+	
 
 private:
 	float AccTime = 0.0f;

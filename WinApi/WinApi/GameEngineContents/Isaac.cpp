@@ -45,7 +45,7 @@ void Isaac::Start()
 		AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 6, .End = 6 });
 		//위		위 위
 		AnimationRender->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 5, .End = 6 });
+		AnimationRender->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0 });
 		//    아래		  아래
 		AnimationRender->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0 });
@@ -77,9 +77,4 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 	{
 		AnimationRender->ChangeAnimation(DirString + _AnimationName.data());
 	}
-}
-
-void Isaac::Render(float _DeltaTime)
-{
-
 }
