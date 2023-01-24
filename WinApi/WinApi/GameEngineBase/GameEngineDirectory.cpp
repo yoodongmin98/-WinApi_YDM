@@ -10,8 +10,8 @@ GameEngineDirectory::~GameEngineDirectory()
 }
 void GameEngineDirectory::MoveParentToDirectory(const std::string_view& _String)
 {
-	std::string MovePath = "\\";
-	MovePath += _String;
+	std::string MovePath = "\\"; 
+	MovePath += _String; //적은 문자앞에 \\를 추가해서 상위폴더로 올라가게한다
 
 	Path.MoveParentToChildPath(MovePath.c_str());
 }

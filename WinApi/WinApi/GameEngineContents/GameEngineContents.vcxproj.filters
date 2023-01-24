@@ -8,11 +8,11 @@
     <ClInclude Include="Isaaclevel.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="IsaacTitle.h">
-      <Filter>Title</Filter>
+    <ClInclude Include="IsaacIntro.h">
+      <Filter>Intro</Filter>
     </ClInclude>
     <ClInclude Include="TitleBack.h">
-      <Filter>Title</Filter>
+      <Filter>Intro</Filter>
     </ClInclude>
     <ClInclude Include="ContentsEnums.h" />
     <ClInclude Include="BackGround.h">
@@ -27,11 +27,11 @@
     <ClCompile Include="Isaaclevel.cpp">
       <Filter>Play</Filter>
     </ClCompile>
-    <ClCompile Include="IsaacTitle.cpp">
-      <Filter>Title</Filter>
+    <ClCompile Include="IsaacIntro.cpp">
+      <Filter>Intro</Filter>
     </ClCompile>
     <ClCompile Include="TitleBack.cpp">
-      <Filter>Title</Filter>
+      <Filter>Intro</Filter>
     </ClCompile>
     <ClCompile Include="Isaac_State.cpp">
       <Filter>Play</Filter>
@@ -44,7 +44,7 @@
     <Filter Include="Play">
       <UniqueIdentifier>{8708d13d-46d4-4ca6-b4c0-5fec17ab9199}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Title">
+    <Filter Include="Intro">
       <UniqueIdentifier>{80c72e4d-d8b9-4f22-9b9c-d1e79fe89893}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

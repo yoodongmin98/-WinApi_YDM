@@ -39,7 +39,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="IsaacTitle.h">
+    <ClInclude Include="IsaacIntro.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -65,7 +65,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="IsaacTitle.cpp">
+    <ClCompile Include="IsaacIntro.cpp">
       <SubType>
       </SubType>
     </ClCompile>
