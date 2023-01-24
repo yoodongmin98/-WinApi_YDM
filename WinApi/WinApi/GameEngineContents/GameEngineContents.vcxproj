@@ -23,7 +23,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="ContentsEnums.h">
+    <ClInclude Include="IsaacEnum.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -43,7 +43,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="TitleBack.h">
+    <ClInclude Include="IntroBack.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -73,7 +73,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="TitleBack.cpp">
+    <ClCompile Include="IntroBack.cpp">
       <SubType>
       </SubType>
     </ClCompile>

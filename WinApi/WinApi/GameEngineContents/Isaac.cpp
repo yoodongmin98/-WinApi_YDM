@@ -4,7 +4,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEnginePlatform/GameEngineInput.h>
-#include "ContentsEnums.h"
+#include "IsaacEnum.h"
 
 Isaac* Isaac::MainPlayer;
 

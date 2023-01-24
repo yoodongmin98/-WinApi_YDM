@@ -6,7 +6,7 @@
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineCore/GameEngineLevel.h>
 
-#include "ContentsEnums.h"
+#include "IsaacEnum.h"
 
 
 // State

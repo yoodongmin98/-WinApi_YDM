@@ -1,5 +1,5 @@
 #include "BackGround.h"
-#include"ContentsEnums.h"
+#include"IsaacEnum.h"
 #include<GameEnginePlatform/GameEngineWindow.h>
 #include<GameEngineCore/GameEngineRender.h>
 

@@ -4,9 +4,9 @@
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineCore.h>
 #include <GameEnginePlatform/GameEngineInput.h>
-#include "TitleBack.h"
+#include "IntroBack.h"
 #include <GameEngineCore/GameEngineActor.cpp>
-#include "ContentsEnums.h"
+#include "IsaacEnum.h"
 
 
 IsaacIntro::IsaacIntro()
@@ -28,16 +28,18 @@ void IsaacIntro::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineImage* Image = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_FrontPaper.BMP"));
 	}
 
-	CreateActor<TitleBack>();
+	IntroBack* Image=CreateActor<IntroBack>();
+	Image->SetReserve(5); //미리 reserve
+
+	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround);
+	//Image->CreateRender("Intro_FrontPaper.BMP", IntroOrder::FrontPaper);
 
 
-	if (false == GameEngineInput::IsKey("LevelChange"))
-	{
-		GameEngineInput::CreateKey("LevelChange", 'P');
-	}
+
 
 	
 

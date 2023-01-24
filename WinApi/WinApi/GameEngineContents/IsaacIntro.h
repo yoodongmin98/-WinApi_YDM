@@ -1,6 +1,11 @@
 #pragma once
 #include <GameEngineCore/GameEngineLevel.h>
 
+enum class IntroOrder
+{
+	BackGround,
+	FrontPaper
+};
 // Ό³Έν :
 class IsaacIntro : public GameEngineLevel
 {
