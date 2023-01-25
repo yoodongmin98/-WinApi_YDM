@@ -29,6 +29,10 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	GameEngineRender* FirstPaper = nullptr;
+
+	float NowTime = 0.0f;
+	static const float FirstPapertime;
 	
 };
 

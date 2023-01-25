@@ -102,7 +102,7 @@ private:
 	GameEngineImage* Image = nullptr;
 	bool IsEffectCamera = true;
 
-	int TransColor = RGB(255, 0, 255);
+	int TransColor = RGB(0, 255, 255);
 
 	int Frame = 0;
 
