@@ -14,8 +14,11 @@ public:
 protected:
 	
 	void Start() override; //actor의virtual함수->자식쪽실행 ㅇㅇ
+	void Update(float _DeltaTime) override;
 
 
 private:
+
+	float PhotoTime;
 };
 

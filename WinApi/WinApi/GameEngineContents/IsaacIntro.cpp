@@ -42,7 +42,6 @@ void IsaacIntro::Loading()
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround);
 	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper);
-	FirstPaper->SetScale({10,20});
 
 	GameEngineActor* Photo = CreateActor<IntroPhoto>();
 

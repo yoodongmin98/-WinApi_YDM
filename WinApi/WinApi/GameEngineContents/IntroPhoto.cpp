@@ -22,12 +22,23 @@ void IntroPhoto::Start()
 		.End = 1,
 		.InterTime = 0.3f });
 
+	
+
 	float4 ScreenSize = GameEngineWindow::GetScreenSize();
 	Rd->SetScale({ ScreenSize.x * .4f, ScreenSize.y * .6f });
 	SetPos({ ScreenSize.x * .5f, ScreenSize.y * 0.5f });
 	
 	Rd->ChangeAnimation("Photo");
 
+}
+
+void IntroPhoto::Update(float _daltatime)
+{
+	/*PhotoTime += _daltatime;
+	if (PhotoTime > 5.f)
+	{
+		Rd->off();
+	}*/
 
 
 
