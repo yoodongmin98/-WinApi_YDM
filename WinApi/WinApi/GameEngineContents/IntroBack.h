@@ -27,7 +27,7 @@ public:
 		return CreateRender(_Image, static_cast<int>(_Order));
 		//이미지이름, enum타입받기
 	}
-
+	
 	void SetReserve(int _C)
 	{
 		BackRender.reserve(_C); //벡터reserve값미리할당시키기

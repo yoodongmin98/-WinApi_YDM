@@ -32,6 +32,7 @@ void IsaacIntro::Loading()
 	{
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_frontpaper.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(2,1);
 		
 	}
 
@@ -41,18 +42,22 @@ void IsaacIntro::Loading()
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround);
 	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper);
 
+	
+	
 
 
 
 	
 
 }
+
+
 void IsaacIntro::Update(float _DeltaTime)
 {
-	/*if (true == GameEngineInput::IsAnyKey())
+	if (true == GameEngineInput::IsAnyKey())
 	{
 		GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
-	}*/
+	}
 
 	//NowTime = _DeltaTime;
 	NowTime += _DeltaTime; //시간을 더해서 넣어줌 

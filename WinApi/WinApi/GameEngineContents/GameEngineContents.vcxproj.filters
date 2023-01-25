@@ -8,15 +8,18 @@
     <ClInclude Include="Isaaclevel.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="IsaacIntro.h">
-      <Filter>Intro</Filter>
-    </ClInclude>
-    <ClInclude Include="IntroBack.h">
-      <Filter>Intro</Filter>
-    </ClInclude>
     <ClInclude Include="IsaacEnum.h" />
     <ClInclude Include="BackGround.h">
       <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroBack.h">
+      <Filter>Intro\Introback</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacIntro.h">
+      <Filter>Intro\Introlevel</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroPhoto.h">
+      <Filter>Intro\IntroPhoto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -27,17 +30,20 @@
     <ClCompile Include="Isaaclevel.cpp">
       <Filter>Play</Filter>
     </ClCompile>
-    <ClCompile Include="IsaacIntro.cpp">
-      <Filter>Intro</Filter>
-    </ClCompile>
-    <ClCompile Include="IntroBack.cpp">
-      <Filter>Intro</Filter>
-    </ClCompile>
     <ClCompile Include="Isaac_State.cpp">
       <Filter>Play</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroBack.cpp">
+      <Filter>Intro\Introback</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacIntro.cpp">
+      <Filter>Intro\Introlevel</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroPhoto.cpp">
+      <Filter>Intro\IntroPhoto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +52,15 @@
     </Filter>
     <Filter Include="Intro">
       <UniqueIdentifier>{80c72e4d-d8b9-4f22-9b9c-d1e79fe89893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intro\Introback">
+      <UniqueIdentifier>{b657acc4-f9d2-40a4-b650-9c1f3c7be121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intro\Introlevel">
+      <UniqueIdentifier>{4f1ece71-042d-4162-8098-90d411767d77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intro\IntroPhoto">
+      <UniqueIdentifier>{ba776a51-8fb4-45dc-af04-7923b2c6f3e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
