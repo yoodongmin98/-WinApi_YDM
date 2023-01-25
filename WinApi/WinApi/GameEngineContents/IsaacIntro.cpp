@@ -7,6 +7,7 @@
 #include "IntroBack.h"
 #include <GameEngineCore/GameEngineActor.cpp>
 #include "IsaacEnum.h"
+#include "IntroPhoto.h"
 
 
 IsaacIntro::IsaacIntro()
@@ -17,7 +18,7 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::FirstPapertime = 5.f;
+const float IsaacIntro::FirstPapertime = 15.f;
 
 
 void IsaacIntro::Loading()
@@ -41,6 +42,9 @@ void IsaacIntro::Loading()
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround);
 	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper);
+	FirstPaper->SetScale({10,20});
+
+	GameEngineActor* Photo = CreateActor<IntroPhoto>();
 
 	
 	
@@ -65,4 +69,5 @@ void IsaacIntro::Update(float _DeltaTime)
 	{
 		FirstPaper->Off(); //false·Î¹Ù²ã¼­ ²ö´Ù.
 	}
+	
 }

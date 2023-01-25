@@ -5,6 +5,7 @@
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEnginePlatform/GameEngineInput.h>
 #include "IsaacEnum.h"
+#include "IsaacIntro.h"
 
 Isaac* Isaac::MainPlayer;
 
@@ -49,6 +50,8 @@ void Isaac::Start()
 		//    아래		  아래
 		AnimationRender->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0 , .InterTime = 0.3f });
+
+		
 	}
 
 	ChangeState(IsaacState::IDLE);

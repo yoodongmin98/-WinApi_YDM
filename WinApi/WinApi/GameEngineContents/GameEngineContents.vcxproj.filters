@@ -16,10 +16,10 @@
       <Filter>Intro\Introback</Filter>
     </ClInclude>
     <ClInclude Include="IsaacIntro.h">
-      <Filter>Intro\Introlevel</Filter>
+      <Filter>Intro\Intro\Introlevel</Filter>
     </ClInclude>
     <ClInclude Include="IntroPhoto.h">
-      <Filter>Intro\IntroPhoto</Filter>
+      <Filter>Intro\Intro\IntroPhoto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -40,10 +40,10 @@
       <Filter>Intro\Introback</Filter>
     </ClCompile>
     <ClCompile Include="IsaacIntro.cpp">
-      <Filter>Intro\Introlevel</Filter>
+      <Filter>Intro\Intro\Introlevel</Filter>
     </ClCompile>
     <ClCompile Include="IntroPhoto.cpp">
-      <Filter>Intro\IntroPhoto</Filter>
+      <Filter>Intro\Intro\IntroPhoto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,10 +56,13 @@
     <Filter Include="Intro\Introback">
       <UniqueIdentifier>{b657acc4-f9d2-40a4-b650-9c1f3c7be121}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Intro\Introlevel">
+    <Filter Include="Intro\Intro">
+      <UniqueIdentifier>{65a7208a-190b-42de-acb8-daae457619af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intro\Intro\Introlevel">
       <UniqueIdentifier>{4f1ece71-042d-4162-8098-90d411767d77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Intro\IntroPhoto">
+    <Filter Include="Intro\Intro\IntroPhoto">
       <UniqueIdentifier>{ba776a51-8fb4-45dc-af04-7923b2c6f3e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
