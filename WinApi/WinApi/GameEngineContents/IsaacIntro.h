@@ -4,8 +4,9 @@
 enum class IntroOrder
 {
 	BackGround,
+	Anime,
 	FrontPaper,
-	Photo1
+	Trans,
 };
 // Ό³Έν :
 class IsaacIntro : public GameEngineLevel
@@ -29,9 +30,19 @@ protected:
 
 private:
 	GameEngineRender* FirstPaper = nullptr;
+	GameEngineRender* Presents = nullptr;
+	GameEngineRender* Human = nullptr;
+	GameEngineRender* Made = nullptr;
 
 	float NowTime = 0.0f;
-	static const float FirstPapertime;
+	static const float FirstPaperTime;
+	static const float PresentsONTime;
+	static const float PresentsOFFTime;
+	static const float HumanONTime;
+	static const float HumanOFFTime;
+	static const float MadeONTime;
+	static const float MadeOFFTime;
+
 	
 };
 

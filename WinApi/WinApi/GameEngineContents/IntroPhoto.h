@@ -19,8 +19,6 @@ protected:
 
 private:
 	GameEngineRender* Rd = nullptr;
-	float PhotoTime=0.0f;
-	float NowTime = 0.0f;
 	
 };
 

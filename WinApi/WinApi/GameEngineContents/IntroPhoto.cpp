@@ -13,11 +13,15 @@ IntroPhoto::~IntroPhoto()
 
 }
 
+
+
+
+
 void IntroPhoto::Start()
 {
-	GameEngineRender* Rd = CreateRender("intro_fullphoto.BMP", IntroOrder::Photo1);
+	GameEngineRender* Rd = CreateRender("intro_fullphoto.BMP", IntroOrder::Anime);
 	Rd->CreateAnimation({
-		.AnimationName="Photo",
+		.AnimationName="Anime",
 		.ImageName="intro_fullphoto.BMP",
 		.Start = 0,
 		.End = 13,
@@ -27,16 +31,9 @@ void IntroPhoto::Start()
 	Rd->SetScale({ ScreenSize.x * .4f, ScreenSize.y * .6f });
 	SetPos({ ScreenSize.x * .5f, ScreenSize.y * 0.5f });
 	
-	Rd->ChangeAnimation("Photo");
-
-
-
+	Rd->ChangeAnimation("Anime");
 
 	
-	
-	
-
-
 
 	
 
@@ -45,7 +42,6 @@ void IntroPhoto::Start()
 void IntroPhoto::Update(float _deltatime)
 {
 	
-
 
 
 
