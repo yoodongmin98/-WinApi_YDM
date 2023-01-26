@@ -33,6 +33,8 @@ private:
 	GameEngineRender* Presents = nullptr;
 	GameEngineRender* Human = nullptr;
 	GameEngineRender* Made = nullptr;
+	GameEngineRender* Millen = nullptr;
+	
 
 	float NowTime = 0.0f;
 	static const float FirstPaperTime;

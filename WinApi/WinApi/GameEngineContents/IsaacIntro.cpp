@@ -40,13 +40,14 @@ void IsaacIntro::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(5,3); //애니메이션용
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(5,3); //뒤 애니메이션 테스트용
 
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_frontpaper.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_Gameby.BMP"));
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Presents.BMP"));
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_human.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Presents.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_human.BMP"))->Cut(5, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Millen.BMP"));
 		
 	}
 
@@ -55,18 +56,42 @@ void IsaacIntro::Loading()
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); //배경
 
-	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper); //인트로전 페이퍼
+	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper); //인트로 앞 페이퍼
 	FirstPaper->SetScale({900,450});
 
-	Presents=Image->CreateRender("Intro_Presents.BMP", IntroOrder::Trans);//페이퍼이미지1
+	//페이퍼이미지1
+	Presents=Image->CreateRender("Intro_Presents.BMP", IntroOrder::Trans);
 	Presents->Off();
-	Presents->SetScale({450,300});
-	Presents->SetPosition(Presents->GetPosition()+float4::Left*150);
+	Presents->SetScale({200,200});
+	Presents->SetPosition(Presents->GetPosition()+float4::Left*150+float4::Down*100);
+	Presents->CreateAnimation({
+		.AnimationName = "Presents",
+		.ImageName = "Intro_Presents.BMP",
+		.Start = 0,
+		.End = 1,
+		.InterTime = .2f
+		});
+	Presents->ChangeAnimation("Presents");
+	//Millen
+	Millen=Image->CreateRender("Intro_Millen.BMP", IntroOrder::Trans);
+	Millen->Off();
+	Millen->SetScale({ 300,250 });
+	Millen->SetPosition(Millen->GetPosition() + float4::Left * 120+float4::Up*30);
 
-	Human=Image->CreateRender("Intro_human.BMP", IntroOrder::Trans);//presents랑같이나오는사진
+	////presents랑같이나오는사진
+	Human=Image->CreateRender("Intro_human.BMP", IntroOrder::Trans);
 	Human->Off();
 	Human->SetScale({ 600,400 });
-	Human->SetPosition(Human->GetPosition() + float4::Right * 150 +float4::Down*30);
+	Human->SetPosition(Human->GetPosition() + float4::Right * 150 +float4::Down*100);
+	Human->CreateAnimation({
+		.AnimationName = "Human",
+		.ImageName = "Intro_human.BMP",
+		.Start = 0,
+		.End = 1,
+		.InterTime = .2f
+		});
+	Human->ChangeAnimation("Human");
+
 	Made = Image->CreateRender("intro_Gameby.BMP", IntroOrder::Trans); //페이퍼 이미지2
 	Made->SetScale({ 500,400});
 	Made->Off();
@@ -103,9 +128,11 @@ void IsaacIntro::Update(float _DeltaTime)
 	if (PresentsONTime < NowTime) //Present
 	{
 		Presents->On();
+		Millen->On();
 		if (PresentsOFFTime < NowTime)
 		{
 			Presents->Off();
+			Millen->Off();
 		}
 	}
 
