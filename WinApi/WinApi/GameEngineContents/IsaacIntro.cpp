@@ -18,7 +18,7 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::FirstPapertime = 15.f;
+const float IsaacIntro::FirstPapertime = 5.f;
 
 
 void IsaacIntro::Loading()
@@ -33,7 +33,7 @@ void IsaacIntro::Loading()
 	{
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_frontpaper.BMP"));
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(2,1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(5,3);
 		
 	}
 
@@ -42,7 +42,7 @@ void IsaacIntro::Loading()
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround);
 	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper);
-
+	FirstPaper->SetScale({1000,500});
 	GameEngineActor* Photo = CreateActor<IntroPhoto>();
 
 	
@@ -64,9 +64,13 @@ void IsaacIntro::Update(float _DeltaTime)
 
 	//NowTime = _DeltaTime;
 	NowTime += _DeltaTime; //시간을 더해서 넣어줌 
-	if (FirstPaper->IsUpdate() && FirstPapertime < NowTime ) //포인터firstpaper가 살아있고(부모도) 정해진 시간이 경과하면(지정해준시간보다 현재시간이 넘어가면)
+	if (FirstPapertime < NowTime ) 
 	{
-		FirstPaper->Off(); //false로바꿔서 끈다.
+		float4 FirstPaperPos = FirstPaper->GetPosition();
+		FirstPaperPos += float4::Left * 2.f * NowTime;
+		FirstPaper->SetPosition(FirstPaperPos);
+		//FirstPaper->Off(); //false로바꿔서 끈다.
 	}
+	
 	
 }
