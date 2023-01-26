@@ -34,6 +34,7 @@ private:
 	GameEngineRender* Human = nullptr;
 	GameEngineRender* Made = nullptr;
 	GameEngineRender* Millen = nullptr;
+	GameEngineRender* Isaac = nullptr;
 	
 
 	float NowTime = 0.0f;

@@ -46,8 +46,10 @@ void IsaacIntro::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Presents.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_human.BMP"))->Cut(5, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Millen.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Isaac.BMP"));
 		//intro
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_1.BMP"))->Cut(2, 1);
+		// 이미지크기 512x256(나중에함수로만들기위함)
 	}
 
 	AllBack* Image=CreateActor<AllBack>();
@@ -94,10 +96,18 @@ void IsaacIntro::Loading()
 	Made = Image->CreateRender("intro_Gameby.BMP", IntroOrder::Trans); //페이퍼 이미지2
 	Made->SetScale({ 500,400});
 	Made->Off();
+
+	//Isaac글자
+	Isaac=Image->CreateRender("intro_Isaac.BMP", IntroOrder::Trans);
+	Isaac->Off();
+	Isaac->SetScale({ 300,200 });
+	Isaac->SetPosition(Isaac->GetPosition() + float4::Left * 200 + float4::Up * 30);
+
+
 	//intro노가다시작
 
 	//이건 함수로 만들어야할듯?
-	Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Anime);
+	Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Trans);
 	Intro_1->Off();
 	Intro_1->SetScale({ 1000,800 });
 	Intro_1->SetPosition(Intro_1->GetPosition() + float4::Down * 200);
@@ -169,5 +179,9 @@ void IsaacIntro::Update(float _DeltaTime)
 	if (FirstPaperTime+1.f < NowTime)
 	{
 		Intro_1->On();
+		if (FirstPaperTime + 2.5f < NowTime)
+		{
+			Isaac->On();
+		}
 	}
 }
