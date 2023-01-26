@@ -20,12 +20,14 @@ IsaacIntro::~IsaacIntro()
 }
 
 const float IsaacIntro::FirstPaperTime = 7.f;
-const float IsaacIntro::PresentsONTime = .4f;
-const float IsaacIntro::HumanONTime = .7f;
-const float IsaacIntro::PresentsOFFTime = 2.4f;
-const float IsaacIntro::HumanOFFTime = 2.7f;
-const float IsaacIntro::MadeONTime = 4.5f;
-const float IsaacIntro::MadeOFFTime = 6.2f;
+const float IsaacIntro::PresentsONTime = 1.4f;
+const float IsaacIntro::HumanONTime = 1.7f;
+const float IsaacIntro::PresentsOFFTime = 3.4f;
+const float IsaacIntro::HumanOFFTime = 3.4f;
+const float IsaacIntro::MadeONTime = 5.0f;
+const float IsaacIntro::MadeOFFTime = 6.5f;
+
+const float IsaacIntro::AllAnimeTime = (FirstPaperTime); //추후애니메이션시간을 더할예정
 
 
 void IsaacIntro::Loading()
@@ -38,8 +40,7 @@ void IsaacIntro::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(5,3);
-
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(5,3); //애니메이션용
 
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_frontpaper.BMP"));
@@ -49,15 +50,13 @@ void IsaacIntro::Loading()
 		
 	}
 
-
-
 	IntroBack* Image=CreateActor<IntroBack>();
-	Image->SetReserve(10); //미리 reserve. 차피 추후에 늘리면 되기때문에
+	Image->SetReserve(3); //미리 reserve. 차피 추후에 늘리면 되기때문에
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); //배경
 
 	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper); //인트로전 페이퍼
-	FirstPaper->SetScale({1000,500});
+	FirstPaper->SetScale({900,450});
 
 	Presents=Image->CreateRender("Intro_Presents.BMP", IntroOrder::Trans);//페이퍼이미지1
 	Presents->Off();
@@ -73,16 +72,7 @@ void IsaacIntro::Loading()
 	Made->Off();
 
 	
-	GameEngineActor* Photo = CreateActor<IntroPhoto>();
-
-	
-	
-	
-
-
-
-	
-
+	GameEngineActor* Photo = CreateActor<IntroPhoto>(); //애니메이션생성
 }
 
 
@@ -129,10 +119,4 @@ void IsaacIntro::Update(float _DeltaTime)
 			Made->Off();
 		}
 	}
-
-	
-	
-	
-	
-	
 }

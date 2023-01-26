@@ -43,6 +43,8 @@ private:
 	static const float MadeONTime;
 	static const float MadeOFFTime;
 
+	static const float AllAnimeTime;
+
 	
 };
 
