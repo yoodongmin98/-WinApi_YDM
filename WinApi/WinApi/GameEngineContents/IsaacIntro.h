@@ -47,6 +47,9 @@ private:
 
 	static const float AllAnimeTime;
 
+	//intro image
+	GameEngineRender* Intro_1 = nullptr;
+
 	
 };
 

@@ -16,9 +16,6 @@
     <ClInclude Include="IsaacIntro.h">
       <Filter>Intro\Intro\Introlevel</Filter>
     </ClInclude>
-    <ClInclude Include="IntroPhoto.h">
-      <Filter>Intro\Intro\IntroPhoto</Filter>
-    </ClInclude>
     <ClInclude Include="IsaacCore.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -48,9 +45,6 @@
     <ClCompile Include="IsaacIntro.cpp">
       <Filter>Intro\Intro\Introlevel</Filter>
     </ClCompile>
-    <ClCompile Include="IntroPhoto.cpp">
-      <Filter>Intro\Intro\IntroPhoto</Filter>
-    </ClCompile>
     <ClCompile Include="IsaacCore.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -73,9 +67,6 @@
     </Filter>
     <Filter Include="Intro\Intro\Introlevel">
       <UniqueIdentifier>{4f1ece71-042d-4162-8098-90d411767d77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Intro\Intro\IntroPhoto">
-      <UniqueIdentifier>{ba776a51-8fb4-45dc-af04-7923b2c6f3e2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{cbec8a9b-e542-4bd1-b911-9825f25300bc}</UniqueIdentifier>

@@ -19,13 +19,13 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::FirstPaperTime = 7.f;
+const float IsaacIntro::FirstPaperTime = 6.5f;
 const float IsaacIntro::PresentsONTime = 1.4f;
-const float IsaacIntro::HumanONTime = 1.7f;
 const float IsaacIntro::PresentsOFFTime = 3.4f;
+const float IsaacIntro::HumanONTime = 1.7f;
 const float IsaacIntro::HumanOFFTime = 3.4f;
-const float IsaacIntro::MadeONTime = 5.0f;
-const float IsaacIntro::MadeOFFTime = 6.5f;
+const float IsaacIntro::MadeONTime = 4.5f;
+const float IsaacIntro::MadeOFFTime = 6.f;
 
 const float IsaacIntro::AllAnimeTime = (FirstPaperTime); //추후애니메이션시간을 더할예정
 
@@ -40,15 +40,14 @@ void IsaacIntro::Loading()
 
 	// 이미지 로드
 	{
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_fullphoto.BMP"))->Cut(5,3); //뒤 애니메이션 테스트용
-
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_frontpaper.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_Gameby.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Presents.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_human.BMP"))->Cut(5, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Millen.BMP"));
-		
+		//intro
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_1.BMP"))->Cut(2, 1);
 	}
 
 	AllBack* Image=CreateActor<AllBack>();
@@ -63,41 +62,55 @@ void IsaacIntro::Loading()
 	Presents=Image->CreateRender("Intro_Presents.BMP", IntroOrder::Trans);
 	Presents->Off();
 	Presents->SetScale({200,200});
-	Presents->SetPosition(Presents->GetPosition()+float4::Left*150+float4::Down*100);
+	Presents->SetPosition(Presents->GetPosition() + float4::Left * 150 + float4::Down * 100);
 	Presents->CreateAnimation({
 		.AnimationName = "Presents",
 		.ImageName = "Intro_Presents.BMP",
 		.Start = 0,
 		.End = 1,
-		.InterTime = .2f
+		.InterTime = .1f
 		});
 	Presents->ChangeAnimation("Presents");
 	//Millen
 	Millen=Image->CreateRender("Intro_Millen.BMP", IntroOrder::Trans);
 	Millen->Off();
 	Millen->SetScale({ 300,250 });
-	Millen->SetPosition(Millen->GetPosition() + float4::Left * 120+float4::Up*30);
+	Millen->SetPosition(Millen->GetPosition() + float4::Left * 120 + float4::Up * 30);
 
 	////presents랑같이나오는사진
 	Human=Image->CreateRender("Intro_human.BMP", IntroOrder::Trans);
 	Human->Off();
 	Human->SetScale({ 600,400 });
-	Human->SetPosition(Human->GetPosition() + float4::Right * 150 +float4::Down*100);
+	Human->SetPosition(Human->GetPosition() + float4::Right * 150 + float4::Down * 100);
 	Human->CreateAnimation({
 		.AnimationName = "Human",
 		.ImageName = "Intro_human.BMP",
 		.Start = 0,
 		.End = 1,
-		.InterTime = .2f
+		.InterTime = .1f
 		});
 	Human->ChangeAnimation("Human");
 
 	Made = Image->CreateRender("intro_Gameby.BMP", IntroOrder::Trans); //페이퍼 이미지2
 	Made->SetScale({ 500,400});
 	Made->Off();
+	//intro노가다시작
 
+	//이건 함수로 만들어야할듯?
+	Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Anime);
+	Intro_1->Off();
+	Intro_1->SetScale({ 1000,800 });
+	Intro_1->SetPosition(Intro_1->GetPosition() + float4::Down * 200);
+	Intro_1->CreateAnimation({
+		.AnimationName = "intro1",
+		.ImageName = "Intro_1.BMP",
+		.Start = 0,
+		.End = 1,
+		.InterTime = .1f
+		});
+	Intro_1->ChangeAnimation("Intro1");
 	
-	GameEngineActor* Photo = CreateActor<IntroPhoto>(); //애니메이션생성
+	
 }
 
 
@@ -108,7 +121,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	
 	
 	NowTime += _DeltaTime; //시간을 더해서 넣어줌 
-	if (AllAnimeTime < NowTime) 
+	if (AllAnimeTime < NowTime) //지정한 애니메이션 시간이 지나야 다음title로 넘어감
 	{
 		if (true == GameEngineInput::IsAnyKey())
 		{
@@ -120,7 +133,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	if (FirstPaperTime < NowTime ) 
 	{
 		float4 FirstPaperPos = FirstPaper->GetPosition();
-		FirstPaperPos += float4::Left * 2.f * NowTime;
+		FirstPaperPos += float4::Left * 3.f * NowTime;
 		FirstPaper->SetPosition(FirstPaperPos);
 		//FirstPaper->Off(); //false로바꿔서 끈다.
 	}
@@ -152,5 +165,9 @@ void IsaacIntro::Update(float _DeltaTime)
 		{
 			Made->Off();
 		}
+	}
+	if (FirstPaperTime+1.f < NowTime)
+	{
+		Intro_1->On();
 	}
 }
