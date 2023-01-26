@@ -47,7 +47,11 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="IntroBack.h">
+    <ClInclude Include="AllBack.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="IsaacTitle.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -77,11 +81,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="IsaacTitle.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Isaac_State.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="IntroBack.cpp">
+    <ClCompile Include="AllBack.cpp">
       <SubType>
       </SubType>
     </ClCompile>

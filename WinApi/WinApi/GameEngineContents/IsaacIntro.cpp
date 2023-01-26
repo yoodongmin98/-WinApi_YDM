@@ -4,7 +4,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineCore.h>
 #include <GameEnginePlatform/GameEngineInput.h>
-#include "IntroBack.h"
+#include "AllBack.h"
 #include <GameEngineCore/GameEngineActor.cpp>
 #include "IsaacEnum.h"
 #include "IntroPhoto.h"
@@ -50,7 +50,7 @@ void IsaacIntro::Loading()
 		
 	}
 
-	IntroBack* Image=CreateActor<IntroBack>();
+	AllBack* Image=CreateActor<AllBack>();
 	Image->SetReserve(3); //미리 reserve. 차피 추후에 늘리면 되기때문에
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); //배경
@@ -78,13 +78,20 @@ void IsaacIntro::Loading()
 
 void IsaacIntro::Update(float _DeltaTime)
 {
-	if (true == GameEngineInput::IsAnyKey())
-	{
-		GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
-	}
 
 	//NowTime = _DeltaTime;
+	
+	
 	NowTime += _DeltaTime; //시간을 더해서 넣어줌 
+	if (AllAnimeTime < NowTime) 
+	{
+		if (true == GameEngineInput::IsAnyKey())
+		{
+			GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
+		}
+	}
+
+
 	if (FirstPaperTime < NowTime ) 
 	{
 		float4 FirstPaperPos = FirstPaper->GetPosition();

@@ -1,23 +1,23 @@
-#include "IntroBack.h"
+#include "AllBack.h"
 #include "IsaacEnum.h"
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <Windows.h>
 
 
-IntroBack::IntroBack()
+AllBack::AllBack()
 {
-	SetPos(GameEngineWindow::GetScreenSize().half());
+	SetPos(GameEngineWindow::GetScreenSize().half()); //배경에서 액터를 로드했을때 기본위치값
 }
 
-IntroBack::~IntroBack()
+AllBack::~AllBack()
 {
 }
 
-GameEngineRender* IntroBack::CreateRender(const std::string_view& _Image, int _Order)
+GameEngineRender* AllBack::CreateRender(const std::string_view& _Image, int _Order)
 {
 	GameEngineRender* Render = GameEngineActor::CreateRender(_Image, _Order);
 	Render->SetScale(GameEngineWindow::GetScreenSize());
-	BackRender.push_back(Render);
+	AllRender.push_back(Render);
 	return Render;
 }

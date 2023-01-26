@@ -6,20 +6,20 @@
 #include <string_view>
 
 // 설명 :
-class IntroBack : public GameEngineActor //object상속받은 actor를상속
+class AllBack : public GameEngineActor //object상속받은 actor를상속
 {
 public:
 	// constrcuter destructer
-	IntroBack();
-	~IntroBack();
+	AllBack();
+	~AllBack();
 
 	GameEngineRender* CreateRender(const std::string_view& _Image, int _Order);
 
 	// delete Function
-	IntroBack(const IntroBack& _Other) = delete;
-	IntroBack(IntroBack&& _Other) noexcept = delete;
-	IntroBack& operator=(const IntroBack& _Other) = delete;
-	IntroBack& operator=(IntroBack&& _Other) noexcept = delete;
+	AllBack(const AllBack& _Other) = delete;
+	AllBack(AllBack&& _Other) noexcept = delete;
+	AllBack& operator=(const AllBack& _Other) = delete;
+	AllBack& operator=(AllBack&& _Other) noexcept = delete;
 
 	template <typename Enum>
 	GameEngineRender* CreateRender(const std::string_view& _Image, Enum _Order)
@@ -30,7 +30,7 @@ public:
 	
 	void SetReserve(int _C)
 	{
-		BackRender.reserve(_C); //벡터reserve값미리할당시키기
+		AllRender.reserve(_C); //벡터reserve값미리할당시키기
 	}
 
 
@@ -39,7 +39,7 @@ protected:
 
 private:
 
-	std::vector<GameEngineRender*> BackRender;
+	std::vector<GameEngineRender*> AllRender;
 
 };
 

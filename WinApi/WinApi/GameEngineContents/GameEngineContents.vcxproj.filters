@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="IsaacCore.h" />
     <ClInclude Include="Isaac.h">
       <Filter>Play</Filter>
     </ClInclude>
     <ClInclude Include="Isaaclevel.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="IsaacEnum.h" />
     <ClInclude Include="BackGround.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="IntroBack.h">
+    <ClInclude Include="AllBack.h">
       <Filter>Intro\Introback</Filter>
     </ClInclude>
     <ClInclude Include="IsaacIntro.h">
@@ -21,9 +19,17 @@
     <ClInclude Include="IntroPhoto.h">
       <Filter>Intro\Intro\IntroPhoto</Filter>
     </ClInclude>
+    <ClInclude Include="IsaacCore.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacEnum.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacTitle.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IsaacCore.cpp" />
     <ClCompile Include="Isaac.cpp">
       <Filter>Play</Filter>
     </ClCompile>
@@ -36,7 +42,7 @@
     <ClCompile Include="BackGround.cpp">
       <Filter>Play</Filter>
     </ClCompile>
-    <ClCompile Include="IntroBack.cpp">
+    <ClCompile Include="AllBack.cpp">
       <Filter>Intro\Introback</Filter>
     </ClCompile>
     <ClCompile Include="IsaacIntro.cpp">
@@ -44,6 +50,12 @@
     </ClCompile>
     <ClCompile Include="IntroPhoto.cpp">
       <Filter>Intro\Intro\IntroPhoto</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacCore.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacTitle.cpp">
+      <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +76,12 @@
     </Filter>
     <Filter Include="Intro\Intro\IntroPhoto">
       <UniqueIdentifier>{ba776a51-8fb4-45dc-af04-7923b2c6f3e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{cbec8a9b-e542-4bd1-b911-9825f25300bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title">
+      <UniqueIdentifier>{350ba8ce-59e4-4de8-9b7b-4ed2cfc86c51}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
