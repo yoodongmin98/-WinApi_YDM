@@ -45,23 +45,25 @@ public:
 		return _introname;
 	}
 
-	void NextintroRenderOn(GameEngineRender* _NextintroName, const float _NextTime)
+	float NextintroRenderOn(GameEngineRender* _NextintroName, const float _NextTime)
 	{
-		
-		PlusTime = FirstPaperTime; //초기값설정
-		if (PlusTime + _NextTime < NowTime)
+		 //초기값설정
+		//IntrostartTime=7.5f
+		if (IntrostartTime + NextintroTime < NowTime)
 		{
 			_NextintroName->On();
-			PlusTime = PlusTime + _NextTime;	
+			NextintroTime = IntrostartTime + _NextTime;
 		}
+		return NextintroTime;
 	}
-	void NextintroRenderOff(GameEngineRender* _NextintroName)
+	void NextintroRenderOff(GameEngineRender* _NextintroName, const float _PlusTime)
 	{
-		if (PlusTime < NowTime)
+		if (_PlusTime < NowTime)
 		{
 			_NextintroName->Off();
 		}
 	}
+	
 	
 	
 
@@ -81,7 +83,8 @@ private:
 	GameEngineRender* Millen = nullptr;
 	GameEngineRender* Isaac = nullptr;
 	
-	float PlusTime;
+	
+	float NextintroTime=0.0f;
 	float NowTime = 0.0f;
 	static const float FirstPaperTime;
 	static const float PresentsONTime;
@@ -90,6 +93,7 @@ private:
 	static const float HumanOFFTime;
 	static const float MadeONTime;
 	static const float MadeOFFTime;
+	static const float IntrostartTime;
 	
 
 	static const float AllAnimeTime;

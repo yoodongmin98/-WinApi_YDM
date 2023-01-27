@@ -18,6 +18,7 @@ IsaacIntro::IsaacIntro()
 IsaacIntro::~IsaacIntro()
 {
 }
+const float IsaacIntro::IntrostartTime = 7.5f;
 
 const float IsaacIntro::FirstPaperTime = 6.5f;
 const float IsaacIntro::PresentsONTime = 1.4f;
@@ -185,11 +186,16 @@ void IsaacIntro::Update(float _DeltaTime)
 	{
 		Isaac->On();
 	}
-
+	if (IntrostartTime + 5.f < NowTime)
+	{
+		Isaac->Off();
+	}
 	
 	/////intro animation
 	
-	NextintroRenderOn(Intro_1, 2.f);
+	float intro1=NextintroRenderOn(Intro_1, 5.f);
+	NextintroRenderOff(Intro_1, intro1);
+	//float intro2 = NextintroRenderOn(Intro_1, intro1);
 	//NextintroRenderOff(Intro_1);
 	/*if (FirstPaperTime < NowTime)
 	{
