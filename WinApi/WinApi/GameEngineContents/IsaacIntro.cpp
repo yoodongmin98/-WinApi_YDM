@@ -53,7 +53,7 @@ void IsaacIntro::Loading()
 	}
 
 	AllBack* Image=CreateActor<AllBack>();
-	Image->SetReserve(3); //미리 reserve. 차피 추후에 늘리면 되기때문에
+
 
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); //배경
 
@@ -107,7 +107,8 @@ void IsaacIntro::Loading()
 	//intro노가다시작
 
 	//이건 함수로 만들어야할듯?
-	Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Trans);
+
+	/*Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Trans);
 	Intro_1->Off();
 	Intro_1->SetScale({ 1000,800 });
 	Intro_1->SetPosition(Intro_1->GetPosition() + float4::Down * 200);
@@ -118,7 +119,10 @@ void IsaacIntro::Loading()
 		.End = 1,
 		.InterTime = .1f
 		});
-	Intro_1->ChangeAnimation("Intro1");
+	Intro_1->ChangeAnimation("Intro1");*/
+
+	Intro_1=IntroRender("Intro_1.BMP", "intro1", Intro_1);
+
 	
 	
 }
@@ -176,12 +180,20 @@ void IsaacIntro::Update(float _DeltaTime)
 			Made->Off();
 		}
 	}
-	if (FirstPaperTime+1.f < NowTime)
+
+	if (FirstPaperTime + 2.5f < NowTime)
+	{
+		Isaac->On();
+	}
+
+	
+	/////intro animation
+	
+	NextintroRenderOn(Intro_1, 2.f);
+	//NextintroRenderOff(Intro_1);
+	/*if (FirstPaperTime < NowTime)
 	{
 		Intro_1->On();
-		if (FirstPaperTime + 2.5f < NowTime)
-		{
-			Isaac->On();
-		}
-	}
+	}*/
+	
 }

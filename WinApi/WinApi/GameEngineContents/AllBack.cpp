@@ -16,8 +16,8 @@ AllBack::~AllBack()
 
 GameEngineRender* AllBack::CreateRender(const std::string_view& _Image, int _Order)
 {
-	GameEngineRender* Render = GameEngineActor::CreateRender(_Image, _Order);
-	Render->SetScale(GameEngineWindow::GetScreenSize());
-	AllRender.push_back(Render);
-	return Render;
+	GameEngineRender* RD = GameEngineActor::CreateRender(_Image, _Order);
+	RD->SetScale(GameEngineWindow::GetScreenSize());
+	AllRender.push_back(RD);
+	return RD;
 }
