@@ -144,14 +144,14 @@ void IsaacIntro::Loading()
 		});
 	Intro_1->ChangeAnimation("Intro1");*/
 
-	Intro_1 = IntroRender("Intro_1.BMP", "intro1", Intro_1);
-	Intro_2 = IntroRender("Intro_2.BMP", "Intro2", Intro_2);
-	Intro_3 = IntroRender("Intro_3.BMP", "Intro3", Intro_3);
-	Intro_4 = IntroRender("Intro_4.BMP", "Intro4", Intro_4);
-	Intro_5 = IntroRender("Intro_5.BMP", "Intro5", Intro_5);
-	Intro_6 = IntroRender("Intro_6.BMP", "Intro6", Intro_6);
-	Intro_7 = IntroRender("Intro_7.BMP", "Intro7", Intro_7);
-	Intro_8 = IntroRender("Intro_8.BMP", "Intro8", Intro_8);
+	Intro_1 = MyIntroRender("Intro_1.BMP", "intro1", Intro_1);
+	Intro_2 = MyIntroRender("Intro_2.BMP", "Intro2", Intro_2);
+	Intro_3 = MyIntroRender("Intro_3.BMP", "Intro3", Intro_3);
+	Intro_4 = MyIntroRender("Intro_4.BMP", "Intro4", Intro_4);
+	Intro_5 = MyIntroRender("Intro_5.BMP", "Intro5", Intro_5);
+	Intro_6 = MyIntroRender("Intro_6.BMP", "Intro6", Intro_6);
+	Intro_7 = MyIntroRender("Intro_7.BMP", "Intro7", Intro_7);
+	Intro_8 = MyIntroRender("Intro_8.BMP", "Intro8", Intro_8);
 	
 	
 }

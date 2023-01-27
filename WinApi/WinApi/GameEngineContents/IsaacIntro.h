@@ -25,7 +25,7 @@ public:
 	IsaacIntro& operator=(const IsaacIntro& _Other) = delete;
 	IsaacIntro& operator=(IsaacIntro&& _Other) noexcept = delete; 
 
-	GameEngineRender* IntroRender(const std::string_view& _Imagename,
+	GameEngineRender* MyIntroRender(const std::string_view& _Imagename,
 							      const std::string_view& _Animename,
 								  GameEngineRender* _introname       )
 	{
