@@ -48,8 +48,10 @@ void IsaacIntro::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_human.BMP"))->Cut(5, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Millen.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Isaac.BMP"));
-		//intro
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_mother.BMP"));
+		////intro
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_1.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_2.BMP"))->Cut(5,3);
 		// 이미지크기 512x256(나중에함수로만들기위함)
 	}
 
@@ -104,10 +106,15 @@ void IsaacIntro::Loading()
 	Isaac->SetScale({ 300,200 });
 	Isaac->SetPosition(Isaac->GetPosition() + float4::Left * 200 + float4::Up * 30);
 
+	//mother글자
+	Mother = Image->CreateRender("intro_mother.BMP", IntroOrder::Trans);
+	Mother->Off();
+	Mother->SetScale({ 300,200 });
+	Mother->SetPosition(Mother->GetPosition() + float4::Right * 250 + float4::Up * 130);
 
 	//intro노가다시작
 
-	//이건 함수로 만들어야할듯?
+	//이건 함수로 만들어야할듯? ->만듬
 
 	/*Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Trans);
 	Intro_1->Off();
@@ -123,7 +130,7 @@ void IsaacIntro::Loading()
 	Intro_1->ChangeAnimation("Intro1");*/
 
 	Intro_1=IntroRender("Intro_1.BMP", "intro1", Intro_1);
-
+	Intro_2=IntroRender("Intro_2.BMP", "Intro2", Intro_2);
 	
 	
 }
@@ -181,25 +188,32 @@ void IsaacIntro::Update(float _DeltaTime)
 			Made->Off();
 		}
 	}
+	////////////////여기서부터 음악(배경 나레이션)에 따라 시간조정해야하는 부분////////////////////
 
-	if (FirstPaperTime + 2.5f < NowTime)
+	if (9.f < NowTime)
 	{
 		Isaac->On();
 	}
-	if (IntrostartTime + 5.f < NowTime)
+	if (13.f < NowTime)
 	{
 		Isaac->Off();
+	}
+
+	if (9.5f < NowTime)
+	{
+		Mother->On();
+	}
+	if (13.f < NowTime)
+	{
+		Mother->Off();
 	}
 	
 	/////intro animation
 	
-	float intro1=NextintroRenderOn(Intro_1, 5.f);
-	NextintroRenderOff(Intro_1, intro1);
-	//float intro2 = NextintroRenderOn(Intro_1, intro1);
-	//NextintroRenderOff(Intro_1);
-	/*if (FirstPaperTime < NowTime)
-	{
-		Intro_1->On();
-	}*/
+	NextintroRenderOn(Intro_1, 8.f); 
+	NextintroRenderOff(Intro_1, 13.f);
+
+ 	NextintroRenderOn(Intro_2, 13.f);
+	NextintroRenderOff(Intro_2,20.f);
 	
 }

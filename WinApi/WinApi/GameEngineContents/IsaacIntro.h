@@ -9,6 +9,7 @@ enum class IntroOrder
 	Anime,
 	FrontPaper,
 	Trans,
+	BLACKRENDER,
 };
 // 설명 :
 class IsaacIntro : public GameEngineLevel
@@ -45,16 +46,14 @@ public:
 		return _introname;
 	}
 
-	float NextintroRenderOn(GameEngineRender* _NextintroName, const float _NextTime)
+	void NextintroRenderOn(GameEngineRender* _NextintroName, const float _NextTime)
 	{
 		 //초기값설정
 		//IntrostartTime=7.5f
-		if (IntrostartTime + NextintroTime < NowTime)
+		if (_NextTime < NowTime)
 		{
-			_NextintroName->On();
-			NextintroTime = IntrostartTime + _NextTime;
-		}
-		return NextintroTime;
+		   	_NextintroName->On();
+		}	
 	}
 	void NextintroRenderOff(GameEngineRender* _NextintroName, const float _PlusTime)
 	{
@@ -82,7 +81,7 @@ private:
 	GameEngineRender* Made = nullptr;
 	GameEngineRender* Millen = nullptr;
 	GameEngineRender* Isaac = nullptr;
-	
+	GameEngineRender* Mother= nullptr;
 	
 	float NextintroTime=0.0f;
 	float NowTime = 0.0f;
@@ -99,7 +98,20 @@ private:
 	static const float AllAnimeTime;
 
 	//intro image
+	
 	GameEngineRender* Intro_1 = nullptr;
+	GameEngineRender* Intro_2 = nullptr;
+	GameEngineRender* Intro_3 = nullptr;
+	GameEngineRender* Intro_4 = nullptr;
+	GameEngineRender* Intro_5 = nullptr;
+	GameEngineRender* Intro_6 = nullptr;
+	GameEngineRender* Intro_7 = nullptr;
+	GameEngineRender* Intro_8 = nullptr;
+	GameEngineRender* Intro_9 = nullptr;
+	GameEngineRender* Intro_10 = nullptr;
+	GameEngineRender* Intro_11 = nullptr;
+
+	
 
 	
 };
