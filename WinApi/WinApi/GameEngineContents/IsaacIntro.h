@@ -18,12 +18,12 @@ class IsaacIntro : public GameEngineLevel
 public:
 	IsaacIntro();
 	~IsaacIntro();
+	
 
 	IsaacIntro(const IsaacIntro& _Other) = delete;
 	IsaacIntro(IsaacIntro&& _Other) noexcept = delete;
 	IsaacIntro& operator=(const IsaacIntro& _Other) = delete;
 	IsaacIntro& operator=(IsaacIntro&& _Other) noexcept = delete; 
-
 
 	GameEngineRender* IntroRender(const std::string_view& _Imagename,
 							      const std::string_view& _Animename,
@@ -32,8 +32,7 @@ public:
 		AllBack* IntroAni = CreateActor<AllBack>();
 		_introname = IntroAni->CreateRender(_Imagename, IntroOrder::Trans);
 		_introname->Off();
-		_introname->SetScale({ 1000,800 });
-		_introname->SetPosition(_introname->GetPosition() + float4::Down * 200);
+		_introname->SetScale({ 850,700 });
 		_introname->CreateAnimation({
 			.AnimationName = _Animename,
 			.ImageName = _Imagename,
@@ -48,8 +47,6 @@ public:
 
 	void NextintroRenderOn(GameEngineRender* _NextintroName, const float _NextTime)
 	{
-		 //초기값설정
-		//IntrostartTime=7.5f
 		if (_NextTime < NowTime)
 		{
 		   	_NextintroName->On();
@@ -62,10 +59,6 @@ public:
 			_NextintroName->Off();
 		}
 	}
-	
-	
-	
-
 protected:
 
 	void Loading() override;
@@ -75,6 +68,7 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	GameEngineRender* Black = nullptr;
 	GameEngineRender* FirstPaper = nullptr;
 	GameEngineRender* Presents = nullptr;
 	GameEngineRender* Human = nullptr;
@@ -82,22 +76,15 @@ private:
 	GameEngineRender* Millen = nullptr;
 	GameEngineRender* Isaac = nullptr;
 	GameEngineRender* Mother= nullptr;
+	GameEngineRender* Nicalis= nullptr;
+	
 	
 	float NextintroTime=0.0f;
 	float NowTime = 0.0f;
-	static const float FirstPaperTime;
-	static const float PresentsONTime;
-	static const float PresentsOFFTime;
-	static const float HumanONTime;
-	static const float HumanOFFTime;
-	static const float MadeONTime;
-	static const float MadeOFFTime;
-	static const float IntrostartTime;
 	
-
 	static const float AllAnimeTime;
 
-	//intro image
+	////////////intro image////////////
 	
 	GameEngineRender* Intro_1 = nullptr;
 	GameEngineRender* Intro_2 = nullptr;
@@ -110,6 +97,8 @@ private:
 	GameEngineRender* Intro_9 = nullptr;
 	GameEngineRender* Intro_10 = nullptr;
 	GameEngineRender* Intro_11 = nullptr;
+
+	
 
 	
 

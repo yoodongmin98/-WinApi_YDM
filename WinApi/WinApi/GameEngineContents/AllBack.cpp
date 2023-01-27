@@ -18,6 +18,6 @@ GameEngineRender* AllBack::CreateRender(const std::string_view& _Image, int _Ord
 {
 	GameEngineRender* RD = GameEngineActor::CreateRender(_Image, _Order);
 	RD->SetScale(GameEngineWindow::GetScreenSize());
-	AllRender.push_back(RD);
+	AllRender.push_back(RD);  //render의actor의vector ->pushback으로 하나씩넣음 >>reserve는?
 	return RD;
 }

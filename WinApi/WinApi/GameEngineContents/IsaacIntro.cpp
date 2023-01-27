@@ -18,17 +18,8 @@ IsaacIntro::IsaacIntro()
 IsaacIntro::~IsaacIntro()
 {
 }
-const float IsaacIntro::IntrostartTime = 7.5f;
 
-const float IsaacIntro::FirstPaperTime = 6.5f;
-const float IsaacIntro::PresentsONTime = 1.4f;
-const float IsaacIntro::PresentsOFFTime = 3.4f;
-const float IsaacIntro::HumanONTime = 1.7f;
-const float IsaacIntro::HumanOFFTime = 3.4f;
-const float IsaacIntro::MadeONTime = 4.5f;
-const float IsaacIntro::MadeOFFTime = 6.f;
-
-const float IsaacIntro::AllAnimeTime = (FirstPaperTime); //추후애니메이션시간을 더할예정
+const float IsaacIntro::AllAnimeTime = 15.f; //추후애니메이션시간을 더할예정
 
 
 void IsaacIntro::Loading()
@@ -41,29 +32,38 @@ void IsaacIntro::Loading()
 
 	// 이미지 로드
 	{
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BlackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_frontpaper.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_Gameby.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_Nicalis.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Presents.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_human.BMP"))->Cut(5, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Millen.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Isaac.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_mother.BMP"));
-		////intro
+		////////////////////////intro//////////////////////////
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_1.BMP"))->Cut(2, 1);
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_2.BMP"))->Cut(5,3);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_2.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_3.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_4.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_5.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_6.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_7.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_8.BMP"))->Cut(2, 1);
 		// 이미지크기 512x256(나중에함수로만들기위함)
 	}
 
 	AllBack* Image=CreateActor<AllBack>();
 
-
+	Black=Image->CreateRender("Intro_BlackGround.BMP", IntroOrder::BLACKRENDER); //배경전 검은화면
+	
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); //배경
 
 	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper); //인트로 앞 페이퍼
 	FirstPaper->SetScale({900,450});
 
-	//페이퍼이미지1
+	//presents
 	Presents=Image->CreateRender("Intro_Presents.BMP", IntroOrder::Trans);
 	Presents->Off();
 	Presents->SetScale({200,200});
@@ -96,9 +96,24 @@ void IsaacIntro::Loading()
 		});
 	Human->ChangeAnimation("Human");
 
-	Made = Image->CreateRender("intro_Gameby.BMP", IntroOrder::Trans); //페이퍼 이미지2
+	//Game by
+	Made = Image->CreateRender("intro_Gameby.BMP", IntroOrder::Trans); 
 	Made->SetScale({ 500,400});
 	Made->Off();
+
+	//Nicalis
+	Nicalis = Image->CreateRender("Intro_Nicalis.BMP", IntroOrder::Trans);
+	Nicalis->Off();
+	Nicalis->SetScale({ 500,300 });
+	Nicalis->SetPosition(Nicalis->GetPosition()+float4::Up*70);
+	Nicalis->CreateAnimation({
+		.AnimationName = "Nicalis",
+		.ImageName = "Intro_Nicalis.BMP",
+		.Start = 0,
+		.End = 1,
+		.InterTime = .1f
+		});
+	Nicalis->ChangeAnimation("Nicalis");
 
 	//Isaac글자
 	Isaac=Image->CreateRender("intro_Isaac.BMP", IntroOrder::Trans);
@@ -129,8 +144,14 @@ void IsaacIntro::Loading()
 		});
 	Intro_1->ChangeAnimation("Intro1");*/
 
-	Intro_1=IntroRender("Intro_1.BMP", "intro1", Intro_1);
-	Intro_2=IntroRender("Intro_2.BMP", "Intro2", Intro_2);
+	Intro_1 = IntroRender("Intro_1.BMP", "intro1", Intro_1);
+	Intro_2 = IntroRender("Intro_2.BMP", "Intro2", Intro_2);
+	Intro_3 = IntroRender("Intro_3.BMP", "Intro3", Intro_3);
+	Intro_4 = IntroRender("Intro_4.BMP", "Intro4", Intro_4);
+	Intro_5 = IntroRender("Intro_5.BMP", "Intro5", Intro_5);
+	Intro_6 = IntroRender("Intro_6.BMP", "Intro6", Intro_6);
+	Intro_7 = IntroRender("Intro_7.BMP", "Intro7", Intro_7);
+	Intro_8 = IntroRender("Intro_8.BMP", "Intro8", Intro_8);
 	
 	
 }
@@ -138,11 +159,12 @@ void IsaacIntro::Loading()
 
 void IsaacIntro::Update(float _DeltaTime)
 {
-
 	//NowTime = _DeltaTime;
-	
-	
 	NowTime += _DeltaTime; //시간을 더해서 넣어줌 
+
+	
+
+
 	if (AllAnimeTime < NowTime) //지정한 애니메이션 시간이 지나야 다음title로 넘어감
 	{
 		if (true == GameEngineInput::IsAnyKey())
@@ -150,70 +172,54 @@ void IsaacIntro::Update(float _DeltaTime)
 			GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
 		}
 	}
-
-
-	if (FirstPaperTime < NowTime ) 
+	if (6.5f < NowTime )
 	{
 		float4 FirstPaperPos = FirstPaper->GetPosition();
 		FirstPaperPos += float4::Left * 3.f * NowTime;
 		FirstPaper->SetPosition(FirstPaperPos);
-		//FirstPaper->Off(); //false로바꿔서 끈다.
 	}
+	NextintroRenderOff(Black, 0.5f);
 
-	if (PresentsONTime < NowTime) //Present
-	{
-		Presents->On();
-		Millen->On();
-		if (PresentsOFFTime < NowTime)
-		{
-			Presents->Off();
-			Millen->Off();
-		}
-	}
+	NextintroRenderOn(Presents,1.4f);
+	NextintroRenderOff(Presents, 3.4f);
 
-	if (HumanONTime < NowTime)//Human
-	{
-		Human->On();
-		if (HumanOFFTime < NowTime)
-		{
-			Human->Off();
-		}
-	}
+	NextintroRenderOn(Millen, 1.4f);
+	NextintroRenderOff(Millen, 3.4f);
+	
+	NextintroRenderOn(Human, 1.7f);
+	NextintroRenderOff(Human, 3.4f);
+	
+	NextintroRenderOn(Made, 4.5f);
+	NextintroRenderOff(Made, 6.0f);
 
-	if (MadeONTime < NowTime) //Made
-	{
-		Made->On();
-		if (MadeOFFTime < NowTime) //Made
-		{
-			Made->Off();
-		}
-	}
+	NextintroRenderOn(Nicalis, 4.5f);
+	NextintroRenderOff(Nicalis, 6.0f);
+	
 	////////////////여기서부터 음악(배경 나레이션)에 따라 시간조정해야하는 부분////////////////////
 
-	if (9.f < NowTime)
-	{
-		Isaac->On();
-	}
-	if (12.f < NowTime)
-	{
-		Isaac->Off();
-	}
+	NextintroRenderOn(Isaac, 9.0f);
+	NextintroRenderOff(Isaac, 12.0f);
 
-	if (9.5f < NowTime)
-	{
-		Mother->On();
-	}
-	if (12.f < NowTime)
-	{
-		Mother->Off();
-	}
+	NextintroRenderOn(Mother, 9.5f);
+	NextintroRenderOff(Mother, 12.0f);
 	
-	/////intro animation
-	
+	//////////intro animation//////////
 	NextintroRenderOn(Intro_1, 7.5f); 
 	NextintroRenderOff(Intro_1, 12.f);
-
  	NextintroRenderOn(Intro_2, 12.f);
 	NextintroRenderOff(Intro_2,16.f);
+	NextintroRenderOn(Intro_3, 16.f);
+	NextintroRenderOff(Intro_3, 20.f);
+	NextintroRenderOn(Intro_4, 20.f);
+	NextintroRenderOff(Intro_4, 24.f);
+	NextintroRenderOn(Intro_5, 24.f);
+	NextintroRenderOff(Intro_5, 28.f);
+	NextintroRenderOn(Intro_6, 28.f);
+	NextintroRenderOff(Intro_6, 32.f);
+	NextintroRenderOn(Intro_7, 32.f);
+	NextintroRenderOff(Intro_7, 36.f);
+	NextintroRenderOn(Intro_8, 36.f);
+	NextintroRenderOff(Intro_8, 40.f);
+
 	
 }
