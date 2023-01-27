@@ -194,7 +194,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	{
 		Isaac->On();
 	}
-	if (13.f < NowTime)
+	if (12.f < NowTime)
 	{
 		Isaac->Off();
 	}
@@ -203,17 +203,17 @@ void IsaacIntro::Update(float _DeltaTime)
 	{
 		Mother->On();
 	}
-	if (13.f < NowTime)
+	if (12.f < NowTime)
 	{
 		Mother->Off();
 	}
 	
 	/////intro animation
 	
-	NextintroRenderOn(Intro_1, 8.f); 
-	NextintroRenderOff(Intro_1, 13.f);
+	NextintroRenderOn(Intro_1, 7.5f); 
+	NextintroRenderOff(Intro_1, 12.f);
 
- 	NextintroRenderOn(Intro_2, 13.f);
-	NextintroRenderOff(Intro_2,20.f);
+ 	NextintroRenderOn(Intro_2, 12.f);
+	NextintroRenderOff(Intro_2,16.f);
 	
 }
