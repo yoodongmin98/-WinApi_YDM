@@ -3,6 +3,7 @@
 
 #include "IsaacIntro.h"
 #include "TitleLevel.h"
+#include "LoadLevel.h"
 
 
 
@@ -28,8 +29,8 @@ void IsaacCore::Start()
 	
 	CreateLevel<IsaacIntro>("IsaacIntro");
 	CreateLevel<TitleLevel>("TitleLevel");
-
-	CreateLevel<IsaacLevel>("IsaacPlay");
+	CreateLevel<LoadLevel>("Loading");
+	CreateLevel<IsaacLevel>("PlayIsaac");
 	ChangeLevel("IsaacIntro");
 }
 

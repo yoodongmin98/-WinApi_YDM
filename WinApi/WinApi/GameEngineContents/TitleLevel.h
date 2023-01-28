@@ -31,6 +31,7 @@ protected:
 	
 private:
 	GameEngineRender* Logo = nullptr;
+	GameEngineRender* Isaac = nullptr;
 
 	
 };

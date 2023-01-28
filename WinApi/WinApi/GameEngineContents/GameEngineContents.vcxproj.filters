@@ -25,6 +25,9 @@
     <ClInclude Include="TitleLevel.h">
       <Filter>Title</Filter>
     </ClInclude>
+    <ClInclude Include="LoadLevel.h">
+      <Filter>TitleLoading</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="TitleLevel.cpp">
       <Filter>Title</Filter>
     </ClCompile>
+    <ClCompile Include="LoadLevel.cpp">
+      <Filter>TitleLoading</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Play">
@@ -73,6 +79,9 @@
     </Filter>
     <Filter Include="Intro\AllBack">
       <UniqueIdentifier>{b657acc4-f9d2-40a4-b650-9c1f3c7be121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitleLoading">
+      <UniqueIdentifier>{b4a2fc5c-e61f-4781-a72b-915062258a05}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
