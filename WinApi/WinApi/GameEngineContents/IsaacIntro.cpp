@@ -68,13 +68,15 @@ void IsaacIntro::Loading()
 	}
 
 	AllBack* Image=CreateActor<AllBack>();
-	
 
-	Black=Image->CreateRender("Intro_BlackGround.BMP", IntroOrder::BLACKRENDER); //배경전 검은화면
-	
-	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); //배경
+	//배경전 검은화면
+	Black=Image->CreateRender("Intro_BlackGround.BMP", IntroOrder::BLACKRENDER); 
 
-	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper); //인트로 앞 페이퍼
+	//배경
+	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); 
+
+	//인트로 앞 페이퍼
+	FirstPaper=Image->CreateRender("intro_frontpaper.BMP", IntroOrder::FrontPaper); 
 	FirstPaper->SetScale({900,450});
 
 	//presents
@@ -90,6 +92,7 @@ void IsaacIntro::Loading()
 		.InterTime = .1f
 		});
 	Presents->ChangeAnimation("Presents");
+
 	//Millen
 	Millen=Image->CreateRender("Intro_Millen.BMP", IntroOrder::Trans);
 	Millen->Off();
@@ -195,7 +198,7 @@ void IsaacIntro::Loading()
 		.ImageName = "Intro_14.BMP",
 		.Start = 0,
 		.End = 5,
-		.InterTime = 0.1f
+		.InterTime = 0.03f
 		});
 	Intro_14->ChangeAnimation("Intro14");
 	Intro_15 = MyIntroRender("Intro_15.BMP", "Intro15", Intro_15);
@@ -285,8 +288,8 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOn(Door1, 64.0f);
 	NextintroRenderOff(Door1, 66.f);
 	NextintroRenderOn(Intro_14, 66.0f);
-	NextintroRenderOff(Intro_14, 66.6f);
-	NextintroRenderOn(Door2, 66.6f);
+	NextintroRenderOff(Intro_14, 66.18f);
+	NextintroRenderOn(Door2, 66.18f);
 	NextintroRenderOff(Door2, 67.f);
 	NextintroRenderOn(Intro_15, 67.f);
 	NextintroRenderOff(Intro_15, 72.0f);

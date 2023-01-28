@@ -28,6 +28,9 @@
     <ClInclude Include="LoadLevel.h">
       <Filter>TitleLoading</Filter>
     </ClInclude>
+    <ClInclude Include="TitleChapter.h">
+      <Filter>Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -56,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="LoadLevel.cpp">
       <Filter>TitleLoading</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleChapter.cpp">
+      <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

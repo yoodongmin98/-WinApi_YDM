@@ -62,6 +62,8 @@ public:
 		return CameraPos;
 	}
 
+	
+
 protected:
 	virtual void Loading() = 0;
 	virtual void Update(float _DeltaTime) = 0;

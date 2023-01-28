@@ -94,10 +94,11 @@ void Isaac::MoveUpdate(float _Time)
 		return;
 	}
 
+	
 	if (true == GameEngineInput::IsPress("LeftMove"))
 	{
 		SetMove(float4::Left * MoveSpeed * _Time);
-		//GetLevel()->SetCameraMove(float4::Left * _Time * MoveSpeed);
+		//GetLevel()->SetCameraMove(float4::Left*2);
 	}
 	else if (true == GameEngineInput::IsPress("RightMove"))
 	{
@@ -111,6 +112,7 @@ void Isaac::MoveUpdate(float _Time)
 	{
 		SetMove(float4::Down * MoveSpeed * _Time);
 	}
+	
 
 	DirCheck("Move");
 }

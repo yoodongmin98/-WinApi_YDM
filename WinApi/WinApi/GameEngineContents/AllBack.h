@@ -5,7 +5,7 @@
 #include <vector>
 #include <string_view>
 
-// 설명 :
+//Level Render전용
 class AllBack : public GameEngineActor //object상속받은 actor를상속
 {
 public:
@@ -28,11 +28,6 @@ public:
 		//이미지이름, enum타입받기
 	}
 
-
-	void Reserve(int _Capacity)
-	{
-		AllRender.reserve(_Capacity);
-	}
 protected:
 	
 

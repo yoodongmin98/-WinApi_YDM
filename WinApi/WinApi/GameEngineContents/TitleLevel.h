@@ -6,6 +6,7 @@ enum class TitleOrder
 {
 	BackGround,
 	Logo,
+	TestDefalut,
 
 };
 class TitleLevel : public GameEngineLevel

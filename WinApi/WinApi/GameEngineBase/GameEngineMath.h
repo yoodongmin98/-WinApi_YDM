@@ -81,7 +81,7 @@ public:
 	bool IsZero() const
 	{
 		return x == 0.0f && y == 0.0f && z == 0.0f;
-	}
+	}	
 
 	float4 operator *(const float _Value) const
 	{

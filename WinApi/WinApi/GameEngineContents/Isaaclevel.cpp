@@ -41,15 +41,7 @@ void IsaacLevel::Loading()
 		CreateActor<BackGround>();
 	}
 
-	/*{
-		Map* Actor = CreateActor<Map>();
-	}*/
-
-
-	if (false == GameEngineInput::IsKey("PlayerOff"))
-	{
-		GameEngineInput::CreateKey("PlayerOff", 'R');
-	}
+	
 
 
 	if (false == GameEngineInput::IsKey("CameraLeftMove"))
@@ -64,11 +56,6 @@ void IsaacLevel::Loading()
 
 void IsaacLevel::Update(float _DeltaTime)
 {
-	if (GameEngineInput::IsDown("PlayerOff"))
-	{
-		Isaac::MainPlayer->OnOffSwtich();
-	}
-
-	float CameraMoveSpeed = 100.0f;
+	
 
 }

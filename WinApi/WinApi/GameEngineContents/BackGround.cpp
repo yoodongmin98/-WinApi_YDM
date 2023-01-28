@@ -1,7 +1,9 @@
 #include "BackGround.h"
 #include"IsaacEnum.h"
 #include<GameEnginePlatform/GameEngineWindow.h>
+#include<GameEnginePlatform/GameEngineInput.h>
 #include<GameEngineCore/GameEngineRender.h>
+#include "Isaaclevel.h"
 
 BackGround::BackGround()
 {
@@ -19,7 +21,4 @@ void BackGround::Start()
 		Render->SetPosition(GameEngineWindow::GetScreenSize().half());
 		Render->SetScale(GameEngineWindow::GetScreenSize());
 	}
-
-
-
 }

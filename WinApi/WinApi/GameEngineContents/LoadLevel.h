@@ -29,6 +29,6 @@ private:
 	GameEngineRender* LoadIsaac = nullptr;
 
 	float NowTime = 0.0f;
-	float NextLevelTime = 3.f;
+	float NextLevelTime = 2.f;
 };
 

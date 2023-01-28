@@ -79,6 +79,21 @@ void TitleLevel::Update(float _DeltaTime)
 	float4 ScreenSize = GameEngineWindow::GetScreenSize();
 	float4 Screenmove = float4::Zero;
 	
+
+
+	/*if (false == GameEngineInput::IsKey("NextScreen"))
+	{
+		GameEngineInput::CreateKey("NextScreen", 'R');
+	}
+	if (true == GameEngineInput::IsDown("NextScreen"))
+	{
+		SetMove(float4::Left * MoveSpeed * _Time);
+		GetLevel()->SetCameraMove(float4::Left * _Time * MoveSpeed);
+	}*/
+
+
+
+
 	if (false == GameEngineInput::IsKey("NextLevel"))
 	{
 		GameEngineInput::CreateKey("NextLevel",VK_SPACE);
