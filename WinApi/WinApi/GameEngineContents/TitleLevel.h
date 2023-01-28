@@ -5,6 +5,7 @@
 enum class TitleOrder
 {
 	BackGround,
+	Logo,
 
 };
 class TitleLevel : public GameEngineLevel
@@ -29,6 +30,7 @@ protected:
 
 	
 private:
+	GameEngineRender* Logo = nullptr;
 
 	
 };
