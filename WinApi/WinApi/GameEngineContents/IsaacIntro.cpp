@@ -19,7 +19,7 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::AllAnimeTime = 15.f; //추후애니메이션시간을 더할예정
+const float IsaacIntro::AllAnimeTime = 10.f; //추후애니메이션시간을 더할예정
 
 
 void IsaacIntro::Loading()
@@ -42,7 +42,11 @@ void IsaacIntro::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Millen.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Isaac.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_mother.BMP"));
-		////////////////////////intro//////////////////////////
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Door.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_Door2.BMP"));
+
+		/////////////////////////////////////////intro////////////////////////////
+
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Intro_1.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_2.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_3.BMP"))->Cut(2, 1);
@@ -51,6 +55,13 @@ void IsaacIntro::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_6.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_7.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_8.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_9.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_10.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_11.BMP"))->Cut(5, 5);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_12.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_13.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_14.BMP"))->Cut(3, 2);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("intro_15.BMP"))->Cut(2, 1);
 		// 이미지크기 512x256(나중에함수로만들기위함)
 	}
 
@@ -126,10 +137,16 @@ void IsaacIntro::Loading()
 	Mother->Off();
 	Mother->SetScale({ 300,200 });
 	Mother->SetPosition(Mother->GetPosition() + float4::Right * 250 + float4::Up * 130);
+	//intro Door
+	Door1 = Image->CreateRender("intro_Door.BMP", IntroOrder::Trans);
+	Door1->Off();
+	Door1->SetScale({ 850,700 });
+	Door2 = Image->CreateRender("intro_Door2.BMP", IntroOrder::Trans);
+	Door2->Off();
+	Door2->SetScale({ 850,700 });
+	///////////////////////////intro노가다시작
 
-	//intro노가다시작
-
-	//이건 함수로 만들어야할듯? ->만듬
+	////이건 함수로 만들어야할듯? ->만듬
 
 	/*Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Trans);
 	Intro_1->Off();
@@ -152,7 +169,33 @@ void IsaacIntro::Loading()
 	Intro_6 = MyIntroRender("Intro_6.BMP", "Intro6", Intro_6);
 	Intro_7 = MyIntroRender("Intro_7.BMP", "Intro7", Intro_7);
 	Intro_8 = MyIntroRender("Intro_8.BMP", "Intro8", Intro_8);
-	
+	Intro_9 = MyIntroRender("Intro_9.BMP", "Intro9", Intro_9);
+	Intro_10 = MyIntroRender("Intro_10.BMP", "Intro10", Intro_10);
+	Intro_11= Image->CreateRender("Intro_11.BMP", IntroOrder::Trans);
+	Intro_11->Off();
+	Intro_11->SetScale({ 850,700 });
+	Intro_11->CreateAnimation({
+		.AnimationName = "Intro11",
+		.ImageName = "Intro_11.BMP",
+		.Start = 0,
+		.End = 21,
+		.InterTime = .15f
+		});
+	Intro_11->ChangeAnimation("Intro11");
+	Intro_12 = MyIntroRender("Intro_12.BMP", "Intro12", Intro_12);
+	Intro_13 = MyIntroRender("Intro_13.BMP", "Intro13", Intro_13);
+	/*Intro_14 = Image->CreateRender("Intro_14.BMP", IntroOrder::Trans);
+	Intro_14->Off();
+	Intro_14->SetScale({ 850,700 });
+	Intro_14->CreateAnimation({
+		.AnimationName = "Intro14",
+		.ImageName = "Intro_14.BMP",
+		.Start = 0,
+		.End = 5,
+		.InterTime = 3.0f
+		});
+	Intro_14->ChangeAnimation("Intro14");*/
+	Intro_15 = MyIntroRender("Intro_15.BMP", "Intro15", Intro_15);
 	
 }
 
@@ -220,6 +263,26 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOff(Intro_7, 36.f);
 	NextintroRenderOn(Intro_8, 36.f);
 	NextintroRenderOff(Intro_8, 40.f);
+	NextintroRenderOn(Intro_9, 40.f);
+	NextintroRenderOff(Intro_9, 44.f);
+	NextintroRenderOn(Intro_10, 44.f);
+	NextintroRenderOff(Intro_10, 48.f);									
+	NextintroRenderOn(Intro_11, 48.0f);  //intro11=3.3animation time      
+	NextintroRenderOff(Intro_11, 51.3f);
+	NextintroRenderOn(Intro_12, 51.3f);
+	NextintroRenderOff(Intro_12, 54.0f);
+	NextintroRenderOn(Intro_13, 54.0f);
+	NextintroRenderOff(Intro_13, 57.0f);
+	NextintroRenderOn(Intro_7, 57.0f);
+	NextintroRenderOff(Intro_7, 60.0f);
+	NextintroRenderOn(Intro_8, 60.0f);
+	NextintroRenderOff(Intro_8, 64.0f);
+	NextintroRenderOn(Door1, 64.0f);
+	NextintroRenderOff(Door1, 66.f);
+	NextintroRenderOn(Door2, 66.f);
+	NextintroRenderOff(Door2, 67.f);
+	NextintroRenderOn(Intro_15, 67.f);
+	NextintroRenderOff(Intro_15, 72.0f);
 
 	
 }

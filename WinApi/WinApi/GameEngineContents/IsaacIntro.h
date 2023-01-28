@@ -68,6 +68,7 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	//Before Intro
 	GameEngineRender* Black = nullptr;
 	GameEngineRender* FirstPaper = nullptr;
 	GameEngineRender* Presents = nullptr;
@@ -77,9 +78,10 @@ private:
 	GameEngineRender* Isaac = nullptr;
 	GameEngineRender* Mother= nullptr;
 	GameEngineRender* Nicalis= nullptr;
+	GameEngineRender* Door1 = nullptr;
+	GameEngineRender* Door2 = nullptr;
 	
 	
-	float NextintroTime=0.0f;
 	float NowTime = 0.0f;
 	
 	static const float AllAnimeTime;
@@ -97,6 +99,11 @@ private:
 	GameEngineRender* Intro_9 = nullptr;
 	GameEngineRender* Intro_10 = nullptr;
 	GameEngineRender* Intro_11 = nullptr;
+	GameEngineRender* Intro_12 = nullptr;
+	GameEngineRender* Intro_13 = nullptr;
+	GameEngineRender* Intro_14 = nullptr;
+	GameEngineRender* Intro_15 = nullptr;
+	
 
 	
 
