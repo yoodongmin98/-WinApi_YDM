@@ -29,7 +29,7 @@ protected:
 private:
 	float AccTime = 0.0f;
 	int StartFrame = 0;
-	float MoveSpeed = 150.0f;
+	float MoveSpeed = 300.0f;
 	Isaac* Bomb=nullptr;
 
 	std::string DirString = "Right_";
