@@ -21,7 +21,7 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::AllAnimeTime = 10.f; //추후애니메이션시간을 더할예정
+const float IsaacIntro::AllAnimeTime = 72.f; //추후애니메이션시간을 더할예정
 
 
 void IsaacIntro::Loading()
@@ -205,24 +205,21 @@ void IsaacIntro::Loading()
 
 void IsaacIntro::Update(float _DeltaTime)
 {
-	//NowTime = _DeltaTime;
-	NowTime += _DeltaTime; //시간을 더해서 넣어줌 
+	NowTime += _DeltaTime; //시간을 더해서 넣어줌
+
+	//지정한 애니메이션 시간이 지나야 다음title로 넘어감
+	//또는 스페이스바를 눌렀을때
+	
+	if (false == GameEngineInput::IsKey("NextLevel"))
+	{
+		GameEngineInput::CreateKey("NextLevel", VK_SPACE);
+	}
+	if (AllAnimeTime <NowTime || true == GameEngineInput::IsDown("NextLevel"))
+	{
+		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
+	}
 
 	
-
-	//AllAnimeTime
-	if (1.f < NowTime) //지정한 애니메이션 시간이 지나야 다음title로 넘어감
-	{
-		if (false == GameEngineInput::IsKey("NextLevel"))
-		{
-			GameEngineInput::CreateKey("NextLevel", VK_SPACE);
-		}
-		if (true == GameEngineInput::IsDown("NextLevel"))
-		{
-			GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
-		}
-
-	}
 	if (6.5f < NowTime )
 	{
 		float4 FirstPaperPos = FirstPaper->GetPosition();
