@@ -1,5 +1,5 @@
 #include "TitleLevel.h"
-#include "AllBack.h";
+#include "AllBack.h"
 
 #include <GameEngineBase/GameEngineDirectory.h>
 
@@ -38,7 +38,7 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_BackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_TitleLogo.BMP"))->Cut(4, 4);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Isaac.BMP"))->Cut(2, 1);
-
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Start.BMP"))->Cut(2, 1);
 	}
 
 	AllBack* Render = CreateActor<AllBack>();
@@ -58,8 +58,8 @@ void TitleLevel::Loading()
 	}
 	{
 		Isaac = Render->CreateRender("Title_Isaac.BMP", TitleOrder::Logo);//¾ÆÀÌÀÛ
-		Isaac->SetScale({800,600});
-		Isaac->SetPosition(Isaac->GetPosition() + float4::Down * 100);
+		Isaac->SetScale({800,800});
+		Isaac->SetPosition(Isaac->GetPosition() + float4::Down * 50);
 		Isaac->CreateAnimation({
 			.AnimationName = "Isaac",
 			.ImageName = "Title_Isaac.BMP",
@@ -68,6 +68,18 @@ void TitleLevel::Loading()
 			.InterTime = .1f
 			});
 		Isaac->ChangeAnimation("Isaac");
+
+		Start= Render->CreateRender("Title_Start.BMP", TitleOrder::Logo);
+		Start->SetScale({ 820,460 });
+		Start->SetPosition(Start->GetPosition() + float4::Down * 220);
+		Start->CreateAnimation({
+			.AnimationName = "Start",
+			.ImageName = "Title_Start.BMP",
+			.Start = 0,
+			.End = 1,
+			.InterTime = .1f
+			});
+		Start->ChangeAnimation("Start");
 	}
 
 

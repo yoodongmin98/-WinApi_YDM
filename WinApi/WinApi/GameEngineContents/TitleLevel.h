@@ -35,7 +35,8 @@ private:
 
 	GameEngineRender* Logo = nullptr;
 	GameEngineRender* Isaac = nullptr;
-	float Speed = 500.f;
+	GameEngineRender* Start = nullptr;
+	
 
 	
 };
