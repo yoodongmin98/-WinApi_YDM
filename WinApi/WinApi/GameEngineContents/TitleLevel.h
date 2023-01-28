@@ -30,8 +30,11 @@ protected:
 
 	
 private:
+	GameEngineActor* test = nullptr;
+
 	GameEngineRender* Logo = nullptr;
 	GameEngineRender* Isaac = nullptr;
+	float Speed = 500.f;
 
 	
 };

@@ -2,10 +2,14 @@
 #include "AllBack.h";
 
 #include <GameEngineBase/GameEngineDirectory.h>
+
 #include <GameEnginePlatform/GameEngineInput.h>
+#include <GameEnginePlatform/GameEngineWindow.h>
+
+
 #include <GameEngineCore/GameEngineCore.h>
-#include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineCore/GameEngineResources.h>
+
 
 
 
@@ -72,9 +76,19 @@ void TitleLevel::Loading()
 }
 void TitleLevel::Update(float _DeltaTime)
 {
-	if (true == GameEngineInput::IsAnyKey())
+	float4 ScreenSize = GameEngineWindow::GetScreenSize();
+	float4 Screenmove = float4::Zero;
+	
+	if (false == GameEngineInput::IsKey("NextLevel"))
+	{
+		GameEngineInput::CreateKey("NextLevel",VK_SPACE);
+	}
+	if (true == GameEngineInput::IsDown("NextLevel"))
 	{
 		GameEngineCore::GetInst()->ChangeLevel("PlayIsaac");
 	}
+	
+
+	
 
 }

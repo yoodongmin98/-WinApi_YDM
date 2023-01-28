@@ -213,10 +213,15 @@ void IsaacIntro::Update(float _DeltaTime)
 	//AllAnimeTime
 	if (1.f < NowTime) //지정한 애니메이션 시간이 지나야 다음title로 넘어감
 	{
-		if (true == GameEngineInput::IsAnyKey())
+		if (false == GameEngineInput::IsKey("NextLevel"))
+		{
+			GameEngineInput::CreateKey("NextLevel", VK_SPACE);
+		}
+		if (true == GameEngineInput::IsDown("NextLevel"))
 		{
 			GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 		}
+
 	}
 	if (6.5f < NowTime )
 	{
