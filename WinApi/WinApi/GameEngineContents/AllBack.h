@@ -27,6 +27,12 @@ public:
 		return CreateRender(_Image, static_cast<int>(_Order));
 		//이미지이름, enum타입받기
 	}
+
+
+	void Reserve(int _Capacity)
+	{
+		AllRender.reserve(_Capacity);
+	}
 protected:
 	
 

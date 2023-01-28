@@ -2,7 +2,7 @@
 #include <GameEnginePlatform/GameEngineWindow.h>
 
 #include "IsaacIntro.h"
-#include "IsaacTitle.h"
+#include "TitleLevel.h"
 
 
 
@@ -27,7 +27,7 @@ void IsaacCore::Start()
 	
 	
 	CreateLevel<IsaacIntro>("IsaacIntro");
-	//CreateLevel<IsaacTitle>("IsaacTitle");
+	CreateLevel<TitleLevel>("TitleLevel");
 
 	CreateLevel<IsaacLevel>("IsaacPlay");
 	ChangeLevel("IsaacIntro");

@@ -1,8 +1,8 @@
 #include "AllBack.h"
-#include "IsaacEnum.h"
+
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
-#include <Windows.h>
+
 
 
 AllBack::AllBack()

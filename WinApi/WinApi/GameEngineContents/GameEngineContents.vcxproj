@@ -47,7 +47,7 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="IsaacTitle.h">
+    <ClInclude Include="TitleLevel.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -73,7 +73,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="IsaacTitle.cpp">
+    <ClCompile Include="TitleLevel.cpp">
       <SubType>
       </SubType>
     </ClCompile>

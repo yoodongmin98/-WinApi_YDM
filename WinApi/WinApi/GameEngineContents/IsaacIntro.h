@@ -103,12 +103,5 @@ private:
 	GameEngineRender* Intro_13 = nullptr;
 	GameEngineRender* Intro_14 = nullptr;
 	GameEngineRender* Intro_15 = nullptr;
-	
-
-	
-
-	
-
-	
 };
 

@@ -11,7 +11,7 @@
       <Filter>Play</Filter>
     </ClInclude>
     <ClInclude Include="AllBack.h">
-      <Filter>Intro\Introback</Filter>
+      <Filter>Intro\AllBack</Filter>
     </ClInclude>
     <ClInclude Include="IsaacIntro.h">
       <Filter>Intro\Intro\Introlevel</Filter>
@@ -22,7 +22,7 @@
     <ClInclude Include="IsaacEnum.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="IsaacTitle.h">
+    <ClInclude Include="TitleLevel.h">
       <Filter>Title</Filter>
     </ClInclude>
   </ItemGroup>
@@ -40,7 +40,7 @@
       <Filter>Play</Filter>
     </ClCompile>
     <ClCompile Include="AllBack.cpp">
-      <Filter>Intro\Introback</Filter>
+      <Filter>Intro\AllBack</Filter>
     </ClCompile>
     <ClCompile Include="IsaacIntro.cpp">
       <Filter>Intro\Intro\Introlevel</Filter>
@@ -48,7 +48,7 @@
     <ClCompile Include="IsaacCore.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="IsaacTitle.cpp">
+    <ClCompile Include="TitleLevel.cpp">
       <Filter>Title</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,9 +58,6 @@
     </Filter>
     <Filter Include="Intro">
       <UniqueIdentifier>{80c72e4d-d8b9-4f22-9b9c-d1e79fe89893}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Intro\Introback">
-      <UniqueIdentifier>{b657acc4-f9d2-40a4-b650-9c1f3c7be121}</UniqueIdentifier>
     </Filter>
     <Filter Include="Intro\Intro">
       <UniqueIdentifier>{65a7208a-190b-42de-acb8-daae457619af}</UniqueIdentifier>
@@ -73,6 +70,9 @@
     </Filter>
     <Filter Include="Title">
       <UniqueIdentifier>{350ba8ce-59e4-4de8-9b7b-4ed2cfc86c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Intro\AllBack">
+      <UniqueIdentifier>{b657acc4-f9d2-40a4-b650-9c1f3c7be121}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,13 +1,15 @@
 #include "IsaacIntro.h"
 
 #include <GameEngineBase/GameEngineDirectory.h>
+#include <GameEnginePlatform/GameEngineInput.h>
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineCore.h>
-#include <GameEnginePlatform/GameEngineInput.h>
-#include "AllBack.h"
 #include <GameEngineCore/GameEngineActor.cpp>
+
+
+#include "AllBack.h"
 #include "IsaacEnum.h"
-#include "IntroPhoto.h"
+
 
 
 
@@ -66,6 +68,7 @@ void IsaacIntro::Loading()
 	}
 
 	AllBack* Image=CreateActor<AllBack>();
+	
 
 	Black=Image->CreateRender("Intro_BlackGround.BMP", IntroOrder::BLACKRENDER); //배경전 검은화면
 	
@@ -207,12 +210,12 @@ void IsaacIntro::Update(float _DeltaTime)
 
 	
 
-
-	if (AllAnimeTime < NowTime) //지정한 애니메이션 시간이 지나야 다음title로 넘어감
+	//AllAnimeTime
+	if (1.f < NowTime) //지정한 애니메이션 시간이 지나야 다음title로 넘어감
 	{
 		if (true == GameEngineInput::IsAnyKey())
 		{
-			GameEngineCore::GetInst()->ChangeLevel("IsaacPlay");
+			GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 		}
 	}
 	if (6.5f < NowTime )
