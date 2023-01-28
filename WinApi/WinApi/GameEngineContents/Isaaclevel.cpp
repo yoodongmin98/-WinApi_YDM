@@ -37,8 +37,8 @@ void IsaacLevel::Loading()
 	}
 	// 액터 생성
 	{
-		Isaac* Actor = CreateActor<Isaac>();
-		BackGround* Back = CreateActor<BackGround>();
+		CreateActor<Isaac>();
+		CreateActor<BackGround>();
 	}
 
 	/*{

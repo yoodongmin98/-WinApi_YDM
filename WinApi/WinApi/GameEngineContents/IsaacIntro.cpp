@@ -182,12 +182,12 @@ void IsaacIntro::Loading()
 		.ImageName = "Intro_11.BMP",
 		.Start = 0,
 		.End = 21,
-		.InterTime = .15f
+		.InterTime = .1f
 		});
 	Intro_11->ChangeAnimation("Intro11");
 	Intro_12 = MyIntroRender("Intro_12.BMP", "Intro12", Intro_12);
 	Intro_13 = MyIntroRender("Intro_13.BMP", "Intro13", Intro_13);
-	/*Intro_14 = Image->CreateRender("Intro_14.BMP", IntroOrder::Trans);
+	Intro_14 = Image->CreateRender("Intro_14.BMP", IntroOrder::Trans);
 	Intro_14->Off();
 	Intro_14->SetScale({ 850,700 });
 	Intro_14->CreateAnimation({
@@ -195,9 +195,9 @@ void IsaacIntro::Loading()
 		.ImageName = "Intro_14.BMP",
 		.Start = 0,
 		.End = 5,
-		.InterTime = 3.0f
+		.InterTime = 0.1f
 		});
-	Intro_14->ChangeAnimation("Intro14");*/
+	Intro_14->ChangeAnimation("Intro14");
 	Intro_15 = MyIntroRender("Intro_15.BMP", "Intro15", Intro_15);
 	
 }
@@ -273,8 +273,8 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOn(Intro_10, 44.f);
 	NextintroRenderOff(Intro_10, 48.f);									
 	NextintroRenderOn(Intro_11, 48.0f);  //intro11=3.3animation time      
-	NextintroRenderOff(Intro_11, 51.3f);
-	NextintroRenderOn(Intro_12, 51.3f);
+	NextintroRenderOff(Intro_11, 50.2f);
+	NextintroRenderOn(Intro_12, 50.2f);
 	NextintroRenderOff(Intro_12, 54.0f);
 	NextintroRenderOn(Intro_13, 54.0f);
 	NextintroRenderOff(Intro_13, 57.0f);
@@ -284,7 +284,9 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOff(Intro_8, 64.0f);
 	NextintroRenderOn(Door1, 64.0f);
 	NextintroRenderOff(Door1, 66.f);
-	NextintroRenderOn(Door2, 66.f);
+	NextintroRenderOn(Intro_14, 66.0f);
+	NextintroRenderOff(Intro_14, 66.6f);
+	NextintroRenderOn(Door2, 66.6f);
 	NextintroRenderOff(Door2, 67.f);
 	NextintroRenderOn(Intro_15, 67.f);
 	NextintroRenderOff(Intro_15, 72.0f);
