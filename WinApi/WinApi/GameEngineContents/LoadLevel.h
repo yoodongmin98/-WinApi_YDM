@@ -26,5 +26,9 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	GameEngineRender* LoadIsaac = nullptr;
+
+	float NowTime = 0.0f;
+	float NextLevelTime = 3.f;
 };
 

@@ -85,7 +85,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	if (true == GameEngineInput::IsDown("NextLevel"))
 	{
-		GameEngineCore::GetInst()->ChangeLevel("PlayIsaac");
+		GameEngineCore::GetInst()->ChangeLevel("Loading");
 	}
 	
 
