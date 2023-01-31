@@ -21,6 +21,7 @@ public:
 	Isaac& operator=(const Isaac& _Other) = delete;
 	Isaac& operator=(Isaac&& _Other) noexcept = delete;
 
+	void Movecalculation(float _DeltaTime);
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -30,7 +31,7 @@ private:
 	float AccTime = 0.0f;
 	int StartFrame = 0;
 	float MoveSpeed = 300.0f;
-	Isaac* Bomb=nullptr;
+	float4 MoveDir = float4::Zero;
 
 	std::string DirString = "Right_";
 	IsaacState StateValue = IsaacState::IDLE;

@@ -18,7 +18,12 @@ void BackGround::Start()
 {
 	{
 		GameEngineRender* Render = CreateRender("BackGround.BMP", IsaacOrder::BackGround);
-		Render->SetPosition(GameEngineWindow::GetScreenSize().half());
-		Render->SetScale(GameEngineWindow::GetScreenSize());
+		Render->SetPosition(Render->GetImage()->GetImageScale().half());
+		Render->SetScaleToImage();
 	}
+	/*{
+		GameEngineRender* Render1 = CreateRender("BackGround_Cs.BMP", IsaacOrder::BackGround_CS);
+		Render1->SetPosition(Render1->GetImage()->GetImageScale().half());
+		Render1->SetScaleToImage();
+	}*/
 }

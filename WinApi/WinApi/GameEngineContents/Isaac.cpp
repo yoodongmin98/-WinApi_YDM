@@ -22,6 +22,7 @@ void Isaac::Start()
 	MainPlayer = this;
 
 	SetMove(GameEngineWindow::GetScreenSize().half());
+	SetPos(GameEngineWindow::GetScreenSize().half());
 
 
 	if (false == GameEngineInput::IsKey("LeftMove"))
@@ -39,7 +40,7 @@ void Isaac::Start()
 
 		
 
-		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Isaac_Face.bmp", .Start = 2, .End = 3, .InterTime = 0.3f });
 
 		AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
@@ -60,7 +61,43 @@ void Isaac::Start()
 void Isaac::Update(float _DeltaTime)
 {
 	UpdateState(_DeltaTime);
+	Movecalculation(_DeltaTime);
 }
+
+void Isaac::Movecalculation(float _DeltaTime)
+{
+
+	if (false == GameEngineInput::IsPress("LeftMove") &&
+		false == GameEngineInput::IsPress("RightMove") &&
+		false == GameEngineInput::IsPress("DownMove") &&
+		false == GameEngineInput::IsPress("UpMove"))
+	{
+		MoveDir *= 0.01f;
+	}
+	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
+	if (nullptr == ColImage)
+	{
+		MsgAssert("충돌용 맵 이미지가 없습니다.");
+	}
+	bool Check = true;
+	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
+
+
+
+	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
+	{
+		Check = false;
+
+	}
+	if (false == Check)
+	{
+		MoveDir = float4::Zero;
+	}
+	SetMove(MoveDir * _DeltaTime);
+
+}
+
+
 
 void Isaac::DirCheck(const std::string_view& _AnimationName)
 {

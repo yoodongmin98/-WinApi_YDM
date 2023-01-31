@@ -34,6 +34,7 @@ void IsaacLevel::Loading()
 		Image->Cut(8, 5);
 		
 		GameEngineImage* Image2 = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround.BMP"));
+		GameEngineImage* Image3 = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
 	}
 	// 액터 생성
 	{

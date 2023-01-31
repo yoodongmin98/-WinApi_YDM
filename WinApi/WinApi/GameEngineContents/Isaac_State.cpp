@@ -9,6 +9,7 @@
 #include "IsaacEnum.h"
 
 
+
 // State
 void Isaac::ChangeState(IsaacState _State)
 {
@@ -66,10 +67,11 @@ void Isaac::IdleStart()
 }
 void Isaac::IdleUpdate(float _Time)
 {
-	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove")|| GameEngineInput::IsPress("UpMove") || GameEngineInput::IsPress("DownMove"))
+	DirCheck("Idle");
+	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove") || GameEngineInput::IsPress("DownMove") || GameEngineInput::IsPress("UpMove"))
 	{
 		ChangeState(IsaacState::MOVE);
-		return; 
+		return; // 보통 스테이트를 체인지하면 아래 코드를 실행되면 
 	}
 }
 void Isaac::IdleEnd() {
@@ -82,39 +84,41 @@ void Isaac::MoveStart()
 }
 void Isaac::MoveUpdate(float _Time)
 {
+	DirCheck("Move");
 	if (
 		false == GameEngineInput::IsPress("LeftMove") &&
 		false == GameEngineInput::IsPress("RightMove") &&
-		false == GameEngineInput::IsPress("UpMove") &&
-		false == GameEngineInput::IsPress("DownMove")
+		false == GameEngineInput::IsPress("DownMove") &&
+		false == GameEngineInput::IsPress("UpMove")
 		)
 	{
 		// 
 		ChangeState(IsaacState::IDLE);
 		return;
 	}
+	float4 MoveRange = float4::Zero;
 
-	
 	if (true == GameEngineInput::IsPress("LeftMove"))
 	{
-		SetMove(float4::Left * MoveSpeed * _Time);
-		//GetLevel()->SetCameraMove(float4::Left*2);
+		MoveRange += float4::Left;
 	}
-	else if (true == GameEngineInput::IsPress("RightMove"))
+
+	if (true == GameEngineInput::IsPress("RightMove"))
 	{
-		SetMove(float4::Right * MoveSpeed * _Time);
+		MoveRange += float4::Right;
 	}
-	else if (true == GameEngineInput::IsPress("UpMove"))
+
+	if (true == GameEngineInput::IsPress("UpMove"))
 	{
-		SetMove(float4::Up * MoveSpeed * _Time);
+		MoveRange += float4::Up;
 	}
 	else if (true == GameEngineInput::IsPress("DownMove"))
 	{
-		SetMove(float4::Down * MoveSpeed * _Time);
+		MoveRange += float4::Down;
 	}
-	
-
-	DirCheck("Move");
+	MoveDir = MoveRange * MoveSpeed;
+	/*SetMove(MoveRange * MoveSpeed * _Time);
+	GetLevel()->SetCameraMove( MoveRange * MoveSpeed * _Time);*/
 }
 void Isaac::MoveEnd() {
 
