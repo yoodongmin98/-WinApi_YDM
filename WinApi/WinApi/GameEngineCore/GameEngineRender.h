@@ -49,6 +49,7 @@ public:
 	{
 		Scale = _Scale;
 	}
+	void SetScaleToImage();
 
 	void SetFrame(int _Frame);
 

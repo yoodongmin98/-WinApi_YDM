@@ -1,5 +1,6 @@
 #include "TitleChapter.h"
 #include "TitleLevel.h"
+#include "IsaacEnum.h"
 
 #include <GameEnginePlatform/GameEngineInput.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
@@ -7,7 +8,7 @@
 
 
 
-TitleChapter* TitleChapter::MainChapter;
+
 
 TitleChapter::TitleChapter()
 {
@@ -20,18 +21,12 @@ TitleChapter::~TitleChapter()
 
 void TitleChapter::Start()
 {
-	MainChapter = this;
-	SetMove(GameEngineWindow::GetScreenSize().half());
+	GameEngineRender* Render = CreateRender("Title_BackGround.BMP", IsaacOrder::BackGround);
+	Render->SetPosition(Render->GetImage()->GetImageScale().half());
+	Render->SetScaleToImage();
 }
 void TitleChapter::Update(float _DeltaTime)
 {
-	if (false == GameEngineInput::IsKey("test"))
-	{
-		GameEngineInput::CreateKey("test", 'Q');
-	}
-	if (true == GameEngineInput::IsPress("test"))
-	{
-		GetLevel()->SetCameraMove(float4::Down * 5);
-	}
+	
 
 }

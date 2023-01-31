@@ -5,7 +5,7 @@
 class TitleChapter :public GameEngineActor
 {
 public:
-	static TitleChapter* MainChapter;
+	
 
 	TitleChapter();
 	~TitleChapter();

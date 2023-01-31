@@ -37,7 +37,9 @@ private:
 	GameEngineRender* Isaac = nullptr;
 	GameEngineRender* Start = nullptr;
 	
-
+	float Time = 0.0f;
+	float4 TitleStart = float4::Zero;
+	float4 TitleEnd = float4::Zero;
 	
 };
 

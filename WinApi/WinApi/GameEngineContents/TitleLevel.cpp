@@ -9,6 +9,7 @@
 
 #include <GameEngineCore/GameEngineCore.h>
 #include <GameEngineCore/GameEngineResources.h>
+#include "TitleChapter.h"
 
 
 
@@ -41,8 +42,9 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Start.BMP"))->Cut(2, 1);
 	}
 
+	TitleChapter* BackGround = CreateActor<TitleChapter>();
+
 	AllBack* Render = CreateActor<AllBack>();
-	Render->CreateRender("Title_BackGround.BMP", TitleOrder::BackGround); //배경
 	{
 		Logo = Render->CreateRender("Title_TitleLogo.BMP", TitleOrder::Logo);//로고
 		Logo->SetScale({ 1500,1200 });
@@ -83,39 +85,76 @@ void TitleLevel::Loading()
 	}
 
 
-
+	if (false == GameEngineInput::IsKey("LevelChange"))
+	{
+		
+		GameEngineInput::CreateKey("TitleScrollRightDown", 'E');
+		GameEngineInput::CreateKey("TitleScrollLeftUp", 'Q');
+		GameEngineInput::CreateKey("TitleScrollUp", VK_ESCAPE);
+		GameEngineInput::CreateKey("TitleScrollDown",VK_SPACE);
+	}
 	
 }
+
+bool Scroll = false;
 void TitleLevel::Update(float _DeltaTime)
 {
-	float4 ScreenSize = GameEngineWindow::GetScreenSize();
-	float4 Screenmove = float4::Zero;
 	
-
-
-	/*if (false == GameEngineInput::IsKey("NextScreen"))
+	if (false == Scroll)
 	{
-		GameEngineInput::CreateKey("NextScreen", 'R');
+		if (true == GameEngineInput::IsDown("TitleScrollRightDown"))
+		{
+			TitleEnd = TitleStart + float4(GameEngineWindow::GetScreenSize().x, GameEngineWindow::GetScreenSize().y);
+			Scroll = true;
+		}
+		else if (true == GameEngineInput::IsDown("TitleScrollLeftUp"))
+		{
+			TitleEnd = TitleStart + float4(-GameEngineWindow::GetScreenSize().x, -GameEngineWindow::GetScreenSize().y);
+			Scroll = true;
+		}
+		else if (true == GameEngineInput::IsDown("TitleScrollUp"))
+		{
+			TitleEnd = TitleStart + float4(0.0f, -GameEngineWindow::GetScreenSize().y);
+			Scroll = true;
+		}
+		else if (true == GameEngineInput::IsDown("TitleScrollDown"))
+		{
+			TitleEnd = TitleStart + float4(0.0f, GameEngineWindow::GetScreenSize().y);
+			Scroll = true;
+		}
 	}
-	if (true == GameEngineInput::IsDown("NextScreen"))
+
+
+	if (true == Scroll)
 	{
-		SetMove(float4::Left * MoveSpeed * _Time);
-		GetLevel()->SetCameraMove(float4::Left * _Time * MoveSpeed);
-	}*/
-
-
-
-
-	if (false == GameEngineInput::IsKey("NextLevel"))
-	{
-		GameEngineInput::CreateKey("NextLevel",VK_SPACE);
+		// 시작에서 끝까지 이동하는데 1초가 걸리는 함수
+		Time += _DeltaTime*3.0f;
+		float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
+		if (Pos.y<0)
+		{
+			Scroll = false;
+		}
+		if (Pos.y > 2160)
+		{
+			if (false == GameEngineInput::IsKey("NextLevel"))
+			{
+				GameEngineInput::CreateKey("NextLevel", VK_SPACE);
+			}
+			if (true == GameEngineInput::IsDown("NextLevel"))
+			{
+				GameEngineCore::GetInst()->ChangeLevel("Loading");
+			}
+		}
+		//if()
+		SetCameraPos(Pos);
+		if (Time >= 1.0f)
+		{
+			Scroll = false;
+			Time = 0.0f;
+			TitleStart = Pos;
+		}
+		
 	}
-	if (true == GameEngineInput::IsDown("NextLevel"))
-	{
-		GameEngineCore::GetInst()->ChangeLevel("Loading");
-	}
-	
-
 	
 
 }

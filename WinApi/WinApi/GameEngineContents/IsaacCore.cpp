@@ -24,7 +24,7 @@ IsaacCore::~IsaacCore()
 void IsaacCore::Start()
 {
 	new int();//릭이 제대로동작하는지 체크용
-
+	GameEngineWindow::SettingWindowSize({ 1275, 720 });
 	
 	
 	CreateLevel<IsaacIntro>("IsaacIntro");
