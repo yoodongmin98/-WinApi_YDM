@@ -73,11 +73,17 @@ private:
 	float4 Chapter2Pos = { 0,720 }; //¡ﬂæ”±‚¡ÿ¿”
 	float4 Chapter3Pos = { 0,1440};
 	float4 Chapter4Pos = { 0,2160 };
+	float4 Defaultvalue = { 0,100 };
 	float4 CursorPos = float4::Zero;
 
 	GameEngineRender* Isaacselect1 = nullptr;
 	GameEngineRender* Isaacselect2 = nullptr;
 	GameEngineRender* Isaacselect3 = nullptr;
+
+	int Chapter2MaxYvalue = 1400;
+	int Chapter2MinYvalue = 700;
+	int Chapter3MaxYvalue = 2000;
+	int ChapterSettingXvalue = 500;
 
 	
 	

@@ -155,25 +155,23 @@ void TitleLevel::Update(float _DeltaTime)
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(GameEngineWindow::GetScreenSize().x, GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
-			CursorPos + float4({ 0,1 });
-		
 		}
-		else if (true == GameEngineInput::IsDown("TitleScrollLeftUp")&& Pos.x>500)
+		else if (true == GameEngineInput::IsDown("TitleScrollLeftUp")&& Pos.x> ChapterSettingXvalue)
 		{
 			CursorSet();
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(-GameEngineWindow::GetScreenSize().x, -GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
-			CursorPos + float4({ 0,100 });
+			CursorPosSet() + Defaultvalue;
 		}
-		else if (true == GameEngineInput::IsDown("TitleScrollUp") && Pos.x<500&&Pos.y>100)
+		else if (true == GameEngineInput::IsDown("TitleScrollUp") && Pos.x< ChapterSettingXvalue &&Pos.y>100)
 		{
 			CursorSet();
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(0.0f, -GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
 		}
-		else if (true == GameEngineInput::IsDown("TitleScrollDown") && Pos.x < 500)
+		else if (true == GameEngineInput::IsDown("TitleScrollDown") && Pos.x < ChapterSettingXvalue)
 		{
 			
 			CursorSet();
@@ -186,7 +184,7 @@ void TitleLevel::Update(float _DeltaTime)
 	if (true == Scroll)
 	{
 		Time += _DeltaTime*3.0f;
-		if (Pos.y > 2000 && Pos.x <= 0)
+		if (Pos.y > Chapter3MaxYvalue && Pos.x <= 0)
 		{
 			if (false == GameEngineInput::IsKey("NextLevel"))
 			{
@@ -201,14 +199,14 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	////////////////////////////////////////////////////////////////////////Chapter2 key////////////////
 	//Right
-	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > 700 && Pos.y < 1400&& true==FirstPaper)
+	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true==FirstPaper)
 	{
 		Isaac_File1->Off();
 		Isaac_File2->On();
 		FirstPaper = false;
 		SecondPaper = true;
 	}
-	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > 700 && Pos.y < 1400 && true == SecondPaper)
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true == SecondPaper)
 	{
 		Isaac_File2->Off();
 		Isaac_File3->On();
@@ -216,14 +214,14 @@ void TitleLevel::Update(float _DeltaTime)
 		ThirdPaper = true;
 	}
 	//Left
-	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > 700 && Pos.y < 1400 && true == SecondPaper)
+	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true == SecondPaper)
 	{
 		Isaac_File1->On();
 		Isaac_File2->Off();
 		FirstPaper = true;
 		SecondPaper = false;	
 	}
-	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y >700 && Pos.y < 1400&& true==ThirdPaper)
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true==ThirdPaper)
 	{
 		Isaac_File2->On();
 		Isaac_File3->Off();
@@ -231,19 +229,19 @@ void TitleLevel::Update(float _DeltaTime)
 		ThirdPaper = false;
 	}
 	////////////////////////////////////////////////////////////////////////Chapter3 key////////////////
-	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y>1400 && Pos.y < 2000)
+	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y> Chapter2MaxYvalue && Pos.y < Chapter3MaxYvalue)
 	{
 		CursorPosSet();
 		Cursor->On();
 		Cursor2->Off();
 		
 	}
- 	if (true == GameEngineInput::IsDown("Selectdown") && Pos.y > 1400&&Pos.y<2000)
+ 	if (true == GameEngineInput::IsDown("Selectdown") && Pos.y > Chapter2MaxYvalue &&Pos.y< Chapter3MaxYvalue)
 	{
 		CursorPosSet();
 		Cursor->Off();
 		Cursor2->On();
-		CursorPos= CursorPos + float4{ 0, 100 };
+		CursorPosSet() = CursorPos + Defaultvalue;
 	}
 	////////////////////////////////////////////////////////////////////////Chapter4 key////////////////
 
