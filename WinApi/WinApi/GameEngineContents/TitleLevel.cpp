@@ -115,6 +115,13 @@ void TitleLevel::Loading()
 void TitleLevel::Update(float _DeltaTime)
 {
 	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
+	SetCameraPos(Pos);
+	if (Time >= 1.0f)
+	{
+		Scroll = false;
+		Time = 0.0f;
+		TitleStart = Pos;
+	}
 	if (false == Scroll)
 	{
 		if (true == GameEngineInput::IsDown("TitleScrollRightDown")&& 100<=CursorPos.y)
@@ -164,16 +171,7 @@ void TitleLevel::Update(float _DeltaTime)
 			{
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
 			}
-		}
-		
-		SetCameraPos(Pos);
-		if (Time >= 1.0f)
-		{
-			Scroll = false;
-			Time = 0.0f;
-			TitleStart = Pos;
-		}
-		
+		}	
 	}
 	////////////////////////////////////////////////////////////////////////Chapter3 key
 	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y>1400 && Pos.y < 2000)
