@@ -229,7 +229,7 @@ void IsaacIntro::Update(float _DeltaTime)
 		FirstPaperPos += float4::Left * 3.f * NowTime;
 		FirstPaper->SetPosition(FirstPaperPos);
 	}
-	NextintroRenderOff(Black, 0.5f);
+	NextintroRenderOff(Black, 0.8f);
 
 	NextintroRenderOn(Presents,1.4f);
 	NextintroRenderOff(Presents, 3.4f);
@@ -254,7 +254,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOn(Mother, 9.5f);
 	NextintroRenderOff(Mother, 12.0f);
 	
-	//////////intro animation//////////
+	////////intro animation//////////
 	NextintroRenderOn(Intro_1, 7.5f); 
 	NextintroRenderOff(Intro_1, 12.f);
  	NextintroRenderOn(Intro_2, 12.f);
