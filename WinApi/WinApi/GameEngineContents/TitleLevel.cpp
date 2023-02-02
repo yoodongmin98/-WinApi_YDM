@@ -14,6 +14,7 @@
 
 
 
+bool Scroll = false;
 
 TitleLevel::TitleLevel()
 {
@@ -40,6 +41,8 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_TitleLogo.BMP"))->Cut(4, 4);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Isaac.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Start.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Cursor.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Cursor2.BMP"));
 	}
 
 	TitleChapter* BackGround = CreateActor<TitleChapter>();
@@ -83,58 +86,75 @@ void TitleLevel::Loading()
 			});
 		Start->ChangeAnimation("Start");
 	}
+	//커서
+	Cursor=Render->CreateRender("Title_Cursor.BMP", TitleOrder::Logo);
+	Cursor->SetScale({25,35});
+	Cursor->SetPosition(Chapter3Pos + float4{-150,-180});
+	Cursor->On();
+	Cursor2 = Render->CreateRender("Title_Cursor2.BMP", TitleOrder::Logo);
+	Cursor2->SetScale({ 25,35 });
+	Cursor2->SetPosition(Chapter3Pos + float4{ -70,200 });
+	Cursor2->Off();
+	
 
 
 	if (false == GameEngineInput::IsKey("LevelChange"))
 	{
 		
-		GameEngineInput::CreateKey("TitleScrollRightDown", 'E');
-		GameEngineInput::CreateKey("TitleScrollLeftUp", 'Q');
+		GameEngineInput::CreateKey("TitleScrollRightDown", VK_SPACE);
+		GameEngineInput::CreateKey("TitleScrollLeftUp", VK_ESCAPE);
 		GameEngineInput::CreateKey("TitleScrollUp", VK_ESCAPE);
 		GameEngineInput::CreateKey("TitleScrollDown",VK_SPACE);
+
+		GameEngineInput::CreateKey("Selectup", VK_UP);
+		GameEngineInput::CreateKey("Selectdown", VK_DOWN);
 	}
 	
 }
 
-bool Scroll = false;
 void TitleLevel::Update(float _DeltaTime)
 {
-	
+	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
 	if (false == Scroll)
 	{
-		if (true == GameEngineInput::IsDown("TitleScrollRightDown"))
+		if (true == GameEngineInput::IsDown("TitleScrollRightDown")&& 100<=CursorPos.y)
 		{
+			CursorPosSet();
 			TitleEnd = TitleStart + float4(GameEngineWindow::GetScreenSize().x, GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
+			CursorPos + float4({ 0,1 });
+		
 		}
-		else if (true == GameEngineInput::IsDown("TitleScrollLeftUp"))
+		else if (true == GameEngineInput::IsDown("TitleScrollLeftUp")&& Pos.x>500)
 		{
+			CursorSet();
+			CursorPosSet();
 			TitleEnd = TitleStart + float4(-GameEngineWindow::GetScreenSize().x, -GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
+			CursorPos + float4({ 0,100 });
 		}
-		else if (true == GameEngineInput::IsDown("TitleScrollUp"))
+		else if (true == GameEngineInput::IsDown("TitleScrollUp") && Pos.x<500&&Pos.y>100)
 		{
+			CursorSet();
+			CursorPosSet();
 			TitleEnd = TitleStart + float4(0.0f, -GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
 		}
-		else if (true == GameEngineInput::IsDown("TitleScrollDown"))
+		else if (true == GameEngineInput::IsDown("TitleScrollDown") && Pos.x < 500)
 		{
+			
+			CursorSet();
+			CursorPosSet();
 			TitleEnd = TitleStart + float4(0.0f, GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
 		}
 	}
-
+	
 
 	if (true == Scroll)
 	{
-		// 시작에서 끝까지 이동하는데 1초가 걸리는 함수
 		Time += _DeltaTime*3.0f;
-		float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
-		if (Pos.y<0)
-		{
-			Scroll = false;
-		}
-		if (Pos.y > 2160)
+		if (Pos.y > 2000 && Pos.x <= 0)
 		{
 			if (false == GameEngineInput::IsKey("NextLevel"))
 			{
@@ -145,7 +165,7 @@ void TitleLevel::Update(float _DeltaTime)
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
 			}
 		}
-		//if()
+		
 		SetCameraPos(Pos);
 		if (Time >= 1.0f)
 		{
@@ -155,6 +175,32 @@ void TitleLevel::Update(float _DeltaTime)
 		}
 		
 	}
+	////////////////////////////////////////////////////////////////////////Chapter3 key
+	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y>1400 && Pos.y < 2000)
+	{
+		CursorPosSet();
+		Cursor->On();
+		Cursor2->Off();
+		
+	}
+ 	if (true == GameEngineInput::IsDown("Selectdown") && Pos.y > 1400&&Pos.y<2000)
+	{
+		CursorPosSet();
+		Cursor->Off();
+		Cursor2->On();
+		CursorPos= CursorPos + float4{ 0, 100 };
+	}
 	
-
+	
+}
+///////////////////////Cursor Function
+void TitleLevel::CursorSet()
+{
+	Cursor->On();
+	Cursor2->Off();
+}
+float4 TitleLevel::CursorPosSet()
+{
+	CursorPos = float4::Zero;
+	return CursorPos;
 }

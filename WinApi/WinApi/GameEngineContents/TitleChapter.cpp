@@ -21,6 +21,7 @@ TitleChapter::~TitleChapter()
 
 void TitleChapter::Start()
 {
+	//¹è°æ
 	GameEngineRender* Render = CreateRender("Title_BackGround.BMP", IsaacOrder::BackGround);
 	Render->SetPosition(Render->GetImage()->GetImageScale().half());
 	Render->SetScaleToImage();
