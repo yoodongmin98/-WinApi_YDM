@@ -46,6 +46,7 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile1.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile2.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile3.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select1.BMP"));
 	}
 
 	TitleChapter* BackGround = CreateActor<TitleChapter>();
@@ -103,16 +104,20 @@ void TitleLevel::Loading()
 	{
 		Isaac_File1 = MyTitleRender("Title_IsaacFile1.BMP", "IsaacFile1", Isaac_File1);
 		Isaac_File1->SetPosition({-400,670});
-		Isaac_File1->On();
+		Isaac_File1->On(); //첫번째거는 미리켜놓음
 		Isaac_File2 = MyTitleRender("Title_IsaacFile2.BMP", "IsaacFile2", Isaac_File2);
 		Isaac_File2->SetPosition({0,670});
 		Isaac_File3 = MyTitleRender("Title_IsaacFile3.BMP", "IsaacFile3", Isaac_File3);
 		Isaac_File3->SetPosition({400,670});
 		
 	}
+	{
+		Isaacselect1 = Render->CreateRender("Title_Select1.BMP", TitleOrder::Logo);
+		Isaacselect1->SetScaleToImage();
+		Isaacselect1->SetPosition(Chapter4Pos);
+		Isaacselect1->On();
+	}
 	
-
-
 	if (false == GameEngineInput::IsKey("LevelChange"))
 	{
 		
@@ -127,9 +132,12 @@ void TitleLevel::Loading()
 		GameEngineInput::CreateKey("Selectright", VK_RIGHT);
 
 	}
-	
 }
 
+///////////////////////////////////////UPDATE////////////////////////////////////
+bool FirstPaper = true;
+bool SecondPaper = false;
+bool ThirdPaper = false;
 void TitleLevel::Update(float _DeltaTime)
 {
 	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
@@ -175,7 +183,6 @@ void TitleLevel::Update(float _DeltaTime)
 		}
 	}
 	
-
 	if (true == Scroll)
 	{
 		Time += _DeltaTime*3.0f;
@@ -192,19 +199,38 @@ void TitleLevel::Update(float _DeltaTime)
 			}
 		}	
 	}
-	////////////////////////////////////////////////////////////////////////Chapter2 key
-	
-	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > 700 && Pos.y < 1400)
+	////////////////////////////////////////////////////////////////////////Chapter2 key////////////////
+	//Right
+	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > 700 && Pos.y < 1400&& true==FirstPaper)
 	{
-			Isaac_File1->Off();
-			Isaac_File3->On();
+		Isaac_File1->Off();
+		Isaac_File2->On();
+		FirstPaper = false;
+		SecondPaper = true;
 	}
-	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y >700 && Pos.y < 1400)
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > 700 && Pos.y < 1400 && true == SecondPaper)
+	{
+		Isaac_File2->Off();
+		Isaac_File3->On();
+		SecondPaper = false;
+		ThirdPaper = true;
+	}
+	//Left
+	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > 700 && Pos.y < 1400 && true == SecondPaper)
 	{
 		Isaac_File1->On();
-		Isaac_File3->Off();
+		Isaac_File2->Off();
+		FirstPaper = true;
+		SecondPaper = false;	
 	}
-	////////////////////////////////////////////////////////////////////////Chapter3 key
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y >700 && Pos.y < 1400&& true==ThirdPaper)
+	{
+		Isaac_File2->On();
+		Isaac_File3->Off();
+		SecondPaper = true;
+		ThirdPaper = false;
+	}
+	////////////////////////////////////////////////////////////////////////Chapter3 key////////////////
 	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y>1400 && Pos.y < 2000)
 	{
 		CursorPosSet();
@@ -219,7 +245,10 @@ void TitleLevel::Update(float _DeltaTime)
 		Cursor2->On();
 		CursorPos= CursorPos + float4{ 0, 100 };
 	}
-	
+	////////////////////////////////////////////////////////////////////////Chapter4 key////////////////
+
+
+
 	
 }
 ///////////////////////Cursor Function

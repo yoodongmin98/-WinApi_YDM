@@ -53,8 +53,9 @@ protected:
 
 		return _Titlename;
 	}
+	
 private:
-
+	
 	GameEngineRender* Logo = nullptr;
 	GameEngineRender* Isaac = nullptr;
 	GameEngineRender* Start = nullptr;
@@ -73,6 +74,10 @@ private:
 	float4 Chapter3Pos = { 0,1440};
 	float4 Chapter4Pos = { 0,2160 };
 	float4 CursorPos = float4::Zero;
+
+	GameEngineRender* Isaacselect1 = nullptr;
+	GameEngineRender* Isaacselect2 = nullptr;
+	GameEngineRender* Isaacselect3 = nullptr;
 
 	
 	

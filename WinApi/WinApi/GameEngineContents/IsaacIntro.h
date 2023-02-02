@@ -9,7 +9,7 @@ enum class IntroOrder
 	Anime,
 	FrontPaper,
 	Trans,
-	BLACKRENDER,
+	BeforeRender,
 };
 // Ό³Έν :
 class IsaacIntro : public GameEngineLevel

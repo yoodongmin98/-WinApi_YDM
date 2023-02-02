@@ -70,7 +70,7 @@ void IsaacIntro::Loading()
 	AllBack* Image=CreateActor<AllBack>();
 
 	//배경전 검은화면
-	Black=Image->CreateRender("Intro_BlackGround.BMP", IntroOrder::BLACKRENDER); 
+	Black=Image->CreateRender("Intro_BlackGround.BMP", IntroOrder::BeforeRender); 
 
 	//배경
 	Image->CreateRender("Intro_BackGround.BMP", IntroOrder::BackGround); 
@@ -185,7 +185,7 @@ void IsaacIntro::Loading()
 		.ImageName = "Intro_11.BMP",
 		.Start = 0,
 		.End = 21,
-		.InterTime = .1f
+		.InterTime = .1f,
 		});
 	Intro_11->ChangeAnimation("Intro11");
 	Intro_12 = MyIntroRender("Intro_12.BMP", "Intro12", Intro_12);
