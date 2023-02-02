@@ -1,5 +1,5 @@
 #include "TitleLevel.h"
-#include "AllBack.h"
+
 
 #include <GameEngineBase/GameEngineDirectory.h>
 
@@ -43,6 +43,9 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Start.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Cursor.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Cursor2.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile1.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile2.BMP"))->Cut(2, 1);
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile3.BMP"))->Cut(2, 1);
 	}
 
 	TitleChapter* BackGround = CreateActor<TitleChapter>();
@@ -86,15 +89,27 @@ void TitleLevel::Loading()
 			});
 		Start->ChangeAnimation("Start");
 	}
-	//커서
-	Cursor=Render->CreateRender("Title_Cursor.BMP", TitleOrder::Logo);
-	Cursor->SetScale({25,35});
-	Cursor->SetPosition(Chapter3Pos + float4{-150,-180});
-	Cursor->On();
-	Cursor2 = Render->CreateRender("Title_Cursor2.BMP", TitleOrder::Logo);
-	Cursor2->SetScale({ 25,35 });
-	Cursor2->SetPosition(Chapter3Pos + float4{ -70,200 });
-	Cursor2->Off();
+	{
+		//커서
+		Cursor = Render->CreateRender("Title_Cursor.BMP", TitleOrder::Logo);
+		Cursor->SetScale({ 25,35 });
+		Cursor->SetPosition(Chapter3Pos + float4{ -150,-180 });
+		Cursor->On();
+		Cursor2 = Render->CreateRender("Title_Cursor2.BMP", TitleOrder::Logo);
+		Cursor2->SetScale({ 25,35 });
+		Cursor2->SetPosition(Chapter3Pos + float4{ -70,200 });
+		Cursor2->Off();
+	}
+	{
+		Isaac_File1 = MyTitleRender("Title_IsaacFile1.BMP", "IsaacFile1", Isaac_File1);
+		Isaac_File1->SetPosition({-400,670});
+		Isaac_File1->On();
+		Isaac_File2 = MyTitleRender("Title_IsaacFile2.BMP", "IsaacFile2", Isaac_File2);
+		Isaac_File2->SetPosition({0,670});
+		Isaac_File3 = MyTitleRender("Title_IsaacFile3.BMP", "IsaacFile3", Isaac_File3);
+		Isaac_File3->SetPosition({400,670});
+		
+	}
 	
 
 
