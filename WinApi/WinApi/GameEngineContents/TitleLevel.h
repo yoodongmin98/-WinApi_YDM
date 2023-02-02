@@ -47,7 +47,7 @@ protected:
 			.ImageName = _Imagename,
 			.Start = 0,
 			.End = 1,
-			.InterTime = .15f
+			.InterTime = .1f
 			});
 		_Titlename->ChangeAnimation(_Animename);
 

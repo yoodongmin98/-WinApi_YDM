@@ -3,7 +3,9 @@
 // 프로젝트 순서에 따라서 정렬
 #include <GameEngineBase/GameEngineDirectory.h>
 #include <GameEnginePlatform/GameEngineInput.h>
+
 #include <GameEngineCore/GameEngineResources.h>
+#include <GameEngineCore/GameEngineCore.h>
 
 // 나랑 같은 등급의 헤더들
 #include "Isaac.h"
@@ -52,7 +54,11 @@ void IsaacLevel::Loading()
 		GameEngineInput::CreateKey("CameraRightMove", VK_RIGHT);
 		GameEngineInput::CreateKey("CameraDownMove", VK_DOWN);
 		GameEngineInput::CreateKey("CameraUpMove", VK_UP);
+
+		
 	}
+	
+	
 }
 
 void IsaacLevel::Update(float _DeltaTime)

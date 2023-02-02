@@ -123,6 +123,9 @@ void TitleLevel::Loading()
 
 		GameEngineInput::CreateKey("Selectup", VK_UP);
 		GameEngineInput::CreateKey("Selectdown", VK_DOWN);
+		GameEngineInput::CreateKey("Selectleft", VK_LEFT);
+		GameEngineInput::CreateKey("Selectright", VK_RIGHT);
+
 	}
 	
 }
@@ -185,8 +188,21 @@ void TitleLevel::Update(float _DeltaTime)
 			if (true == GameEngineInput::IsDown("NextLevel"))
 			{
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
+			
 			}
 		}	
+	}
+	////////////////////////////////////////////////////////////////////////Chapter2 key
+	
+	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > 700 && Pos.y < 1400)
+	{
+			Isaac_File1->Off();
+			Isaac_File3->On();
+	}
+	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y >700 && Pos.y < 1400)
+	{
+		Isaac_File1->On();
+		Isaac_File3->Off();
 	}
 	////////////////////////////////////////////////////////////////////////Chapter3 key
 	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y>1400 && Pos.y < 2000)
