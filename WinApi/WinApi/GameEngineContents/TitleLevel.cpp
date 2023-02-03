@@ -162,7 +162,7 @@ void TitleLevel::Update(float _DeltaTime)
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(-GameEngineWindow::GetScreenSize().x, -GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
-			CursorPosSet() + Defaultvalue;
+			CursorPos + Defaultvalue;
 		}
 		else if (true == GameEngineInput::IsDown("TitleScrollUp") && Pos.x< ChapterSettingXvalue &&Pos.y>100)
 		{
@@ -241,7 +241,7 @@ void TitleLevel::Update(float _DeltaTime)
 		CursorPosSet();
 		Cursor->Off();
 		Cursor2->On();
-		CursorPosSet() = CursorPos + Defaultvalue;
+		CursorPos = CursorPos + Defaultvalue;
 	}
 	////////////////////////////////////////////////////////////////////////Chapter4 key////////////////
 
