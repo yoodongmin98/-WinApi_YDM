@@ -29,6 +29,7 @@ protected:
 
 	void LevelChangeEnd(GameEngineLevel* _NextLevel) override {}
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
+	
 
 	
 	void CursorSet();
@@ -53,6 +54,7 @@ protected:
 
 		return _Titlename;
 	}
+	void ReturnSelectBool();
 	
 private:
 	
@@ -79,6 +81,7 @@ private:
 	GameEngineRender* Isaacselect1 = nullptr;
 	GameEngineRender* Isaacselect2 = nullptr;
 	GameEngineRender* Isaacselect3 = nullptr;
+	GameEngineRender* Isaacselect4 = nullptr;
 
 	int Chapter2MaxYvalue = 1400;
 	int Chapter2MinYvalue = 700;

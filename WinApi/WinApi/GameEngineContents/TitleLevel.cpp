@@ -47,6 +47,9 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile2.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_IsaacFile3.BMP"))->Cut(2, 1);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select1.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select2.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select3.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select4.BMP"));
 	}
 
 	TitleChapter* BackGround = CreateActor<TitleChapter>();
@@ -116,6 +119,18 @@ void TitleLevel::Loading()
 		Isaacselect1->SetScaleToImage();
 		Isaacselect1->SetPosition(Chapter4Pos);
 		Isaacselect1->On();
+		Isaacselect2 = Render->CreateRender("Title_Select2.BMP", TitleOrder::Logo);
+		Isaacselect2->SetScaleToImage();
+		Isaacselect2->SetPosition(Chapter4Pos);
+		Isaacselect2->Off();
+		Isaacselect3 = Render->CreateRender("Title_Select3.BMP", TitleOrder::Logo);
+		Isaacselect3->SetScaleToImage();
+		Isaacselect3->SetPosition(Chapter4Pos);
+		Isaacselect3->Off();
+		Isaacselect4 = Render->CreateRender("Title_Select4.BMP", TitleOrder::Logo);
+		Isaacselect4->SetScaleToImage();
+		Isaacselect4->SetPosition(Chapter4Pos);
+		Isaacselect4->Off();
 	}
 	
 	if (false == GameEngineInput::IsKey("LevelChange"))
@@ -131,6 +146,10 @@ void TitleLevel::Loading()
 		GameEngineInput::CreateKey("Selectleft", VK_LEFT);
 		GameEngineInput::CreateKey("Selectright", VK_RIGHT);
 
+		GameEngineInput::CreateKey("IsaacSelectleft", VK_LEFT);
+		GameEngineInput::CreateKey("IsaacSelectright", VK_RIGHT);
+		
+
 	}
 }
 
@@ -138,6 +157,12 @@ void TitleLevel::Loading()
 bool FirstPaper = true;
 bool SecondPaper = false;
 bool ThirdPaper = false;
+
+bool SelectIsaac = true;
+bool SelectMacdalena = false;
+bool SelectKain = false;
+bool Selectnone = false;
+
 void TitleLevel::Update(float _DeltaTime)
 {
 	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
@@ -243,11 +268,67 @@ void TitleLevel::Update(float _DeltaTime)
 		Cursor2->On();
 		CursorPos = CursorPos + Defaultvalue;
 	}
+
 	////////////////////////////////////////////////////////////////////////Chapter4 key////////////////
 
-
-
-	
+	/////Right
+	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && true == SelectIsaac)
+	{
+		Isaacselect1->Off();
+		Isaacselect2->On();
+		SelectIsaac = false;
+		SelectMacdalena = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue&& true == SelectMacdalena)
+	{
+		Isaacselect2->Off();
+		Isaacselect3->On();
+		SelectMacdalena = false;
+		SelectKain = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && true == SelectKain)
+	{
+		Isaacselect3->Off();
+		Isaacselect4->On();
+		SelectKain = false;
+		Selectnone = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && true == Selectnone)
+	{
+		Isaacselect4->Off();
+		Isaacselect1->On();
+		Selectnone = false;
+		SelectIsaac = true;
+	}
+	/////Left
+	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == SelectIsaac)
+	{
+		Isaacselect1->Off();
+		Isaacselect4->On();
+		SelectIsaac = false;
+		Selectnone = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == SelectMacdalena)
+	{
+		Isaacselect2->Off();
+		Isaacselect1->On();
+		SelectMacdalena = false;
+		SelectIsaac = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == SelectKain)
+	{
+		Isaacselect3->Off();
+		Isaacselect2->On();
+		SelectKain = false;
+		SelectMacdalena = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == Selectnone)
+	{
+		Isaacselect4->Off();
+		Isaacselect3->On();
+		Selectnone = false;
+		SelectKain = true;
+	}
 }
 ///////////////////////Cursor Function
 void TitleLevel::CursorSet()
@@ -260,3 +341,4 @@ float4 TitleLevel::CursorPosSet()
 	CursorPos = float4::Zero;
 	return CursorPos;
 }
+
