@@ -50,6 +50,14 @@ void TitleLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select2.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select3.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Select4.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting0.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting1.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting2.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting3.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting4.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting5.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Title_Setting6.BMP"));
+
 	}
 
 	TitleChapter* BackGround = CreateActor<TitleChapter>();
@@ -131,6 +139,37 @@ void TitleLevel::Loading()
 		Isaacselect4->SetScaleToImage();
 		Isaacselect4->SetPosition(Chapter4Pos);
 		Isaacselect4->Off();
+	}
+	{
+		IsaacSetting0 = Render->CreateRender("Title_Setting0.BMP", TitleOrder::Logo);
+		IsaacSetting0->SetScale({150,40});
+		IsaacSetting0->SetPosition(Chapter4SPos+float4::Up*140);
+		IsaacSetting0->On();
+		IsaacSetting1 = Render->CreateRender("Title_Setting1.BMP", TitleOrder::Logo);
+		IsaacSetting1->SetScale({ 150,40 });
+		IsaacSetting1->SetPosition(Chapter4SPos + float4::Up * 140);
+		IsaacSetting1->Off();
+		IsaacSetting2 = Render->CreateRender("Title_Setting2.BMP", TitleOrder::Logo);
+		IsaacSetting2->SetScale({ 150,40 });
+		IsaacSetting2->SetPosition(Chapter4SPos + float4::Up * 140);
+		IsaacSetting2->Off();
+		IsaacSetting3 = Render->CreateRender("Title_Setting3.BMP", TitleOrder::Logo);
+		IsaacSetting3->SetScale({ 150,40 });
+		IsaacSetting3->SetPosition(Chapter4SPos + float4::Up * 140);
+		IsaacSetting3->Off();
+		IsaacSetting4 = Render->CreateRender("Title_Setting4.BMP", TitleOrder::Logo);
+		IsaacSetting4->SetScale({ 150,40 });
+		IsaacSetting4->SetPosition(Chapter4SPos + float4::Up * 140);
+		IsaacSetting4->Off();
+		IsaacSetting5 = Render->CreateRender("Title_Setting5.BMP", TitleOrder::Logo);
+		IsaacSetting5->SetScale({ 150,40 });
+		IsaacSetting5->SetPosition(Chapter4SPos + float4::Up * 140);
+		IsaacSetting5->Off();
+		IsaacSetting6 = Render->CreateRender("Title_Setting6.BMP", TitleOrder::Logo);
+		IsaacSetting6->SetScale({ 150,40 });
+		IsaacSetting6->SetPosition(Chapter4SPos + float4::Up * 140);
+		IsaacSetting6->Off();
+		
 	}
 	
 	if (false == GameEngineInput::IsKey("LevelChange"))
@@ -329,6 +368,93 @@ void TitleLevel::Update(float _DeltaTime)
 		Selectnone = false;
 		SelectKain = true;
 	}
+	///////////////////////////////////////////////////////////SettingKey//////////////////////////
+	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound0)
+	{
+		IsaacSetting0->Off();
+		IsaacSetting1->On();
+		sound0 = false;
+		sound1 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound1)
+	{
+		IsaacSetting1->Off();
+		IsaacSetting2->On();
+		sound1 = false;
+		sound2 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound2)
+	{
+		IsaacSetting2->Off();
+		IsaacSetting3->On();
+		sound2 = false;
+		sound3 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound3)
+	{
+		IsaacSetting3->Off();
+		IsaacSetting4->On();
+		sound3 = false;
+		sound4 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound4)
+	{
+		IsaacSetting4->Off();
+		IsaacSetting5->On();
+		sound4 = false;
+		sound5 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound5)
+	{
+		IsaacSetting5->Off();
+		IsaacSetting6->On();
+		sound5 = false;
+		sound6 = true;
+	}
+	//////////////////////////////////Left
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound6)
+	{
+		IsaacSetting6->Off();
+		IsaacSetting5->On();
+		sound6 = false;
+		sound5 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound5)
+	{
+		IsaacSetting5->Off();
+		IsaacSetting4->On();
+		sound5 = false;
+		sound4 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound4)
+	{
+		IsaacSetting4->Off();
+		IsaacSetting3->On();
+		sound4 = false;
+		sound3 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound3)
+	{
+		IsaacSetting3->Off();
+		IsaacSetting2->On();
+		sound3 = false;
+		sound2 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound2)
+	{
+		IsaacSetting2->Off();
+		IsaacSetting1->On();
+		sound2 = false;
+		sound1 = true;
+	}
+	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && Pos.x > ChapterSettingXvalue && true == sound1)
+	{
+		IsaacSetting1->Off();
+		IsaacSetting0->On();
+		sound1 = false;
+		sound0 = true;
+	}
+
 }
 ///////////////////////Cursor Function
 void TitleLevel::CursorSet()

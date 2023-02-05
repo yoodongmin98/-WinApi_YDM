@@ -54,7 +54,6 @@ protected:
 
 		return _Titlename;
 	}
-	void ReturnSelectBool();
 	
 private:
 	
@@ -75,6 +74,7 @@ private:
 	float4 Chapter2Pos = { 0,720 }; //¡ﬂæ”±‚¡ÿ¿”
 	float4 Chapter3Pos = { 0,1440};
 	float4 Chapter4Pos = { 0,2160 };
+	float4 Chapter4SPos = { 1280,2160 };
 	float4 Defaultvalue = { 0,100 };
 	float4 CursorPos = float4::Zero;
 
@@ -87,6 +87,23 @@ private:
 	int Chapter2MinYvalue = 700;
 	int Chapter3MaxYvalue = 2000;
 	int ChapterSettingXvalue = 500;
+
+	GameEngineRender* IsaacSetting0 = nullptr;
+	GameEngineRender* IsaacSetting1 = nullptr;
+	GameEngineRender* IsaacSetting2 = nullptr;
+	GameEngineRender* IsaacSetting3 = nullptr;
+	GameEngineRender* IsaacSetting4 = nullptr;
+	GameEngineRender* IsaacSetting5 = nullptr;
+	GameEngineRender* IsaacSetting6 = nullptr;
+
+	bool sound0 = true;
+	bool sound1 = false;
+	bool sound2 = false;
+	bool sound3 = false;
+	bool sound4 = false;
+	bool sound5 = false;
+	bool sound6 = false;
+
 
 	
 	

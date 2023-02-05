@@ -185,7 +185,7 @@ void IsaacIntro::Loading()
 		.ImageName = "Intro_11.BMP",
 		.Start = 0,
 		.End = 21,
-		.InterTime = .1f,
+		.InterTime = .1f, 
 		});
 	Intro_11->ChangeAnimation("Intro11");
 	Intro_12 = MyIntroRender("Intro_12.BMP", "Intro12", Intro_12);
