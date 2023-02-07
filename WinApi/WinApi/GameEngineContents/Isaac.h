@@ -36,7 +36,8 @@ private:
 	std::string DirString = "Right_";
 	IsaacState StateValue = IsaacState::IDLE;
 
-	GameEngineRender* AnimationRender = nullptr;
+	GameEngineRender* Head = nullptr;
+	
 
 	void DirCheck(const std::string_view& _AnimationName);
 

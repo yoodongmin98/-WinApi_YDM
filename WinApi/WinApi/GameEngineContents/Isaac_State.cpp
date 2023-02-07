@@ -60,7 +60,7 @@ void Isaac::UpdateState(float _Time)
 
 }
 
-// FSM 내가 어떤일을 할때 이동하면서 가만히 있을수 없다.
+
 void Isaac::IdleStart()
 {
 	DirCheck("Idle");
@@ -71,7 +71,7 @@ void Isaac::IdleUpdate(float _Time)
 	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove") || GameEngineInput::IsPress("DownMove") || GameEngineInput::IsPress("UpMove"))
 	{
 		ChangeState(IsaacState::MOVE);
-		return; // 보통 스테이트를 체인지하면 아래 코드를 실행되면 
+		return;
 	}
 }
 void Isaac::IdleEnd() {
@@ -117,8 +117,7 @@ void Isaac::MoveUpdate(float _Time)
 		MoveRange += float4::Down;
 	}
 	MoveDir = MoveRange * MoveSpeed;
-	/*SetMove(MoveRange * MoveSpeed * _Time);
-	GetLevel()->SetCameraMove( MoveRange * MoveSpeed * _Time);*/
+	
 }
 void Isaac::MoveEnd() {
 

@@ -31,28 +31,20 @@ void Isaac::Start()
 		GameEngineInput::CreateKey("RightMove", 'D');
 		GameEngineInput::CreateKey("DownMove", 'S');
 		GameEngineInput::CreateKey("UpMove", 'W');
+		GameEngineInput::CreateKey("Bomb", 'E');
 	}
 
 	{
-		AnimationRender = CreateRender(IsaacOrder::PlayerHead);
-		
-		AnimationRender->SetScale({ 135,120});
-
-		
-
-		AnimationRender->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Isaac_Face.bmp", .Start = 2, .End = 3, .InterTime = 0.3f });
-
-		AnimationRender->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 6, .End = 7 , .InterTime = 0.3f });
-		//위		위 위
-		AnimationRender->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 4, .End = 5 , .InterTime = 0.3f });
-		//    아래		  아래
-		AnimationRender->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
-		AnimationRender->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0 , .InterTime = 0.3f });
-
-		
+		Head = CreateRender(IsaacOrder::Player);
+		Head->SetScale({ 135,120});
+		Head->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+		Head->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Isaac_Face.bmp", .Start = 10, .End = 19, .InterTime = 0.06f });
+		Head->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 1, .InterTime = 0.3f });
+		Head->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 20, .End = 29 , .InterTime = 0.06f });
+		Head->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+		Head->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 30, .End = 39 , .InterTime = 0.06f });
+		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 	}
 
 	ChangeState(IsaacState::IDLE);
@@ -102,7 +94,7 @@ void Isaac::Movecalculation(float _DeltaTime)
 void Isaac::DirCheck(const std::string_view& _AnimationName)
 {
 	std::string PrevDirString = DirString;
-	AnimationRender->ChangeAnimation(DirString + _AnimationName.data());
+	Head->ChangeAnimation(DirString + _AnimationName.data());
 
 	if (GameEngineInput::IsPress("LeftMove"))
 	{
@@ -112,9 +104,17 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 	{
 		DirString = "Right_";
 	}
+	else if (GameEngineInput::IsPress("UpMove"))
+	{
+		DirString = "Up_";
+	}
+	else if (GameEngineInput::IsPress("DownMove"))
+	{
+		DirString = "Down_";
+	}
 
 	if (PrevDirString != DirString)
 	{
-		AnimationRender->ChangeAnimation(DirString + _AnimationName.data());
+		Head->ChangeAnimation(DirString + _AnimationName.data());
 	}
 }
