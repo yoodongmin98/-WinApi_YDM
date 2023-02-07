@@ -34,8 +34,6 @@ void IsaacLevel::Loading()
 	{
 		GameEngineImage* head = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
 		head->Cut(10, 4);
-		
-		
 		GameEngineImage* Back = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround.BMP"));
 		GameEngineImage* Back_C = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
 	}
@@ -43,24 +41,7 @@ void IsaacLevel::Loading()
 	{
 		CreateActor<Isaac>();
 		CreateActor<BackGround>();
-		
-	}
-
-	
-
-
-	if (false == GameEngineInput::IsKey("CameraLeftMove"))
-	{
-		
-		GameEngineInput::CreateKey("CameraLeftMove", VK_LEFT);
-		GameEngineInput::CreateKey("CameraRightMove", VK_RIGHT);
-		GameEngineInput::CreateKey("CameraDownMove", VK_DOWN);
-		GameEngineInput::CreateKey("CameraUpMove", VK_UP);
-
-		
-	}
-	
-	
+	}	
 }
 
 void IsaacLevel::Update(float _DeltaTime)

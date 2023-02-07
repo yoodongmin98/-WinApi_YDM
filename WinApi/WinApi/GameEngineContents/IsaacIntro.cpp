@@ -152,21 +152,6 @@ void IsaacIntro::Loading()
 	Door2->SetScale({ 850,700 });
 	///////////////////////////intro노가다시작
 
-	////이건 함수로 만들어야할듯? ->만듬
-
-	/*Intro_1= Image->CreateRender("Intro_1.BMP", IntroOrder::Trans);
-	Intro_1->Off();
-	Intro_1->SetScale({ 1000,800 });
-	Intro_1->SetPosition(Intro_1->GetPosition() + float4::Down * 200);
-	Intro_1->CreateAnimation({
-		.AnimationName = "intro1",
-		.ImageName = "Intro_1.BMP",
-		.Start = 0,
-		.End = 1,
-		.InterTime = .1f
-		});
-	Intro_1->ChangeAnimation("Intro1");*/
-
 	Intro_1 = MyIntroRender("Intro_1.BMP", "intro1", Intro_1);
 	Intro_2 = MyIntroRender("Intro_2.BMP", "Intro2", Intro_2);
 	Intro_3 = MyIntroRender("Intro_3.BMP", "Intro3", Intro_3);

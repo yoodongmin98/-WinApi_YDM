@@ -1,20 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Isaac.h">
-      <Filter>Play</Filter>
-    </ClInclude>
-    <ClInclude Include="Isaaclevel.h">
-      <Filter>Play</Filter>
-    </ClInclude>
-    <ClInclude Include="BackGround.h">
-      <Filter>Play</Filter>
-    </ClInclude>
     <ClInclude Include="AllBack.h">
       <Filter>Intro\AllBack</Filter>
-    </ClInclude>
-    <ClInclude Include="IsaacIntro.h">
-      <Filter>Intro\Intro\Introlevel</Filter>
     </ClInclude>
     <ClInclude Include="IsaacCore.h">
       <Filter>Core</Filter>
@@ -22,46 +10,64 @@
     <ClInclude Include="IsaacEnum.h">
       <Filter>Play</Filter>
     </ClInclude>
-    <ClInclude Include="TitleLevel.h">
-      <Filter>Title</Filter>
-    </ClInclude>
     <ClInclude Include="LoadLevel.h">
       <Filter>TitleLoading</Filter>
     </ClInclude>
+    <ClInclude Include="Isaaclevel.h">
+      <Filter>Play\Playlevel</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Play\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Isaac.h">
+      <Filter>Play\Isaac\Isaacmove</Filter>
+    </ClInclude>
+    <ClInclude Include="Isaac_Bomb.h">
+      <Filter>Play\Isaac\IsaacBomb</Filter>
+    </ClInclude>
     <ClInclude Include="TitleChapter.h">
-      <Filter>Title</Filter>
+      <Filter>Title\TitleBackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Title\TitleLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="IsaacIntro.h">
+      <Filter>Intro\Intro</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Isaac.cpp">
-      <Filter>Play</Filter>
-    </ClCompile>
-    <ClCompile Include="Isaaclevel.cpp">
-      <Filter>Play</Filter>
-    </ClCompile>
-    <ClCompile Include="Isaac_State.cpp">
-      <Filter>Play</Filter>
-    </ClCompile>
-    <ClCompile Include="BackGround.cpp">
-      <Filter>Play</Filter>
-    </ClCompile>
     <ClCompile Include="AllBack.cpp">
       <Filter>Intro\AllBack</Filter>
-    </ClCompile>
-    <ClCompile Include="IsaacIntro.cpp">
-      <Filter>Intro\Intro\Introlevel</Filter>
     </ClCompile>
     <ClCompile Include="IsaacCore.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="TitleLevel.cpp">
-      <Filter>Title</Filter>
-    </ClCompile>
     <ClCompile Include="LoadLevel.cpp">
       <Filter>TitleLoading</Filter>
     </ClCompile>
+    <ClCompile Include="Isaaclevel.cpp">
+      <Filter>Play\Playlevel</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Play\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Isaac.cpp">
+      <Filter>Play\Isaac\Isaacmove</Filter>
+    </ClCompile>
+    <ClCompile Include="Isaac_Bomb.cpp">
+      <Filter>Play\Isaac\IsaacBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Isaac_State.cpp">
+      <Filter>Play\Isaac\Isaacmove</Filter>
+    </ClCompile>
     <ClCompile Include="TitleChapter.cpp">
-      <Filter>Title</Filter>
+      <Filter>Title\TitleBackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Title\TitleLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="IsaacIntro.cpp">
+      <Filter>Intro\Intro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +80,6 @@
     <Filter Include="Intro\Intro">
       <UniqueIdentifier>{65a7208a-190b-42de-acb8-daae457619af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Intro\Intro\Introlevel">
-      <UniqueIdentifier>{4f1ece71-042d-4162-8098-90d411767d77}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{cbec8a9b-e542-4bd1-b911-9825f25300bc}</UniqueIdentifier>
     </Filter>
@@ -88,6 +91,27 @@
     </Filter>
     <Filter Include="TitleLoading">
       <UniqueIdentifier>{b4a2fc5c-e61f-4781-a72b-915062258a05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel">
+      <UniqueIdentifier>{1d32e86d-6a89-4ccb-972a-96d28726049a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\BackGround">
+      <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac">
+      <UniqueIdentifier>{57376af8-37ed-44bb-9fbe-08ea18a9f12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Isaacmove">
+      <UniqueIdentifier>{35f06202-8115-4adb-825e-a9b5044c7426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\IsaacBomb">
+      <UniqueIdentifier>{3ba005a4-ff4a-4e5b-bb53-c9a2fbe5d5ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title\TitleBackGround">
+      <UniqueIdentifier>{acc08166-e9c7-45dd-b2e2-33c1e4b3bddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Title\TitleLevel">
+      <UniqueIdentifier>{885d06fc-899a-41c9-9bb8-0a0034295288}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -31,7 +31,7 @@ void IsaacCore::Start()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<LoadLevel>("Loading");
 	CreateLevel<IsaacLevel>("PlayIsaac");
-	ChangeLevel("PlayIsaac");
+	ChangeLevel("IsaacIntro");
 }
 
 void IsaacCore::Update()
