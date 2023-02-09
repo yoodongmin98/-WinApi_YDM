@@ -83,6 +83,7 @@ GameEngineImage* GameEngineResources::ImageFind(const std::string_view& _Name)
 GameEngineSound* GameEngineResources::SoundLoad(const GameEnginePath& _Path)
 {
 	return SoundLoad(_Path.GetPathToString().c_str(), _Path.GetFileName().c_str());
+	int a = 0;
 }
 
 GameEngineSound* GameEngineResources::SoundLoad(const std::string_view& _Path, const std::string_view& _Name)

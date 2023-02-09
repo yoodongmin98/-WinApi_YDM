@@ -22,10 +22,22 @@ IsaacIntro::~IsaacIntro()
 }
 
 const float IsaacIntro::AllAnimeTime = 72.f; //추후애니메이션시간을 더할예정
+void  IsaacIntro::SoundLoad()
+{
+	GameEngineDirectory Dir;
+	Dir.MoveParentToDirectory("ContentsResources");
+	Dir.Move("ContentsResources");
+	Dir.Move("Sound");
+	{
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Appear.wav"));
+	}
+	GameEngineResources::GetInst().SoundPlay("Appear.wav");
+}
 
 
 void IsaacIntro::Loading()
 {
+	SoundLoad();
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");

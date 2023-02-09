@@ -68,6 +68,8 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	void SoundLoad();
+	void ImageLoad();
 	//Before Intro
 	GameEngineRender* Black = nullptr;
 	GameEngineRender* FirstPaper = nullptr;
