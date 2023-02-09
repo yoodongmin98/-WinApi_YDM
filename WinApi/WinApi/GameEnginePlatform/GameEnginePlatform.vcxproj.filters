@@ -8,6 +8,30 @@
     <ClInclude Include="GameEngineInput.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod.hpp">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod_codec.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod_common.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod_dsp.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod_dsp_effects.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod_errors.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\FMOD\inc\fmod_output.h">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineWindow.cpp" />
@@ -25,5 +49,42 @@
     <Filter Include="Input">
       <UniqueIdentifier>{ce6b1d63-9200-4a26-8532-7b97964ae652}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{6d2e3962-5c44-4368-a568-dcefe4ad7f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FMOD">
+      <UniqueIdentifier>{f67468ff-a796-46eb-ba30-c979766364d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FMOD\Header">
+      <UniqueIdentifier>{3c7a2fe5-dc1c-4f7c-9319-a4ef5a889022}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\FMOD\Bin">
+      <UniqueIdentifier>{acab2980-6911-46ec-8cae-93c5e9ba197b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ThirdParty\FMOD\inc\fmod.cs">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </None>
+    <None Include="ThirdParty\FMOD\inc\fmod_dsp.cs">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </None>
+    <None Include="ThirdParty\FMOD\inc\fmod_errors.cs">
+      <Filter>ThirdParty\FMOD\Header</Filter>
+    </None>
+    <None Include="ThirdParty\FMOD\lib\x64\fmod.dll">
+      <Filter>ThirdParty\FMOD\Bin</Filter>
+    </None>
+    <None Include="ThirdParty\FMOD\lib\x64\fmodL.dll">
+      <Filter>ThirdParty\FMOD\Bin</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ThirdParty\FMOD\lib\x64\fmod_vc.lib">
+      <Filter>ThirdParty\FMOD\Bin</Filter>
+    </Library>
+    <Library Include="ThirdParty\FMOD\lib\x64\fmodL_vc.lib">
+      <Filter>ThirdParty\FMOD\Bin</Filter>
+    </Library>
   </ItemGroup>
 </Project>

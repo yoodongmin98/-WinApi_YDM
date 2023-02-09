@@ -22,6 +22,7 @@ public:
 	Isaac& operator=(Isaac&& _Other) noexcept = delete;
 
 	void Movecalculation(float _DeltaTime);
+	
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -37,6 +38,7 @@ private:
 	IsaacState StateValue = IsaacState::IDLE;
 
 	GameEngineRender* Head = nullptr;
+	GameEngineRender* Bomb = nullptr;
 	
 
 	void DirCheck(const std::string_view& _AnimationName);

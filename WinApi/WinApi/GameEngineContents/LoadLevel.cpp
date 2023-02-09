@@ -1,6 +1,6 @@
 #include "LoadLevel.h"
 
-#include "AllBack.h";
+#include "AllBack.h"
 #include "IsaacEnum.h"
 
 #include <GameEngineBase/GameEngineDirectory.h>

@@ -30,5 +30,6 @@ protected:
 	// 화면에 그려지는 기능들을 여기서 처리
 	void Render(float _DeltaTime) override;
 private:
+	GameEngineRender* Bomb = nullptr;
 };
 
