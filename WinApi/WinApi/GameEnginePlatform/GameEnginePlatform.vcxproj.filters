@@ -2,11 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="GameEngineWindow.h" />
-    <ClInclude Include="GameEngineImage.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="GameEngineInput.h">
       <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineImage.h">
+      <Filter>Resources\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineSound.h">
+      <Filter>Resources\Sound</Filter>
     </ClInclude>
     <ClInclude Include="ThirdParty\FMOD\inc\fmod.h">
       <Filter>ThirdParty\FMOD\Header</Filter>
@@ -35,11 +38,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEngineWindow.cpp" />
-    <ClCompile Include="GameEngineImage.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
     <ClCompile Include="GameEngineInput.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineImage.cpp">
+      <Filter>Resources\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineSound.cpp">
+      <Filter>Resources\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +67,12 @@
     <Filter Include="ThirdParty\FMOD\Bin">
       <UniqueIdentifier>{acab2980-6911-46ec-8cae-93c5e9ba197b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\Image">
+      <UniqueIdentifier>{267bf2c8-887d-4e9c-8460-b8bd75b3e3b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Sound">
+      <UniqueIdentifier>{9ac735b0-ffeb-462b-bf2f-546951e56db2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ThirdParty\FMOD\inc\fmod.cs">
@@ -72,12 +84,6 @@
     <None Include="ThirdParty\FMOD\inc\fmod_errors.cs">
       <Filter>ThirdParty\FMOD\Header</Filter>
     </None>
-    <None Include="ThirdParty\FMOD\lib\x64\fmod.dll">
-      <Filter>ThirdParty\FMOD\Bin</Filter>
-    </None>
-    <None Include="ThirdParty\FMOD\lib\x64\fmodL.dll">
-      <Filter>ThirdParty\FMOD\Bin</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="ThirdParty\FMOD\lib\x64\fmod_vc.lib">
@@ -86,5 +92,13 @@
     <Library Include="ThirdParty\FMOD\lib\x64\fmodL_vc.lib">
       <Filter>ThirdParty\FMOD\Bin</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="ThirdParty\FMOD\lib\x64\fmod.dll">
+      <Filter>ThirdParty\FMOD\Bin</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="ThirdParty\FMOD\lib\x64\fmodL.dll">
+      <Filter>ThirdParty\FMOD\Bin</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
