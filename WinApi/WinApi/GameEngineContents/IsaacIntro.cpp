@@ -29,9 +29,10 @@ void  IsaacIntro::SoundLoad()
 	Dir.Move("ContentsResources");
 	Dir.Move("Sound");
 	{
-		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Appear.wav"));
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("introvoiceover.ogg"));
 	}
-	GameEngineResources::GetInst().SoundPlay("Appear.wav");
+	GameEngineResources::GetInst().SoundPlay("introvoiceover.ogg");
+	
 }
 
 
