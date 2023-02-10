@@ -55,7 +55,7 @@ protected:
 
 		return _Titlename;
 	}
-	
+	GameEngineSoundPlayer TITLEBGMPLAYER;
 private:
 	
 	GameEngineRender* Logo = nullptr;
@@ -107,6 +107,6 @@ private:
 
 
 	
-	GameEngineSoundPlayer TITLEBGMPLAYER;
+	
 };
 
