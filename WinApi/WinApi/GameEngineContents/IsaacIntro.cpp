@@ -223,7 +223,7 @@ void IsaacIntro::Update(float _DeltaTime)
 		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 		INTROBGMPLAYER.Stop();
 		TITLEBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
-		TITLEBGMPLAYER.Volume(0.05);
+		TITLEBGMPLAYER.Volume(0.05f);
 
 	}
 
