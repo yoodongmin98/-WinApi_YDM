@@ -27,7 +27,7 @@ TitleLevel::~TitleLevel()
 
 void TitleLevel::SoundLoad()
 {
-	/*GameEngineDirectory Dir;
+	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
 	Dir.Move("Sound");
@@ -38,7 +38,8 @@ void TitleLevel::SoundLoad()
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("bookpageturn.wav"));
 		
 	}
-	GameEngineResources::GetInst().SoundPlay("regenesis.ogg");*/
+	GameEngineResources::GetInst().SoundPlay("regenesis.ogg");
+	TITLEBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
 }
 
 void TitleLevel::Loading()
@@ -286,6 +287,7 @@ void TitleLevel::Update(float _DeltaTime)
 			if (true == GameEngineInput::IsDown("NextLevel"))
 			{
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
+				TITLEBGMPLAYER.Stop();
 			
 			}
 		}	

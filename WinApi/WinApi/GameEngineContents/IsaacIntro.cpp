@@ -5,6 +5,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineCore.h>
 #include <GameEngineCore/GameEngineActor.cpp>
+#include <GameEnginePlatform/GameEngineSound.h>
 
 
 #include "AllBack.h"
@@ -32,6 +33,7 @@ void  IsaacIntro::SoundLoad()
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("introvoiceover.ogg"));
 	}
 	GameEngineResources::GetInst().SoundPlay("introvoiceover.ogg");
+	INTROBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("Appear.wav");
 	
 }
 
@@ -218,6 +220,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	if (AllAnimeTime <NowTime || true == GameEngineInput::IsDown("NextLevel"))
 	{
 		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
+		INTROBGMPLAYER.Stop();
 	}
 
 	
