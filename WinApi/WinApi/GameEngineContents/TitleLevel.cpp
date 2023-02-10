@@ -27,7 +27,7 @@ TitleLevel::~TitleLevel()
 
 void TitleLevel::SoundLoad()
 {
-	GameEngineDirectory Dir;
+	/*GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
 	Dir.Move("Sound");
@@ -38,12 +38,12 @@ void TitleLevel::SoundLoad()
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("bookpageturn.wav"));
 		
 	}
-	GameEngineResources::GetInst().SoundPlay("regenesis.ogg");
+	GameEngineResources::GetInst().SoundPlay("regenesis.ogg");*/
 }
 
 void TitleLevel::Loading()
 {
-	SoundLoad();
+	//SoundLoad();
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
@@ -219,7 +219,7 @@ bool Selectnone = false;
 
 void TitleLevel::Update(float _DeltaTime)
 {
-	if (true==GameEngineInput::IsDown("TitleScrollRightDown")&&
+	/*if (true==GameEngineInput::IsDown("TitleScrollRightDown")&&
 		true == GameEngineInput::IsDown("TitleScrollLeftUp")&&
 		true == GameEngineInput::IsDown("TitleScrollUp")&&
 		true == GameEngineInput::IsDown("TitleScrollDown"))
@@ -232,7 +232,7 @@ void TitleLevel::Update(float _DeltaTime)
 		true == GameEngineInput::IsDown("Selectdown"))
 	{
 		GameEngineResources::GetInst().SoundPlay("characterselectright.wav");
-	}
+	}*/
 	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
 	SetCameraPos(Pos);
 	if (Time >= 1.0f)
