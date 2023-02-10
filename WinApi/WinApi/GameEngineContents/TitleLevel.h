@@ -21,6 +21,7 @@ public:
 	TitleLevel operator=(TitleLevel&& _Other) = delete;
 	TitleLevel operator=(const TitleLevel& _Other) noexcept= delete;
 
+	void SoundLoad();
 	
 protected:
 
