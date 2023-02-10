@@ -2,6 +2,7 @@
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineRender.h>
 #include "AllBack.h"
+#include <GameEngineCore/GameEngineResources.h>
 
 enum class TitleOrder
 {
@@ -55,6 +56,7 @@ protected:
 
 		return _Titlename;
 	}
+	
 	GameEngineSoundPlayer TITLEBGMPLAYER;
 private:
 	

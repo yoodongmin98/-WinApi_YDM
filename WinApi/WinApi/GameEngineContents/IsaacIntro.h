@@ -2,6 +2,7 @@
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineRender.h>
 #include "AllBack.h"
+#include <GameEngineCore/GameEngineResources.h>
 
 enum class IntroOrder
 {
@@ -67,6 +68,7 @@ protected:
 	void LevelChangeEnd(GameEngineLevel* _NextLevel) override {}
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 	GameEngineSoundPlayer INTROBGMPLAYER;
+	GameEngineSoundPlayer TITLEBGMPLAYER;
 private:
 	void SoundLoad();
 	void ImageLoad();

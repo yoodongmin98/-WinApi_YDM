@@ -83,7 +83,6 @@ GameEngineImage* GameEngineResources::ImageFind(const std::string_view& _Name)
 GameEngineSound* GameEngineResources::SoundLoad(const GameEnginePath& _Path)
 {
 	return SoundLoad(_Path.GetPathToString().c_str(), _Path.GetFileName().c_str());
-	int a = 0;
 }
 
 GameEngineSound* GameEngineResources::SoundLoad(const std::string_view& _Path, const std::string_view& _Name)
@@ -168,4 +167,31 @@ void GameEngineSoundPlayer::Volume(float _Volume)
 	}
 
 	ControlChannel->setVolume(_Volume);
+}
+
+void GameEngineSoundPlayer::PauseOn()
+{
+	if (nullptr == ControlChannel)
+	{
+		MsgAssert("재생하지도 않은 사운드를 컨트롤하겠다고 했습니다.");
+	}
+
+	ControlChannel->setPaused(true);
+}
+
+void GameEngineSoundPlayer::PauseOff()
+{
+	if (nullptr == ControlChannel)
+	{
+		MsgAssert("재생하지도 않은 사운드를 컨트롤하겠다고 했습니다.");
+	}
+
+	ControlChannel->setPaused(false);
+}
+
+bool GameEngineSoundPlayer::GetPause()
+{
+	bool PauseValue = false;
+	ControlChannel->getPaused(&PauseValue);
+	return PauseValue;
 }

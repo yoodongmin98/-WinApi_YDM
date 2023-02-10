@@ -32,19 +32,19 @@ void TitleLevel::SoundLoad()
 	Dir.Move("ContentsResources");
 	Dir.Move("Sound");
 	{
-		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("regenesis.ogg"));
+		//GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("regenesis.ogg"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("characterselectleft.wav"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("characterselectright.wav"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("bookpageturn.wav"));
 		
 	}
-	GameEngineResources::GetInst().SoundPlay("regenesis.ogg");
-	TITLEBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
+	//TITLEBGMPLAYER= GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
 }
 
 void TitleLevel::Loading()
 {
-	//SoundLoad();
+	SoundLoad();
+
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
@@ -201,8 +201,6 @@ void TitleLevel::Loading()
 		GameEngineInput::CreateKey("Selectleft", VK_LEFT);
 		GameEngineInput::CreateKey("Selectright", VK_RIGHT);
 
-		GameEngineInput::CreateKey("IsaacSelectleft", VK_LEFT);
-		GameEngineInput::CreateKey("IsaacSelectright", VK_RIGHT);
 		
 
 	}
@@ -220,20 +218,24 @@ bool Selectnone = false;
 
 void TitleLevel::Update(float _DeltaTime)
 {
-	/*if (true==GameEngineInput::IsDown("TitleScrollRightDown")&&
-		true == GameEngineInput::IsDown("TitleScrollLeftUp")&&
-		true == GameEngineInput::IsDown("TitleScrollUp")&&
-		true == GameEngineInput::IsDown("TitleScrollDown"))
+	
+	/*
+	if (GameEngineInput::IsDown("TitleScrollRightDown")&&
+		GameEngineInput::IsDown("TitleScrollLeftUp")&&
+		GameEngineInput::IsDown("TitleScrollUp")&&
+		GameEngineInput::IsDown("TitleScrollDown"))
 	{
-		GameEngineResources::GetInst().SoundPlay("bookpageturn.wav");
+		PAGESOUND= GameEngineResources::GetInst().SoundPlayToControl("bookpageturn.wav");
+		PAGESOUND.Volume(100);
 	}
 	if (true == GameEngineInput::IsDown("Selectleft")&&
 		true == GameEngineInput::IsDown("Selectright")&&
 		true == GameEngineInput::IsDown("Selectup")&&
 		true == GameEngineInput::IsDown("Selectdown"))
 	{
-		GameEngineResources::GetInst().SoundPlay("characterselectright.wav");
+		GameEngineResources::GetInst().SoundPlayToControl("characterselectright.wav");
 	}*/
+
 	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
 	SetCameraPos(Pos);
 	if (Time >= 1.0f)
@@ -287,7 +289,6 @@ void TitleLevel::Update(float _DeltaTime)
 			if (true == GameEngineInput::IsDown("NextLevel"))
 			{
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
-				TITLEBGMPLAYER.Stop();
 			
 			}
 		}	

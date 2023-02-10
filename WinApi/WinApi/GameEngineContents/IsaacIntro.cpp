@@ -22,7 +22,7 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::AllAnimeTime = 72.f; //추후애니메이션시간을 더할예정
+const float IsaacIntro::AllAnimeTime = 74.f; //추후애니메이션시간을 더할예정
 void  IsaacIntro::SoundLoad()
 {
 	GameEngineDirectory Dir;
@@ -31,9 +31,10 @@ void  IsaacIntro::SoundLoad()
 	Dir.Move("Sound");
 	{
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("introvoiceover.ogg"));
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("regenesis.ogg"));
 	}
-	GameEngineResources::GetInst().SoundPlay("introvoiceover.ogg");
-	INTROBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("Appear.wav");
+	
+	INTROBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("introvoiceover.ogg");
 	
 }
 
@@ -218,13 +219,16 @@ void IsaacIntro::Update(float _DeltaTime)
 		GameEngineInput::CreateKey("NextLevel", VK_SPACE);
 	}
 	if (AllAnimeTime <NowTime || true == GameEngineInput::IsDown("NextLevel"))
-	{
+	{ 
 		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 		INTROBGMPLAYER.Stop();
+		TITLEBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
+		TITLEBGMPLAYER.Volume(0.05);
+
 	}
 
 	
-	if (6.5f < NowTime )
+	if (6.0f < NowTime )
 	{
 		float4 FirstPaperPos = FirstPaper->GetPosition();
 		FirstPaperPos += float4::Left * 3.f * NowTime;
@@ -242,58 +246,73 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOff(Human, 3.4f);
 	
 	NextintroRenderOn(Made, 4.5f);
-	NextintroRenderOff(Made, 6.0f);
+	NextintroRenderOff(Made, 5.5f);
 
 	NextintroRenderOn(Nicalis, 4.5f);
-	NextintroRenderOff(Nicalis, 6.0f);
+	NextintroRenderOff(Nicalis, 5.5f);
 	
 	////////////////여기서부터 음악(배경 나레이션)에 따라 시간조정해야하는 부분////////////////////
 
-	NextintroRenderOn(Isaac, 9.0f);
-	NextintroRenderOff(Isaac, 12.0f);
+	NextintroRenderOn(Isaac, 7.5f);
+	NextintroRenderOff(Isaac, 10.f);
 
-	NextintroRenderOn(Mother, 9.5f);
-	NextintroRenderOff(Mother, 12.0f);
-	
+	NextintroRenderOn(Mother, 8.0f);
+	NextintroRenderOff(Mother, 10.f);
+	 
 	////////intro animation//////////
-	NextintroRenderOn(Intro_1, 7.5f); 
-	NextintroRenderOff(Intro_1, 12.f);
- 	NextintroRenderOn(Intro_2, 12.f);
-	NextintroRenderOff(Intro_2,16.f);
-	NextintroRenderOn(Intro_3, 16.f);
-	NextintroRenderOff(Intro_3, 20.f);
-	NextintroRenderOn(Intro_4, 20.f);
-	NextintroRenderOff(Intro_4, 24.f);
-	NextintroRenderOn(Intro_5, 24.f);
-	NextintroRenderOff(Intro_5, 28.f);
-	NextintroRenderOn(Intro_6, 28.f);
-	NextintroRenderOff(Intro_6, 32.f);
-	NextintroRenderOn(Intro_7, 32.f);
-	NextintroRenderOff(Intro_7, 36.f);
-	NextintroRenderOn(Intro_8, 36.f);
-	NextintroRenderOff(Intro_8, 40.f);
-	NextintroRenderOn(Intro_9, 40.f);
-	NextintroRenderOff(Intro_9, 44.f);
-	NextintroRenderOn(Intro_10, 44.f);
-	NextintroRenderOff(Intro_10, 48.f);									
-	NextintroRenderOn(Intro_11, 48.0f);  //intro11=3.3animation time      
-	NextintroRenderOff(Intro_11, 50.2f);
-	NextintroRenderOn(Intro_12, 50.2f);
-	NextintroRenderOff(Intro_12, 54.0f);
-	NextintroRenderOn(Intro_13, 54.0f);
-	NextintroRenderOff(Intro_13, 57.0f);
-	NextintroRenderOn(Intro_7, 57.0f);
-	NextintroRenderOff(Intro_7, 60.0f);
-	NextintroRenderOn(Intro_8, 60.0f);
-	NextintroRenderOff(Intro_8, 64.0f);
-	NextintroRenderOn(Door1, 64.0f);
-	NextintroRenderOff(Door1, 66.f);
-	NextintroRenderOn(Intro_14, 66.0f);
-	NextintroRenderOff(Intro_14, 66.18f);
-	NextintroRenderOn(Door2, 66.18f);
-	NextintroRenderOff(Door2, 67.f);
-	NextintroRenderOn(Intro_15, 67.f);
-	NextintroRenderOff(Intro_15, 72.0f);
+	NextintroRenderOn(Intro_1, 6.5f); //Isaac mom
+	NextintroRenderOff(Intro_1, 10.f);
+
+ 	NextintroRenderOn(Intro_2, 10.f);//house
+	NextintroRenderOff(Intro_2,13.f);
+
+	NextintroRenderOn(Intro_3, 13.f);//little isaac
+	NextintroRenderOff(Intro_3, 18.f);
+
+	NextintroRenderOn(Intro_4, 18.f);//tv mom
+	NextintroRenderOff(Intro_4, 22.f);
+
+	NextintroRenderOn(Intro_5, 22.f);//isaac mom
+	NextintroRenderOff(Intro_5, 31.f);
+
+	NextintroRenderOn(Intro_6, 31.f);//voice stop
+	NextintroRenderOff(Intro_6, 33.f);
+
+	NextintroRenderOn(Intro_7, 33.f);//voice
+	NextintroRenderOff(Intro_7, 40.f);
+	 
+	NextintroRenderOn(Intro_8, 40.f);//answer
+	NextintroRenderOff(Intro_8, 43.f);
+
+	NextintroRenderOn(Intro_9, 43.f);// alone Isaac
+	NextintroRenderOff(Intro_9, 45.f);
+
+	NextintroRenderOn(Intro_10, 45.f);
+	NextintroRenderOff(Intro_10, 47.f);	
+
+	NextintroRenderOn(Intro_11, 47.0f);  //intro11=3.3animation time      
+	NextintroRenderOff(Intro_11, 49.1f);
+
+	NextintroRenderOn(Intro_12, 49.1f);
+	NextintroRenderOff(Intro_12, 50.0f);
+
+	NextintroRenderOn(Intro_13, 50.0f);
+	NextintroRenderOff(Intro_13, 54.0f);
+
+
+	NextintroRenderOn(Intro_7, 54.0f);
+	NextintroRenderOff(Intro_7, 63.0f);
+	NextintroRenderOn(Intro_8, 63.0f);
+	NextintroRenderOff(Intro_8, 68.0f);
+
+	NextintroRenderOn(Door1, 68.0f);
+	NextintroRenderOff(Door1, 69.f);
+	NextintroRenderOn(Intro_14, 69.0f);
+	NextintroRenderOff(Intro_14, 69.18f);
+	NextintroRenderOn(Door2, 69.18f);
+	NextintroRenderOff(Door2, 71.0f);
+	NextintroRenderOn(Intro_15, 71.0f);
+	NextintroRenderOff(Intro_15, 74.0f);
 
 	
 }
