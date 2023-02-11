@@ -24,22 +24,29 @@ LoadLevel::~LoadLevel()
 {
 
 }
+///////////////////////////사운드관련///////////////////
+//void LoadLevel::SoundLoad()
+//{
+//	GameEngineDirectory Dir;
+//	Dir.MoveParentToDirectory("ContentsResources");
+//	Dir.Move("ContentsResources");
+//	Dir.Move("Sound");
+//	{
+//		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Loading.ogg"));
+//	}	
+//}
+//void LoadLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
+//{
+//	LODINGSOUND = GameEngineResources::GetInst().SoundPlayToControl("Loading.ogg");
+//	LODINGSOUND.LoopCount(1);
+//	LODINGSOUND.Volume(0.2);
+//}
 
-void LoadLevel::SoundLoad()
-{
-	GameEngineDirectory Dir;
-	Dir.MoveParentToDirectory("ContentsResources");
-	Dir.Move("ContentsResources");
-	Dir.Move("Sound");
-	{
-		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Loading.ogg"));
-	}
-	
+//////////////////////////////////////////////////////
 
-}
 void LoadLevel::Loading()
 {
-	SoundLoad();
+	//SoundLoad();
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
@@ -63,10 +70,4 @@ void LoadLevel::Update(float _DeltaTime)
 	{
 		GameEngineCore::GetInst()->ChangeLevel("PlayIsaac");
 	}
-}
-void LoadLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
-{
-	LODINGSOUND= GameEngineResources::GetInst().SoundPlayToControl("Loading.ogg");
-	LODINGSOUND.LoopCount(1);
-	LODINGSOUND.Volume(0.2);
 }

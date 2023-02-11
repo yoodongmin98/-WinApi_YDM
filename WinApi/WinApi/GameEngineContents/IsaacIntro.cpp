@@ -23,25 +23,26 @@ IsaacIntro::~IsaacIntro()
 }
 
 const float IsaacIntro::AllAnimeTime = 75.f; //추후애니메이션시간을 더할예정
-void  IsaacIntro::SoundLoad()
-{
-	GameEngineDirectory Dir;
-	Dir.MoveParentToDirectory("ContentsResources");
-	Dir.Move("ContentsResources");
-	Dir.Move("Sound");
-	{
-		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("introvoiceover.ogg"));
-		
-	}
-	
-	INTROBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("introvoiceover.ogg");
-	
-}
+//void  IsaacIntro::SoundLoad()
+//{
+//	GameEngineDirectory Dir;
+//	Dir.MoveParentToDirectory("ContentsResources");
+//	Dir.Move("ContentsResources");
+//	Dir.Move("Sound");
+//	{
+//		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("introvoiceover.ogg"));
+//		
+//	}
+//	
+//	INTROBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("introvoiceover.ogg");
+//	INTROBGMPLAYER.Volume(0.5);
+//	
+//}
 
 
 void IsaacIntro::Loading()
 {
-	SoundLoad();
+	//SoundLoad();
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
@@ -221,7 +222,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	if (AllAnimeTime <NowTime || true == GameEngineInput::IsDown("NextLevel"))
 	{ 
 		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
-		INTROBGMPLAYER.Stop();
+		//INTROBGMPLAYER.Stop();
 		
 
 	}
@@ -296,10 +297,10 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOff(Intro_12, 50.0f);
 
 	NextintroRenderOn(Intro_13, 50.0f);
-	NextintroRenderOff(Intro_13, 54.0f);
+	NextintroRenderOff(Intro_13, 53.5f);
 
 
-	NextintroRenderOn(Intro_7, 54.0f);
+	NextintroRenderOn(Intro_7, 53.5f);
 	NextintroRenderOff(Intro_7, 63.0f);
 	NextintroRenderOn(Intro_8, 63.0f);
 	NextintroRenderOff(Intro_8, 68.0f);
@@ -311,7 +312,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOn(Door2, 69.18f);
 	NextintroRenderOff(Door2, 71.0f);
 	NextintroRenderOn(Intro_15, 71.0f);
-	NextintroRenderOff(Intro_15, 75.0f);
+	NextintroRenderOff(Intro_15, 76.0f);
 
 	
 }
