@@ -32,19 +32,19 @@ void TitleLevel::SoundLoad()
 	Dir.Move("ContentsResources");
 	Dir.Move("Sound");
 	{
-		//GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("regenesis.ogg"));
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("regenesis.ogg"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("characterselectleft.wav"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("characterselectright.wav"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("bookpageturn.wav"));
 		
 	}
-	//TITLEBGMPLAYER= GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
+	TITLEBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
+	TITLEBGMPLAYER.Volume(0.05f);
+	
 }
 
 void TitleLevel::Loading()
 {
-	SoundLoad();
-
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
@@ -201,7 +201,6 @@ void TitleLevel::Loading()
 		GameEngineInput::CreateKey("Selectleft", VK_LEFT);
 		GameEngineInput::CreateKey("Selectright", VK_RIGHT);
 
-		
 
 	}
 }
@@ -218,24 +217,6 @@ bool Selectnone = false;
 
 void TitleLevel::Update(float _DeltaTime)
 {
-	
-	/*
-	if (GameEngineInput::IsDown("TitleScrollRightDown")&&
-		GameEngineInput::IsDown("TitleScrollLeftUp")&&
-		GameEngineInput::IsDown("TitleScrollUp")&&
-		GameEngineInput::IsDown("TitleScrollDown"))
-	{
-		PAGESOUND= GameEngineResources::GetInst().SoundPlayToControl("bookpageturn.wav");
-		PAGESOUND.Volume(100);
-	}
-	if (true == GameEngineInput::IsDown("Selectleft")&&
-		true == GameEngineInput::IsDown("Selectright")&&
-		true == GameEngineInput::IsDown("Selectup")&&
-		true == GameEngineInput::IsDown("Selectdown"))
-	{
-		GameEngineResources::GetInst().SoundPlayToControl("characterselectright.wav");
-	}*/
-
 	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
 	SetCameraPos(Pos);
 	if (Time >= 1.0f)
@@ -248,12 +229,14 @@ void TitleLevel::Update(float _DeltaTime)
 	{
 		if (true == GameEngineInput::IsDown("TitleScrollRightDown")&& 100<=CursorPos.y)
 		{
+			PageSound();
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(GameEngineWindow::GetScreenSize().x, GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
 		}
 		else if (true == GameEngineInput::IsDown("TitleScrollLeftUp")&& Pos.x> ChapterSettingXvalue)
 		{
+			PageSound();
 			CursorSet();
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(-GameEngineWindow::GetScreenSize().x, -GameEngineWindow::GetScreenSize().y);
@@ -262,6 +245,7 @@ void TitleLevel::Update(float _DeltaTime)
 		}
 		else if (true == GameEngineInput::IsDown("TitleScrollUp") && Pos.x< ChapterSettingXvalue &&Pos.y>100)
 		{
+			PageSound();
 			CursorSet();
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(0.0f, -GameEngineWindow::GetScreenSize().y);
@@ -269,7 +253,7 @@ void TitleLevel::Update(float _DeltaTime)
 		}
 		else if (true == GameEngineInput::IsDown("TitleScrollDown") && Pos.x < ChapterSettingXvalue)
 		{
-			
+			PageSound();
 			CursorSet();
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(0.0f, GameEngineWindow::GetScreenSize().y);
@@ -297,13 +281,16 @@ void TitleLevel::Update(float _DeltaTime)
 	//Right
 	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true==FirstPaper)
 	{
+		RightSound();
 		Isaac_File1->Off();
 		Isaac_File2->On();
 		FirstPaper = false;
 		SecondPaper = true;
+
 	}
 	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true == SecondPaper)
 	{
+		RightSound();
 		Isaac_File2->Off();
 		Isaac_File3->On();
 		SecondPaper = false;
@@ -312,21 +299,26 @@ void TitleLevel::Update(float _DeltaTime)
 	//Left
 	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true == SecondPaper)
 	{
+		RightSound();
 		Isaac_File1->On();
 		Isaac_File2->Off();
 		FirstPaper = true;
 		SecondPaper = false;	
+		
 	}
 	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter2MinYvalue && Pos.y < Chapter2MaxYvalue && true==ThirdPaper)
 	{
+		RightSound();
 		Isaac_File2->On();
 		Isaac_File3->Off();
 		SecondPaper = true;
 		ThirdPaper = false;
+		
 	}
 	////////////////////////////////////////////////////////////////////////Chapter3 key////////////////
 	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y> Chapter2MaxYvalue && Pos.y < Chapter3MaxYvalue)
 	{
+		RightSound();
 		CursorPosSet();
 		Cursor->On();
 		Cursor2->Off();
@@ -334,6 +326,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
  	if (true == GameEngineInput::IsDown("Selectdown") && Pos.y > Chapter2MaxYvalue &&Pos.y< Chapter3MaxYvalue)
 	{
+		RightSound();
 		CursorPosSet();
 		Cursor->Off();
 		Cursor2->On();
@@ -345,6 +338,7 @@ void TitleLevel::Update(float _DeltaTime)
 	/////Right
 	if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && true == SelectIsaac)
 	{
+		RightSound();
 		Isaacselect1->Off();
 		Isaacselect2->On();
 		SelectIsaac = false;
@@ -352,6 +346,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue&& true == SelectMacdalena)
 	{
+		RightSound();
 		Isaacselect2->Off();
 		Isaacselect3->On();
 		SelectMacdalena = false;
@@ -359,6 +354,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && true == SelectKain)
 	{
+		RightSound();
 		Isaacselect3->Off();
 		Isaacselect4->On();
 		SelectKain = false;
@@ -366,6 +362,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	else if (true == GameEngineInput::IsDown("Selectright") && Pos.y > Chapter3MaxYvalue && true == Selectnone)
 	{
+		RightSound();
 		Isaacselect4->Off();
 		Isaacselect1->On();
 		Selectnone = false;
@@ -374,6 +371,7 @@ void TitleLevel::Update(float _DeltaTime)
 	/////Left
 	if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == SelectIsaac)
 	{
+		LeftSound();
 		Isaacselect1->Off();
 		Isaacselect4->On();
 		SelectIsaac = false;
@@ -381,6 +379,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == SelectMacdalena)
 	{
+		LeftSound();
 		Isaacselect2->Off();
 		Isaacselect1->On();
 		SelectMacdalena = false;
@@ -388,6 +387,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == SelectKain)
 	{
+		LeftSound();
 		Isaacselect3->Off();
 		Isaacselect2->On();
 		SelectKain = false;
@@ -395,6 +395,7 @@ void TitleLevel::Update(float _DeltaTime)
 	}
 	else if (true == GameEngineInput::IsDown("Selectleft") && Pos.y > Chapter3MaxYvalue && true == Selectnone)
 	{
+		LeftSound();
 		Isaacselect4->Off();
 		Isaacselect3->On();
 		Selectnone = false;
@@ -499,4 +500,32 @@ float4 TitleLevel::CursorPosSet()
 	CursorPos = float4::Zero;
 	return CursorPos;
 }
+
+void TitleLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
+{
+	SoundLoad();
+}
+void TitleLevel::LevelChangeEnd(GameEngineLevel* _PrevLevel)
+{
+	TITLEBGMPLAYER.Stop();
+}
+void TitleLevel::RightSound()
+{
+	SELECTRIGHT = GameEngineResources::GetInst().SoundPlayToControl("characterselectright.wav");
+	SELECTRIGHT.LoopCount(1);
+	SELECTRIGHT.Volume(0.2);
+}
+void TitleLevel::LeftSound()
+{
+	SELECTLEFT = GameEngineResources::GetInst().SoundPlayToControl("characterselectleft.wav");
+	SELECTLEFT.LoopCount(1);
+	SELECTLEFT.Volume(0.2);
+}
+void TitleLevel::PageSound()
+{
+	PAGESOUND= GameEngineResources::GetInst().SoundPlayToControl("bookpageturn.wav");
+	PAGESOUND.LoopCount(1);
+	PAGESOUND.Volume(0.2);
+}
+
 

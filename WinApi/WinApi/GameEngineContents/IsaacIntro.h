@@ -68,7 +68,7 @@ protected:
 	void LevelChangeEnd(GameEngineLevel* _NextLevel) override {}
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 	GameEngineSoundPlayer INTROBGMPLAYER;
-	GameEngineSoundPlayer TITLEBGMPLAYER;
+	
 private:
 	void SoundLoad();
 	void ImageLoad();

@@ -10,7 +10,10 @@
 
 
 #include <GameEngineCore/GameEngineCore.h>
-#include <GameEngineCore/GameEngineResources.h>
+
+
+
+
 
 
 LoadLevel::LoadLevel()
@@ -22,8 +25,21 @@ LoadLevel::~LoadLevel()
 
 }
 
+void LoadLevel::SoundLoad()
+{
+	GameEngineDirectory Dir;
+	Dir.MoveParentToDirectory("ContentsResources");
+	Dir.Move("ContentsResources");
+	Dir.Move("Sound");
+	{
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Loading.ogg"));
+	}
+	
+
+}
 void LoadLevel::Loading()
 {
+	SoundLoad();
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");
@@ -40,10 +56,17 @@ void LoadLevel::Loading()
 }
 void LoadLevel::Update(float _DeltaTime)
 {
+	
 	NowTime += _DeltaTime;
 
 	if (NextLevelTime < NowTime)
 	{
 		GameEngineCore::GetInst()->ChangeLevel("PlayIsaac");
 	}
+}
+void LoadLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
+{
+	LODINGSOUND= GameEngineResources::GetInst().SoundPlayToControl("Loading.ogg");
+	LODINGSOUND.LoopCount(1);
+	LODINGSOUND.Volume(0.2);
 }

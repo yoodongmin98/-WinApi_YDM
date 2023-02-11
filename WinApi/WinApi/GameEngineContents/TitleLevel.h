@@ -21,22 +21,26 @@ public:
 	TitleLevel(TitleLevel&& _Other)noexcept = delete;
 	TitleLevel operator=(TitleLevel&& _Other) = delete;
 	TitleLevel operator=(const TitleLevel& _Other) noexcept= delete;
-
+	//사운드 로드함수
 	void SoundLoad();
+	void RightSound();
+	void LeftSound();
+	void PageSound();
 	
 protected:
 
 	void Loading() override;
 	void Update(float _DeltaTime) override;
 
-	void LevelChangeEnd(GameEngineLevel* _NextLevel) override {}
-	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
+	void LevelChangeEnd(GameEngineLevel* _NextLevel) override;
+	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
 	
 
-	
+	//CursorPos값setting
 	void CursorSet();
 	float4 CursorPosSet();
 
+	//애니메이션 노가다방지ㅇㅅㅇ
 	GameEngineRender* MyTitleRender(const std::string_view& _Imagename,
 		const std::string_view& _Animename,
 		GameEngineRender* _Titlename)
@@ -58,6 +62,9 @@ protected:
 	}
 	
 	GameEngineSoundPlayer TITLEBGMPLAYER;
+	GameEngineSoundPlayer SELECTLEFT;
+	GameEngineSoundPlayer SELECTRIGHT;
+	GameEngineSoundPlayer PAGESOUND;
 private:
 	
 	GameEngineRender* Logo = nullptr;

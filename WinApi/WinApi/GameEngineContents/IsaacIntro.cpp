@@ -22,7 +22,7 @@ IsaacIntro::~IsaacIntro()
 {
 }
 
-const float IsaacIntro::AllAnimeTime = 74.f; //추후애니메이션시간을 더할예정
+const float IsaacIntro::AllAnimeTime = 75.f; //추후애니메이션시간을 더할예정
 void  IsaacIntro::SoundLoad()
 {
 	GameEngineDirectory Dir;
@@ -31,7 +31,7 @@ void  IsaacIntro::SoundLoad()
 	Dir.Move("Sound");
 	{
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("introvoiceover.ogg"));
-		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("regenesis.ogg"));
+		
 	}
 	
 	INTROBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("introvoiceover.ogg");
@@ -222,8 +222,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	{ 
 		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 		INTROBGMPLAYER.Stop();
-		TITLEBGMPLAYER=GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
-		TITLEBGMPLAYER.Volume(0.05f);
+		
 
 	}
 
@@ -312,7 +311,7 @@ void IsaacIntro::Update(float _DeltaTime)
 	NextintroRenderOn(Door2, 69.18f);
 	NextintroRenderOff(Door2, 71.0f);
 	NextintroRenderOn(Intro_15, 71.0f);
-	NextintroRenderOff(Intro_15, 74.0f);
+	NextintroRenderOff(Intro_15, 75.0f);
 
 	
 }
