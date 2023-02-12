@@ -36,10 +36,7 @@ void IsaacLevel::Loading()
 		head->Cut(10, 4);
 		GameEngineImage* Back = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround.BMP"));
 		GameEngineImage* Back_C = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
-		GameEngineImage* Monster = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Monster.BMP"));
-		Monster->Cut(2, 1);
-		GameEngineImage* MonsterD = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("MonsterDead.BMP"));
-		MonsterD->Cut(5, 3);
+		
 	}
 	// 액터 생성
 	{

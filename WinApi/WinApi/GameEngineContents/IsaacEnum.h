@@ -12,6 +12,8 @@ enum class IsaacOrder
 enum class IsaacCollisionOrder
 {
 	C_Player,
-	C_Monster
+	C_Monster,
+	C_PlayerAtt,
+	C_MonsterAtt
 
 };

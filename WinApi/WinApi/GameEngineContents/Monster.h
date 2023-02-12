@@ -14,7 +14,7 @@ public:
 	Monster(Monster&& _Other) noexcept = delete;
 	Monster& operator=(const Monster& _Other) = delete;
 	Monster& operator=(Monster&& _Other) noexcept = delete;
-
+	void ImageLoad();
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
