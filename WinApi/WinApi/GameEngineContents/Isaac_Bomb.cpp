@@ -25,20 +25,17 @@ void Isaac_Bomb::Start()
 	Dir.Move("Image");
 	Dir.Move("Play");
 
-	/*Bomb = CreateRender(IsaacOrder::Player);
-	Bomb->Off();
-		*/
-		
+	//Bomb = CreateRender(IsaacOrder::Player);
+	//Bomb->Off();
+	//	
+	//	
 	
 	
 }
 // 키입력을 받거나 인공지능을 점수를 계산하거나 하는 것들을 여기서 처리
 void Isaac_Bomb::Update(float _DeltaTime)
 {
-	/*if (true == GameEngineInput::IsKey("Bomb"))
-	{
-		Bomb->On();
-	}*/
+	
 }
 
 // 순서를 제어 함수를 한번 더실행하고 

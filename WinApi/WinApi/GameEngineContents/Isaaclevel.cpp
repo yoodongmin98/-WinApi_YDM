@@ -36,7 +36,7 @@ void IsaacLevel::Loading()
 		head->Cut(10, 4);
 		GameEngineImage* Back = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround.BMP"));
 		GameEngineImage* Back_C = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
-		//GameEngineImage* Bomb = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Tropy.BMP"));
+		GameEngineImage* Bomb = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Tropy.BMP"));
 	}
 	// 액터 생성
 	{

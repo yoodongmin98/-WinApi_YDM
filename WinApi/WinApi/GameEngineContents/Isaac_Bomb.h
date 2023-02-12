@@ -1,13 +1,6 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 
-
-
-
-
-
-
-
 class Isaac_Bomb : public GameEngineActor
 {
 public:
@@ -18,6 +11,8 @@ public:
 	Isaac_Bomb(Isaac_Bomb&& _Other)noexcept = delete;
 	Isaac_Bomb operator=(Isaac_Bomb&& _Other) = delete;
 	Isaac_Bomb operator=(const Isaac_Bomb& _Other) noexcept= delete;
+
+	
 protected:
 	void Start() override;
 
