@@ -77,7 +77,7 @@ private:
 	GameEngineRender* Isaac_File2 = nullptr;
 	GameEngineRender* Isaac_File3 = nullptr;
 	
-	float Time = 0.0f;
+	float T_Time = 0.0f;
 	float4 TitleStart = float4::Zero;
 	float4 TitleEnd = float4::Zero;
 

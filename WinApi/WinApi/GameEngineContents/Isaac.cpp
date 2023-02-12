@@ -59,20 +59,23 @@ void Isaac::Start()
 
 void Isaac::Update(float _DeltaTime)
 {
-	UpdateState(_DeltaTime);
-	Movecalculation(_DeltaTime);
-}
-
-void Isaac::Movecalculation(float _DeltaTime)
-{
-
 	if (false == GameEngineInput::IsPress("LeftMove") &&
 		false == GameEngineInput::IsPress("RightMove") &&
 		false == GameEngineInput::IsPress("DownMove") &&
 		false == GameEngineInput::IsPress("UpMove"))
 	{
-		MoveDir *= 0.01f;
+		MoveDir *= 0.0000000001f;
 	}
+	UpdateState(_DeltaTime);
+	//Movecalculation(_DeltaTime);
+	SetMove(MoveDir * _DeltaTime);
+}
+
+//¸Ê Ãæµ¹ °ü¸®
+void Isaac::Movecalculation(float _DeltaTime)
+{
+
+	
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
 	if (nullptr == ColImage)
 	{
@@ -92,7 +95,7 @@ void Isaac::Movecalculation(float _DeltaTime)
 	{
 		MoveDir = float4::Zero;
 	}
-	SetMove(MoveDir * _DeltaTime);
+	
 
 }
 

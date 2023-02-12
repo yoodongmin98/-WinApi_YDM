@@ -23,6 +23,10 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	float4 MapS = float4::Zero;
+	float4 MapE = float4::Zero;
+	float P_Time = 0.0f;
 
+	float MapMaxXvalue = 1050.f;
 };
 

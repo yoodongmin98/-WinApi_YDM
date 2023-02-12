@@ -199,12 +199,12 @@ bool Selectnone = false;
 
 void TitleLevel::Update(float _DeltaTime)
 {
-	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, Time);
+	float4 Pos = float4::LerpClamp(TitleStart, TitleEnd, T_Time);
 	SetCameraPos(Pos);
-	if (Time >= 1.0f)
+	if (T_Time >= 1.0f)
 	{
 		Scroll = false;
-		Time = 0.0f;
+		T_Time = 0.0f;
 		TitleStart = Pos;
 	}
 	if (false == Scroll)
@@ -249,7 +249,7 @@ void TitleLevel::Update(float _DeltaTime)
 	
 	if (true == Scroll)
 	{
-		Time += _DeltaTime*3.0f;
+		T_Time += _DeltaTime*3.0f;
 		if (Pos.y > Chapter3MaxYvalue && Pos.x <= 0)
 		{
 			if (false == GameEngineInput::IsKey("NextLevel"))

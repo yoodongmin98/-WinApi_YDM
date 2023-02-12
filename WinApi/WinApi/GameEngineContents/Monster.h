@@ -20,11 +20,12 @@ protected:
 	void Update(float _DeltaTime) override;
 
 private:
-	GameEngineRender* MonsterRender = nullptr;
-	GameEngineCollision* BodyCollision = nullptr;
+	GameEngineRender* M_fly = nullptr;
+	GameEngineCollision* M_fly_Coll = nullptr;
 
-	float MonsterDeadTime = 3.0f;
+	float ReloadTime = 3.0f;
 	float NowTime = 0.0f;
+	int FlyHp = 3;
 
 };
 
