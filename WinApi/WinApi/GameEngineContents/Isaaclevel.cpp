@@ -49,13 +49,26 @@ void IsaacLevel::Loading()
 	//Isaac::MainPlayer->SetPos({1090,600}); //>>Collision MAX value=1090,600
 }
 
-bool Map_Move = false;
+int CountValue = 0;
 void IsaacLevel::Update(float _DeltaTime)
 {
 	float PlayerXPos = Isaac::MainPlayer->GetPos().x;
+	float SizeValue = GameEngineWindow::GetScreenSize().x;
+	if (PlayerXPos > SizeValue)
+	{
+		PlayerXPos = PlayerXPos-SizeValue*CountValue;
+	}
+	
 	float4 Pos = float4::LerpClamp(MapS, MapE, P_Time);
+	if(P_Time>=1.0f)
+	{
+		Map_Move = false;
+		P_Time = 0.0f;
+		MapS = Pos;
+	}
+	
 	SetCameraPos(Pos);
-	if (P_Time >= 1.0f)
+	if (P_Time >= 1.0f) //1초만큼의 시간이 지나야 다음 이동연결(MapPos)이 동작한다.
 	{
 		Map_Move = false;
 		P_Time = 0.0f;
@@ -63,18 +76,19 @@ void IsaacLevel::Update(float _DeltaTime)
 	}
 	if (false == Map_Move)
 	{
-		if (PlayerXPos > MapMaxXvalue && PlayerXPos<GameEngineWindow::GetScreenSize().x)
+		if (PlayerXPos> SizeValue -(191.0f) && GameEngineInput::IsPress("RightMove"))
 		{
-			MapE = MapS + float4(GameEngineWindow::GetScreenSize().x, 0);
+			MapE = MapS + float4(SizeValue, 0);
 			Map_Move = true;
-			PlayerXPos = 640.f;
+			CountValue = CountValue + 1;
+			Isaac::MainPlayer->SetPos({ 310.f + (SizeValue * (float)CountValue),MiddieYValue });
+			
 		}
 	}
-
 	if (true == Map_Move)
 	{
-		P_Time += _DeltaTime * 3.0f;
-		Isaac::MainPlayer->SetPos({640.f+GameEngineWindow::GetScreenSize().x,360});
-		
+		P_Time += _DeltaTime * 0.5f;
 	}
+	
+	
 }
