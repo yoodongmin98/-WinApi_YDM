@@ -2,8 +2,16 @@
 
 enum class IsaacOrder
 {
-	BackGround_CS,
-	BackGround,
-	Player
+	R_BackGround_CS,
+	R_BackGround,
+	R_Player,
+	R_Monster
 	
+};
+
+enum class IsaacCollisionOrder
+{
+	C_Player,
+	C_Monster
+
 };

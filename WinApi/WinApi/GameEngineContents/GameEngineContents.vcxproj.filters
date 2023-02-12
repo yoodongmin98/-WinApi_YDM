@@ -34,6 +34,9 @@
     <ClInclude Include="IsaacIntro.h">
       <Filter>Intro\Intro</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Play\Isaac\Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="IsaacIntro.cpp">
       <Filter>Intro\Intro</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Play\Isaac\Monster</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +118,9 @@
     </Filter>
     <Filter Include="Title\TitleLevel">
       <UniqueIdentifier>{885d06fc-899a-41c9-9bb8-0a0034295288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster">
+      <UniqueIdentifier>{18479603-5a26-4e99-b50d-1ef87515f408}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

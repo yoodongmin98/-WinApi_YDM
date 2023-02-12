@@ -57,7 +57,7 @@ void LoadLevel::Loading()
 	GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("TitleLoading_Isaac.BMP"));
 
 	AllBack* Render = CreateActor<AllBack>();
-	LoadIsaac=Render->CreateRender("TitleLoading_Isaac.BMP", IsaacOrder::BackGround);
+	LoadIsaac=Render->CreateRender("TitleLoading_Isaac.BMP", IsaacOrder::R_BackGround);
 
 
 }

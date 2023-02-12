@@ -1,5 +1,6 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
+#include <GameEngineCore/GameEngineCollision.h>
 
 enum class IsaacState
 {
@@ -57,5 +58,7 @@ private:
 	void MoveUpdate(float _Time);
 	void MoveEnd();
 
+
+	GameEngineCollision* IsaacCollision = nullptr;
 };
 

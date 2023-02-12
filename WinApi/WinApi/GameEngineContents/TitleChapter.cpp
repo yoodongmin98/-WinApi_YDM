@@ -22,7 +22,7 @@ TitleChapter::~TitleChapter()
 void TitleChapter::Start()
 {
 	//¹è°æ
-	GameEngineRender* Render = CreateRender("Title_BackGround.BMP", IsaacOrder::BackGround);
+	GameEngineRender* Render = CreateRender("Title_BackGround.BMP", IsaacOrder::R_BackGround);
 	Render->SetPosition(Render->GetImage()->GetImageScale().half());
 	Render->SetScaleToImage();
 }
