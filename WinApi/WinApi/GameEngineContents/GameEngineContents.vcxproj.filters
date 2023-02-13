@@ -75,6 +75,12 @@
     <ClCompile Include="Monster.cpp">
       <Filter>Play\Isaac\Monster</Filter>
     </ClCompile>
+    <ClCompile Include="SettingMenu.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\SettingMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MapMove.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\MapMove</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Play">
@@ -121,6 +127,15 @@
     </Filter>
     <Filter Include="Play\Isaac\Monster">
       <UniqueIdentifier>{18479603-5a26-4e99-b50d-1ef87515f408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet">
+      <UniqueIdentifier>{6045e06d-8fcd-4056-92c7-49846486afce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\SettingMenu">
+      <UniqueIdentifier>{9854b996-a653-4085-a870-8cbaf684c213}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\MapMove">
+      <UniqueIdentifier>{d0c61e26-141a-49fa-80d6-d007ee4283a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

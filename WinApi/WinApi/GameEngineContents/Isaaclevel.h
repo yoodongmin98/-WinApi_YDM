@@ -17,6 +17,7 @@ public:
 
 	
 	void MapMoveUpdate();
+	void SettingMenuUpdate();
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;
@@ -25,6 +26,14 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
 
 private:
+	GameEngineRender* SettingMenu = nullptr;
+	GameEngineRender* SettingMenuCursor = nullptr;
+
+
+
+
+
+
 	bool Map_Move = false;
 	
 	float4 MapS = float4::Zero;

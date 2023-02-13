@@ -97,7 +97,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="MapMove.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Monster.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="SettingMenu.cpp">
       <SubType>
       </SubType>
     </ClCompile>

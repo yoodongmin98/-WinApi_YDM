@@ -58,7 +58,7 @@ void TitleLevel::Loading()
 
 	}
 
-	TitleChapter* BackGround = CreateActor<TitleChapter>();
+	CreateActor<TitleChapter>();
 
 	AllBack* Render = CreateActor<AllBack>();
 	{
@@ -83,7 +83,7 @@ void TitleLevel::Loading()
 			.ImageName = "Title_Isaac.BMP",
 			.Start = 0,
 			.End = 1,
-			.InterTime = .1f
+			.InterTime = .15f
 			});
 		Isaac->ChangeAnimation("Isaac");
 
