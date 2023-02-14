@@ -1,8 +1,9 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 #include <GameEnginePlatform/GameEngineImage.h>
+#include "Monster.h"
 
-class Monster;
+
 class Door : public GameEngineActor
 {
 public:

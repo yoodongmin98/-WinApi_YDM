@@ -10,10 +10,12 @@
 #include <GameEngineCore/GameEngineCollision.h>
 
 #include "Isaac.h"
+#include "Door.h"
 
 
 Monster::Monster()
 {
+	
 }
 
 Monster::~Monster()
@@ -36,19 +38,10 @@ void Monster::ImageLoad()
 		Monster1D->Cut(5, 3);
 }
 
-//void Monster::MonsterCountLoad()
-//{
-//	bool MonsterCountLoad = false;
-//	if (false == MonsterCountLoad)
-//	{
-//		MonsterCount++;
-//		MonsterCountLoad = true; //테스트용 MonsterCount를 딱 한개만 로드시켜보기(Door Test);
-//	}
-//}
+
 void Monster::Start()
 {
 	ImageLoad();
-//	MonsterCountLoad();
 	M_fly = CreateRender(IsaacOrder::R_Monster);
 	M_fly->SetScale({ 150, 150 });
 	SetPos({ 200,200 });
@@ -77,19 +70,19 @@ void Monster::Update(float _DeltaTime)
 	
 	
 	M_Move.Normalize();
+	
 	SetMove(M_Move * 200.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야할듯
 
 	if (true == M_fly_Coll->Collision({.TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player)}))
 	{
-		ReloadTime;
 		FlyHp = FlyHp - 1;
 		
 
 		if (0== FlyHp)
 		{
 			M_fly->ChangeAnimation("M_fly_Dead");
-			//MonsterRender->Death(); //현재로서는 한번닿고나서 애니메이션이재생되고 또닿으면 Death가 진행되는방식(총알로 구현하면될듯)
-		/*	MonsterCount -= 1;*/
+			//M_fly->Death(); //현재로서는 한번닿고나서 애니메이션이재생되고 또닿으면 Death가 진행되는방식(총알로 구현하면될듯)
+			MonsterCount -= 1;
 		}
 	}
 

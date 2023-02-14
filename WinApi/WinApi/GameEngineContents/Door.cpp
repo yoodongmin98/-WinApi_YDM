@@ -11,7 +11,7 @@
 #include <GameEngineCore/GameEngineCollision.h>
 
 #include "Isaac.h"
-#include "Monster.h"
+
 
 
 Door::Door()
@@ -45,11 +45,11 @@ void Door::Start()
 	SetPos({ 1180,430 });
 
 	Door1->CreateAnimation({ .AnimationName = "Door_Idle",  .ImageName = "Map_Door_Right.bmp", .Start = 0, .End = 0, .InterTime = 0.1f });
-	Door1->CreateAnimation({ .AnimationName = "Door_Open",  .ImageName = "Map_Door_Right.bmp", .Start = 0, .End = 3, .InterTime = 0.05f, .Loop = false });
+	Door1->CreateAnimation({ .AnimationName = "Door_Open",  .ImageName = "Map_Door_Right.bmp", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 
 	Door1->ChangeAnimation("Door_Idle");
 
-	
+
 	{
 		Door1_C = CreateCollision(IsaacCollisionOrder::C_Monster);
 		Door1_C->SetScale({ 200, 50 });
@@ -60,15 +60,10 @@ void Door::Start()
 
 void Door::Update(float _DeltaTime)
 {
-	
 	if (true == Door1_C->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player) }))
 	{
 		Door1->ChangeAnimation("Door_Open");
-		/*if (0 == asd)
-
-		{
-			Door1->ChangeAnimation("Door_Open");
-		}*/
 	}
 
 }
+
