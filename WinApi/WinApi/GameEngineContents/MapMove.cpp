@@ -1,8 +1,12 @@
 #include "IsaacLevel.h"
 #include "Isaac.h"
 
+
 #include <GameEnginePlatform/GameEngineInput.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
+#include <GameEngineCore/GameEngineCollision.h>
+#include "IsaacEnum.h"
+
 
 
 

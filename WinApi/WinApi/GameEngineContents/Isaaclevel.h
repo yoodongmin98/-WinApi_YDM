@@ -29,11 +29,6 @@ private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
 
-	
-
-
-
-
 	int SettingValue = 2;
 
 
@@ -57,5 +52,7 @@ private:
 	float RightSetValue = 1150.0f;
 	float DownSetValue = 610.0f;
 	float UpSetValue = 120.0f;
+
+
 };
 

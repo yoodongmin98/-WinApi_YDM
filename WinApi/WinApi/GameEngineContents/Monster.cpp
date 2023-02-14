@@ -11,6 +11,7 @@
 
 #include "Isaac.h"
 
+
 Monster::Monster()
 {
 }
@@ -35,18 +36,29 @@ void Monster::ImageLoad()
 		Monster1D->Cut(5, 3);
 }
 
+//void Monster::MonsterCountLoad()
+//{
+//	bool MonsterCountLoad = false;
+//	if (false == MonsterCountLoad)
+//	{
+//		MonsterCount++;
+//		MonsterCountLoad = true; //테스트용 MonsterCount를 딱 한개만 로드시켜보기(Door Test);
+//	}
+//}
 void Monster::Start()
 {
 	ImageLoad();
+//	MonsterCountLoad();
 	M_fly = CreateRender(IsaacOrder::R_Monster);
 	M_fly->SetScale({ 150, 150 });
+	SetPos({ 200,200 });
 	
 	
 	M_fly->CreateAnimation({ .AnimationName = "M_fly_Idle",  .ImageName = "M_fly.bmp", .Start = 0, .End = 1, .InterTime = 0.1f });
 	M_fly->CreateAnimation({ .AnimationName = "M_fly_Dead",  .ImageName = "M_fly_Dead.bmp", .Start = 0, .End = 11, .InterTime = 0.03f, .Loop = false });
 	//처음엔 그냥 날아다니게
 	M_fly->ChangeAnimation("M_fly_Idle");
-
+	
 	//콜리전테스트는 나중에
 	{
 		M_fly_Coll = CreateCollision(IsaacCollisionOrder::C_Monster);
@@ -59,6 +71,7 @@ void Monster::Start()
 void Monster::Update(float _DeltaTime)
 {
 	NowTime += _DeltaTime;
+	
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos(); //피타고라스 and 벡터의성질
 	
 	
@@ -76,6 +89,7 @@ void Monster::Update(float _DeltaTime)
 		{
 			M_fly->ChangeAnimation("M_fly_Dead");
 			//MonsterRender->Death(); //현재로서는 한번닿고나서 애니메이션이재생되고 또닿으면 Death가 진행되는방식(총알로 구현하면될듯)
+		/*	MonsterCount -= 1;*/
 		}
 	}
 
