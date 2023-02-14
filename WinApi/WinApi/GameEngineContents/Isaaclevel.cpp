@@ -50,7 +50,7 @@ void IsaacLevel::Loading()
 		CreateActor<BackGround>();
 		CreateActor<Monster>();
 	}	
-	//Isaac::MainPlayer->SetPos({210,360}); //>>Collision MAX value=1090,600
+	Isaac::MainPlayer->SetPos({640,360}); //>>Collision MAX value=1090,600
 	if (false == GameEngineInput::IsKey("LoadMenu"))
 	{
 		GameEngineInput::CreateKey("LoadMenu", VK_ESCAPE);
