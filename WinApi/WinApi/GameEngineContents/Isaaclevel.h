@@ -23,15 +23,18 @@ protected:
 	void Update(float _DeltaTime) override;
 
 	void LevelChangeEnd(GameEngineLevel* _NextLevel) override {}
-	void LevelChangeStart(GameEngineLevel* _PrevLevel) override {}
+	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
 
 private:
 	GameEngineRender* SettingMenu = nullptr;
-	GameEngineRender* SettingMenuCursor = nullptr;
+	GameEngineRender* SettingMenuCursor1 = nullptr;
+
+	
 
 
 
 
+	int SettingValue = 2;
 
 
 	bool Map_Move = false;
