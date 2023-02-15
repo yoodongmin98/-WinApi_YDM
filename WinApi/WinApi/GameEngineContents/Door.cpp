@@ -65,5 +65,14 @@ void Door::Update(float _DeltaTime)
 		Door1->ChangeAnimation("Door_Open");
 	}
 
+
+	//여기가 작동하지않는 부분 ㅠㅠ
+	int MonsterCountValue=Monsters.GetMonstertCount();
+	if (0 == MonsterCountValue)
+	{
+		Door1->ChangeAnimation("Door_Open"); //디버깅하면 0의값을 그대로 받아오기만해서 그대로 작동해버림
+		//궁금한점: 다른클래스에 선언된 외부변수의 변화하는값을 실시간으로 받아올수는없나요?
+	}
+
 }
 

@@ -57,6 +57,8 @@ void Monster::Start()
 		M_fly_Coll = CreateCollision(IsaacCollisionOrder::C_Monster);
 		M_fly_Coll->SetScale({ 50, 50 });
 		M_fly_Coll->On();
+		MonsterCount += 1;
+		//콜리전이 만들어지면 몬스터카운트를 늘림
 	}
 }
 
@@ -69,7 +71,7 @@ void Monster::Update(float _DeltaTime)
 	
 	
 	
-	M_Move.Normalize();
+	M_Move.Normalize();//위치값을 세팅,정규화
 	
 	SetMove(M_Move * 200.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야할듯
 
@@ -82,7 +84,7 @@ void Monster::Update(float _DeltaTime)
 		{
 			M_fly->ChangeAnimation("M_fly_Dead");
 			//M_fly->Death(); //현재로서는 한번닿고나서 애니메이션이재생되고 또닿으면 Death가 진행되는방식(총알로 구현하면될듯)
-			MonsterCount -= 1;
+			MonsterCount -= 1;//몬스터가 죽으면 카운트를 줄임
 		}
 	}
 

@@ -17,6 +17,8 @@ public:
 	Door& operator=(Door&& _Other) noexcept = delete;
 
 	void ImageLoad();
+
+	Monster Monsters; //몬스터 선언
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
