@@ -48,9 +48,13 @@ void IsaacLevel::Loading()
 	// 액터 생성
 	{
 		CreateActor<Isaac>();
-		CreateActor<Room>();
+
+		CreateRoom(0, 0);
+		CreateRoom(0, 1);
+		CreateRoom(1, 1);
+
 		CreateActor<Monster>();
-		CreateActor<Door>();
+		// CreateActor<Door>();
 	}	
 	//>>Collision MAX value=1090,600
 	if (false == GameEngineInput::IsKey("LoadMenu"))
@@ -94,3 +98,17 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 	SettingMenu->Off();
 }
 
+
+void IsaacLevel::CreateRoom(int _X, int _Y)
+{
+	Room* NewRoom = CreateActor<Room>();
+
+	float4 RoomPos = GameEngineWindow::GetScreenSize();
+	RoomPos.x *= _X;
+	RoomPos.y *= _Y;
+
+	NewRoom->SetTileIndex(_X, _Y);
+
+	NewRoom->SetPos(RoomPos);
+
+}
