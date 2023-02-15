@@ -12,7 +12,7 @@
 
 // 나랑 같은 등급의 헤더들
 #include "Isaac.h"
-#include "BackGround.h"
+#include "Room.h"
 #include "Monster.h"
 #include "Door.h"
 
@@ -40,7 +40,7 @@ void IsaacLevel::Loading()
 	{
 		GameEngineImage* head = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
 		head->Cut(10, 4);
-		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_BlackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_Settingmenu.BMP"));
@@ -48,7 +48,7 @@ void IsaacLevel::Loading()
 	// 액터 생성
 	{
 		CreateActor<Isaac>();
-		CreateActor<BackGround>();
+		CreateActor<Room>();
 		CreateActor<Monster>();
 		CreateActor<Door>();
 	}	

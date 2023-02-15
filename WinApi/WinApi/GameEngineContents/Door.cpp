@@ -52,7 +52,7 @@ void Door::Start()
 
 	{
 		Door1_C = CreateCollision(IsaacCollisionOrder::C_Monster);
-		Door1_C->SetScale({ 200, 50 });
+		Door1_C->SetScale({ 300, 50 });
 		Door1_C->On(); 
 	}
 }
@@ -67,11 +67,11 @@ void Door::Update(float _DeltaTime)
 
 
 	//궁금한부분
-	int MonsterCountValue=Monsters.GetMonstertCount();
-	if (0 == MonsterCountValue)
-	{
-		Door1->ChangeAnimation("Door_Open"); //디버깅하면 0의값을 그대로 받아오기만해서 그대로 작동해버림
-	}
+	//int MonsterCountValue=Monsters.GetMonstertCount();
+	//if (0 == MonsterCountValue)
+	//{
+	//	Door1->ChangeAnimation("Door_Open"); //디버깅하면 0의값을 그대로 받아오기만해서 그대로 작동해버림
+	//}
 
 }
 

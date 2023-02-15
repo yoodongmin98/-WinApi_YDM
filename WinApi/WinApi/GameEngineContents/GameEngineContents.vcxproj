@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BackGround.h">
+    <ClInclude Include="Room.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -69,7 +69,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BackGround.cpp">
+    <ClCompile Include="Room.cpp">
       <SubType>
       </SubType>
     </ClCompile>
