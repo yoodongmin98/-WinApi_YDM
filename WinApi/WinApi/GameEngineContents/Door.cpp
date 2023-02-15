@@ -53,7 +53,7 @@ void Door::Start()
 	{
 		Door1_C = CreateCollision(IsaacCollisionOrder::C_Monster);
 		Door1_C->SetScale({ 200, 50 });
-		Door1_C->On(); //처음엔 꺼놓는다(특정조건이 끝나면 콜리전을킴
+		Door1_C->On(); 
 	}
 }
 
@@ -66,12 +66,11 @@ void Door::Update(float _DeltaTime)
 	}
 
 
-	//여기가 작동하지않는 부분 ㅠㅠ
+	//궁금한부분
 	int MonsterCountValue=Monsters.GetMonstertCount();
 	if (0 == MonsterCountValue)
 	{
 		Door1->ChangeAnimation("Door_Open"); //디버깅하면 0의값을 그대로 받아오기만해서 그대로 작동해버림
-		//궁금한점: 다른클래스에 선언된 외부변수의 변화하는값을 실시간으로 받아올수는없나요?
 	}
 
 }
