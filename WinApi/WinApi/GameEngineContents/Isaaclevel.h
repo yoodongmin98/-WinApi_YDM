@@ -1,5 +1,6 @@
 #pragma once
 #include <GameEngineCore/GameEngineLevel.h>
+#include <string_view>
 
 // Ό³Έν :
 class IsaacLevel : public GameEngineLevel
@@ -53,7 +54,7 @@ private:
 	float DownSetValue = 610.0f;
 	float UpSetValue = 120.0f;
 
-	void CreateRoom(int _X, int _Y);
+	void CreateRoom(int _X, int _Y, int _MapKey);
 	void CreateDoor();
 
 };

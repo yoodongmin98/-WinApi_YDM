@@ -41,9 +41,21 @@ void IsaacLevel::Loading()
 		GameEngineImage* head = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
 		head->Cut(10, 4);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Depth.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Boss.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_BlackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_Settingmenu.BMP"));
+
+		GameEngineImage* Door_Down = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Down.BMP"));
+		Door_Down->Cut(4, 1);
+		GameEngineImage* Door_Up = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Up.BMP"));
+		Door_Up->Cut(4, 1);
+		GameEngineImage* Door_Right = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Right.BMP"));
+		Door_Right->Cut(4, 1);
+		GameEngineImage* Door_Left = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Left.BMP"));
+		Door_Left->Cut(4, 1);
+
 	}
 	// 액터 생성
 	{
@@ -54,19 +66,23 @@ void IsaacLevel::Loading()
 		// 그걸 다 정리하고 새롭게 시작할수 있다.
 		Room::RoomCreateStart();
 
-		//만약 시연회를 한다면?                     (Start) (obj) (item)
-		CreateRoom(0, 0); //Start                        ㅁ  ㅁ  ㅁ 
-		CreateRoom(0, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
-		CreateRoom(1, 1); //Monster2						 ㅁㅁㅁ
-		CreateRoom(2, 1); //item설명
-		CreateRoom(2, 0); //오브젝트끼리의 상호구조 설명
-		CreateRoom(2, 2); //Monster3
-		CreateRoom(3, 2); //Monster4
-		CreateRoom(4, 2); //바위또는 부술수있는물체들(모닥불,똥무더기 등)
-		CreateRoom(4, 1); //Empty room
-		CreateRoom(4, 0); //SecretRoom
-		CreateRoom(5, 1); //Boss Room 
+		//만약 시연회를 한다면?                            (Start) (obj) (item)
+		CreateRoom(0, 0, 1); //Start                        ㅁ  ㅁ  ㅁ 
+		CreateRoom(0, 1, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
+		CreateRoom(1, 1, 1); //Monster2						    ㅁㅁㅁ
+		CreateRoom(2, 1, 1); //item설명
+		CreateRoom(2, 0, 2); //오브젝트끼리의 상호구조 설명
+		CreateRoom(2, 2, 1); //Monster3
+		CreateRoom(3, 2, 1); //Monster4
+		CreateRoom(4, 2, 1); //바위또는 부술수있는물체들(모닥불,똥무더기 등)
+		CreateRoom(4, 1, 1); //Empty room
+		CreateRoom(4, 0, 3); //SecretRoom
+		CreateRoom(5, 1, 4); //Boss Room 
 
+		// 1>BaseMent
+		// 2>Library
+		// 3>Depth
+		// 4>BossRoom
 		CreateActor<Monster>();
 		// CreateActor<Door>();
 		 
@@ -142,10 +158,10 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 }
 
 
-void IsaacLevel::CreateRoom(int _X, int _Y)
+void IsaacLevel::CreateRoom(int _X, int _Y, int _MapKey)
 {
 	Room* NewRoom = CreateActor<Room>();
-	NewRoom->SetTileIndex(_X, _Y);
+	NewRoom->SetTileIndex(_X, _Y, _MapKey);
 }
 
 void IsaacLevel::CreateDoor()

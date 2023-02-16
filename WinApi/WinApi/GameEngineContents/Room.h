@@ -2,6 +2,7 @@
 #include <GameEngineCore/GameEngineActor.h>
 #include <map>
 
+
 struct TileIndex
 {
 	union 
@@ -35,8 +36,8 @@ private:
 	static std::map<__int64, Room*> AllRoom;
 
 public:
+	
 	static void RoomCreateStart();
-
 	// constrcuter destructer
 	Room();
 	~Room();
@@ -47,11 +48,11 @@ public:
 	Room& operator=(const Room& _Other) = delete;
 	Room& operator=(Room&& _Other) noexcept = delete;
 
-	void SetTileIndex(int _X, int _Y);
+	void SetTileIndex(int _X, int _Y, int _MapKey);
 
 protected:
 	void Start() override;
-	void Update() override;
+	//void Update(float _DeltaTime) override;
 
 private:
 	TileIndex Index;
@@ -60,5 +61,10 @@ private:
 
 	GameEngineRender* DoorRenderer[static_cast<int>(ROOMDIR::MAX)] = {};
 	GameEngineCollision* DoorCollision[static_cast<int>(ROOMDIR::MAX)] = {};
+
+
+
+
+	
 };
 
