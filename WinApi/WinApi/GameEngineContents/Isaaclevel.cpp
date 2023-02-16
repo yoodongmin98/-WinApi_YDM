@@ -50,6 +50,10 @@ void IsaacLevel::Loading()
 		CreateActor<Isaac>();
 
 
+		// 이걸 해줘야 기존에 혹시 방을 만든게 있다면
+		// 그걸 다 정리하고 새롭게 시작할수 있다.
+		Room::RoomCreateStart();
+
 		//만약 시연회를 한다면?                     (Start) (obj) (item)
 		CreateRoom(0, 0); //Start                        ㅁ  ㅁ  ㅁ 
 		CreateRoom(0, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
@@ -141,21 +145,10 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 void IsaacLevel::CreateRoom(int _X, int _Y)
 {
 	Room* NewRoom = CreateActor<Room>();
-
-	float4 RoomPos = GameEngineWindow::GetScreenSize();
-	RoomPos.x *= _X;
-	RoomPos.y *= _Y;
-
 	NewRoom->SetTileIndex(_X, _Y);
-
-	NewRoom->SetPos(RoomPos);
-
 }
 
 void IsaacLevel::CreateDoor()
 {
 
 }
-	
-
-	

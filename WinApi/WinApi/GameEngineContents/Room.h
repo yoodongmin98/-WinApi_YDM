@@ -1,5 +1,6 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
+#include <map>
 
 struct TileIndex
 {
@@ -27,7 +28,13 @@ enum class ROOMDIR
 
 class Room : public GameEngineActor
 {
+private:
+	static const TileIndex DirRoomIndex[4];
+	static std::map<__int64, Room*> AllRoom;
+
 public:
+	static void RoomCreateStart();
+
 	// constrcuter destructer
 	Room();
 	~Room();
@@ -38,11 +45,7 @@ public:
 	Room& operator=(const Room& _Other) = delete;
 	Room& operator=(Room&& _Other) noexcept = delete;
 
-	void SetTileIndex(int _X, int _Y)
-	{
-		Index.X = _X;
-		Index.Y = _Y;
-	}
+	void SetTileIndex(int _X, int _Y);
 
 protected:
 	void Start() override;
