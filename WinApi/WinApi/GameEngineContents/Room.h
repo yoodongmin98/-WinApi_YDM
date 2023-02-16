@@ -26,6 +26,8 @@ enum class ROOMDIR
 };
 
 
+class GameEngineRender;
+class GameEngineCollision;
 class Room : public GameEngineActor
 {
 private:
@@ -49,10 +51,14 @@ public:
 
 protected:
 	void Start() override;
+	void Update() override;
 
 private:
 	TileIndex Index;
 
 	Room* LinkRoom[static_cast<int>(ROOMDIR::MAX)] = {};
+
+	GameEngineRender* DoorRenderer[static_cast<int>(ROOMDIR::MAX)] = {};
+	GameEngineCollision* DoorCollision[static_cast<int>(ROOMDIR::MAX)] = {};
 };
 

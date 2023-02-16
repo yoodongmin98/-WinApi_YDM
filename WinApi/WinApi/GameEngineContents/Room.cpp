@@ -4,6 +4,8 @@
 #include<GameEnginePlatform/GameEngineInput.h>
 #include<GameEngineCore/GameEngineRender.h>
 #include "Isaaclevel.h"
+#include <GameEngineCore/GameEngineRender.h>
+#include <GameEngineCore/GameEngineCollision.h>
 
 //        0-1
 // -1, 0  0 0  1, 0
@@ -34,6 +36,17 @@ void Room::Start()
 void Room::RoomCreateStart()
 {
 	AllRoom.clear();
+}
+
+void Room::Update() 
+{
+	// 여기서 방이 계속 플레이어를 충돌체크 하고 있어야 한다.
+	// 문에 닿았나? 문에 닿았나? 문에 닿았나?
+	
+	if (true)
+	{
+
+	}
 }
 
 void Room::SetTileIndex(int _X, int _Y)
@@ -75,7 +88,11 @@ void Room::SetTileIndex(int _X, int _Y)
 
 		GameEngineRender* ThisDoorRender = ThisRoom->CreateRender();
 		GameEngineRender* LinkDoorRender = LinkRoom->CreateRender();
-		// 
+
+
+		GameEngineCollision* ThisDoorCollision = ThisRoom->CreateCollision();
+		GameEngineCollision* LinkDoorCollision = LinkRoom->CreateCollision();
+
 
 		switch (EnumDir)
 		{
@@ -85,6 +102,8 @@ void Room::SetTileIndex(int _X, int _Y)
 			//DoorRender->SetPosition();
 			//LinkDoorRender->SetImage();
 			//LinkDoorRender->SetPosition();
+			// DoorRenderer[static_cast<int>(ROOMDIR::RIGHT)] = ThisDoorRender;
+			// LinkRoom->DoorRenderer.push_back(ThisDoorRender);
 			int a = 0;
 			break;
 		}
@@ -94,6 +113,9 @@ void Room::SetTileIndex(int _X, int _Y)
 			//DoorRender->SetPosition();
 			//LinkDoorRender->SetImage();
 			//LinkDoorRender->SetPosition();
+			//DoorCollision.push_back(ThisDoorCollision);
+			//LinkRoom->DoorCollision.push_back(LinkDoorCollision);
+
 			int a = 0;
 			break;
 		}
@@ -124,7 +146,4 @@ void Room::SetTileIndex(int _X, int _Y)
 			break;
 		}
 	}
-
-	
-
 }
