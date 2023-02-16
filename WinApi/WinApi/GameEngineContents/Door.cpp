@@ -66,7 +66,7 @@ void Door::Update(float _DeltaTime)
 	}
 
 
-	//±Ã±ÝÇÑºÎºÐ
+	
 	//int MonsterCountValue=Monsters.GetMonstertCount();
 	//if (0 == MonsterCountValue)
 	//{

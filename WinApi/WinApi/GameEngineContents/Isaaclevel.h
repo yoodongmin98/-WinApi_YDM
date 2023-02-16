@@ -54,6 +54,7 @@ private:
 	float UpSetValue = 120.0f;
 
 	void CreateRoom(int _X, int _Y);
+	void CreateDoor();
 
 };
 

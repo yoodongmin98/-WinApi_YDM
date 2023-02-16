@@ -19,11 +19,6 @@ public:
 	Monster& operator=(Monster&& _Other) noexcept = delete;
 	void ImageLoad();
 
-	int GetMonstertCount()
-	{
-		return MonsterCount;
-	}
-	
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -35,8 +30,5 @@ private:
 	float ReloadTime = 3.0f;
 	float NowTime = 0.0f;
 	int FlyHp = 3;
-
-	int MonsterCount=0;
-
 };
 
