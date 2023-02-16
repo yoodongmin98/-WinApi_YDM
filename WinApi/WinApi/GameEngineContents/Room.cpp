@@ -104,7 +104,6 @@ void Room::SetTileIndex(int _X, int _Y)
 			//LinkDoorRender->SetPosition();
 			// DoorRenderer[static_cast<int>(ROOMDIR::RIGHT)] = ThisDoorRender;
 			// LinkRoom->DoorRenderer.push_back(ThisDoorRender);
-			int a = 0;
 			break;
 		}
 		case ROOMDIR::RIGHT:
