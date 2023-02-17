@@ -53,6 +53,7 @@ void Monster::Start()
 	M_fly->ChangeAnimation("M_fly_Idle");
 	
 	{
+		
 		M_fly_Coll = CreateCollision(IsaacCollisionOrder::C_Monster);
 		M_fly_Coll->SetScale({ 50, 50 });
 		M_fly_Coll->On();
