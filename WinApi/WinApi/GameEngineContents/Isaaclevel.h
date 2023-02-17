@@ -29,6 +29,8 @@ protected:
 private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
+	GameEngineRender* BackDrop = nullptr;
+
 
 	int SettingValue = 2;
 
@@ -49,7 +51,7 @@ private:
 
 
 	//Collision에따라 설정해줘야하는값(Isacc을 문앞으로 위치시키는값)
-	float LeftSetValue=150.0f;
+	float LeftSetValue=130.0f;
 	float RightSetValue = 1150.0f;
 	float DownSetValue = 610.0f;
 	float UpSetValue = 120.0f;

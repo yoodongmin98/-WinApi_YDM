@@ -67,7 +67,7 @@ void Isaac::Update(float _DeltaTime)
 		MoveDir *= 0.0000000001f;
 	}
 	UpdateState(_DeltaTime);
-	//Movecalculation(_DeltaTime);
+	Movecalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 	
 }

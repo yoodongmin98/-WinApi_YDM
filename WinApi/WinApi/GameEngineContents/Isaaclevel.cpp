@@ -1,4 +1,5 @@
 #include "Isaaclevel.h"
+#include "IsaacEnum.h"
 
 // 프로젝트 순서에 따라서 정렬
 #include <GameEngineBase/GameEngineDirectory.h>
@@ -15,6 +16,7 @@
 #include "Room.h"
 #include "Monster.h"
 #include "Door.h"
+#include "AllBack.h"
 
 
 
@@ -46,6 +48,12 @@ void IsaacLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_BlackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_Settingmenu.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackDrop.BMP"));
+
+		AllBack* Image = CreateActor<AllBack>();
+		BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
+		BackDrop->SetScale({ 600,150 });
+		
 
 		GameEngineImage* Door_Down = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Down.BMP"));
 		Door_Down->Cut(4, 1);
