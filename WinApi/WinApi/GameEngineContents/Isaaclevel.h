@@ -19,6 +19,7 @@ public:
 	
 	void MapMoveUpdate();
 	void SettingMenuUpdate();
+	void SoundLoad();
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;
@@ -26,6 +27,7 @@ protected:
 	void LevelChangeEnd(GameEngineLevel* _NextLevel) override {}
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
 
+	GameEngineSoundPlayer PLAYBGMPLAYER;
 private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
