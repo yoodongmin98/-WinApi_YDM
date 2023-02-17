@@ -32,7 +32,7 @@ protected:
 private:
 	float AccTime = 0.0f;
 	int StartFrame = 0;
-	float MoveSpeed = 300.0f;
+	float MoveSpeed = 1000.0f;
 	float4 MoveDir = float4::Zero;
 	float4 MoveRange = float4::Zero;
 

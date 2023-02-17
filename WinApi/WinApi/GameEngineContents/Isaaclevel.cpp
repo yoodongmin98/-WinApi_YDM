@@ -50,6 +50,9 @@ void IsaacLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_Settingmenu.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackDrop.BMP"));
 
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_BossDoor_Left.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_BossDoor_Right.BMP"));
+
 		AllBack* Image = CreateActor<AllBack>();
 		BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
 		BackDrop->SetScale({ 600,150 });
