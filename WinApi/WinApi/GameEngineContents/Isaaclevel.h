@@ -1,7 +1,7 @@
 #pragma once
 #include <GameEngineCore/GameEngineLevel.h>
 #include <string_view>
-
+#include <GameEngineCore/GameEngineResources.h>
 // Ό³Έν :
 class IsaacLevel : public GameEngineLevel
 {

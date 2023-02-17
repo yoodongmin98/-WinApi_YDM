@@ -42,7 +42,7 @@ void  IsaacIntro::SoundLoad()
 
 void IsaacIntro::Loading()
 {
-	//SoundLoad();
+	SoundLoad();
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
 	Dir.Move("ContentsResources");

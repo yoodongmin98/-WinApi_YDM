@@ -43,6 +43,7 @@ void IsaacLevel::SoundLoad()
 
 }
 
+
 void IsaacLevel::Loading()
 {
 	// 상대경로 탐색
@@ -180,6 +181,7 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	SettingMenuUpdate();
 	SettingMenu->Off();
+	SoundLoad();
 }
 
 
