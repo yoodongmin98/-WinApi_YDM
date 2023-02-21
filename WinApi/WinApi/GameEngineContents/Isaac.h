@@ -6,6 +6,7 @@ enum class IsaacState
 {
 	IDLE,
 	MOVE,
+	DAMAGE,
 };
 class Isaac : public GameEngineActor
 {
@@ -61,6 +62,9 @@ private:
 	void MoveUpdate(float _Time);
 	void MoveEnd();
 
+	void DamageStart();
+	void DamageUpdate(float _Time);
+	void DamageEnd();
 
 	void TearsAttack(float _DeltaTime);
 	GameEngineCollision* IsaacCollision = nullptr;

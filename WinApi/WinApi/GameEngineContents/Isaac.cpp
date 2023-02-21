@@ -129,8 +129,6 @@ void Isaac::TearsAttack(float _DeltaTime)
 //¸Ê Ãæµ¹ °ü¸®
 void Isaac::Movecalculation(float _DeltaTime)
 {
-
-	
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
 	if (nullptr == ColImage)
 	{
@@ -138,8 +136,6 @@ void Isaac::Movecalculation(float _DeltaTime)
 	}
 	bool Check = true;
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
-
-
 
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
@@ -150,11 +146,7 @@ void Isaac::Movecalculation(float _DeltaTime)
 	{
 		MoveDir = float4::Zero;
 	}
-	
-
 }
-
-
 
 void Isaac::DirCheck(const std::string_view& _AnimationName)
 {

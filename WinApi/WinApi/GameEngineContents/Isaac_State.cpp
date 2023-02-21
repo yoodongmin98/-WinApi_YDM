@@ -26,6 +26,9 @@ void Isaac::ChangeState(IsaacState _State)
 	case IsaacState::MOVE:
 		MoveStart();
 		break;
+	case IsaacState::DAMAGE:
+		DamageStart();
+		break;
 	default:
 		break;
 	}
@@ -37,6 +40,9 @@ void Isaac::ChangeState(IsaacState _State)
 		break;
 	case IsaacState::MOVE:
 		MoveEnd();
+		break;
+	case IsaacState::DAMAGE:
+		DamageEnd();
 		break;
 	default:
 		break;
@@ -53,6 +59,9 @@ void Isaac::UpdateState(float _Time)
 		break;
 	case IsaacState::MOVE:
 		MoveUpdate(_Time);
+		break;
+	case IsaacState::DAMAGE:
+		DamageUpdate(_Time);
 		break;
 	default:
 		break;
@@ -120,5 +129,19 @@ void Isaac::MoveUpdate(float _Time)
 	
 }
 void Isaac::MoveEnd() {
+
+}
+
+void Isaac::DamageStart()
+{
+	DirCheck("Damage");
+}
+void Isaac::DamageUpdate(float _Time)
+{
+	DirCheck("Damage");
+
+}
+void Isaac::DamageEnd()
+{
 
 }
