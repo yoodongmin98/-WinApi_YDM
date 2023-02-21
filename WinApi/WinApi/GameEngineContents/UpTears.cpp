@@ -29,30 +29,23 @@ void UpTears::Start()
 		AnimationRender->SetScale({ 64, 64 });
 		AnimationRender->SetPosition({ 0,-20 });
 		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 5, .End = 5, .InterTime = 0.1f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Pop", .ImageName = "Tear_Pop.BMP", .Start = 0, .End = 15, .InterTime = 0.03f , .Loop = false });
 	}
 	AnimationRender->ChangeAnimation("Base");
 
 	// Collision 생성
 	{
 		Collision = CreateCollision(IsaacCollisionOrder::C_PlayerAtt);
-		Collision->SetScale({ 8, 8 });
-		Collision->SetPosition({ 0, 0 });
+		Collision->SetScale({ 20, 20 });
+		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
 }
 
 void UpTears::Update(float _DeltaTime)
 {
-	//몬스터와 닿았냐? 몬스터와 닿았냐? 몬스터와 닿았냐? 몬스터와 닿았냐? 
-	std::vector<GameEngineCollision*> C_Tear;
-	CollisionCheckParameter Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
-	if (true == Collision->Collision(Check, C_Tear))
-	{
-		C_Tear[0]->GetActor()->Death();
-		Death();
-	}
 	MoveCalculation(_DeltaTime);
-	//Render(_DeltaTime);
+	SetMove(MoveDir * _DeltaTime);
 }
 
 void UpTears::MoveCalculation(float _DeltaTime)
@@ -61,20 +54,23 @@ void UpTears::MoveCalculation(float _DeltaTime)
 	{
 		MoveDir = float4::Up * 300;
 	}
-	// 이번 프레임에 이동할 위치
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
-	//충돌체크
+
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
 	if (nullptr == ColImage)
 	{
 		MsgAssert("충돌용 맵 이미지가 없습니다.");
 	}
-	//// 벽 체크
+
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
-		Death();
+		AnimationRender->ChangeAnimation("Pop");
+		MoveDir = float4::Zero;
+		if (true == AnimationRender->IsAnimationEnd())
+		{
+			Death();
+		}
 	}
-	SetMove(MoveDir * _DeltaTime);
 }
 
 void UpTears::Render(float _DeltaTime)

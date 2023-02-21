@@ -14,10 +14,6 @@ public:
 	DownTears& operator=(const DownTears& _Other) = delete;
 	DownTears& operator=(DownTears&& _Other) noexcept = delete;
 
-	static bool IsMaxTear()
-	{
-		return MaxTear <= TearNumber;
-	}
 
 protected:
 	void Start() override;
@@ -28,9 +24,6 @@ private:
 
 	GameEngineRender* AnimationRender = nullptr;
 	GameEngineCollision* Collision = nullptr;
-
-	static const int MaxTear = 4;
-	static int TearNumber;
 
 	float4 MoveDir = float4::Zero;
 };

@@ -26,6 +26,8 @@ public:
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
+	void Render(float _DeltaTime);
+	void Movecalculation(float _DeltaTime);
 
 private:
 	GameEngineRender* M_fly = nullptr;
@@ -33,6 +35,8 @@ private:
 
 	float ReloadTime = 3.0f;
 	float NowTime = 0.0f;
+	float DeadTime = 0.0f;
 	int FlyHp = 3;
+	int RESET = 1;
 };
 

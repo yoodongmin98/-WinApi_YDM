@@ -94,15 +94,9 @@ void Isaac::TearsAttack(float _DeltaTime)
 		return; 
 	}
 
-	//최대 눈물개수면 리턴해버리고
-	if (ResetTime>0.3f)
-	{
-		ResetTime = 0.0f;
-	}
-	else
-	{
-		return;
-	}
+	if (ResetTime>0.3f){ ResetTime = 0.0f; } //다음공격까지의 딜레이는 0.3
+	else { return; } //그사이에 누르는값은 리턴
+
 	if (true == GameEngineInput::IsDown("LeftTears"))
 	{
 		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
