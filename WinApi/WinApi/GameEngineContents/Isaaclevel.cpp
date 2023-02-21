@@ -82,6 +82,9 @@ void IsaacLevel::Loading()
 		GameEngineImage* Door_Left = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Left.BMP"));
 		Door_Left->Cut(4, 1);
 
+		GameEngineImage* Tear = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Tear.bmp"));
+		Tear->Cut(8, 4);
+
 	}
 	// 액터 생성
 	{

@@ -48,7 +48,6 @@ void Isaac::Start()
 
 
 	}
-
 	ChangeState(IsaacState::IDLE);
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
