@@ -37,6 +37,18 @@
     <ClInclude Include="Door.h">
       <Filter>Play\Playlevel\MapRenderSet\MapActor\Door</Filter>
     </ClInclude>
+    <ClInclude Include="Tears.h">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClInclude>
+    <ClInclude Include="UpTears.h">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClInclude>
+    <ClInclude Include="RightTears.h">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClInclude>
+    <ClInclude Include="DownTears.h">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -80,6 +92,18 @@
     </ClCompile>
     <ClCompile Include="Door.cpp">
       <Filter>Play\Playlevel\MapRenderSet\MapActor\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Tears.cpp">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClCompile>
+    <ClCompile Include="UpTears.cpp">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClCompile>
+    <ClCompile Include="RightTears.cpp">
+      <Filter>Play\Isaac\Tears</Filter>
+    </ClCompile>
+    <ClCompile Include="DownTears.cpp">
+      <Filter>Play\Isaac\Tears</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +163,9 @@
     </Filter>
     <Filter Include="Play\Room">
       <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Tears">
+      <UniqueIdentifier>{c1cd1d0e-4833-4c74-b501-375416a36fad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -73,17 +73,17 @@ void Monster::Update(float _DeltaTime)
 	
 	SetMove(M_Move * 200.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야할듯
 
-	if (true == M_fly_Coll->Collision({.TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player)}))
-	{
-		FlyHp = FlyHp - 1;
-		
+	//if (true == M_fly_Coll->Collision({.TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player)}))
+	//{
+	//	FlyHp = FlyHp - 1;
+	//	
 
-		if (0== FlyHp)
-		{
-			M_fly->ChangeAnimation("M_fly_Dead");
-			//M_fly->Death(); //현재로서는 한번닿고나서 애니메이션이재생되고 또닿으면 Death가 진행되는방식(총알로 구현하면될듯)
-		}
-	}
+	//	if (0== FlyHp)
+	//	{
+	//		M_fly->ChangeAnimation("M_fly_Dead");
+	//		//M_fly->Death(); //현재로서는 한번닿고나서 애니메이션이재생되고 또닿으면 Death가 진행되는방식(총알로 구현하면될듯)
+	//	}
+	//}
 
 
 

@@ -1,11 +1,17 @@
-#include "Isaac.h"
-#include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEngineBase/GameEnginePath.h>
+
+#include <GameEnginePlatform/GameEngineWindow.h>
+#include <GameEnginePlatform/GameEngineInput.h>
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineRender.h>
-#include <GameEnginePlatform/GameEngineInput.h>
-#include "IsaacEnum.h"
+
 #include "IsaacIntro.h"
+#include "IsaacEnum.h"
+#include "Tears.h"
+#include "UpTears.h"
+#include "DownTears.h"
+#include "RightTears.h"
+#include "Isaac.h"
 
 Isaac* Isaac::MainPlayer;
 
@@ -31,7 +37,10 @@ void Isaac::Start()
 		GameEngineInput::CreateKey("RightMove", 'D');
 		GameEngineInput::CreateKey("DownMove", 'S');
 		GameEngineInput::CreateKey("UpMove", 'W');
-		GameEngineInput::CreateKey("Bomb", 'E');
+		GameEngineInput::CreateKey("LeftTears", VK_LEFT);
+		GameEngineInput::CreateKey("RightTears", VK_RIGHT);
+		GameEngineInput::CreateKey("UpTears", VK_UP);
+		GameEngineInput::CreateKey("DownTears", VK_DOWN);
 	}
 
 	{
@@ -66,10 +75,62 @@ void Isaac::Update(float _DeltaTime)
 		MoveDir *= 0.0000000001f;
 	}
 	UpdateState(_DeltaTime);
-	//Movecalculation(_DeltaTime);
+	TearsAttack(_DeltaTime);
+	Movecalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 	
 }
+
+//아이작 공격(Tears)관리
+void Isaac::TearsAttack(float _DeltaTime)
+{
+	ResetTime += _DeltaTime;
+	//방향키를 눌렀을때만 작동함
+	if (false == GameEngineInput::IsDown("LeftTears")&&
+		false == GameEngineInput::IsDown("RightTears")&&
+		false == GameEngineInput::IsDown("UpTears")&&
+		false == GameEngineInput::IsDown("DownTears"))
+	{ 
+		return; 
+	}
+
+	//최대 눈물개수면 리턴해버리고
+	if (ResetTime>0.3f)
+	{
+		ResetTime = 0.0f;
+	}
+	else
+	{
+		return;
+	}
+	if (true == GameEngineInput::IsDown("LeftTears"))
+	{
+		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
+		NewTears->SetPos(GetPos());
+	}
+	if (true == GameEngineInput::IsDown("UpTears"))
+	{
+		UpTears* NewUpTears = GetLevel()->CreateActor<UpTears>(IsaacOrder::R_Player);
+		NewUpTears->SetPos(GetPos());
+	}
+	if (true == GameEngineInput::IsDown("DownTears"))
+	{
+		DownTears* NewUpTears = GetLevel()->CreateActor<DownTears>(IsaacOrder::R_Player);
+		NewUpTears->SetPos(GetPos());
+	}
+	if (true == GameEngineInput::IsDown("RightTears"))
+	{
+		RightTears* NewUpTears = GetLevel()->CreateActor<RightTears>(IsaacOrder::R_Player);
+		NewUpTears->SetPos(GetPos());
+	}
+}
+
+
+
+
+
+
+
 
 //맵 충돌 관리
 void Isaac::Movecalculation(float _DeltaTime)

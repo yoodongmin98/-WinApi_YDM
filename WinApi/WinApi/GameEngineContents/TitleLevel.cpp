@@ -240,10 +240,10 @@ void TitleLevel::Update(float _DeltaTime)
 			CursorPosSet();
 			TitleEnd = TitleStart + float4(0.0f, GameEngineWindow::GetScreenSize().y);
 			Scroll = true;
-			/*if (Pos.y > Chapter3MaxYvalue)
+			if (Pos.y > Chapter3MaxYvalue)
 			{
 				PAGESOUND.Stop();
-			}*/
+			}
 		}
 	}
 	
@@ -304,7 +304,7 @@ void TitleLevel::Update(float _DeltaTime)
 	////////////////////////////////////////////////////////////////////////Chapter3 key////////////////
 	if (true == GameEngineInput::IsDown("Selectup")&&Pos.y> Chapter2MaxYvalue && Pos.y < Chapter3MaxYvalue)
 	{
-		//RightSound();
+	//	RightSound();
 		CursorPosSet();
 		Cursor->On();
 		Cursor2->Off();

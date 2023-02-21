@@ -31,16 +31,19 @@ protected:
 
 private:
 	float AccTime = 0.0f;
-	int StartFrame = 0;
+	float ResetTime = 0.0f;
 	float MoveSpeed = 400.0f;
 	float4 MoveDir = float4::Zero;
 	float4 MoveRange = float4::Zero;
+	
 
 	std::string DirString = "Right_";
 	IsaacState StateValue = IsaacState::IDLE;
 
 	GameEngineRender* Head = nullptr;
 	GameEngineRender* Bomb = nullptr;
+
+	
 	
 
 	void DirCheck(const std::string_view& _AnimationName);
@@ -59,6 +62,7 @@ private:
 	void MoveEnd();
 
 
+	void TearsAttack(float _DeltaTime);
 	GameEngineCollision* IsaacCollision = nullptr;
 };
 

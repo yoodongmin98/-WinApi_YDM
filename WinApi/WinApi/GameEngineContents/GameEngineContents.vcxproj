@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DownTears.h" />
+    <ClInclude Include="RightTears.h" />
     <ClInclude Include="Room.h">
       <SubType>
       </SubType>
@@ -67,8 +69,12 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Tears.h" />
+    <ClInclude Include="UpTears.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DownTears.cpp" />
+    <ClCompile Include="RightTears.cpp" />
     <ClCompile Include="Room.cpp">
       <SubType>
       </SubType>
@@ -125,6 +131,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Tears.cpp" />
+    <ClCompile Include="UpTears.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
