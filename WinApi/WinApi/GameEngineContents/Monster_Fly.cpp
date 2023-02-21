@@ -1,4 +1,4 @@
-#include "Monster.h"
+#include "Monster_Fly.h"
 #include "IsaacEnum.h"
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineBase/GameEngineDirectory.h>
@@ -13,17 +13,17 @@
 #include "Door.h"
 
 
-Monster::Monster()
+Monster_Fly::Monster_Fly()
 {
 	
 }
 
-Monster::~Monster()
+Monster_Fly::~Monster_Fly()
 {
 }
 
 
-void Monster::ImageLoad()
+void Monster_Fly::ImageLoad()
 {
 		GameEngineDirectory Dir;
 		Dir.MoveParentToDirectory("ContentsResources");
@@ -39,7 +39,7 @@ void Monster::ImageLoad()
 }
 
 
-void Monster::Start()
+void Monster_Fly::Start()
 {
 	ImageLoad();
 	M_fly = CreateRender(IsaacOrder::R_Monster);
@@ -63,19 +63,19 @@ void Monster::Start()
 }
 
 bool Deathcheck = false;
-void Monster::Update(float _DeltaTime)
+void Monster_Fly::Update(float _DeltaTime)
 {
 	Movecalculation(_DeltaTime);
 }
 
-void Monster::Movecalculation(float _DeltaTime)
+void Monster_Fly::Movecalculation(float _DeltaTime)
 {
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
 	SetMove(M_Move * 100.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
 
 	NowTime += _DeltaTime;
-	if (NowTime >= 0.5f) //다음상호작용이 되려면 이만큼의 시간이 흘러야한다(몬스터가 죽는애니메이션시간보다는 길어야함)
+	if (NowTime >= 1.0f) //다음상호작용이 되려면 이만큼의 시간이 흘러야한다(몬스터가 죽는애니메이션시간보다는 길어야함)
 	{
 		NowTime = 0.0f;
 		M_fly_Coll->On();  //시간이지나면 다시collision을킨다
@@ -106,7 +106,7 @@ void Monster::Movecalculation(float _DeltaTime)
 		}
 	}
 }
-void Monster::Render(float _DeltaTime)
+void Monster_Fly::Render(float _DeltaTime)
 {
 	//M_fly_Coll->DebugRender();
 }

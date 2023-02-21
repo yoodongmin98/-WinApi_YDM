@@ -31,23 +31,23 @@
     <ClInclude Include="IsaacIntro.h">
       <Filter>Intro\Intro</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
+    <ClInclude Include="Monster_Fly.h">
       <Filter>Play\Isaac\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Door.h">
       <Filter>Play\Playlevel\MapRenderSet\MapActor\Door</Filter>
     </ClInclude>
     <ClInclude Include="Tears.h">
-      <Filter>Play\Isaac\Tears</Filter>
-    </ClInclude>
-    <ClInclude Include="UpTears.h">
-      <Filter>Play\Isaac\Tears</Filter>
-    </ClInclude>
-    <ClInclude Include="RightTears.h">
-      <Filter>Play\Isaac\Tears</Filter>
+      <Filter>Play\Isaac\Tears\DefalutTears%28Left%29</Filter>
     </ClInclude>
     <ClInclude Include="DownTears.h">
-      <Filter>Play\Isaac\Tears</Filter>
+      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+    </ClInclude>
+    <ClInclude Include="RightTears.h">
+      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+    </ClInclude>
+    <ClInclude Include="UpTears.h">
+      <Filter>Play\Isaac\Tears\OtherTears</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -81,7 +81,7 @@
     <ClCompile Include="IsaacIntro.cpp">
       <Filter>Intro\Intro</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
+    <ClCompile Include="Monster_Fly.cpp">
       <Filter>Play\Isaac\Monster</Filter>
     </ClCompile>
     <ClCompile Include="SettingMenu.cpp">
@@ -94,16 +94,16 @@
       <Filter>Play\Playlevel\MapRenderSet\MapActor\Door</Filter>
     </ClCompile>
     <ClCompile Include="Tears.cpp">
-      <Filter>Play\Isaac\Tears</Filter>
-    </ClCompile>
-    <ClCompile Include="UpTears.cpp">
-      <Filter>Play\Isaac\Tears</Filter>
-    </ClCompile>
-    <ClCompile Include="RightTears.cpp">
-      <Filter>Play\Isaac\Tears</Filter>
+      <Filter>Play\Isaac\Tears\DefalutTears%28Left%29</Filter>
     </ClCompile>
     <ClCompile Include="DownTears.cpp">
-      <Filter>Play\Isaac\Tears</Filter>
+      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+    </ClCompile>
+    <ClCompile Include="RightTears.cpp">
+      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+    </ClCompile>
+    <ClCompile Include="UpTears.cpp">
+      <Filter>Play\Isaac\Tears\OtherTears</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +166,12 @@
     </Filter>
     <Filter Include="Play\Isaac\Tears">
       <UniqueIdentifier>{c1cd1d0e-4833-4c74-b501-375416a36fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Tears\DefalutTears%28Left%29">
+      <UniqueIdentifier>{34129774-54b3-4a1a-bc68-5f344fccbc0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Tears\OtherTears">
+      <UniqueIdentifier>{1a3d9f5a-907a-470f-83e2-199ed8f37179}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

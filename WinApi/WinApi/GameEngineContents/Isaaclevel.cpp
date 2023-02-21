@@ -14,7 +14,7 @@
 // 나랑 같은 등급의 헤더들
 #include "Isaac.h"
 #include "Room.h"
-#include "Monster.h"
+#include "Monster_Fly.h"
 #include "Door.h"
 #include "AllBack.h"
 
@@ -113,12 +113,8 @@ void IsaacLevel::Loading()
 		// 2>Library
 		// 3>Depth
 		// 4>BossRoom
-		CreateActor<Monster>();
-		// CreateActor<Door>();
-		 
-
-
-
+		CreateActor<Monster_Fly>();
+		
 		//내가만들어야할것들(?)
 		//상호작용될 actor들을 고려해 누가 관리해야할지??
 		 

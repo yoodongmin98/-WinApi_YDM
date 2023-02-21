@@ -3,26 +3,20 @@
 #include <GameEnginePlatform/GameEngineImage.h>
 
 
-class Door;
-class Monster : public GameEngineActor
+class Monster_Fly : public GameEngineActor
 {
-
-	friend Door;
 public:
-	Monster();
-	~Monster();
+	Monster_Fly();
+	~Monster_Fly();
 
 
-	Monster(const Monster& _Other) = delete;
-	Monster(Monster&& _Other) noexcept = delete;
-	Monster& operator=(const Monster& _Other) = delete;
-	Monster& operator=(Monster&& _Other) noexcept = delete;
+	Monster_Fly(const Monster_Fly& _Other) = delete;
+	Monster_Fly(Monster_Fly&& _Other) noexcept = delete;
+	Monster_Fly& operator=(const Monster_Fly& _Other) = delete;
+	Monster_Fly& operator=(Monster_Fly&& _Other) noexcept = delete;
 	void ImageLoad();
 
-	int GetFlyHp()
-	{
-		return FlyHp;
-	}
+	
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
@@ -33,9 +27,7 @@ private:
 	GameEngineRender* M_fly = nullptr;
 	GameEngineCollision* M_fly_Coll = nullptr;
 
-	float ReloadTime = 3.0f;
 	float NowTime = 0.0f;
-	float DeadTime = 0.0f;
 	int FlyHp = 3;
 	int RESET = 1;
 };
