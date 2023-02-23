@@ -56,7 +56,9 @@ void IsaacLevel::Loading()
 	// Level Image Load
 	{
 		GameEngineImage* head = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
-		head->Cut(10, 4);
+		head->Cut(10, 5);
+		GameEngineImage* Ani = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Ani.BMP"));
+		Ani->Cut(5, 3);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Depth.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Boss.BMP"));

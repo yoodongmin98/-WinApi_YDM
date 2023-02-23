@@ -55,7 +55,6 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 
-
 	}
 	ChangeState(IsaacState::IDLE);
 	{
@@ -76,12 +75,6 @@ void Isaac::Update(float _DeltaTime)
 	{
 		MoveDir *= 0.0000000001f;
 	}
-	/*if (CollTime > 1.0f)
-	{
-		IsaacCollision->On();
-	}*/
-
-
 
 	UpdateState(_DeltaTime);
 	TearsAttack(_DeltaTime);
@@ -128,13 +121,6 @@ void Isaac::TearsAttack(float _DeltaTime)
 	}
 }
 
-
-
-
-
-
-
-
 //맵 충돌 관리
 void Isaac::Movecalculation(float _DeltaTime)
 {
@@ -163,12 +149,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 	if (CollTime >= 3.0f) 
 	{
 		CollTime = 0.0f;
-		IsaacCollision->On();  //시간이지나면 다시collision을킨다
-		//RESET = 1;
-		//if (true == Deathcheck) //hp가 떨어진게 확인되면
-		//{
-		//	Death(); //없앤다
-		//}
+		IsaacCollision->On(); //시간이지나면 다시collision을킨다
+
+		DamagedIsaac = false;
 	}
 	if (nullptr != IsaacCollision) //아이작의 콜리전이 null이아니어야 상호작용가능
 	{
@@ -177,6 +160,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
+			DamagedIsaac = true;
 		}
 	}
 }
@@ -212,5 +196,5 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 
 void Isaac::Render(float _DeltaTime)
 {
-	IsaacCollision->DebugRender();
+//	IsaacCollision->DebugRender();
 }

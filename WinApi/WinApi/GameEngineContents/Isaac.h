@@ -6,7 +6,7 @@ enum class IsaacState
 {
 	IDLE,
 	MOVE,
-	DAMAGE,
+	DAMAGED,
 };
 class Isaac : public GameEngineActor
 {
@@ -56,7 +56,7 @@ private:
 	int HP = 6;
 
 
-
+	bool DamagedIsaac = false;
 
 
 
