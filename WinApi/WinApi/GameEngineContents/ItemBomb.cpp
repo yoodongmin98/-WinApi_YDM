@@ -56,7 +56,7 @@ void ItemBomb::Start()
 	R_ItemBomb->ChangeAnimation("ItemBomb");
 	{
 		ItemBomb_Coll = CreateCollision(IsaacCollisionOrder::C_ItemBomb);
-		ItemBomb_Coll->SetScale({ 15, 15 });
+		ItemBomb_Coll->SetScale({ 5, 5 });
 		ItemBomb_Coll->On();
 		ItemBomb_Coll->SetDebugRenderType(CollisionType::CT_Rect);
 	}

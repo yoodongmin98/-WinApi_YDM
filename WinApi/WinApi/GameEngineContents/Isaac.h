@@ -43,6 +43,10 @@ public:
 	{
 		return BombCount;
 	}
+	int GetCoinCount()
+	{
+		return CoinCount;
+	}
 
 	
 protected:
@@ -76,6 +80,7 @@ private:
 
 	int KeyCount = 0;
 	int BombCount = 0;
+	int CoinCount = 0;
 
 
 	bool DamagedIsaac = false;

@@ -70,6 +70,9 @@
     <ClInclude Include="ItemBomb.h">
       <Filter>Play\Isaac\Item&amp;actor\Bomb</Filter>
     </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Play\Isaac\Item&amp;actor\Coin</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -146,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="ItemBomb.cpp">
       <Filter>Play\Isaac\Item&amp;actor\Bomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Coin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +247,9 @@
     </Filter>
     <Filter Include="Play\Isaac\Item&amp;actor\Bomb">
       <UniqueIdentifier>{8839379c-8949-47c6-b31e-7cab666b4514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Coin">
+      <UniqueIdentifier>{c867c2b5-2652-436b-9d8e-b40b27565040}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

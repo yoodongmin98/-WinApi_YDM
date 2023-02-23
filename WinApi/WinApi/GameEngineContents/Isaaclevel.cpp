@@ -28,6 +28,7 @@
 #include "Fire.h"
 #include "Key.h"
 #include "ItemBomb.h"
+#include "Coin.h"
 
 
 
@@ -145,6 +146,8 @@ void IsaacLevel::Loading()
 		NewKey->SetPos({ 180,360 });
 		ItemBomb* NewItemBomb = CreateActor<ItemBomb>();
 		NewItemBomb->SetPos({ 180,430 });
+		Coin* NewCoin = CreateActor<Coin>();
+		NewCoin->SetPos({ 180,490 });
 		////////////////////////////////////////////////////
 		
 		

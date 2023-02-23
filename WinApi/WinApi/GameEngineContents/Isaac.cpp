@@ -19,6 +19,7 @@
 #include "Heart.h"
 #include "Key.h"
 #include "ItemBomb.h"
+#include "Coin.h"
 
 Isaac* Isaac::MainPlayer;
 
@@ -211,6 +212,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		CollisionCheckParameter CheckHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckKey = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Key), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckBomb = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_ItemBomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckCoin = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Coin), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		//Heart
 		if (true == IsaacCollision->Collision(CheckHeart, ICollisions) && 6 != HP)
 		{
@@ -232,6 +234,12 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		{
 			ICollisions[0]->GetActor()->Death();
 			BombCount += 1;
+		}
+		//Coin
+		if (true == IsaacCollision->Collision(CheckCoin, ICollisions))
+		{
+			ICollisions[0]->GetActor()->Death();
+			CoinCount += 1;
 		}
 	}
 }
@@ -321,9 +329,11 @@ void Isaac::DebugSet()
 		Heart* DebugHeart = GetLevel()->CreateActor<Heart>(IsaacOrder::R_Wall);
 		DebugHeart->SetPos(GetPos()+float4::Up*80);
 		Key* DebugKey = GetLevel()->CreateActor<Key>(IsaacOrder::R_Wall);
-		DebugKey->SetPos(GetPos() + float4::Up * 80+float4::Right*50);
+		DebugKey->SetPos(GetPos() + float4::Up * 80+float4::Right*60);
 		ItemBomb* DebugItemBomb = GetLevel()->CreateActor<ItemBomb>(IsaacOrder::R_Wall);
-		DebugItemBomb->SetPos(GetPos() + float4::Up * 80 + float4::Left * 55);
+		DebugItemBomb->SetPos(GetPos() + float4::Up * 80 + float4::Left * 65);
+		Coin* DebugCoin = GetLevel()->CreateActor<Coin>(IsaacOrder::R_Wall);
+		DebugCoin->SetPos(GetPos() + float4::Up * 80 + float4::Left * 115);
 	}
 }
 

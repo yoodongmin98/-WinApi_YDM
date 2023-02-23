@@ -56,7 +56,7 @@ void Key::Start()
 	R_Key->ChangeAnimation("Key");
 	{
 		Key_Coll = CreateCollision(IsaacCollisionOrder::C_Key);
-		Key_Coll->SetScale({ 15, 15 });
+		Key_Coll->SetScale({ 5, 5 });
 		Key_Coll->On();
 		Key_Coll->SetDebugRenderType(CollisionType::CT_Rect);
 	}

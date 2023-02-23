@@ -22,6 +22,7 @@ enum class IsaacCollisionOrder
 	C_Fire,
 	C_Key,
 	C_ItemBomb,
+	C_Coin,
 	
 
 	C_Player,
