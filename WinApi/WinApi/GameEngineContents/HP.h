@@ -6,13 +6,6 @@
 class HP : public GameEngineActor
 {
 public:
-	static HP* HealthPtr;
-
-	static HP* GetHealthPtr()
-	{
-		return HealthPtr;
-	}
-
 	// constrcuter destructer
 	HP();
 	~HP();
@@ -36,7 +29,5 @@ private:
 
 	void GetandSetIsaacHP();
 	void HpSet(int _PlayerHP);
-
-	bool NewHealth1 = false;
 };
 

@@ -9,8 +9,6 @@
 
 #include "Isaac.h"
 
-HP* HP::HealthPtr = nullptr;
-
 HP::HP()
 {
 }

@@ -40,9 +40,6 @@
     <ClInclude Include="UpTears.h">
       <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClInclude>
-    <ClInclude Include="HP.h">
-      <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Bomb.h">
       <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClInclude>
@@ -72,6 +69,12 @@
     </ClInclude>
     <ClInclude Include="Coin.h">
       <Filter>Play\Isaac\Item&amp;actor\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="HP.h">
+      <Filter>Play\Playlevel\MapRenderSet\UI\HP</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemNumber.h">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,9 +120,6 @@
     <ClCompile Include="UpTears.cpp">
       <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClCompile>
-    <ClCompile Include="HP.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Bomb.cpp">
       <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClCompile>
@@ -152,6 +152,12 @@
     </ClCompile>
     <ClCompile Include="Coin.cpp">
       <Filter>Play\Isaac\Item&amp;actor\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="HP.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\UI\HP</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemNumber.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +256,12 @@
     </Filter>
     <Filter Include="Play\Isaac\Item&amp;actor\Coin">
       <UniqueIdentifier>{c867c2b5-2652-436b-9d8e-b40b27565040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\UI\HP">
+      <UniqueIdentifier>{501b9aad-defa-49d3-afdc-65aa87691008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\UI\ItemNumber">
+      <UniqueIdentifier>{9c946b4a-cc60-443d-89d4-8b4c2bd586bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
