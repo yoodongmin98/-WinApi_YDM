@@ -14,7 +14,11 @@
 #include "RightTears.h"
 #include "Isaac.h"
 #include "Bomb.h"
+
+//Debug
 #include "Heart.h"
+#include "Key.h"
+#include "ItemBomb.h"
 
 Isaac* Isaac::MainPlayer;
 
@@ -49,6 +53,7 @@ void Isaac::Start()
 
 
 		GameEngineInput::CreateKey("DebugItem", '1');
+		GameEngineInput::CreateKey("DebugRender", '2');
 
 	}
 
@@ -95,6 +100,7 @@ void Isaac::Update(float _DeltaTime)
 	DeathCheck(_DeltaTime);
 	if (0 != GetPlayerHP())
 	{
+		Render(_DeltaTime);
 		DebugSet();
 		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
@@ -185,7 +191,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			IsaacCollision->Off();
 			DamagedIsaac = true;
 		}
-		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Isaac_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			CollTime += _DeltaTime;
 			HP -= 1;
@@ -202,9 +208,11 @@ void Isaac::CollisionCheck(float _DeltaTime)
 
 		//Item
 		std::vector<GameEngineCollision*> ICollisions;
-		CollisionCheckParameter CheckItem = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
-
-		if (true == IsaacCollision->Collision(CheckItem, ICollisions) && 6 != HP)
+		CollisionCheckParameter CheckHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckKey = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Key), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckBomb = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_ItemBomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		//Heart
+		if (true == IsaacCollision->Collision(CheckHeart, ICollisions) && 6 != HP)
 		{
 			ICollisions[0]->GetActor()->Death();
 			HP += 2;
@@ -212,6 +220,18 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			{
 				HP = MaxHP;
 			}
+		}
+		//Key
+		if (true == IsaacCollision->Collision(CheckKey, ICollisions))
+		{
+			ICollisions[0]->GetActor()->Death();
+			KeyCount += 1;
+		}
+		//Bomb
+		if (true == IsaacCollision->Collision(CheckBomb, ICollisions))
+		{
+			ICollisions[0]->GetActor()->Death();
+			BombCount += 1;
 		}
 	}
 }
@@ -298,12 +318,16 @@ void Isaac::DebugSet()
 {
 	if (true == GameEngineInput::IsDown("DebugItem"))
 	{
-		Heart* NewHeart = GetLevel()->CreateActor<Heart>(IsaacOrder::R_Wall);
-		NewHeart->SetPos(GetPos()+float4::Up*80);
+		Heart* DebugHeart = GetLevel()->CreateActor<Heart>(IsaacOrder::R_Wall);
+		DebugHeart->SetPos(GetPos()+float4::Up*80);
+		Key* DebugKey = GetLevel()->CreateActor<Key>(IsaacOrder::R_Wall);
+		DebugKey->SetPos(GetPos() + float4::Up * 80+float4::Right*50);
+		ItemBomb* DebugItemBomb = GetLevel()->CreateActor<ItemBomb>(IsaacOrder::R_Wall);
+		DebugItemBomb->SetPos(GetPos() + float4::Up * 80 + float4::Left * 55);
 	}
 }
 
 void Isaac::Render(float _DeltaTime)
 {
-	IsaacCollision->DebugRender();
+	//IsaacCollision->DebugRender();
 }

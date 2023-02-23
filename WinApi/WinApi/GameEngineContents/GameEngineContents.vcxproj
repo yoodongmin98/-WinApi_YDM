@@ -24,7 +24,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="DownTears.h" />
-    <ClInclude Include="FIre.h">
+    <ClInclude Include="Fire.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -37,6 +37,11 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="ItemBomb.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Poop.h">
       <SubType>
       </SubType>
@@ -108,6 +113,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="HP.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="ItemBomb.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
       <SubType>
       </SubType>
     </ClCompile>

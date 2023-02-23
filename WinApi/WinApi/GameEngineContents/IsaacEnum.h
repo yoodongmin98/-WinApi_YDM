@@ -20,6 +20,8 @@ enum class IsaacCollisionOrder
 	C_Item,
 	C_Heart,
 	C_Fire,
+	C_Key,
+	C_ItemBomb,
 	
 
 	C_Player,
@@ -27,7 +29,7 @@ enum class IsaacCollisionOrder
 	C_Monster,
 	C_MonsterAtt,
 
-	C_Bomb,
+	C_Isaac_Bomb,
 
 	
 

@@ -55,7 +55,7 @@
     <ClInclude Include="FireWood.h">
       <Filter>Play\Isaac\Item&amp;actor\Fire\FireWood</Filter>
     </ClInclude>
-    <ClInclude Include="FIre.h">
+    <ClInclude Include="Fire.h">
       <Filter>Play\Isaac\Item&amp;actor\Fire</Filter>
     </ClInclude>
     <ClInclude Include="Isaac.h">
@@ -63,6 +63,12 @@
     </ClInclude>
     <ClInclude Include="Monster_Fly.h">
       <Filter>Play\Isaac\Monster\Fly</Filter>
+    </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>Play\Isaac\Item&amp;actor\Key</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemBomb.h">
+      <Filter>Play\Isaac\Item&amp;actor\Bomb</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +140,12 @@
     </ClCompile>
     <ClCompile Include="Monster_Fly.cpp">
       <Filter>Play\Isaac\Monster\Fly</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Key</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBomb.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Bomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +235,12 @@
     </Filter>
     <Filter Include="Play\Isaac\Monster\Fly">
       <UniqueIdentifier>{82c3766b-f39b-4fb6-a7fe-48be49c97f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Key">
+      <UniqueIdentifier>{5b22a227-fc64-4183-a623-4f2e5988ff22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Bomb">
+      <UniqueIdentifier>{8839379c-8949-47c6-b31e-7cab666b4514}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

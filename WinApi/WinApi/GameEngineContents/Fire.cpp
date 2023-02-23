@@ -20,6 +20,7 @@
 #include "Heart.h"
 
 
+Fire* Fire::MainFire;
 
 Fire::Fire()
 {
@@ -46,6 +47,8 @@ void Fire::ImageLoad()
 bool LoadFire = true;
 void Fire::Start()
 {
+	MainFire = this; //이것은 불 그 잡채
+
 	if (true == LoadFire)
 	{
 		ImageLoad();

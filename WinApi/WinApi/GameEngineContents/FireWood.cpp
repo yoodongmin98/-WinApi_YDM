@@ -11,6 +11,7 @@
 #include "Isaac.h"
 #include "IsaacEnum.h"
 #include "FireWood.h"
+#include "Fire.h"
 //드랍아이템들
 #include "Heart.h"
 
@@ -57,6 +58,21 @@ void FireWood::Start()
 
 void FireWood::Update(float _DeltaTime)
 {
+	GetFireHpSet();
+	WoodRender(FireHp);
+}
+
+void FireWood::GetFireHpSet()
+{
+	FireHp=Fire::MainFire->GetFireHp();
+}
+
+void FireWood::WoodRender(int _FireHp)
+{
+	if(0== _FireHp)
+	{
+		R_FireWood->ChangeAnimation("Fire_Wood_Done");
+	}
 
 }
 

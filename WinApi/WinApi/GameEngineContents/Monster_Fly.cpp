@@ -114,7 +114,7 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 		}
 	}
 	
-	CollisionCheckParameter B_Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter B_Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Isaac_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 	if (true == M_fly_Coll->Collision(B_Check, FCollisions))
 	{
 		FlyHp = FlyHp - 5; //이것은 폭탄의 데미지여

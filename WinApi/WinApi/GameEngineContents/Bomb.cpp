@@ -60,7 +60,7 @@ void Bomb::Start()
 
 	{
 
-		Bomb_Coll = CreateCollision(IsaacCollisionOrder::C_Bomb);
+		Bomb_Coll = CreateCollision(IsaacCollisionOrder::C_Isaac_Bomb);
 		Bomb_Coll->SetScale({ 30, 30 });
 		Bomb_Coll->Off();
 		Bomb_Coll->SetDebugRenderType(CollisionType::CT_Rect);

@@ -35,6 +35,14 @@ public:
 	{
 		return HP= _HP;
 	}
+	int GetKeyCount()
+	{
+		return KeyCount;
+	}
+	int GetBombCount()
+	{
+		return BombCount;
+	}
 
 	
 protected:
@@ -65,6 +73,9 @@ private:
 	
 	int HP = 6;
 	int MaxHP = 6;
+
+	int KeyCount = 0;
+	int BombCount = 0;
 
 
 	bool DamagedIsaac = false;

@@ -14,13 +14,20 @@
 // 나랑 같은 등급의 헤더들
 #include "Isaac.h"
 #include "Room.h"
-#include "Monster_Fly.h"
 #include "AllBack.h"
+
+
 #include "HP.h"
+
+
+
+#include "Monster_Fly.h"
 #include "Poop.h"
 #include "Heart.h"
 #include "FireWood.h"
-#include "FIre.h"
+#include "Fire.h"
+#include "Key.h"
+#include "ItemBomb.h"
 
 
 
@@ -134,6 +141,10 @@ void IsaacLevel::Loading()
 		NewWood->SetPos({180,300});
 		Fire* NewFire = CreateActor<Fire>();
 		NewFire->SetPos({ 180,270 });
+		Key* NewKey = CreateActor<Key>();
+		NewKey->SetPos({ 180,360 });
+		ItemBomb* NewItemBomb = CreateActor<ItemBomb>();
+		NewItemBomb->SetPos({ 180,430 });
 		////////////////////////////////////////////////////
 		
 		

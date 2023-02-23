@@ -6,6 +6,7 @@
 class Fire : public GameEngineActor
 {
 public:
+	static Fire* MainFire;
 	Fire();
 	~Fire();
 
@@ -17,7 +18,10 @@ public:
 
 
 	void ImageLoad();
-
+	int GetFireHp()
+	{
+		return FireHp;
+	}
 
 protected:
 	void Start() override;
@@ -29,6 +33,7 @@ private:
 	GameEngineRender* R_Fire = nullptr;
 	GameEngineCollision* Fire_Coll = nullptr;
 
+	
 	int FireHp = 5;
 };
 

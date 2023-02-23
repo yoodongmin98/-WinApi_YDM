@@ -17,7 +17,8 @@ public:
 
 
 	void ImageLoad();
-
+	void GetFireHpSet();
+	void WoodRender(int _FireHp);
 
 protected:
 	void Start() override;
@@ -28,5 +29,6 @@ protected:
 private:
 	GameEngineRender* R_FireWood = nullptr;
 	
+	int FireHp = 0;
 };
 
