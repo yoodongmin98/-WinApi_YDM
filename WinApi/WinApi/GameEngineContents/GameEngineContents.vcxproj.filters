@@ -49,6 +49,9 @@
     <ClInclude Include="HP.h">
       <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Bomb.h">
+      <Filter>Play\Isaac\IsaacBomb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -105,6 +108,9 @@
     <ClCompile Include="HP.cpp">
       <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>Play\Isaac\IsaacBomb</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Play">
@@ -155,9 +161,6 @@
     <Filter Include="Play\Playlevel\MapRenderSet\MapMove">
       <UniqueIdentifier>{d0c61e26-141a-49fa-80d6-d007ee4283a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Playlevel\MapRenderSet\MapActor">
-      <UniqueIdentifier>{fafbc1c7-941a-4fcf-bead-c4d7f191fe78}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Room">
       <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
     </Filter>
@@ -172,6 +175,9 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI">
       <UniqueIdentifier>{ee260920-7eef-41ac-877b-18c60a7be8ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\IsaacBomb">
+      <UniqueIdentifier>{0616295f-9ed9-4e8d-b14c-4db760783455}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

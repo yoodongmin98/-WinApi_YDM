@@ -261,8 +261,8 @@ void TitleLevel::Update(float _DeltaTime)
 			}
 			if (true == GameEngineInput::IsDown("NextLevel"))
 			{
-				TitleEnd = TitleStart + float4(0.0f, 3*(-GameEngineWindow::GetScreenSize().y));
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
+				TitleEnd = TitleStart + float4(0.0f, 3*(-GameEngineWindow::GetScreenSize().y));
 			}
 		}	
 	}

@@ -69,6 +69,9 @@ void Isaac::Start()
 		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
 	
+	DeadMenu = CreateRender("DeadMenu.BMP", IsaacOrder::R_Menu);
+	DeadMenu->SetScaleToImage();
+	DeadMenu->Off();
 }
 
 void Isaac::Update(float _DeltaTime)
@@ -81,7 +84,7 @@ void Isaac::Update(float _DeltaTime)
 		MoveDir *= 0.0000000001f;
 	}
 
-	
+	DeadMenu->Off();
 	DeathCheck(_DeltaTime);
 	if (0 != GetPlayerHP())
 	{
@@ -211,13 +214,13 @@ void Isaac::Render(float _DeltaTime)
 
 void Isaac::DeathCheck(float _DeltaTime)
 {
-	if (false == GameEngineInput::IsKey("BackTitle"))
-	{
-		GameEngineInput::CreateKey("BackTitle", VK_SPACE);
-	}
-
 	if (0 == GetPlayerHP())
 	{
+		if (false == GameEngineInput::IsKey("BackTitle"))
+		{
+			GameEngineInput::CreateKey("BackTitle", VK_SPACE);
+		}
+
 		DeadTime += _DeltaTime;
 
 		DamagedIsaac = false;
@@ -228,13 +231,12 @@ void Isaac::DeathCheck(float _DeltaTime)
 			SetMove(GameEngineWindow::GetScreenSize().half());
 			SetPos(GameEngineWindow::GetScreenSize().half());
 
-			DeadMenu = CreateRender("DeadMenu.BMP", IsaacOrder::R_Menu);
-			DeadMenu->SetScaleToImage();
 			DeadMenu->On();
 			if (true == GameEngineInput::IsDown("BackTitle"))
 			{
-				DeadMenu->Off();
+				//DeadMenu->Off(); //¾ê ¿Ö ¾ÈµÊ?
 				SetPlayerHP(6);
+				DeadTime = 0.0f;
 				GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 				
 			}
