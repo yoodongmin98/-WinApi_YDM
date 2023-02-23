@@ -19,6 +19,8 @@
 #include "HP.h"
 #include "Poop.h"
 #include "Heart.h"
+#include "FireWood.h"
+#include "FIre.h"
 
 
 
@@ -116,36 +118,34 @@ void IsaacLevel::Loading()
 		CreateRoom(4, 0, 3); //SecretRoom
 		CreateRoom(5, 1, 4); //Boss Room 
 
+		//key
 		// 1>BaseMent
 		// 2>Library
 		// 3>Depth
 		// 4>BossRoom
-		CreateActor<Monster_Fly>();
 		CreateActor<HP>();
+
+		///////////////////테스트용 Actor///////////////////
+		CreateActor<Monster_Fly>();
 		CreateActor<Poop>();
-		CreateActor<Heart>();
+		Heart* TestHeart=CreateActor<Heart>();
+		TestHeart->SetPos({ 180,230 });
+		FireWood* NewWood= CreateActor<FireWood>();
+		NewWood->SetPos({180,300});
+		Fire* NewFire = CreateActor<Fire>();
+		NewFire->SetPos({ 180,270 });
+		////////////////////////////////////////////////////
 		
-		//내가만들어야할것들(?)
-		//상호작용될 actor들을 고려해 누가 관리해야할지??
-		 
-		//총알>>MainPlayer(Isaac) >> 몬스터나 벽(또는 바위 등)에 collision이 만나면 상호작용, 몬스터의 총알도 동일
-		//몬스터는 총알에닿으면 깜빡임+애니메이션상태를 변경해야함
-		// 
-		// Collision으로 상호작용을 만든다면
-		// 몬스터<->플레이어의접촉 >>플레이어 (플레이어가 깜빡이면서 애니메이션이바뀌니까)
-		// 몬스터<->총알  >>몬스터 (동일)
-		// 벽<->총알  >> 총알( 벽에닿으면 사라져야하니까)
-		// 열쇠<->플레이어  >>열쇠(닿으면 사라져야하니까)
-		// 폭탄(드랍)도 동일
-		// 폭탄과상호작용되는 액터들(바위) 모닥불 똥무더기 등등 >>각자관리
+		
+		//맵의 이동은level에서 관리(이거는 됨)  >>Actor가 관리해서 업데이트하니까 작동안했음 왜인지는 아직몰루?
 
-		//맵의 이동은level에서 관리
+		//현재 만들어진 스테이지는 결국 하나의 레벨에서 진행되기떄문에 Actor별로 알아야할것이 많음.
 
-		//몬스터의수가0이되면 문이열린다>>결국 문쪽에서 관리해야함(열리는모션이있음)
-		//create monster가되면 몬스터의Count가 늘어나고 특정조건이되면 열림>> ??
+		//몬스터의수가0이되면 문이열린다>>결국 문 또는 Room쪽에서 관리해야함(열리는모션이있음)
+		//create monster가되면 몬스터의Count가 늘어나고 특정조건이되면 열림 >> Room에서 Actor들(벽,몬스터 등등)을 만들고 그에따른 조건을 만들어야함
 
 		//위 조건을 충족하면서 플레이어<->문 의 collision이 만나면 맵이이동해야한다
-		//맵의 이동은level에서관리하니까 문은level을 상속받아체크하면되나? 무ㅠㅓㄴ소리야
+		
 
 
 

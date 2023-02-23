@@ -71,7 +71,7 @@ Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp",
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
 		IsaacCollision->SetScale({ 50, 50 });
-		IsaacCollision->SetPosition({ 0,-20 });
+		IsaacCollision->SetPosition({ 0,-30 });
 		IsaacCollision->On();
 		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
@@ -185,7 +185,14 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			IsaacCollision->Off();
 			DamagedIsaac = true;
 		}
-		else if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+		{
+			CollTime += _DeltaTime;
+			HP -= 1;
+			IsaacCollision->Off();
+			DamagedIsaac = true;
+		}
+		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Fire), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			CollTime += _DeltaTime;
 			HP -= 1;
@@ -281,7 +288,6 @@ void Isaac::BombCheck(float _DeltaTime)
 	if (ResetTime_B > 1.0f) { ResetTime_B = 0.0f; } //다음폭탄까지의 딜레이는 1.0
 	else { return; } //그사이에 누르는값은 리턴
 
-
 	if (true == GameEngineInput::IsDown("Bomb"))
 	{
 		Bomb* NewBomb = GetLevel()->CreateActor<Bomb>(IsaacOrder::R_Player);
@@ -299,5 +305,5 @@ void Isaac::DebugSet()
 
 void Isaac::Render(float _DeltaTime)
 {
-//	IsaacCollision->DebugRender();
+	IsaacCollision->DebugRender();
 }

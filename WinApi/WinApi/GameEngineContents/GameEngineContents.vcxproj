@@ -24,6 +24,14 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="DownTears.h" />
+    <ClInclude Include="FIre.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="FireWood.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HP.h">
       <SubType>
@@ -87,6 +95,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="DownTears.cpp" />
+    <ClCompile Include="Fire.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="FireWood.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Heart.cpp">
       <SubType>
       </SubType>

@@ -19,9 +19,6 @@
     <ClInclude Include="Room.h">
       <Filter>Play\Room</Filter>
     </ClInclude>
-    <ClInclude Include="Isaac.h">
-      <Filter>Play\Isaac\Isaac_Main</Filter>
-    </ClInclude>
     <ClInclude Include="TitleChapter.h">
       <Filter>Title\TitleBackGround</Filter>
     </ClInclude>
@@ -30,9 +27,6 @@
     </ClInclude>
     <ClInclude Include="IsaacIntro.h">
       <Filter>Intro\Intro</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster_Fly.h">
-      <Filter>Play\Isaac\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Tears.h">
       <Filter>Play\Isaac\Isaac_Main\Tears\DefalutTears%28Left%29</Filter>
@@ -58,6 +52,18 @@
     <ClInclude Include="Poop.h">
       <Filter>Play\Isaac\Item&amp;actor\Poop</Filter>
     </ClInclude>
+    <ClInclude Include="FireWood.h">
+      <Filter>Play\Isaac\Item&amp;actor\Fire\FireWood</Filter>
+    </ClInclude>
+    <ClInclude Include="FIre.h">
+      <Filter>Play\Isaac\Item&amp;actor\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="Isaac.h">
+      <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_Fly.h">
+      <Filter>Play\Isaac\Monster\Fly</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -75,12 +81,6 @@
     <ClCompile Include="Room.cpp">
       <Filter>Play\Room</Filter>
     </ClCompile>
-    <ClCompile Include="Isaac.cpp">
-      <Filter>Play\Isaac\Isaac_Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Isaac_State.cpp">
-      <Filter>Play\Isaac\Isaac_Main</Filter>
-    </ClCompile>
     <ClCompile Include="TitleChapter.cpp">
       <Filter>Title\TitleBackGround</Filter>
     </ClCompile>
@@ -89,9 +89,6 @@
     </ClCompile>
     <ClCompile Include="IsaacIntro.cpp">
       <Filter>Intro\Intro</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster_Fly.cpp">
-      <Filter>Play\Isaac\Monster</Filter>
     </ClCompile>
     <ClCompile Include="SettingMenu.cpp">
       <Filter>Play\Playlevel\MapRenderSet\SettingMenu</Filter>
@@ -122,6 +119,21 @@
     </ClCompile>
     <ClCompile Include="Poop.cpp">
       <Filter>Play\Isaac\Item&amp;actor\Poop</Filter>
+    </ClCompile>
+    <ClCompile Include="FireWood.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Fire\FireWood</Filter>
+    </ClCompile>
+    <ClCompile Include="Fire.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Isaac.cpp">
+      <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
+    </ClCompile>
+    <ClCompile Include="Isaac_State.cpp">
+      <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Fly.cpp">
+      <Filter>Play\Isaac\Monster\Fly</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +211,18 @@
     </Filter>
     <Filter Include="Play\Isaac\Item&amp;actor\Poop">
       <UniqueIdentifier>{aa4d840d-383d-4a81-88f1-5c00f80fc871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Fire">
+      <UniqueIdentifier>{0386def2-4535-4bc5-a5ad-b58a38f27149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Fire\FireWood">
+      <UniqueIdentifier>{d79da068-9566-4e74-9378-0f007d2e709e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Isaac_Main\Isaac">
+      <UniqueIdentifier>{30f2bc80-a20f-4a87-bc76-53c4f137405b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\Fly">
+      <UniqueIdentifier>{82c3766b-f39b-4fb6-a7fe-48be49c97f7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
