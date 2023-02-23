@@ -61,6 +61,7 @@ void Isaac::Start()
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
 		IsaacCollision->SetScale({ 50, 50 });
+		IsaacCollision->SetPosition({ 0,-20 });
 		IsaacCollision->On();
 		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
@@ -75,12 +76,18 @@ void Isaac::Update(float _DeltaTime)
 	{
 		MoveDir *= 0.0000000001f;
 	}
+	/*if (CollTime > 1.0f)
+	{
+		IsaacCollision->On();
+	}*/
+
+
+
 	UpdateState(_DeltaTime);
 	TearsAttack(_DeltaTime);
 	CollisionCheck(_DeltaTime);
 	Movecalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
-	
 }
 
 //아이작 공격(Tears)관리
@@ -152,18 +159,24 @@ void Isaac::Movecalculation(float _DeltaTime)
 
 void Isaac::CollisionCheck(float _DeltaTime)
 {
-	ResetTime += _DeltaTime;
+	CollTime += _DeltaTime;
+	if (CollTime >= 3.0f) 
+	{
+		CollTime = 0.0f;
+		IsaacCollision->On();  //시간이지나면 다시collision을킨다
+		//RESET = 1;
+		//if (true == Deathcheck) //hp가 떨어진게 확인되면
+		//{
+		//	Death(); //없앤다
+		//}
+	}
 	if (nullptr != IsaacCollision) //아이작의 콜리전이 null이아니어야 상호작용가능
 	{
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
+			CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
-			ResetTime = 0.0f;
-			if (ResetTime > 3.0f)
-			{
-				IsaacCollision->On();
-			}
 		}
 	}
 }
@@ -195,4 +208,9 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 	{
 		Head->ChangeAnimation(DirString + _AnimationName.data());
 	}
+}
+
+void Isaac::Render(float _DeltaTime)
+{
+	IsaacCollision->DebugRender();
 }

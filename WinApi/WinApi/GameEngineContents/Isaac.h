@@ -35,9 +35,10 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	
+	void Render(float _DeltaTime);
 
 private:
-	float AccTime = 0.0f;
+	float CollTime = 0.0f;
 	float ResetTime = 0.0f;
 	float MoveSpeed = 300.0f;
 	float4 MoveDir = float4::Zero;

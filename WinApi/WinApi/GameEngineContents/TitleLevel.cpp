@@ -255,6 +255,7 @@ void TitleLevel::Update(float _DeltaTime)
 			if (false == GameEngineInput::IsKey("NextLevel"))
 			{
 				GameEngineInput::CreateKey("NextLevel", VK_SPACE);
+				false == GameEngineInput::IsDown("TitleScrollDown");
 			}
 			if (true == GameEngineInput::IsDown("NextLevel"))
 			{
