@@ -71,12 +71,6 @@ void IsaacLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_BossDoor_Left.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_BossDoor_Right.BMP"));
 
-		AllBack* Image = CreateActor<AllBack>();
-		BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
-		BackDrop->SetScale({ 600,150 });
-
-		
-
 		GameEngineImage* Door_Down = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Down.BMP"));
 		Door_Down->Cut(4, 1);
 		GameEngineImage* Door_Up = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Up.BMP"));
@@ -94,6 +88,10 @@ void IsaacLevel::Loading()
 		GameEngineImage* HP = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("HP.bmp"));
 		HP->Cut(5, 2);
 	}
+
+	AllBack* Image = CreateActor<AllBack>();
+	BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
+	BackDrop->SetScale({ 600,150 });
 	// 액터 생성
 	{
 		CreateActor<Isaac>();

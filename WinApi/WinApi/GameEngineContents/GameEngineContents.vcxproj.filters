@@ -20,7 +20,7 @@
       <Filter>Play\Room</Filter>
     </ClInclude>
     <ClInclude Include="Isaac.h">
-      <Filter>Play\Isaac\Isaacmove</Filter>
+      <Filter>Play\Isaac\Isaac_Main</Filter>
     </ClInclude>
     <ClInclude Include="TitleChapter.h">
       <Filter>Title\TitleBackGround</Filter>
@@ -35,22 +35,22 @@
       <Filter>Play\Isaac\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Tears.h">
-      <Filter>Play\Isaac\Tears\DefalutTears%28Left%29</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\DefalutTears%28Left%29</Filter>
     </ClInclude>
     <ClInclude Include="DownTears.h">
-      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClInclude>
     <ClInclude Include="RightTears.h">
-      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClInclude>
     <ClInclude Include="UpTears.h">
-      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClInclude>
     <ClInclude Include="HP.h">
       <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
     </ClInclude>
     <ClInclude Include="Bomb.h">
-      <Filter>Play\Isaac\IsaacBomb</Filter>
+      <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,10 +70,10 @@
       <Filter>Play\Room</Filter>
     </ClCompile>
     <ClCompile Include="Isaac.cpp">
-      <Filter>Play\Isaac\Isaacmove</Filter>
+      <Filter>Play\Isaac\Isaac_Main</Filter>
     </ClCompile>
     <ClCompile Include="Isaac_State.cpp">
-      <Filter>Play\Isaac\Isaacmove</Filter>
+      <Filter>Play\Isaac\Isaac_Main</Filter>
     </ClCompile>
     <ClCompile Include="TitleChapter.cpp">
       <Filter>Title\TitleBackGround</Filter>
@@ -94,22 +94,22 @@
       <Filter>Play\Playlevel\MapRenderSet\MapMove</Filter>
     </ClCompile>
     <ClCompile Include="Tears.cpp">
-      <Filter>Play\Isaac\Tears\DefalutTears%28Left%29</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\DefalutTears%28Left%29</Filter>
     </ClCompile>
     <ClCompile Include="DownTears.cpp">
-      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClCompile>
     <ClCompile Include="RightTears.cpp">
-      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClCompile>
     <ClCompile Include="UpTears.cpp">
-      <Filter>Play\Isaac\Tears\OtherTears</Filter>
+      <Filter>Play\Isaac\Isaac_Main\Tears\OtherTears</Filter>
     </ClCompile>
     <ClCompile Include="HP.cpp">
       <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
     </ClCompile>
     <ClCompile Include="Bomb.cpp">
-      <Filter>Play\Isaac\IsaacBomb</Filter>
+      <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +140,6 @@
     <Filter Include="Play\Isaac">
       <UniqueIdentifier>{57376af8-37ed-44bb-9fbe-08ea18a9f12c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Isaac\Isaacmove">
-      <UniqueIdentifier>{35f06202-8115-4adb-825e-a9b5044c7426}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Title\TitleBackGround">
       <UniqueIdentifier>{acc08166-e9c7-45dd-b2e2-33c1e4b3bddb}</UniqueIdentifier>
     </Filter>
@@ -164,20 +161,23 @@
     <Filter Include="Play\Room">
       <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Isaac\Tears">
-      <UniqueIdentifier>{c1cd1d0e-4833-4c74-b501-375416a36fad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Tears\DefalutTears%28Left%29">
-      <UniqueIdentifier>{34129774-54b3-4a1a-bc68-5f344fccbc0a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Tears\OtherTears">
-      <UniqueIdentifier>{1a3d9f5a-907a-470f-83e2-199ed8f37179}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI">
       <UniqueIdentifier>{ee260920-7eef-41ac-877b-18c60a7be8ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Isaac\IsaacBomb">
+    <Filter Include="Play\Isaac\Isaac_Main">
+      <UniqueIdentifier>{35f06202-8115-4adb-825e-a9b5044c7426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Isaac_Main\IsaacBomb">
       <UniqueIdentifier>{0616295f-9ed9-4e8d-b14c-4db760783455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Isaac_Main\Tears">
+      <UniqueIdentifier>{c1cd1d0e-4833-4c74-b501-375416a36fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Isaac_Main\Tears\DefalutTears%28Left%29">
+      <UniqueIdentifier>{34129774-54b3-4a1a-bc68-5f344fccbc0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Isaac_Main\Tears\OtherTears">
+      <UniqueIdentifier>{1a3d9f5a-907a-470f-83e2-199ed8f37179}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

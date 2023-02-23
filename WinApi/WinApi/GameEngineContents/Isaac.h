@@ -25,6 +25,7 @@ public:
 	void Movecalculation(float _DeltaTime);
 	void CollisionCheck(float _DeltaTime);
 	void DeathCheck(float _DeltaTime);
+	void BombCheck(float _DeltaTime);
 
 	int GetPlayerHP()
 	{
@@ -47,7 +48,8 @@ private:
 
 	float DeadTime = 0.0f;
 	float CollTime = 0.0f;
-	float ResetTime = 0.0f;
+	float ResetTime_T = 0.0f;
+	float ResetTime_B = 0.0f;
 	float MoveSpeed = 300.0f;
 	float4 MoveDir = float4::Zero;
 	float4 MoveRange = float4::Zero;
@@ -57,7 +59,7 @@ private:
 	IsaacState StateValue = IsaacState::IDLE;
 
 	GameEngineRender* Head = nullptr;
-	GameEngineRender* Bomb = nullptr;
+
 	GameEngineCollision* IsaacCollision = nullptr;
 
 	

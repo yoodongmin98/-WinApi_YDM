@@ -24,7 +24,7 @@ protected:
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime) override;
 	void MoveCalculation(float _DeltaTime);
-	void CheckHit(float _DeltaTime);
+	
 private:
 	float DeadTime = 0.0f;
 	GameEngineRender* AnimationRender = nullptr;

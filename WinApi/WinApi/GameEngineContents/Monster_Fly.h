@@ -15,7 +15,7 @@ public:
 	Monster_Fly& operator=(const Monster_Fly& _Other) = delete;
 	Monster_Fly& operator=(Monster_Fly&& _Other) noexcept = delete;
 	void ImageLoad();
-
+	void CollisionCheck(float _DeltaTime);
 	
 protected:
 	void Start() override;

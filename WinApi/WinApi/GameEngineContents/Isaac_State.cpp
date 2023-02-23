@@ -64,6 +64,7 @@ void Isaac::UpdateState(float _Time)
 void Isaac::IdleStart()
 {
 	DirCheck("Idle");
+	
 }
 void Isaac::IdleUpdate(float _Time)
 {
@@ -95,6 +96,7 @@ void Isaac::MoveUpdate(float _Time)
 	{
 		// 
 		ChangeState(IsaacState::IDLE);
+		DamageUpdate(_Time); //가만히서있어도 깜빡임이 적용되게끔
 		return;
 	}
 	float4 MoveRange = float4::Zero;

@@ -17,6 +17,7 @@ enum class IsaacCollisionOrder
 	C_Monster,
 	C_Door,
 	C_PlayerAtt,
-	C_MonsterAtt
+	C_MonsterAtt,
+	C_Bomb
 
 };

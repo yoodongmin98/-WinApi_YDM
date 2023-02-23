@@ -13,6 +13,7 @@
 #include "DownTears.h"
 #include "RightTears.h"
 #include "Isaac.h"
+#include "Bomb.h"
 
 Isaac* Isaac::MainPlayer;
 
@@ -39,6 +40,7 @@ void Isaac::Start()
 		GameEngineInput::CreateKey("RightMove", 'D');
 		GameEngineInput::CreateKey("DownMove", 'S');
 		GameEngineInput::CreateKey("UpMove", 'W');
+		GameEngineInput::CreateKey("Bomb", 'E');
 		GameEngineInput::CreateKey("LeftTears", VK_LEFT);
 		GameEngineInput::CreateKey("RightTears", VK_RIGHT);
 		GameEngineInput::CreateKey("UpTears", VK_UP);
@@ -84,10 +86,11 @@ void Isaac::Update(float _DeltaTime)
 		MoveDir *= 0.0000000001f;
 	}
 
-	DeadMenu->Off();
+	DeadMenu->Off(); //업데이트에서 꼭 해야하나??
 	DeathCheck(_DeltaTime);
 	if (0 != GetPlayerHP())
 	{
+		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
 		TearsAttack(_DeltaTime);
 		Movecalculation(_DeltaTime);
@@ -99,7 +102,7 @@ void Isaac::Update(float _DeltaTime)
 //아이작 공격(Tears)관리
 void Isaac::TearsAttack(float _DeltaTime)
 {
-	ResetTime += _DeltaTime;
+	ResetTime_T += _DeltaTime;
 	//방향키를 눌렀을때만 작동함
 	if (false == GameEngineInput::IsDown("LeftTears")&&
 		false == GameEngineInput::IsDown("RightTears")&&
@@ -109,7 +112,7 @@ void Isaac::TearsAttack(float _DeltaTime)
 		return; 
 	}
 
-	if (ResetTime>0.3f){ ResetTime = 0.0f; } //다음공격까지의 딜레이는 0.3
+	if (ResetTime_T >0.3f){ ResetTime_T = 0.0f; } //다음공격까지의 딜레이는 0.3
 	else { return; } //그사이에 누르는값은 리턴
 
 	if (true == GameEngineInput::IsDown("LeftTears"))
@@ -175,6 +178,13 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			IsaacCollision->Off();
 			DamagedIsaac = true;
 		}
+		else if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+		{
+			CollTime += _DeltaTime;
+			HP -= 1;
+			IsaacCollision->Off();
+			DamagedIsaac = true;
+		}
 	}
 }
 
@@ -207,10 +217,6 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 	}
 }
 
-void Isaac::Render(float _DeltaTime)
-{
-//	IsaacCollision->DebugRender();
-}
 
 void Isaac::DeathCheck(float _DeltaTime)
 {
@@ -242,4 +248,26 @@ void Isaac::DeathCheck(float _DeltaTime)
 			}
 		}	
 	}
+}
+
+void Isaac::BombCheck(float _DeltaTime)
+{
+	ResetTime_B += _DeltaTime;
+	if (false == GameEngineInput::IsDown("Bomb"))
+	{
+		return;
+	}
+	if (ResetTime_B > 1.0f) { ResetTime_B = 0.0f; } //다음폭탄까지의 딜레이는 1.0
+	else { return; } //그사이에 누르는값은 리턴
+
+
+	if (true == GameEngineInput::IsDown("Bomb"))
+	{
+		Bomb* NewBomb = GetLevel()->CreateActor<Bomb>(IsaacOrder::R_Player);
+	}
+}
+
+void Isaac::Render(float _DeltaTime)
+{
+//	IsaacCollision->DebugRender();
 }

@@ -1,16 +1,17 @@
-#include "Monster_Fly.h"
-#include "IsaacEnum.h"
-#include <GameEngineCore/GameEngineRender.h>
+
 #include <GameEngineBase/GameEngineDirectory.h>
 
 #include <GameEnginePlatform/GameEngineInput.h>
 
+#include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineCollision.h>
 
+
 #include "Isaac.h"
-#include "Door.h"
+#include "IsaacEnum.h"
+#include "Monster_Fly.h"
 
 
 Monster_Fly::Monster_Fly()
@@ -66,6 +67,7 @@ bool Deathcheck = false;
 void Monster_Fly::Update(float _DeltaTime)
 {
 	Movecalculation(_DeltaTime);
+	CollisionCheck(_DeltaTime);
 }
 
 void Monster_Fly::Movecalculation(float _DeltaTime)
@@ -73,6 +75,12 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
 
+	SetMove(M_Move * 100.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
+}
+
+
+void Monster_Fly::CollisionCheck(float _DeltaTime)
+{
 	NowTime += _DeltaTime;
 	if (NowTime >= 0.5f) //다음상호작용이 되려면 이만큼의 시간이 흘러야한다(몬스터가 죽는애니메이션시간보다는 길어야함)
 	{
@@ -84,12 +92,12 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 			Death(); //없앤다
 		}
 	}
+
 	std::vector<GameEngineCollision*> Collisions;
 	CollisionCheckParameter Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
-	
+
 	if (true == M_fly_Coll->Collision(Check, Collisions)) //PlayerAtt에 닿았을때
 	{
-		M_Move = float4::Zero;
 		Collisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
 
 		if (1 == RESET)
@@ -99,14 +107,25 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 			RESET = 0;
 			M_fly_Coll->Off(); //맞아도 일정시간동안 상호작용이안된다.
 		}
-		if (0 == FlyHp)
+		if (0 >= FlyHp)
 		{
 			M_fly->ChangeAnimation("M_fly_Dead");
 			Deathcheck = true;
 		}
 	}
-	SetMove(M_Move * 100.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
+	
+	CollisionCheckParameter B_Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	if (true == M_fly_Coll->Collision(B_Check, Collisions))
+	{
+		FlyHp = FlyHp - 5; //이것은 폭탄의 데미지여
+		if (0 >= FlyHp)
+		{
+			M_fly->ChangeAnimation("M_fly_Dead");
+			Deathcheck = true;
+		}
+	}
 }
+
 void Monster_Fly::Render(float _DeltaTime)
 {
 	//M_fly_Coll->DebugRender();
