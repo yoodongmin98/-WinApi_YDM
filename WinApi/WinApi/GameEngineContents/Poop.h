@@ -30,10 +30,5 @@ private:
 	GameEngineCollision* Poop_Coll = nullptr;
 
 	int PoopHp = 4;
-
-
-
-
-
 };
 

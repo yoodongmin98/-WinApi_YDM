@@ -17,6 +17,7 @@ enum class IsaacCollisionOrder
 	C_Door,
 	C_Wall,
 	C_Item,
+	C_Heart,
 
 	C_Player,
 	C_PlayerAtt,

@@ -18,6 +18,7 @@
 #include "AllBack.h"
 #include "HP.h"
 #include "Poop.h"
+#include "Heart.h"
 
 
 
@@ -122,6 +123,7 @@ void IsaacLevel::Loading()
 		CreateActor<Monster_Fly>();
 		CreateActor<HP>();
 		CreateActor<Poop>();
+		CreateActor<Heart>();
 		
 		//내가만들어야할것들(?)
 		//상호작용될 actor들을 고려해 누가 관리해야할지??

@@ -3,6 +3,8 @@
 
 #include <GameEnginePlatform/GameEngineInput.h>
 
+
+#include <GameEngineCore/GameEngineActor.h>
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineLevel.h>
@@ -11,6 +13,7 @@
 #include "Isaac.h"
 #include "IsaacEnum.h"
 #include "Poop.h"
+#include "Heart.h"
 
 
 
@@ -69,7 +72,7 @@ void Poop::Start()
 		Poop_Coll->On();
 		Poop_Coll->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-
+	
 }
 
 

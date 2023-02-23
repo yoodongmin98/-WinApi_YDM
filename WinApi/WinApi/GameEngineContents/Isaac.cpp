@@ -14,6 +14,7 @@
 #include "RightTears.h"
 #include "Isaac.h"
 #include "Bomb.h"
+#include "Heart.h"
 
 Isaac* Isaac::MainPlayer;
 
@@ -45,6 +46,10 @@ void Isaac::Start()
 		GameEngineInput::CreateKey("RightTears", VK_RIGHT);
 		GameEngineInput::CreateKey("UpTears", VK_UP);
 		GameEngineInput::CreateKey("DownTears", VK_DOWN);
+
+
+		GameEngineInput::CreateKey("DebugItem", '1');
+
 	}
 
 	{
@@ -90,6 +95,7 @@ void Isaac::Update(float _DeltaTime)
 	DeathCheck(_DeltaTime);
 	if (0 != GetPlayerHP())
 	{
+		DebugSet();
 		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
 		TearsAttack(_DeltaTime);
@@ -152,10 +158,6 @@ void Isaac::Movecalculation(float _DeltaTime)
 	{
 		Check = false;
 	}
-	/*if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Wall), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
-	{
-		MoveDir *= 0.01;
-	}*/
 	if (false == Check)
 	{
 		MoveDir = float4::Zero;
@@ -175,6 +177,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 	}
 	if (nullptr != IsaacCollision) //아이작의 콜리전이 null이아니어야 상호작용가능
 	{
+		//Monster
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			CollTime += _DeltaTime;
@@ -188,6 +191,20 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			HP -= 1;
 			IsaacCollision->Off();
 			DamagedIsaac = true;
+		}
+
+		//Item
+		std::vector<GameEngineCollision*> ICollisions;
+		CollisionCheckParameter CheckItem = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+
+		if (true == IsaacCollision->Collision(CheckItem, ICollisions) && 6 != HP)
+		{
+			ICollisions[0]->GetActor()->Death();
+			HP += 2;
+			if (HP > MaxHP)
+			{
+				HP = MaxHP;
+			}
 		}
 	}
 }
@@ -268,6 +285,15 @@ void Isaac::BombCheck(float _DeltaTime)
 	if (true == GameEngineInput::IsDown("Bomb"))
 	{
 		Bomb* NewBomb = GetLevel()->CreateActor<Bomb>(IsaacOrder::R_Player);
+	}
+}
+
+void Isaac::DebugSet()
+{
+	if (true == GameEngineInput::IsDown("DebugItem"))
+	{
+		Heart* NewHeart = GetLevel()->CreateActor<Heart>(IsaacOrder::R_Wall);
+		NewHeart->SetPos(GetPos()+float4::Up*80);
 	}
 }
 

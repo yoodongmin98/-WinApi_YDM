@@ -40,8 +40,8 @@ public:
 protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
-	
 	void Render(float _DeltaTime);
+	void DebugSet();
 
 private:
 	GameEngineRender* DeadMenu = nullptr;
@@ -64,6 +64,7 @@ private:
 
 	
 	int HP = 6;
+	int MaxHP = 6;
 
 
 	bool DamagedIsaac = false;
