@@ -24,10 +24,15 @@ public:
 
 	void Movecalculation(float _DeltaTime);
 	void CollisionCheck(float _DeltaTime);
+	void DeathCheck(float _DeltaTime);
 
 	int GetPlayerHP()
 	{
 		return HP;
+	}
+	int SetPlayerHP(int _HP)
+	{
+		return HP= _HP;
 	}
 
 	
@@ -38,6 +43,9 @@ protected:
 	void Render(float _DeltaTime);
 
 private:
+	GameEngineRender* DeadMenu = nullptr;
+
+	float DeadTime = 0.0f;
 	float CollTime = 0.0f;
 	float ResetTime = 0.0f;
 	float MoveSpeed = 300.0f;
@@ -60,7 +68,6 @@ private:
 
 
 
-
 	void DirCheck(const std::string_view& _AnimationName);
 
 	// State
@@ -76,10 +83,8 @@ private:
 	void MoveUpdate(float _Time);
 	void MoveEnd();
 
-	void DamageStart();
+	
 	void DamageUpdate(float _Time);
-	void DamageEnd();
-
 	void TearsAttack(float _DeltaTime);
 };
 

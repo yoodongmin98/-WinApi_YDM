@@ -238,12 +238,15 @@ void TitleLevel::Update(float _DeltaTime)
 			//PageSound();
 			CursorSet();
 			CursorPosSet();
-			TitleEnd = TitleStart + float4(0.0f, GameEngineWindow::GetScreenSize().y);
+			if (Pos.y < Chapter3MaxYvalue)
+			{
+				TitleEnd = TitleStart + float4(0.0f, GameEngineWindow::GetScreenSize().y);
+			}
 			Scroll = true;
-			if (Pos.y > Chapter3MaxYvalue)
+			/*if (Pos.y > Chapter3MaxYvalue)
 			{
 				PAGESOUND.Stop();
-			}
+			}*/
 		}
 	}
 	
@@ -255,12 +258,11 @@ void TitleLevel::Update(float _DeltaTime)
 			if (false == GameEngineInput::IsKey("NextLevel"))
 			{
 				GameEngineInput::CreateKey("NextLevel", VK_SPACE);
-				false == GameEngineInput::IsDown("TitleScrollDown");
 			}
 			if (true == GameEngineInput::IsDown("NextLevel"))
 			{
+				TitleEnd = TitleStart + float4(0.0f, 3*(-GameEngineWindow::GetScreenSize().y));
 				GameEngineCore::GetInst()->ChangeLevel("Loading");
-			
 			}
 		}	
 	}

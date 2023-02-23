@@ -4,6 +4,7 @@
 #include <GameEnginePlatform/GameEngineInput.h>
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineRender.h>
+#include <GameEngineCore/GameEngineCore.h>
 
 #include "IsaacIntro.h"
 #include "IsaacEnum.h"
@@ -27,9 +28,10 @@ void Isaac::Start()
 {
 	MainPlayer = this;  //이 클래스 자체가 메인플레이어다
 
+	
 	SetMove(GameEngineWindow::GetScreenSize().half());  //시작하면위치는 가운데로
 	SetPos(GameEngineWindow::GetScreenSize().half());
-
+	
 
 	if (false == GameEngineInput::IsKey("LeftMove"))
 	{
@@ -55,6 +57,8 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 
+		Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop=false});
+
 	}
 	ChangeState(IsaacState::IDLE);
 	{
@@ -64,6 +68,7 @@ void Isaac::Start()
 		IsaacCollision->On();
 		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
+	
 }
 
 void Isaac::Update(float _DeltaTime)
@@ -76,11 +81,16 @@ void Isaac::Update(float _DeltaTime)
 		MoveDir *= 0.0000000001f;
 	}
 
-	UpdateState(_DeltaTime);
-	TearsAttack(_DeltaTime);
-	CollisionCheck(_DeltaTime);
-	Movecalculation(_DeltaTime);
-	SetMove(MoveDir * _DeltaTime);
+	
+	DeathCheck(_DeltaTime);
+	if (0 != GetPlayerHP())
+	{
+		UpdateState(_DeltaTime);
+		TearsAttack(_DeltaTime);
+		Movecalculation(_DeltaTime);
+		CollisionCheck(_DeltaTime);
+		SetMove(MoveDir * _DeltaTime);
+	}
 }
 
 //아이작 공격(Tears)관리
@@ -197,4 +207,37 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 void Isaac::Render(float _DeltaTime)
 {
 //	IsaacCollision->DebugRender();
+}
+
+void Isaac::DeathCheck(float _DeltaTime)
+{
+	if (false == GameEngineInput::IsKey("BackTitle"))
+	{
+		GameEngineInput::CreateKey("BackTitle", VK_SPACE);
+	}
+
+	if (0 == GetPlayerHP())
+	{
+		DeadTime += _DeltaTime;
+
+		DamagedIsaac = false;
+		IsaacCollision->Off();
+		Head->ChangeAnimation("Dead");
+		if (DeadTime > 2.0f)
+		{
+			SetMove(GameEngineWindow::GetScreenSize().half());
+			SetPos(GameEngineWindow::GetScreenSize().half());
+
+			DeadMenu = CreateRender("DeadMenu.BMP", IsaacOrder::R_Menu);
+			DeadMenu->SetScaleToImage();
+			DeadMenu->On();
+			if (true == GameEngineInput::IsDown("BackTitle"))
+			{
+				DeadMenu->Off();
+				SetPlayerHP(6);
+				GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
+				
+			}
+		}	
+	}
 }

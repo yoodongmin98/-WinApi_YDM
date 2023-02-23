@@ -58,7 +58,7 @@ void IsaacLevel::Loading()
 		GameEngineImage* head = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Face.BMP"));
 		head->Cut(10, 5);
 		GameEngineImage* Ani = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Isaac_Ani.BMP"));
-		Ani->Cut(5, 3);
+		Ani->Cut(4, 3);
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Depth.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Boss.BMP"));
@@ -66,6 +66,7 @@ void IsaacLevel::Loading()
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_BlackGround.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_Settingmenu.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackDrop.BMP"));
+		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("DeadMenu.BMP"));
 
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_BossDoor_Left.BMP"));
 		GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_BossDoor_Right.BMP"));
@@ -73,6 +74,7 @@ void IsaacLevel::Loading()
 		AllBack* Image = CreateActor<AllBack>();
 		BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
 		BackDrop->SetScale({ 600,150 });
+
 		
 
 		GameEngineImage* Door_Down = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Map_Door_Down.BMP"));
@@ -182,6 +184,7 @@ void IsaacLevel::Update(float _DeltaTime)
 	{
 		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
 	}*/ //버그가 너무많아서 이건 나중에하자
+
 }
 void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {

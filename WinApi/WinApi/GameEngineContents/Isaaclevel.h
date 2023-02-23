@@ -32,6 +32,7 @@ private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
 	GameEngineRender* BackDrop = nullptr;
+	
 
 
 	int SettingValue = 2;
