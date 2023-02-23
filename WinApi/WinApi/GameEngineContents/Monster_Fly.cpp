@@ -93,12 +93,12 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 		}
 	}
 
-	std::vector<GameEngineCollision*> Collisions;
+	std::vector<GameEngineCollision*> FCollisions;
 	CollisionCheckParameter Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
-	if (true == M_fly_Coll->Collision(Check, Collisions)) //PlayerAtt에 닿았을때
+	if (true == M_fly_Coll->Collision(Check, FCollisions)) //PlayerAtt에 닿았을때
 	{
-		Collisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
+		FCollisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
 
 		if (1 == RESET)
 		{
@@ -115,7 +115,7 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	}
 	
 	CollisionCheckParameter B_Check = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
-	if (true == M_fly_Coll->Collision(B_Check, Collisions))
+	if (true == M_fly_Coll->Collision(B_Check, FCollisions))
 	{
 		FlyHp = FlyHp - 5; //이것은 폭탄의 데미지여
 		if (0 >= FlyHp)

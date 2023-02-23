@@ -24,7 +24,12 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="DownTears.h" />
+    <ClInclude Include="Heart.h" />
     <ClInclude Include="HP.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Poop.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -82,7 +87,15 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="DownTears.cpp" />
+    <ClCompile Include="Heart.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="HP.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Poop.cpp">
       <SubType>
       </SubType>
     </ClCompile>

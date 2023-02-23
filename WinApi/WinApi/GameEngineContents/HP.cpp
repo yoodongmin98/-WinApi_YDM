@@ -25,7 +25,7 @@ void HP::Start()
 	HpRender1->CreateAnimation({ .AnimationName = "Hp0",  .ImageName = "Hp.bmp", .Start = 2, .End = 2 });
 	HpRender1->CreateAnimation({ .AnimationName = "Hp1",  .ImageName = "Hp.bmp", .Start = 1, .End = 1 });
 	HpRender1->CreateAnimation({ .AnimationName = "Hp2",  .ImageName = "Hp.bmp", .Start = 0, .End = 0 });
-	HpRender1->SetPosition({ 130, 40 });
+	HpRender1->SetPosition({ 140, 40 });
 	HpRender1->SetScale({ 50, 50 });
 	HpRender1->EffectCameraOff();
 	HpRender1->ChangeAnimation("Hp2");
@@ -34,7 +34,7 @@ void HP::Start()
 	HpRender2->CreateAnimation({ .AnimationName = "Hp0",  .ImageName = "Hp.bmp", .Start = 2, .End = 2 });
 	HpRender2->CreateAnimation({ .AnimationName = "Hp1",  .ImageName = "Hp.bmp", .Start = 1, .End = 1 });
 	HpRender2->CreateAnimation({ .AnimationName = "Hp2",  .ImageName = "Hp.bmp", .Start = 0, .End = 0 });
-	HpRender2->SetPosition({ 180, 40 });
+	HpRender2->SetPosition({ 190, 40 });
 	HpRender2->SetScale({ 50, 50 });
 	HpRender2->EffectCameraOff();
 	HpRender2->ChangeAnimation("Hp2");
@@ -43,7 +43,7 @@ void HP::Start()
 	HpRender3->CreateAnimation({ .AnimationName = "Hp0",  .ImageName = "Hp.bmp", .Start = 2, .End = 2 });
 	HpRender3->CreateAnimation({ .AnimationName = "Hp1",  .ImageName = "Hp.bmp", .Start = 1, .End = 1 });
 	HpRender3->CreateAnimation({ .AnimationName = "Hp2",  .ImageName = "Hp.bmp", .Start = 0, .End = 0 });
-	HpRender3->SetPosition({ 230, 40 });
+	HpRender3->SetPosition({ 240, 40 });
 	HpRender3->SetScale({ 50, 50 });
 	HpRender3->EffectCameraOff();
 	HpRender3->ChangeAnimation("Hp2");

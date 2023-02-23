@@ -53,13 +53,13 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		Head->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Isaac_Face.bmp", .Start = 10, .End = 19, .InterTime = 0.06f });
 		Head->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-		Head->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 20, .End = 29 , .InterTime = 0.06f });
-		Head->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-		Head->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 30, .End = 39 , .InterTime = 0.06f });
-		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
+Head->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 20, .End = 29 , .InterTime = 0.06f });
+Head->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+Head->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 30, .End = 39 , .InterTime = 0.06f });
+Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 
-		Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop=false});
+Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop = false });
 
 	}
 	ChangeState(IsaacState::IDLE);
@@ -70,7 +70,7 @@ void Isaac::Start()
 		IsaacCollision->On();
 		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-	
+
 	DeadMenu = CreateRender("DeadMenu.BMP", IsaacOrder::R_Menu);
 	DeadMenu->SetScaleToImage();
 	DeadMenu->Off();
@@ -104,15 +104,15 @@ void Isaac::TearsAttack(float _DeltaTime)
 {
 	ResetTime_T += _DeltaTime;
 	//방향키를 눌렀을때만 작동함
-	if (false == GameEngineInput::IsDown("LeftTears")&&
-		false == GameEngineInput::IsDown("RightTears")&&
-		false == GameEngineInput::IsDown("UpTears")&&
+	if (false == GameEngineInput::IsDown("LeftTears") &&
+		false == GameEngineInput::IsDown("RightTears") &&
+		false == GameEngineInput::IsDown("UpTears") &&
 		false == GameEngineInput::IsDown("DownTears"))
-	{ 
-		return; 
+	{
+		return;
 	}
 
-	if (ResetTime_T >0.3f){ ResetTime_T = 0.0f; } //다음공격까지의 딜레이는 0.3
+	if (ResetTime_T > 0.3f) { ResetTime_T = 0.0f; } //다음공격까지의 딜레이는 0.3
 	else { return; } //그사이에 누르는값은 리턴
 
 	if (true == GameEngineInput::IsDown("LeftTears"))
@@ -151,14 +151,18 @@ void Isaac::Movecalculation(float _DeltaTime)
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
 		Check = false;
-
 	}
+	/*if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Wall), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	{
+		MoveDir *= 0.01;
+	}*/
 	if (false == Check)
 	{
 		MoveDir = float4::Zero;
 	}
 }
 
+//collision 체크
 void Isaac::CollisionCheck(float _DeltaTime)
 {
 	CollTime += _DeltaTime;
@@ -217,7 +221,7 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 	}
 }
 
-
+//죽은거 체크 ㅇㅇ
 void Isaac::DeathCheck(float _DeltaTime)
 {
 	if (0 == GetPlayerHP())

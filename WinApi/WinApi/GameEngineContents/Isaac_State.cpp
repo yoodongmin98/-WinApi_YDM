@@ -69,10 +69,11 @@ void Isaac::IdleStart()
 void Isaac::IdleUpdate(float _Time)
 {
 	
-	DirCheck("Idle");
 	DamageUpdate(_Time);
+	DirCheck("Idle");
 	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove") || GameEngineInput::IsPress("DownMove") || GameEngineInput::IsPress("UpMove"))
 	{
+		DamageUpdate(_Time);
 		ChangeState(IsaacState::MOVE);
 	}
 }
@@ -95,8 +96,8 @@ void Isaac::MoveUpdate(float _Time)
 		)
 	{
 		// 
-		ChangeState(IsaacState::IDLE);
 		DamageUpdate(_Time); //°¡¸¸È÷¼­ÀÖ¾îµµ ±ôºýÀÓÀÌ Àû¿ëµÇ°Ô²û
+		ChangeState(IsaacState::IDLE);
 		return;
 	}
 	float4 MoveRange = float4::Zero;
@@ -138,6 +139,7 @@ void Isaac::DamageUpdate(float _Time)
 	{
 		CollTime += _Time;
 		Head->Off();
+
 		if (CollTime > 0.1f)
 		{
 			Head->On();

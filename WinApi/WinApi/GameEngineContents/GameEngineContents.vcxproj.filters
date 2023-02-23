@@ -52,6 +52,12 @@
     <ClInclude Include="Bomb.h">
       <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClInclude>
+    <ClInclude Include="Heart.h">
+      <Filter>Play\Isaac\Item&amp;actor\Heart</Filter>
+    </ClInclude>
+    <ClInclude Include="Poop.h">
+      <Filter>Play\Isaac\Item&amp;actor\Poop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -110,6 +116,12 @@
     </ClCompile>
     <ClCompile Include="Bomb.cpp">
       <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Heart.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Heart</Filter>
+    </ClCompile>
+    <ClCompile Include="Poop.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\Poop</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +190,15 @@
     </Filter>
     <Filter Include="Play\Isaac\Isaac_Main\Tears\OtherTears">
       <UniqueIdentifier>{1a3d9f5a-907a-470f-83e2-199ed8f37179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor">
+      <UniqueIdentifier>{4d0a68e8-acf2-4ad9-8924-dace1da46b7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Heart">
+      <UniqueIdentifier>{bdce5cd3-444a-44c6-88af-e44582fa9351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\Poop">
+      <UniqueIdentifier>{aa4d840d-383d-4a81-88f1-5c00f80fc871}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
