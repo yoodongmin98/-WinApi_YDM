@@ -34,9 +34,6 @@
     <ClInclude Include="Monster_Fly.h">
       <Filter>Play\Isaac\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Door.h">
-      <Filter>Play\Playlevel\MapRenderSet\MapActor\Door</Filter>
-    </ClInclude>
     <ClInclude Include="Tears.h">
       <Filter>Play\Isaac\Tears\DefalutTears%28Left%29</Filter>
     </ClInclude>
@@ -48,6 +45,9 @@
     </ClInclude>
     <ClInclude Include="UpTears.h">
       <Filter>Play\Isaac\Tears\OtherTears</Filter>
+    </ClInclude>
+    <ClInclude Include="HP.h">
+      <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +90,6 @@
     <ClCompile Include="MapMove.cpp">
       <Filter>Play\Playlevel\MapRenderSet\MapMove</Filter>
     </ClCompile>
-    <ClCompile Include="Door.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\MapActor\Door</Filter>
-    </ClCompile>
     <ClCompile Include="Tears.cpp">
       <Filter>Play\Isaac\Tears\DefalutTears%28Left%29</Filter>
     </ClCompile>
@@ -104,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="UpTears.cpp">
       <Filter>Play\Isaac\Tears\OtherTears</Filter>
+    </ClCompile>
+    <ClCompile Include="HP.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +158,6 @@
     <Filter Include="Play\Playlevel\MapRenderSet\MapActor">
       <UniqueIdentifier>{fafbc1c7-941a-4fcf-bead-c4d7f191fe78}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Playlevel\MapRenderSet\MapActor\Door">
-      <UniqueIdentifier>{57bb3069-3e8e-4930-aff4-f5b3a60c49ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Room">
       <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
     </Filter>
@@ -172,6 +169,9 @@
     </Filter>
     <Filter Include="Play\Isaac\Tears\OtherTears">
       <UniqueIdentifier>{1a3d9f5a-907a-470f-83e2-199ed8f37179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\UI">
+      <UniqueIdentifier>{ee260920-7eef-41ac-877b-18c60a7be8ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

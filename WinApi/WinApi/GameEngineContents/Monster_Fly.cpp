@@ -94,7 +94,7 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 
 		if (1 == RESET)
 		{
-			SetMove(float4::Left * 10); //맞으면 밀려남(매끄럽게안밀려남)
+			SetMove(float4::Left * 10); //맞으면 밀려남(매끄럽게안밀려남) 방향에따른 설정도해야할듯
 			FlyHp = FlyHp - 1;
 			RESET = 0;
 			M_fly_Coll->Off(); //맞아도 일정시간동안 상호작용이안된다.
@@ -108,5 +108,5 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 }
 void Monster_Fly::Render(float _DeltaTime)
 {
-	//M_fly_Coll->DebugRender();
+	M_fly_Coll->DebugRender();
 }

@@ -25,9 +25,9 @@ Isaac::~Isaac()
 
 void Isaac::Start()
 {
-	MainPlayer = this;
+	MainPlayer = this;  //이 클래스 자체가 메인플레이어다
 
-	SetMove(GameEngineWindow::GetScreenSize().half());
+	SetMove(GameEngineWindow::GetScreenSize().half());  //시작하면위치는 가운데로
 	SetPos(GameEngineWindow::GetScreenSize().half());
 
 
@@ -62,6 +62,7 @@ void Isaac::Start()
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
 		IsaacCollision->SetScale({ 50, 50 });
 		IsaacCollision->On();
+		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
 }
 
@@ -76,6 +77,7 @@ void Isaac::Update(float _DeltaTime)
 	}
 	UpdateState(_DeltaTime);
 	TearsAttack(_DeltaTime);
+	CollisionCheck(_DeltaTime);
 	Movecalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 	
@@ -100,7 +102,7 @@ void Isaac::TearsAttack(float _DeltaTime)
 	if (true == GameEngineInput::IsDown("LeftTears"))
 	{
 		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
-		NewTears->SetPos(GetPos());
+		NewTears->SetPos(GetPos()); //플레이어위치에 Set하고 Tears내부 코드가실행
 	}
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
@@ -147,6 +149,25 @@ void Isaac::Movecalculation(float _DeltaTime)
 		MoveDir = float4::Zero;
 	}
 }
+
+void Isaac::CollisionCheck(float _DeltaTime)
+{
+	ResetTime += _DeltaTime;
+	if (nullptr != IsaacCollision) //아이작의 콜리전이 null이아니어야 상호작용가능
+	{
+		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+		{
+			HP -= 1;
+			IsaacCollision->Off();
+			ResetTime = 0.0f;
+			if (ResetTime > 3.0f)
+			{
+				IsaacCollision->On();
+			}
+		}
+	}
+}
+
 
 void Isaac::DirCheck(const std::string_view& _AnimationName)
 {

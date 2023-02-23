@@ -15,8 +15,8 @@
 #include "Isaac.h"
 #include "Room.h"
 #include "Monster_Fly.h"
-#include "Door.h"
 #include "AllBack.h"
+#include "HP.h"
 
 
 
@@ -86,6 +86,9 @@ void IsaacLevel::Loading()
 		Tear->Cut(8, 4);
 		GameEngineImage* Tears = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Tear_Pop.bmp"));
 		Tears->Cut(4, 4);
+
+		GameEngineImage* HP = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("HP.bmp"));
+		HP->Cut(5, 2);
 	}
 	// 액터 생성
 	{
@@ -114,6 +117,7 @@ void IsaacLevel::Loading()
 		// 3>Depth
 		// 4>BossRoom
 		CreateActor<Monster_Fly>();
+		CreateActor<HP>();
 		
 		//내가만들어야할것들(?)
 		//상호작용될 actor들을 고려해 누가 관리해야할지??

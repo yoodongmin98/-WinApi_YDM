@@ -20,12 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DownTears.h" />
-    <ClInclude Include="RightTears.h" />
-    <ClInclude Include="Room.h">
+    <ClInclude Include="HP.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="Door.h">
+    <ClInclude Include="RightTears.h" />
+    <ClInclude Include="Room.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -74,12 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DownTears.cpp" />
-    <ClCompile Include="RightTears.cpp" />
-    <ClCompile Include="Room.cpp">
+    <ClCompile Include="HP.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="Door.cpp">
+    <ClCompile Include="RightTears.cpp" />
+    <ClCompile Include="Room.cpp">
       <SubType>
       </SubType>
     </ClCompile>

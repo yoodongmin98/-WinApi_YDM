@@ -13,7 +13,6 @@ class Isaac : public GameEngineActor
 public:
 	static Isaac* MainPlayer;
 
-	// constrcuter destructer
 	Isaac();
 	~Isaac();
 
@@ -24,6 +23,13 @@ public:
 	Isaac& operator=(Isaac&& _Other) noexcept = delete;
 
 	void Movecalculation(float _DeltaTime);
+	void CollisionCheck(float _DeltaTime);
+
+	int GetPlayerHP()
+	{
+		return HP;
+	}
+
 	
 protected:
 	void Start() override;
@@ -33,7 +39,7 @@ protected:
 private:
 	float AccTime = 0.0f;
 	float ResetTime = 0.0f;
-	float MoveSpeed = 400.0f;
+	float MoveSpeed = 300.0f;
 	float4 MoveDir = float4::Zero;
 	float4 MoveRange = float4::Zero;
 	
@@ -43,9 +49,16 @@ private:
 
 	GameEngineRender* Head = nullptr;
 	GameEngineRender* Bomb = nullptr;
+	GameEngineCollision* IsaacCollision = nullptr;
 
 	
-	
+	int HP = 6;
+
+
+
+
+
+
 
 	void DirCheck(const std::string_view& _AnimationName);
 
@@ -67,6 +80,5 @@ private:
 	void DamageEnd();
 
 	void TearsAttack(float _DeltaTime);
-	GameEngineCollision* IsaacCollision = nullptr;
 };
 
