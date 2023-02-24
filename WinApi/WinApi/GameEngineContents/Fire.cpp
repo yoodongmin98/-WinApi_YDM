@@ -31,7 +31,18 @@ Fire::~Fire()
 {
 }
 
-
+void Fire::SoundLoad()
+{
+	GameEngineDirectory Dir;
+	Dir.MoveParentToDirectory("ContentsResources");
+	Dir.Move("ContentsResources");
+	Dir.Move("Sound");
+	{
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("fireburning.wav"));
+	}
+	FIRESOUND = GameEngineResources::GetInst().SoundPlayToControl("fireburning.wav");
+	FIRESOUND.Volume(0.5);
+}
 void Fire::ImageLoad()
 {
 	GameEngineDirectory Dir;
@@ -51,6 +62,7 @@ void Fire::Start()
 
 	if (true == LoadFire)
 	{
+		SoundLoad();
 		ImageLoad();
 		LoadFire = false;
 	}

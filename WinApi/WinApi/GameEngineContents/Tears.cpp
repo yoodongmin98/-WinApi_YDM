@@ -2,6 +2,8 @@
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEnginePlatform/GameEngineImage.h>
 #include <GameEnginePlatform/GameEngineInput.h>
+
+#include<GameEngineBase/GameEngineDirectory.h>
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineCollision.h>
@@ -9,18 +11,35 @@
 
 #include "IsaacEnum.h"
 
-int Tears::TearNumber = 0;
+
 
 Tears::Tears() 
 {
-	Tears::TearNumber++;
+	
 }
 
 Tears::~Tears() 
 {
-	Tears::TearNumber--;
+	
 }
+bool TearLoad = true;
+void Tears::SoundLoad()
+{
+	if (true == TearLoad)
+	{
+		GameEngineDirectory Dir;
+		Dir.MoveParentToDirectory("ContentsResources");
+		Dir.Move("ContentsResources");
+		Dir.Move("Sound");
+		{
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("tearfire.wav"));
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("plop.wav"));
+		}
 
+		
+	}
+
+}
 void Tears::Start()
 {
 	// ·»´õ »ý¼º
@@ -40,6 +59,8 @@ void Tears::Start()
 		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
+	TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("tearfire.ogg");
+	TEARSOUND.Volume(0.5);
 }
 
 void Tears::Update(float _DeltaTime)
@@ -65,6 +86,8 @@ void Tears::MoveCalculation(float _DeltaTime)
 	
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
+		TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
+		TEARSOUND.Volume(0.5);
 		AnimationRender->ChangeAnimation("Pop");
 		MoveDir = float4::Zero;
 		if (true == AnimationRender->IsAnimationEnd())

@@ -38,6 +38,17 @@ void Bomb::ImageLoad()
 	GameEngineImage* Bomb_E = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Bomb_Effect.bmp"));
 	Bomb_E->Cut(4, 3);
 }
+void Bomb::SoundLoad()
+{
+	GameEngineDirectory Dir;
+	Dir.MoveParentToDirectory("ContentsResources");
+	Dir.Move("ContentsResources");
+	Dir.Move("Sound");
+	{
+		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("explosions.wav"));
+
+	}
+}
 
 bool LoadBomb = true;
 void Bomb::Start()
@@ -45,6 +56,7 @@ void Bomb::Start()
 	if (true == LoadBomb)
 	{
 		ImageLoad();
+		SoundLoad();
 		LoadBomb = false;
 	}
 	R_Bomb = CreateRender(IsaacOrder::R_Player);
@@ -83,6 +95,8 @@ void Bomb::Update(float _DeltaTime)
 	}
 	if (NowTime > 2.2f)
 	{
+		BoomPlayer = GameEngineResources::GetInst().SoundPlayToControl("explosions.wav");
+		BoomPlayer.Volume(0.5);
 		Death();
 	}
 }

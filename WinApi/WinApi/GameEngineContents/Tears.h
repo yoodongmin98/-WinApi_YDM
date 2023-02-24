@@ -14,12 +14,11 @@ public:
 	Tears& operator=(const Tears& _Other) = delete;
 	Tears& operator=(Tears&& _Other) noexcept = delete;
 
-	static bool IsMaxTear()
-	{
-		return MaxTear <= TearNumber;
-	}
-
+	void SoundLoad();
 protected:
+	GameEngineSoundPlayer PLOPSOUND;
+	GameEngineSoundPlayer TEARSOUND;
+
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime) override;

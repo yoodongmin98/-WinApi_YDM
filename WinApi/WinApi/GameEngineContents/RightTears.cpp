@@ -40,6 +40,8 @@ void RightTears::Start()
 		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
+	TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("tearfire.ogg");
+	TEARSOUND.Volume(0.5);
 }
 
 void RightTears::Update(float _DeltaTime)
@@ -64,6 +66,8 @@ void RightTears::MoveCalculation(float _DeltaTime)
 
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
+		TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
+		TEARSOUND.Volume(0.5);
 		AnimationRender->ChangeAnimation("Pop");
 		MoveDir = float4::Zero;
 		if (true == AnimationRender->IsAnimationEnd())

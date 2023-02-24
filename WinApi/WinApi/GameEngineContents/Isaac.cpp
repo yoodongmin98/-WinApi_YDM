@@ -341,6 +341,7 @@ void Isaac::DebugSet()
 	}
 }
 
+
 void Isaac::Render(float _DeltaTime)
 {
 	//IsaacCollision->DebugRender();

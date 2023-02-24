@@ -43,19 +43,22 @@ IsaacLevel::IsaacLevel()
 IsaacLevel::~IsaacLevel()
 {
 }
-
+bool PlayBool = true;
 void IsaacLevel::SoundLoad()
 {
-	//GameEngineDirectory Dir;
-	//Dir.MoveParentToDirectory("ContentsResources");
-	//Dir.Move("ContentsResources");
-	//Dir.Move("Sound");
-	//{
-	//	GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("BasementBGM.ogg"));
-	//}
-	//PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
-	//PLAYBGMPLAYER.Volume(0.1f);
-
+	if (true == PlayBool)
+	{
+		GameEngineDirectory Dir;
+		Dir.MoveParentToDirectory("ContentsResources");
+		Dir.Move("ContentsResources");
+		Dir.Move("Sound");
+		{
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("BasementBGM.ogg"));
+		}
+		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
+		PLAYBGMPLAYER.Volume(0.1f);
+		PlayBool = false;
+	}
 }
 
 
