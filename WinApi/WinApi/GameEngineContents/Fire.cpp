@@ -40,8 +40,8 @@ void Fire::SoundLoad()
 	{
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("fireburning.wav"));
 	}
-	FIRESOUND = GameEngineResources::GetInst().SoundPlayToControl("fireburning.wav");
-	FIRESOUND.Volume(0.5);
+	//FIRESOUND = GameEngineResources::GetInst().SoundPlayToControl("fireburning.wav");
+	//FIRESOUND.Volume(0.3); //static 으로해놔서 얘는 시작하자마자 나와버림 ㄷㄷ
 }
 void Fire::ImageLoad()
 {
@@ -77,16 +77,20 @@ void Fire::Start()
 		Fire_Coll->On();
 		Fire_Coll->SetDebugRenderType(CollisionType::CT_Rect);
 	}
+
 }
 
 
 void Fire::Update(float _DeltaTime)
 {
+	
 	CollisionCheck(_DeltaTime);
 }
 
 void Fire::CollisionCheck(float _DeltaTime)
 {
+	
+
 	std::vector<GameEngineCollision*> FCollisions;
 	CollisionCheckParameter CheckF = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
@@ -122,7 +126,7 @@ void Fire::CollisionCheck(float _DeltaTime)
 		}
 		if (0 == FireHp)
 		{
-			FIRESOUND.Stop();
+			//FIRESOUND.Stop();
 			Death();
 		}
 	}

@@ -38,17 +38,6 @@ void Bomb::ImageLoad()
 	GameEngineImage* Bomb_E = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Bomb_Effect.bmp"));
 	Bomb_E->Cut(4, 3);
 }
-void Bomb::SoundLoad()
-{
-	GameEngineDirectory Dir;
-	Dir.MoveParentToDirectory("ContentsResources");
-	Dir.Move("ContentsResources");
-	Dir.Move("Sound");
-	{
-		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("explosions.wav"));
-
-	}
-}
 
 bool LoadBomb = true;
 void Bomb::Start()
@@ -56,7 +45,6 @@ void Bomb::Start()
 	if (true == LoadBomb)
 	{
 		ImageLoad();
-		SoundLoad();
 		LoadBomb = false;
 	}
 	R_Bomb = CreateRender(IsaacOrder::R_Player);
@@ -66,12 +54,9 @@ void Bomb::Start()
 
 	R_Bomb->CreateAnimation({ .AnimationName = "Bomb",  .ImageName = "Bomb.bmp", .Start = 0, .End = 2, .InterTime = 0.5f , .Loop=false});
 	R_Bomb->CreateAnimation({ .AnimationName = "Bomb_Effect",  .ImageName = "Bomb_Effect.bmp", .Start = 0, .End = 11, .InterTime = 0.02f , .Loop = false });
-
-	
 	R_Bomb->ChangeAnimation("Bomb");
 
 	{
-
 		Bomb_Coll = CreateCollision(IsaacCollisionOrder::C_Isaac_Bomb);
 		Bomb_Coll->SetScale({ 30, 30 });
 		Bomb_Coll->Off();
@@ -93,10 +78,11 @@ void Bomb::Update(float _DeltaTime)
 		Bomb_Coll->SetScale({ 100, 100 });
 		R_Bomb->ChangeAnimation("Bomb_Effect");
 	}
-	if (NowTime > 2.2f)
+	if (NowTime > 2.1f)
 	{
 		BoomPlayer = GameEngineResources::GetInst().SoundPlayToControl("explosions.wav");
-		BoomPlayer.Volume(0.5);
+		BoomPlayer.Volume(0.2);
+		BoomPlayer.LoopCount(1);
 		Death();
 	}
 }

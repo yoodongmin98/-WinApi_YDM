@@ -55,7 +55,7 @@ void Isaac::Start()
 
 		GameEngineInput::CreateKey("DebugItem", '1');
 		GameEngineInput::CreateKey("DebugRender", '2');
-
+		
 	}
 
 	{
@@ -64,16 +64,16 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Right_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		Head->CreateAnimation({ .AnimationName = "Right_Move",  .ImageName = "Isaac_Face.bmp", .Start = 10, .End = 19, .InterTime = 0.06f });
 		Head->CreateAnimation({ .AnimationName = "Left_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-Head->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 20, .End = 29 , .InterTime = 0.06f });
-Head->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-Head->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 30, .End = 39 , .InterTime = 0.06f });
-Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
-Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
+		Head->CreateAnimation({ .AnimationName = "Left_Move",  .ImageName = "Isaac_Face.bmp", .Start = 20, .End = 29 , .InterTime = 0.06f });
+		Head->CreateAnimation({ .AnimationName = "Up_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+		Head->CreateAnimation({ .AnimationName = "Up_Move",  .ImageName = "Isaac_Face.bmp", .Start = 30, .End = 39 , .InterTime = 0.06f });
+		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
+		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 
-Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop = false });
 
 	}
-	ChangeState(IsaacState::IDLE);
+		ChangeState(IsaacState::IDLE);
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
 		IsaacCollision->SetScale({ 50, 50 });
@@ -85,6 +85,7 @@ Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp",
 	DeadMenu = CreateRender("DeadMenu.BMP", IsaacOrder::R_Menu);
 	DeadMenu->SetScaleToImage();
 	DeadMenu->Off();
+	
 }
 
 void Isaac::Update(float _DeltaTime)
@@ -191,6 +192,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		//Monster
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
+			ISAACHURT.Volume(0.2);
+			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
@@ -198,6 +202,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Isaac_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
+			ISAACHURT.Volume(0.2);
+			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
@@ -205,6 +212,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Fire), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
+			ISAACHURT.Volume(0.2);
+			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
@@ -230,10 +240,13 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		//Key
 		if (true == IsaacCollision->Collision(CheckKey, ICollisions))
 		{
+			KEYDROPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Keydrop.wav");
+			KEYDROPSOUND.Volume(0.2);
+			KEYDROPSOUND.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			KeyCount += 1;
 		}
-		//Bomb`  
+		//Bomb
 		if (true == IsaacCollision->Collision(CheckBomb, ICollisions))
 		{
 			ICollisions[0]->GetActor()->Death();
@@ -242,6 +255,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		//Coin
 		if (true == IsaacCollision->Collision(CheckCoin, ICollisions))
 		{
+			COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
+			COINDROP.Volume(0.2);
+			COINDROP.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			CoinCount += 1;
 		}

@@ -15,7 +15,7 @@ public:
 	Bomb& operator=(const Bomb& _Other) = delete;
 	Bomb& operator=(Bomb&& _Other) noexcept = delete;
 	void ImageLoad();
-	void SoundLoad();
+
 	void FlikerSet(float _DeltaTime);
 protected:
 	void Start() override;
@@ -24,6 +24,7 @@ protected:
 	void CollisionCheck(float _DeltaTime);
 
 	GameEngineSoundPlayer BoomPlayer;
+	
 private:
 	GameEngineRender* R_Bomb = nullptr;
 	GameEngineCollision* Bomb_Coll = nullptr;

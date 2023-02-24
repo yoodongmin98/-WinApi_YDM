@@ -43,32 +43,6 @@ IsaacLevel::IsaacLevel()
 IsaacLevel::~IsaacLevel()
 {
 }
-bool PlayBool = true;
-void IsaacLevel::SoundLoad()
-{
-	if (true == PlayBool)
-	{
-		GameEngineDirectory Dir;
-		Dir.MoveParentToDirectory("ContentsResources");
-		Dir.Move("ContentsResources");
-		Dir.Move("Sound");
-		{
-			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("BasementBGM.ogg"));
-			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("tearfire.wav"));
-			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("plop.wav"));
-		}
-		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
-		PLAYBGMPLAYER.Volume(0.05f);
-		PlayBool = false;
-	}
-	
-		
-		
-		
-
-}
-
-
 void IsaacLevel::Loading()
 {
 	// 상대경로 탐색

@@ -52,6 +52,10 @@ public:
 	
 protected:
 	GameEngineSoundPlayer TEARSOUND;
+	GameEngineSoundPlayer KEYDROPSOUND;
+	GameEngineSoundPlayer ISAACHURT;
+	GameEngineSoundPlayer COINDROP;
+	
 	
 	void Start() override;
 	void Update(float _DeltaTime) override;

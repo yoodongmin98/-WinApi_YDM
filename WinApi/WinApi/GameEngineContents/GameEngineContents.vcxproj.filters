@@ -171,6 +171,9 @@
     <ClCompile Include="KeyNumber.cpp">
       <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Key</Filter>
     </ClCompile>
+    <ClCompile Include="SoundLoader.cpp">
+      <Filter>Play\Playlevel\Loader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Play">
@@ -283,6 +286,9 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI\ItemNumber\Key">
       <UniqueIdentifier>{cc9920df-9ba6-4462-b336-d3f2973f9377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\Loader">
+      <UniqueIdentifier>{8e71d552-cab3-4b2f-9f47-53a810b397bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

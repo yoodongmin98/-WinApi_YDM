@@ -491,6 +491,7 @@ float4 TitleLevel::CursorPosSet()
 }
 
 ////////////////////////////////////Sound
+
 void TitleLevel::SoundLoad()
 {
 	GameEngineDirectory Dir;
@@ -502,16 +503,19 @@ void TitleLevel::SoundLoad()
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("characterselectleft.wav"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("characterselectright.wav"));
 		GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("bookpageturn.wav"));
-
+	}
+}
+bool T_SoundLoad = true;
+void TitleLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
+{
+	
+	if (true == T_SoundLoad)
+	{
+		SoundLoad();
+		T_SoundLoad = false;
 	}
 	TITLEBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("regenesis.ogg");
 	TITLEBGMPLAYER.Volume(0.05f);
-
-}
-
-void TitleLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
-{
-	SoundLoad();
 }
 void TitleLevel::LevelChangeEnd(GameEngineLevel* _PrevLevel)
 {
