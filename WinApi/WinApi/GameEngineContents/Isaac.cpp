@@ -233,7 +233,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			ICollisions[0]->GetActor()->Death();
 			KeyCount += 1;
 		}
-		//Bomb
+		//Bomb`  
 		if (true == IsaacCollision->Collision(CheckBomb, ICollisions))
 		{
 			ICollisions[0]->GetActor()->Death();

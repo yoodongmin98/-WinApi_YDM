@@ -1,6 +1,7 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 #include <GameEnginePlatform/GameEngineImage.h>
+#include <GameEngineCore/GameEngineResources.h>
 
 
 class Fire : public GameEngineActor
