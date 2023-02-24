@@ -54,7 +54,7 @@ void Heart::Start()
 
 	{
 		Heart_Coll = CreateCollision(IsaacCollisionOrder::C_Heart);
-		Heart_Coll->SetScale({ 5, 5 });
+		Heart_Coll->SetScale({ 10, 10 });
 		Heart_Coll->SetPosition({ -5,0 });
 		Heart_Coll->On();
 		Heart_Coll->SetDebugRenderType(CollisionType::CT_Rect);

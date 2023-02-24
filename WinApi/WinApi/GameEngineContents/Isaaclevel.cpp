@@ -16,8 +16,11 @@
 #include "Room.h"
 #include "AllBack.h"
 
-
+//UI
 #include "HP.h"
+#include "BombNumber.h"
+#include "CoinNumber.h"
+#include "KeyNumber.h"
 
 
 
@@ -99,6 +102,10 @@ void IsaacLevel::Loading()
 
 		GameEngineImage* HP = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("HP.bmp"));
 		HP->Cut(5, 2);
+		GameEngineImage* Number_UI = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Number_UI.bmp"));
+		Number_UI->Cut(3, 2);
+		GameEngineImage* Number_ = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Number.bmp"));
+		Number_->Cut(10, 1);
 	}
 
 	AllBack* Image = CreateActor<AllBack>();
@@ -132,6 +139,9 @@ void IsaacLevel::Loading()
 		// 3>Depth
 		// 4>BossRoom
 		CreateActor<HP>();
+		CreateActor<BombNumber>();
+		CreateActor<CoinNumber>();
+		CreateActor<KeyNumber>();
 
 		///////////////////테스트용 Actor///////////////////
 		CreateActor<Monster_Fly>();

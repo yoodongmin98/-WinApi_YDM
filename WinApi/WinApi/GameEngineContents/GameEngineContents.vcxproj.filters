@@ -73,8 +73,14 @@
     <ClInclude Include="HP.h">
       <Filter>Play\Playlevel\MapRenderSet\UI\HP</Filter>
     </ClInclude>
-    <ClInclude Include="ItemNumber.h">
-      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber</Filter>
+    <ClInclude Include="BombNumber.h">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Bomb</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinNumber.h">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyNumber.h">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Key</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -156,8 +162,14 @@
     <ClCompile Include="HP.cpp">
       <Filter>Play\Playlevel\MapRenderSet\UI\HP</Filter>
     </ClCompile>
-    <ClCompile Include="ItemNumber.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber</Filter>
+    <ClCompile Include="BombNumber.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Bomb</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinNumber.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyNumber.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Key</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +274,15 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI\ItemNumber">
       <UniqueIdentifier>{9c946b4a-cc60-443d-89d4-8b4c2bd586bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\UI\ItemNumber\Bomb">
+      <UniqueIdentifier>{1aa6c6d2-545e-4d4f-a20d-3c67b2585526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\UI\ItemNumber\Coin">
+      <UniqueIdentifier>{95286fe6-974e-4bdc-81b9-b648d7c6f86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\UI\ItemNumber\Key">
+      <UniqueIdentifier>{cc9920df-9ba6-4462-b336-d3f2973f9377}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

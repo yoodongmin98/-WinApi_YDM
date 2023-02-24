@@ -27,6 +27,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="CoinNumber.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="DownTears.h" />
     <ClInclude Include="Fire.h">
       <SubType>
@@ -45,11 +49,15 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="ItemNumber.h">
+    <ClInclude Include="BombNumber.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="Key.h" />
+    <ClInclude Include="KeyNumber.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Poop.h">
       <SubType>
       </SubType>
@@ -111,6 +119,10 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="CoinNumber.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="DownTears.cpp" />
     <ClCompile Include="Fire.cpp">
       <SubType>
@@ -132,11 +144,15 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="ItemNumber.cpp">
+    <ClCompile Include="BombNumber.cpp">
       <SubType>
       </SubType>
     </ClCompile>
     <ClCompile Include="Key.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="KeyNumber.cpp">
       <SubType>
       </SubType>
     </ClCompile>

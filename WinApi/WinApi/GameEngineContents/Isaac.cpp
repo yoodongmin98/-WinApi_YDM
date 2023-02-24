@@ -318,7 +318,11 @@ void Isaac::BombCheck(float _DeltaTime)
 
 	if (true == GameEngineInput::IsDown("Bomb"))
 	{
-		Bomb* NewBomb = GetLevel()->CreateActor<Bomb>(IsaacOrder::R_Player);
+		if (0 != BombCount)
+		{
+			Bomb* NewBomb = GetLevel()->CreateActor<Bomb>(IsaacOrder::R_Player);
+			BombCount -= 1;
+		}
 	}
 }
 
