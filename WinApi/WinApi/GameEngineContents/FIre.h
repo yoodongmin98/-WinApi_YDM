@@ -16,7 +16,7 @@ public:
 	Fire& operator=(const Fire& _Other) = delete;
 	Fire& operator=(Fire&& _Other) noexcept = delete;
 
-
+	void SoundLoad();
 	void ImageLoad();
 	int GetFireHp()
 	{
@@ -24,6 +24,7 @@ public:
 	}
 
 protected:
+	GameEngineSoundPlayer FIRESOUND;
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime);
