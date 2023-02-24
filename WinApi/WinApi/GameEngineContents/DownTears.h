@@ -1,6 +1,7 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 #include <GameEngineCore/GameEngineCollision.h>
+#include <GameEngineCore/GameEngineResources.h>
 
 class GameEngineImage;
 class DownTears : public GameEngineActor
@@ -14,10 +15,10 @@ public:
 	DownTears& operator=(const DownTears& _Other) = delete;
 	DownTears& operator=(DownTears&& _Other) noexcept = delete;
 
-
+	void PlopSounds();
 protected:
 	GameEngineSoundPlayer PLOPSOUND;
-	GameEngineSoundPlayer TEARSOUND;
+	
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime) override;

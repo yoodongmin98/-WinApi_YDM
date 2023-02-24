@@ -122,6 +122,7 @@ void Fire::CollisionCheck(float _DeltaTime)
 		}
 		if (0 == FireHp)
 		{
+			FIRESOUND.Stop();
 			Death();
 		}
 	}

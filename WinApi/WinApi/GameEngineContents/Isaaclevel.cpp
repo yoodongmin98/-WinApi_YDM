@@ -54,11 +54,18 @@ void IsaacLevel::SoundLoad()
 		Dir.Move("Sound");
 		{
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("BasementBGM.ogg"));
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("tearfire.wav"));
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("plop.wav"));
 		}
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
-		PLAYBGMPLAYER.Volume(0.1f);
+		PLAYBGMPLAYER.Volume(0.05f);
 		PlayBool = false;
 	}
+	
+		
+		
+		
+
 }
 
 

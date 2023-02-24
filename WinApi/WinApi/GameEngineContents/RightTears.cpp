@@ -1,4 +1,5 @@
 #include "RightTears.h"
+#include<GameEngineBase/GameEngineDirectory.h>
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEnginePlatform/GameEngineImage.h>
 #include <GameEnginePlatform/GameEngineInput.h>
@@ -23,6 +24,7 @@ RightTears::~RightTears()
 
 void RightTears::Start()
 {
+	
 	// ·»´õ »ý¼º
 	{
 		AnimationRender = CreateRender(IsaacOrder::R_Player);
@@ -40,8 +42,7 @@ void RightTears::Start()
 		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-	TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("tearfire.ogg");
-	TEARSOUND.Volume(0.5);
+
 }
 
 void RightTears::Update(float _DeltaTime)
@@ -66,8 +67,7 @@ void RightTears::MoveCalculation(float _DeltaTime)
 
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
-		TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
-		TEARSOUND.Volume(0.5);
+		
 		AnimationRender->ChangeAnimation("Pop");
 		MoveDir = float4::Zero;
 		if (true == AnimationRender->IsAnimationEnd())
@@ -75,6 +75,13 @@ void RightTears::MoveCalculation(float _DeltaTime)
 			Death();
 		}
 	}
+}
+
+void RightTears::PlopSounds()
+{
+	PLOPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
+	PLOPSOUND.Volume(0.2);
+	PLOPSOUND.LoopCount(1);
 }
 
 void RightTears::Render(float _DeltaTime)

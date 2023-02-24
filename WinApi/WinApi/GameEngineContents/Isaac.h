@@ -1,6 +1,7 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 #include <GameEngineCore/GameEngineCollision.h>
+#include <GameEngineCore/GameEngineResources.h>
 
 enum class IsaacState
 {
@@ -50,12 +51,17 @@ public:
 
 	
 protected:
+	GameEngineSoundPlayer TEARSOUND;
+	
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime);
 	void DebugSet();
+	void TEARSOUNDS();
 
 private:
+
+
 	GameEngineRender* DeadMenu = nullptr;
 
 	float DeadTime = 0.0f;

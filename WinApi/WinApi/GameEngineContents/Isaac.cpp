@@ -130,21 +130,25 @@ void Isaac::TearsAttack(float _DeltaTime)
 
 	if (true == GameEngineInput::IsDown("LeftTears"))
 	{
+		TEARSOUNDS();
 		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
 		NewTears->SetPos(GetPos()); //플레이어위치에 Set하고 Tears내부 코드가실행
 	}
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
+		TEARSOUNDS();
 		UpTears* NewUpTears = GetLevel()->CreateActor<UpTears>(IsaacOrder::R_Player);
 		NewUpTears->SetPos(GetPos());
 	}
 	if (true == GameEngineInput::IsDown("DownTears"))
 	{
+		TEARSOUNDS();
 		DownTears* NewUpTears = GetLevel()->CreateActor<DownTears>(IsaacOrder::R_Player);
 		NewUpTears->SetPos(GetPos());
 	}
 	if (true == GameEngineInput::IsDown("RightTears"))
 	{
+		TEARSOUNDS();
 		RightTears* NewUpTears = GetLevel()->CreateActor<RightTears>(IsaacOrder::R_Player);
 		NewUpTears->SetPos(GetPos());
 	}
@@ -341,7 +345,12 @@ void Isaac::DebugSet()
 	}
 }
 
-
+void Isaac::TEARSOUNDS()
+{
+	TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("tearfire.wav");
+	TEARSOUND.Volume(0.3);
+	TEARSOUND.LoopCount(1);
+}
 void Isaac::Render(float _DeltaTime)
 {
 	//IsaacCollision->DebugRender();

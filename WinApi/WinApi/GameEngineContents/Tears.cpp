@@ -22,24 +22,7 @@ Tears::~Tears()
 {
 	
 }
-bool TearLoad = true;
-void Tears::SoundLoad()
-{
-	if (true == TearLoad)
-	{
-		GameEngineDirectory Dir;
-		Dir.MoveParentToDirectory("ContentsResources");
-		Dir.Move("ContentsResources");
-		Dir.Move("Sound");
-		{
-			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("tearfire.wav"));
-			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("plop.wav"));
-		}
 
-		
-	}
-
-}
 void Tears::Start()
 {
 	// 렌더 생성
@@ -59,8 +42,7 @@ void Tears::Start()
 		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-	TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("tearfire.ogg");
-	TEARSOUND.Volume(0.5);
+	
 }
 
 void Tears::Update(float _DeltaTime)
@@ -74,6 +56,7 @@ void Tears::MoveCalculation(float _DeltaTime)
 {
 	if (true == GameEngineInput::IsDown("LeftTears"))
 	{
+		
 		MoveDir = float4::Left * 300;
 	}
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
@@ -86,9 +69,8 @@ void Tears::MoveCalculation(float _DeltaTime)
 	
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
-		TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
-		TEARSOUND.Volume(0.5);
 		AnimationRender->ChangeAnimation("Pop");
+		
 		MoveDir = float4::Zero;
 		if (true == AnimationRender->IsAnimationEnd())
 		{
@@ -97,6 +79,13 @@ void Tears::MoveCalculation(float _DeltaTime)
 	}
 }
 
+//아직미사용
+void Tears::PlopSounds()
+{
+	PLOPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
+	PLOPSOUND.Volume(0.2);
+	PLOPSOUND.LoopCount(1);
+}
 void Tears::Render(float _DeltaTime)
 {
 	//Collision->DebugRender();

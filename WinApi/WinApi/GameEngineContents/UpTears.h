@@ -1,6 +1,7 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 #include <GameEngineCore/GameEngineCollision.h>
+#include <GameEngineCore/GameEngineResources.h>
 
 class GameEngineImage;
 class UpTears : public GameEngineActor
@@ -14,14 +15,11 @@ public:
 	UpTears& operator=(const UpTears& _Other) = delete;
 	UpTears& operator=(UpTears&& _Other) noexcept = delete;
 
-	static bool IsMaxTear()
-	{
-		return MaxTear <= TearNumber;
-	}
 
+	void PlopSounds();
 protected:
 	GameEngineSoundPlayer PLOPSOUND;
-	GameEngineSoundPlayer TEARSOUND;
+	
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime) override;
