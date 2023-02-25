@@ -31,7 +31,7 @@ void DownTears::Start()
 		AnimationRender = CreateRender(IsaacOrder::R_Player);
 		AnimationRender->SetScale({ 64, 64 });
 		AnimationRender->SetPosition({ 0,-20 });
-		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 5, .End = 5, .InterTime = 0.1f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 6, .End = 6, .InterTime = 0.1f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Pop", .ImageName = "Tear_Pop.BMP", .Start = 0, .End = 15, .InterTime = 0.03f , .Loop = false });
 	}
 	AnimationRender->ChangeAnimation("Base");
@@ -48,6 +48,17 @@ void DownTears::Start()
 
 void DownTears::Update(float _DeltaTime)
 {
+	GravityTimeD += _DeltaTime;
+	if (GravityTimeD > Isaac::MainPlayer->GetTearRange())
+	{
+		AnimationRender->ChangeAnimation("Pop");
+
+		MoveDir = float4::Zero;
+		if (true == AnimationRender->IsAnimationEnd())
+		{
+			Death();
+		}
+	}
 	MoveCalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 }

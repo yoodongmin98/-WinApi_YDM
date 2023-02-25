@@ -136,13 +136,13 @@ void Isaac::TearsAttack(float _DeltaTime)
 		TEARSOUNDS();
 		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
 		NewTears->SetPos(GetPos()); //플레이어위치에 Set하고 Tears내부 코드가실행
-
 	}
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
 		TEARSOUNDS();
 		UpTears* NewUpTears = GetLevel()->CreateActor<UpTears>(IsaacOrder::R_Player);
 		NewUpTears->SetPos(GetPos());
+		
 	}
 	if (true == GameEngineInput::IsDown("DownTears"))
 	{
@@ -198,8 +198,8 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		//Monster
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
-			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt0.wav");
-			ISAACHURT.Volume(0.2);
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
+			ISAACHURT.Volume(0.2f);
 			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
 			HP -= 1;
@@ -208,18 +208,18 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Isaac_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
-			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
-			ISAACHURT.Volume(0.2);
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt0.wav");
+			ISAACHURT.Volume(0.2f);
 			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
-			HP -= 1;
+			HP -= 2;
 			IsaacCollision->Off();
 			DamagedIsaac = true;
 		}
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Fire), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt1.wav");
-			ISAACHURT.Volume(0.2);
+			ISAACHURT.Volume(0.2f);
 			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
 			HP -= 1;

@@ -29,8 +29,7 @@ private:
 	GameEngineRender* AnimationRender = nullptr;
 	GameEngineCollision* Collision = nullptr;
 
-	static const int MaxTear = 4;
-	static int TearNumber;
+	float GravityTimeU = 0.0f;
 
 	float4 MoveDir = float4::Zero;
 };

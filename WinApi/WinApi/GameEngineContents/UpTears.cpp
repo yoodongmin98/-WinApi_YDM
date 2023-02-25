@@ -28,7 +28,7 @@ void UpTears::Start()
 		AnimationRender = CreateRender(IsaacOrder::R_Player);
 		AnimationRender->SetScale({ 64, 64 });
 		AnimationRender->SetPosition({ 0,-20 });
-		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 5, .End = 5, .InterTime = 0.1f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 6, .End = 6, .InterTime = 0.1f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Pop", .ImageName = "Tear_Pop.BMP", .Start = 0, .End = 15, .InterTime = 0.03f , .Loop = false });
 	}
 	AnimationRender->ChangeAnimation("Base");
@@ -45,6 +45,17 @@ void UpTears::Start()
 
 void UpTears::Update(float _DeltaTime)
 {
+	GravityTimeU += _DeltaTime;
+	if (GravityTimeU > Isaac::MainPlayer->GetTearRange())
+	{
+		AnimationRender->ChangeAnimation("Pop");
+
+		MoveDir = float4::Zero;
+		if (true == AnimationRender->IsAnimationEnd())
+		{
+			Death();
+		}
+	}
 	MoveCalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 }
@@ -53,8 +64,9 @@ void UpTears::MoveCalculation(float _DeltaTime)
 {
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
-		MoveDir = float4::Up * 300;
+		MoveDir = float4::Up * (Isaac::MainPlayer->GetTearSpeed()) + (float4::Right * (Isaac::MainPlayer->GetRightAcceleration()));
 	}
+	
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");

@@ -31,7 +31,7 @@ void RightTears::Start()
 		AnimationRender = CreateRender(IsaacOrder::R_Player);
 		AnimationRender->SetScale({ 64, 64 });
 		AnimationRender->SetPosition({ 0,-20 });
-		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 5, .End = 5, .InterTime = 0.1f });
+		AnimationRender->CreateAnimation({ .AnimationName = "Base", .ImageName = "Tear.BMP", .Start = 6, .End = 6, .InterTime = 0.1f });
 		AnimationRender->CreateAnimation({ .AnimationName = "Pop", .ImageName = "Tear_Pop.BMP", .Start = 0, .End = 15, .InterTime = 0.03f , .Loop = false });
 	}
 	AnimationRender->ChangeAnimation("Base");
@@ -48,6 +48,21 @@ void RightTears::Start()
 
 void RightTears::Update(float _DeltaTime)
 {
+	GravityTimeR += _DeltaTime;
+	if (GravityTimeR > Isaac::MainPlayer->GetTearRange())
+	{
+		MoveDir = float4::Right * 300.0f + float4::Down * (Isaac::MainPlayer->GetGravityValue());
+	}
+	if (GravityTimeR > Isaac::MainPlayer->GetTearRange() + 0.1f)
+	{
+		AnimationRender->ChangeAnimation("Pop");
+
+		MoveDir = float4::Zero;
+		if (true == AnimationRender->IsAnimationEnd())
+		{
+			Death();
+		}
+	}
 	MoveCalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 }
@@ -56,7 +71,7 @@ void RightTears::MoveCalculation(float _DeltaTime)
 {
 	if (true == GameEngineInput::IsDown("RightTears"))
 	{
-		MoveDir = float4::Right * 300;
+		MoveDir = float4::Right * (Isaac::MainPlayer->GetTearSpeed());
 	}
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 

@@ -30,5 +30,6 @@ private:
 	GameEngineCollision* Collision = nullptr;
 
 
+	float GravityTimeR = 0.0f;
 	float4 MoveDir = float4::Zero;
 };

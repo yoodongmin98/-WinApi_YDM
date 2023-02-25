@@ -28,5 +28,7 @@ private:
 	GameEngineRender* AnimationRender = nullptr;
 	GameEngineCollision* Collision = nullptr;
 
+	float GravityTimeD = 0.0f;
+
 	float4 MoveDir = float4::Zero;
 };

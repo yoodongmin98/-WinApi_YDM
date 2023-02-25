@@ -63,7 +63,24 @@ public:
 	{
 		return TearRange;
 	}
+	float GetUpAcceleration()
+	{
+		return UpAcceleration;
+	}
+	float GetDownAcceleration()
+	{
+		return DownAcceleration;
+	}
+	float GetRightAcceleration()
+	{
+		return RightAcceleration;
+	}
+	float GetLeftAcceleration()
+	{
+		return LeftAcceleration;
+	}
 
+	
 	///////////////////////////////////////
 
 protected:
@@ -78,6 +95,7 @@ protected:
 	void Render(float _DeltaTime);
 	void DebugSet();
 	void TEARSOUNDS();
+	void ClearAcceleration();
 
 private:
 	GameEngineRender* DeadMenu = nullptr;
@@ -94,9 +112,13 @@ private:
 	float4 MoveRange = float4::Zero;
 
 	////////Tear관련 가속도,중력,속도,사거리//////////
-	float acceleration = 0.1f;
+
+	float UpAcceleration = 0.0f;
+	float DownAcceleration = 0.0f;
+	float RightAcceleration = 0.0f;
+	float LeftAcceleration = 0.0f;
 	float GravityValue = 200.f;
-	float TearSpeed = 300.0f;
+	float TearSpeed = 400.0f;
 	float TearRange = 0.8f;
 	
 	//////////Idle
