@@ -9,6 +9,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 
 #include "IsaacEnum.h"
+#include "isaac.h"
 
 
 
@@ -55,7 +56,7 @@ void DownTears::MoveCalculation(float _DeltaTime)
 {
 	if (true == GameEngineInput::IsDown("DownTears"))
 	{
-		MoveDir = float4::Down * 300;
+		MoveDir = float4::Down *(Isaac::MainPlayer->GetTearSpeed());
 	}
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 
@@ -79,7 +80,7 @@ void DownTears::MoveCalculation(float _DeltaTime)
 void DownTears::PlopSounds()
 {
 	PLOPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
-	PLOPSOUND.Volume(0.2);
+	PLOPSOUND.Volume(0.2f);
 	PLOPSOUND.LoopCount(1);
 }
 

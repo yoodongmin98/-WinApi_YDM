@@ -9,6 +9,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 
 #include "IsaacEnum.h"
+#include "isaac.h"
 
 
 
@@ -80,7 +81,7 @@ void RightTears::MoveCalculation(float _DeltaTime)
 void RightTears::PlopSounds()
 {
 	PLOPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
-	PLOPSOUND.Volume(0.2);
+	PLOPSOUND.Volume(0.2f);
 	PLOPSOUND.LoopCount(1);
 }
 

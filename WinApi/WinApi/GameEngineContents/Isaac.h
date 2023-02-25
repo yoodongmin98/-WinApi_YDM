@@ -27,7 +27,7 @@ public:
 	void CollisionCheck(float _DeltaTime);
 	void DeathCheck(float _DeltaTime);
 	void BombCheck(float _DeltaTime);
-
+	////////////HP
 	int GetPlayerHP()
 	{
 		return HP;
@@ -36,6 +36,7 @@ public:
 	{
 		return HP= _HP;
 	}
+	////////////ITEM
 	int GetKeyCount()
 	{
 		return KeyCount;
@@ -49,7 +50,22 @@ public:
 		return CoinCount;
 	}
 
-	
+	////////////   Tear   /////////////////
+	float GetGravityValue()
+	{
+		return GravityValue;
+	}
+	float GetTearSpeed()
+	{
+		return TearSpeed;
+	}
+	float GetTearRange()
+	{
+		return TearRange;
+	}
+
+	///////////////////////////////////////
+
 protected:
 	GameEngineSoundPlayer TEARSOUND;
 	GameEngineSoundPlayer KEYDROPSOUND;
@@ -64,10 +80,11 @@ protected:
 	void TEARSOUNDS();
 
 private:
-
-
 	GameEngineRender* DeadMenu = nullptr;
 
+
+	
+	float FlickerTime =0.0f;
 	float DeadTime = 0.0f;
 	float CollTime = 0.0f;
 	float ResetTime_T = 0.0f;
@@ -75,19 +92,29 @@ private:
 	float MoveSpeed = 300.0f;
 	float4 MoveDir = float4::Zero;
 	float4 MoveRange = float4::Zero;
-	
 
+	////////Tear관련 가속도,중력,속도,사거리//////////
+	float acceleration = 0.1f;
+	float GravityValue = 200.f;
+	float TearSpeed = 300.0f;
+	float TearRange = 0.8f;
+	
+	//////////Idle
 	std::string DirString = "Right_";
 	IsaacState StateValue = IsaacState::IDLE;
 
-	GameEngineRender* Head = nullptr;
 
+	//////// Isaac /////////
+	GameEngineRender* Head = nullptr; 
 	GameEngineCollision* IsaacCollision = nullptr;
 
-	
 	int HP = 6;
 	int MaxHP = 6;
 
+	bool DeadIsaac = false; //얘 왜만들었지? 내가써놓고 쓰임새를못찾음
+
+
+	///////////Item Count
 	int KeyCount = 0;
 	int BombCount = 0;
 	int CoinCount = 0;
@@ -103,7 +130,6 @@ private:
 	void ChangeState(IsaacState _State);
 	void UpdateState(float _Time);
 
-	// FSM 내가 어떤일을 할때 이동하면서 가만히 있을수 없다.
 	void IdleStart();
 	void IdleUpdate(float _Time);
 	void IdleEnd();

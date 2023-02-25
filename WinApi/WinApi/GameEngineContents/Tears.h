@@ -16,6 +16,8 @@ public:
 	Tears& operator=(Tears&& _Other) noexcept = delete;
 
 	void PlopSounds();
+
+	
 protected:
 	GameEngineSoundPlayer PLOPSOUND;
 	
@@ -27,6 +29,7 @@ protected:
 	
 private:
 	float DeadTime = 0.0f;
+	float GravityTime = 0.0f;
 	GameEngineRender* AnimationRender = nullptr;
 	GameEngineCollision* Collision = nullptr;
 	

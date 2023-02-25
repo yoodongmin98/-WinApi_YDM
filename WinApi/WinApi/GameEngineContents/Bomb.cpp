@@ -81,7 +81,7 @@ void Bomb::Update(float _DeltaTime)
 	if (NowTime > 2.1f)
 	{
 		BoomPlayer = GameEngineResources::GetInst().SoundPlayToControl("explosions.wav");
-		BoomPlayer.Volume(0.2);
+		BoomPlayer.Volume(0.2f);
 		BoomPlayer.LoopCount(1);
 		Death();
 	}

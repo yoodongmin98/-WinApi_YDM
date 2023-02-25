@@ -44,16 +44,16 @@
       <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClInclude>
     <ClInclude Include="Heart.h">
-      <Filter>Play\Isaac\Item&amp;actor\Heart</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Heart</Filter>
     </ClInclude>
     <ClInclude Include="Poop.h">
-      <Filter>Play\Isaac\Item&amp;actor\Poop</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Poop</Filter>
     </ClInclude>
     <ClInclude Include="FireWood.h">
-      <Filter>Play\Isaac\Item&amp;actor\Fire\FireWood</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Fire\FireWood</Filter>
     </ClInclude>
     <ClInclude Include="Fire.h">
-      <Filter>Play\Isaac\Item&amp;actor\Fire</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Fire</Filter>
     </ClInclude>
     <ClInclude Include="Isaac.h">
       <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
@@ -62,13 +62,13 @@
       <Filter>Play\Isaac\Monster\Fly</Filter>
     </ClInclude>
     <ClInclude Include="Key.h">
-      <Filter>Play\Isaac\Item&amp;actor\Key</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Key</Filter>
     </ClInclude>
     <ClInclude Include="ItemBomb.h">
-      <Filter>Play\Isaac\Item&amp;actor\Bomb</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Bomb</Filter>
     </ClInclude>
     <ClInclude Include="Coin.h">
-      <Filter>Play\Isaac\Item&amp;actor\Coin</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Coin</Filter>
     </ClInclude>
     <ClInclude Include="HP.h">
       <Filter>Play\Playlevel\MapRenderSet\UI\HP</Filter>
@@ -81,6 +81,15 @@
     </ClInclude>
     <ClInclude Include="KeyNumber.h">
       <Filter>Play\Playlevel\MapRenderSet\UI\ItemNumber\Key</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Rock</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock_Boom.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Rock_Boom</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Spike</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -130,16 +139,16 @@
       <Filter>Play\Isaac\Isaac_Main\IsaacBomb</Filter>
     </ClCompile>
     <ClCompile Include="Heart.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Heart</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Heart</Filter>
     </ClCompile>
     <ClCompile Include="Poop.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Poop</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Poop</Filter>
     </ClCompile>
     <ClCompile Include="FireWood.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Fire\FireWood</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Fire\FireWood</Filter>
     </ClCompile>
     <ClCompile Include="Fire.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Fire</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Fire</Filter>
     </ClCompile>
     <ClCompile Include="Isaac.cpp">
       <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
@@ -151,13 +160,13 @@
       <Filter>Play\Isaac\Monster\Fly</Filter>
     </ClCompile>
     <ClCompile Include="Key.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Key</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Key</Filter>
     </ClCompile>
     <ClCompile Include="ItemBomb.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Bomb</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Bomb</Filter>
     </ClCompile>
     <ClCompile Include="Coin.cpp">
-      <Filter>Play\Isaac\Item&amp;actor\Coin</Filter>
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Coin</Filter>
     </ClCompile>
     <ClCompile Include="HP.cpp">
       <Filter>Play\Playlevel\MapRenderSet\UI\HP</Filter>
@@ -173,6 +182,15 @@
     </ClCompile>
     <ClCompile Include="SoundLoader.cpp">
       <Filter>Play\Playlevel\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Rock</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock_Boom.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Rock_Boom</Filter>
+    </ClCompile>
+    <ClCompile Include="Spike.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\Spike</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,32 +263,11 @@
     <Filter Include="Play\Isaac\Item&amp;actor">
       <UniqueIdentifier>{4d0a68e8-acf2-4ad9-8924-dace1da46b7f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Heart">
-      <UniqueIdentifier>{bdce5cd3-444a-44c6-88af-e44582fa9351}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Poop">
-      <UniqueIdentifier>{aa4d840d-383d-4a81-88f1-5c00f80fc871}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Fire">
-      <UniqueIdentifier>{0386def2-4535-4bc5-a5ad-b58a38f27149}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Fire\FireWood">
-      <UniqueIdentifier>{d79da068-9566-4e74-9378-0f007d2e709e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Isaac\Isaac_Main\Isaac">
       <UniqueIdentifier>{30f2bc80-a20f-4a87-bc76-53c4f137405b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Play\Isaac\Monster\Fly">
       <UniqueIdentifier>{82c3766b-f39b-4fb6-a7fe-48be49c97f7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Key">
-      <UniqueIdentifier>{5b22a227-fc64-4183-a623-4f2e5988ff22}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Bomb">
-      <UniqueIdentifier>{8839379c-8949-47c6-b31e-7cab666b4514}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Item&amp;actor\Coin">
-      <UniqueIdentifier>{c867c2b5-2652-436b-9d8e-b40b27565040}</UniqueIdentifier>
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI\HP">
       <UniqueIdentifier>{501b9aad-defa-49d3-afdc-65aa87691008}</UniqueIdentifier>
@@ -289,6 +286,42 @@
     </Filter>
     <Filter Include="Play\Playlevel\Loader">
       <UniqueIdentifier>{8e71d552-cab3-4b2f-9f47-53a810b397bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor">
+      <UniqueIdentifier>{87787f45-c8e3-46a2-bdf7-283b191f9631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Bomb">
+      <UniqueIdentifier>{8839379c-8949-47c6-b31e-7cab666b4514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Coin">
+      <UniqueIdentifier>{c867c2b5-2652-436b-9d8e-b40b27565040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Fire">
+      <UniqueIdentifier>{0386def2-4535-4bc5-a5ad-b58a38f27149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Fire\FireWood">
+      <UniqueIdentifier>{d79da068-9566-4e74-9378-0f007d2e709e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Heart">
+      <UniqueIdentifier>{bdce5cd3-444a-44c6-88af-e44582fa9351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Key">
+      <UniqueIdentifier>{5b22a227-fc64-4183-a623-4f2e5988ff22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Poop">
+      <UniqueIdentifier>{aa4d840d-383d-4a81-88f1-5c00f80fc871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Rock">
+      <UniqueIdentifier>{80809039-3626-4aff-9dfe-bd7086b03cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Rock_Boom">
+      <UniqueIdentifier>{b4c67389-b6fd-44ee-94e1-1578134c6c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\Spike">
+      <UniqueIdentifier>{37372176-c621-4dd9-861b-feb63ab55129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapItem">
+      <UniqueIdentifier>{7063b382-b6ed-472b-a8ed-a841b7541bae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

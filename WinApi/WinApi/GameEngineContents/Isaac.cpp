@@ -31,6 +31,7 @@ Isaac::~Isaac()
 {
 }
 
+bool DebugBool = true;
 void Isaac::Start()
 {
 	MainPlayer = this;  //이 클래스 자체가 메인플레이어다
@@ -54,8 +55,8 @@ void Isaac::Start()
 
 
 		GameEngineInput::CreateKey("DebugItem", '1');
-		GameEngineInput::CreateKey("DebugRender", '2');
-		
+		GameEngineInput::CreateKey("DebugCollOff", '2');
+		GameEngineInput::CreateKey("DebugCollOn", '3');
 	}
 
 	{
@@ -117,6 +118,7 @@ void Isaac::Update(float _DeltaTime)
 void Isaac::TearsAttack(float _DeltaTime)
 {
 	ResetTime_T += _DeltaTime;
+	
 	//방향키를 눌렀을때만 작동함
 	if (false == GameEngineInput::IsDown("LeftTears") &&
 		false == GameEngineInput::IsDown("RightTears") &&
@@ -134,6 +136,7 @@ void Isaac::TearsAttack(float _DeltaTime)
 		TEARSOUNDS();
 		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
 		NewTears->SetPos(GetPos()); //플레이어위치에 Set하고 Tears내부 코드가실행
+
 	}
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
@@ -183,16 +186,19 @@ void Isaac::CollisionCheck(float _DeltaTime)
 	if (CollTime >= 3.0f) 
 	{
 		CollTime = 0.0f;
-		IsaacCollision->On(); //시간이지나면 다시collision을킨다
-
+		if (true == DebugBool) //Debug모드용 Bool값
+		{
+			IsaacCollision->On(); //시간이지나면 다시collision을킨다
+		}
 		DamagedIsaac = false;
+		DeadIsaac = false;
 	}
 	if (nullptr != IsaacCollision) //아이작의 콜리전이 null이아니어야 상호작용가능
 	{
 		//Monster
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Monster), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
-			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt0.wav");
 			ISAACHURT.Volume(0.2);
 			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
@@ -212,7 +218,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Fire), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
-			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
+			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt1.wav");
 			ISAACHURT.Volume(0.2);
 			ISAACHURT.LoopCount(1);
 			CollTime += _DeltaTime;
@@ -220,8 +226,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			IsaacCollision->Off();
 			DamagedIsaac = true;
 		}
+		
 
-		//Item
+		//MapActor
 		std::vector<GameEngineCollision*> ICollisions;
 		CollisionCheckParameter CheckHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckKey = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Key), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
@@ -241,7 +248,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		if (true == IsaacCollision->Collision(CheckKey, ICollisions))
 		{
 			KEYDROPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Keydrop.wav");
-			KEYDROPSOUND.Volume(0.2);
+			KEYDROPSOUND.Volume(0.2f);
 			KEYDROPSOUND.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			KeyCount += 1;
@@ -256,7 +263,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		if (true == IsaacCollision->Collision(CheckCoin, ICollisions))
 		{
 			COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
-			COINDROP.Volume(0.2);
+			COINDROP.Volume(0.2f);
 			COINDROP.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			CoinCount += 1;
@@ -293,7 +300,7 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 	}
 }
 
-//죽은거 체크 ㅇㅇ
+//죽은거 체크 ㅇㅇ 아직 잘안됨..
 void Isaac::DeathCheck(float _DeltaTime)
 {
 	if (0 == GetPlayerHP())
@@ -305,7 +312,7 @@ void Isaac::DeathCheck(float _DeltaTime)
 
 		DeadTime += _DeltaTime;
 
-		DamagedIsaac = false;
+		DeadIsaac = false;
 		IsaacCollision->Off();
 		Head->ChangeAnimation("Dead");
 		if (DeadTime > 2.0f)
@@ -346,6 +353,7 @@ void Isaac::BombCheck(float _DeltaTime)
 	}
 }
 
+
 void Isaac::DebugSet()
 {
 	if (true == GameEngineInput::IsDown("DebugItem"))
@@ -359,12 +367,22 @@ void Isaac::DebugSet()
 		Coin* DebugCoin = GetLevel()->CreateActor<Coin>(IsaacOrder::R_Wall);
 		DebugCoin->SetPos(GetPos() + float4::Up * 80 + float4::Left * 115);
 	}
+	if (true == GameEngineInput::IsDown("DebugCollOff"))
+	{
+		IsaacCollision->Off();
+		DebugBool = false;
+	}
+	if (true == GameEngineInput::IsDown("DebugCollOn"))
+	{
+		IsaacCollision->On();
+		DebugBool = true;
+	}
 }
 
 void Isaac::TEARSOUNDS()
 {
 	TEARSOUND = GameEngineResources::GetInst().SoundPlayToControl("tearfire.wav");
-	TEARSOUND.Volume(0.3);
+	TEARSOUND.Volume(0.3f);
 	TEARSOUND.LoopCount(1);
 }
 void Isaac::Render(float _DeltaTime)

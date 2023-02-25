@@ -249,5 +249,5 @@ void Isaac::DamageUpdate(float _Time)
 			Head->On();
 		}
 	}
-}
+	}
 

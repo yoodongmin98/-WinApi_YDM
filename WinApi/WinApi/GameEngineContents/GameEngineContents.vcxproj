@@ -63,6 +63,8 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="RightTears.h" />
+    <ClInclude Include="Rock.h" />
+    <ClInclude Include="Rock_Boom.h" />
     <ClInclude Include="Room.h">
       <SubType>
       </SubType>
@@ -99,6 +101,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Spike.h" />
     <ClInclude Include="TitleChapter.h">
       <SubType>
       </SubType>
@@ -161,6 +164,8 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="RightTears.cpp" />
+    <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="Rock_Boom.cpp" />
     <ClCompile Include="Room.cpp">
       <SubType>
       </SubType>
@@ -198,6 +203,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="SoundLoader.cpp" />
+    <ClCompile Include="Spike.cpp" />
     <ClCompile Include="TitleChapter.cpp">
       <SubType>
       </SubType>

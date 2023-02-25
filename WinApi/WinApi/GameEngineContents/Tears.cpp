@@ -10,6 +10,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 
 #include "IsaacEnum.h"
+#include "isaac.h"
 
 
 
@@ -47,7 +48,21 @@ void Tears::Start()
 
 void Tears::Update(float _DeltaTime)
 {
-	
+	GravityTime += _DeltaTime;
+	if (GravityTime > Isaac::MainPlayer->GetTearRange())
+	{
+		MoveDir = float4::Left * 200.0f + float4::Down*(Isaac::MainPlayer->GetGravityValue());
+	}
+	if (GravityTime > Isaac::MainPlayer->GetTearRange()+0.05f)
+	{
+		AnimationRender->ChangeAnimation("Pop");
+
+		MoveDir = float4::Zero;
+		if (true == AnimationRender->IsAnimationEnd())
+		{
+			Death();
+		}
+	}
 	MoveCalculation(_DeltaTime);
 	SetMove(MoveDir * _DeltaTime);
 }
@@ -56,8 +71,7 @@ void Tears::MoveCalculation(float _DeltaTime)
 {
 	if (true == GameEngineInput::IsDown("LeftTears"))
 	{
-		
-		MoveDir = float4::Left * 300;
+		MoveDir = float4::Left * (Isaac::MainPlayer->GetTearSpeed());
 	}
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 	
@@ -83,7 +97,7 @@ void Tears::MoveCalculation(float _DeltaTime)
 void Tears::PlopSounds()
 {
 	PLOPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
-	PLOPSOUND.Volume(0.2);
+	PLOPSOUND.Volume(0.2f);
 	PLOPSOUND.LoopCount(1);
 }
 void Tears::Render(float _DeltaTime)

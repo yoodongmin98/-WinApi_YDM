@@ -9,6 +9,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 
 #include "IsaacEnum.h"
+#include "isaac.h"
 
 
 

@@ -32,7 +32,9 @@
 #include "Key.h"
 #include "ItemBomb.h"
 #include "Coin.h"
-
+#include "Rock.h"
+#include "Rock_Boom.h"
+#include "Spike.h"
 
 
 IsaacLevel::IsaacLevel()
@@ -142,6 +144,12 @@ void IsaacLevel::Loading()
 		NewItemBomb->SetPos({ 180,430 });
 		Coin* NewCoin = CreateActor<Coin>();
 		NewCoin->SetPos({ 180,490 });
+		Rock* NewRock = CreateActor<Rock>();
+		NewRock->SetPos({ 180,550 });
+		Rock_Boom* NewRock_B = CreateActor<Rock_Boom>();
+		NewRock_B->SetPos({ 350,550 });
+		Spike* NewSpike = CreateActor<Spike>();
+		NewSpike->SetPos({ 420,550 });
 		////////////////////////////////////////////////////
 		
 		
