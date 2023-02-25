@@ -38,7 +38,7 @@ void Tears::Start()
 
 	// Collision »ý¼º
 	{
-		Collision = CreateCollision(IsaacCollisionOrder::C_PlayerAtt);
+		Collision = CreateCollision(IsaacCollisionOrder::C_PlayerAtt_L);
 		Collision->SetScale({ 20, 20 });
 		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);

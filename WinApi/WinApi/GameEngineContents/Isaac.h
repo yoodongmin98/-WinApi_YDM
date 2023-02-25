@@ -79,10 +79,13 @@ public:
 	{
 		return LeftAcceleration;
 	}
+	float4 GetIsaacMoveDir()
+	{
+		return MoveDir;
+	}
 
 	
 	///////////////////////////////////////
-
 protected:
 	GameEngineSoundPlayer TEARSOUND;
 	GameEngineSoundPlayer KEYDROPSOUND;
@@ -115,7 +118,7 @@ private:
 
 	float UpAcceleration = 0.0f;
 	float DownAcceleration = 0.0f;
-	float RightAcceleration = 0.0f;
+	float RightAcceleration = 200.0f;
 	float LeftAcceleration = 0.0f;
 	float GravityValue = 200.f;
 	float TearSpeed = 400.0f;

@@ -96,7 +96,7 @@ void Isaac::Update(float _DeltaTime)
 		false == GameEngineInput::IsPress("DownMove") &&
 		false == GameEngineInput::IsPress("UpMove"))
 	{
-		MoveDir *= 0.0000000001f;
+		MoveDir = float4::Zero;
 	}
 
 	DeadMenu->Off(); //업데이트에서 꼭 해야하나??
@@ -108,7 +108,7 @@ void Isaac::Update(float _DeltaTime)
 		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
 		TearsAttack(_DeltaTime);
-		Movecalculation(_DeltaTime);
+		//Movecalculation(_DeltaTime);
 		CollisionCheck(_DeltaTime);
 		SetMove(MoveDir * _DeltaTime);
 	}
@@ -142,7 +142,6 @@ void Isaac::TearsAttack(float _DeltaTime)
 		TEARSOUNDS();
 		UpTears* NewUpTears = GetLevel()->CreateActor<UpTears>(IsaacOrder::R_Player);
 		NewUpTears->SetPos(GetPos());
-		
 	}
 	if (true == GameEngineInput::IsDown("DownTears"))
 	{

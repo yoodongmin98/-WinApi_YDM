@@ -35,7 +35,7 @@ void UpTears::Start()
 
 	// Collision »ý¼º
 	{
-		Collision = CreateCollision(IsaacCollisionOrder::C_PlayerAtt);
+		Collision = CreateCollision(IsaacCollisionOrder::C_PlayerAtt_U);
 		Collision->SetScale({ 20, 20 });
 		Collision->SetPosition({ 0, -20 });
 		Collision->SetDebugRenderType(CollisionType::CT_Rect);
@@ -62,9 +62,10 @@ void UpTears::Update(float _DeltaTime)
 
 void UpTears::MoveCalculation(float _DeltaTime)
 {
+	
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
-		MoveDir = float4::Up * (Isaac::MainPlayer->GetTearSpeed()) + (float4::Right * (Isaac::MainPlayer->GetRightAcceleration()));
+		MoveDir = float4::Up * (Isaac::MainPlayer->GetTearSpeed());
 	}
 	
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;

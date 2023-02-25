@@ -85,9 +85,15 @@ void Poop::Update(float _DeltaTime)
 void Poop::CollisionCheck(float _DeltaTime)
 {
 	std::vector<GameEngineCollision*> PCollisions;
-	CollisionCheckParameter CheckP = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckP = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_L), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckP1 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_R), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckP2 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_U), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckP3 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_D), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
-	if (true == Poop_Coll->Collision(CheckP, PCollisions)) //PlayerAtt에 닿았을때
+	if (true == Poop_Coll->Collision(CheckP, PCollisions)&&
+		true == Poop_Coll->Collision(CheckP1, PCollisions)&&
+		true == Poop_Coll->Collision(CheckP2, PCollisions)&&
+		true == Poop_Coll->Collision(CheckP3, PCollisions)) //PlayerAtt에 닿았을때
 	{
 		PCollisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
 		

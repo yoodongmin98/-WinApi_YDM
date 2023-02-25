@@ -49,7 +49,7 @@ public:
 	Room& operator=(Room&& _Other) noexcept = delete;
 
 	void SetTileIndex(int _X, int _Y, int _MapKey);
-
+	void Render(float _DeltaTime);
 protected:
 	void Start() override;
 	//void Update(float _DeltaTime) override;
@@ -61,6 +61,9 @@ private:
 
 	GameEngineRender* DoorRenderer[static_cast<int>(ROOMDIR::MAX)] = {};
 	GameEngineCollision* DoorCollision[static_cast<int>(ROOMDIR::MAX)] = {};
+
+	GameEngineCollision* ThisDoorCollision = nullptr;
+	GameEngineCollision* LinkDoorCollision = nullptr;
 
 
 

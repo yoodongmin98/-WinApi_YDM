@@ -26,7 +26,12 @@ enum class IsaacCollisionOrder
 	
 
 	C_Player,
-	C_PlayerAtt,
+	C_PlayerAtt_L,
+	C_PlayerAtt_R,
+	C_PlayerAtt_U,
+	C_PlayerAtt_D,
+
+
 	C_Monster,
 	C_MonsterAtt,
 

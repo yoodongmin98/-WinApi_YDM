@@ -84,7 +84,10 @@ void Rock_Boom::CollisionCheck(float _DeltaTime)
 {
 	std::vector<GameEngineCollision*> RCollisions;
 	CollisionCheckParameter CheckR_B = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Isaac_Bomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
-	CollisionCheckParameter CheckR_PA_B = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckR_PA_B = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_L), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckR_PA_B1 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_R), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckR_PA_B2 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_U), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+	CollisionCheckParameter CheckR_PA_B3 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_D), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
 	if (true == Rock_Boom_Coll->Collision(CheckR_B, RCollisions)) //ÆøÅº¿¡´êÀ¸¸é
 	{
@@ -97,7 +100,10 @@ void Rock_Boom::CollisionCheck(float _DeltaTime)
 			DropBool = false;
 		}
 	}
-	if (true == Rock_Boom_Coll->Collision(CheckR_PA_B, RCollisions)) //ÇÃ·¹ÀÌ¾î°ø°ÝÀÌ´êÀ¸¸é
+	if (true == Rock_Boom_Coll->Collision(CheckR_PA_B, RCollisions)&&
+		true == Rock_Boom_Coll->Collision(CheckR_PA_B1, RCollisions)&&
+		true == Rock_Boom_Coll->Collision(CheckR_PA_B2, RCollisions)&&
+		true == Rock_Boom_Coll->Collision(CheckR_PA_B3, RCollisions)) //ÇÃ·¹ÀÌ¾î°ø°ÝÀÌ´êÀ¸¸é
 	{
 		RCollisions[0]->GetActor()->Death();
 	}

@@ -138,9 +138,10 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 
 		GameEngineRender* LinkBossDoorRightRender = LinkRoom->CreateRender("Map_BossDoor_Right.BMP", IsaacOrder::R_Door);
 		GameEngineRender* LinkBossDoorLeftRender = LinkRoom->CreateRender("Map_BossDoor_Left.BMP", IsaacOrder::R_Door);
-		/*GameEngineCollision* ThisDoorCollision = ThisRoom->CreateCollision();
-		GameEngineCollision* LinkDoorCollision = LinkRoom->CreateCollision();*/
-
+		// ////////////////////////////
+		ThisDoorCollision = ThisRoom->CreateCollision(IsaacCollisionOrder::C_Door);
+		LinkDoorCollision = LinkRoom->CreateCollision(IsaacCollisionOrder::C_Door);
+		
 
 		switch (EnumDir)
 		{
@@ -161,7 +162,11 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 				ThisDoorLeftRender->CreateAnimation({ .AnimationName = "Door_L_Idle",  .ImageName = "Map_Door_Left.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
 				ThisDoorLeftRender->CreateAnimation({ .AnimationName = "Door_L_Open",  .ImageName = "Map_Door_Left.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 				ThisDoorLeftRender->ChangeAnimation("Door_L_Idle");
-
+			
+				////////////
+				ThisDoorCollision->SetPosition({ 100,440 });
+				ThisDoorCollision->SetScale({ 350,270 });
+				//////////////////
 				LinkDoorRightRender->SetPosition({ 1180,440 });
 				LinkDoorRightRender->SetScale({ 350,270 });
 				LinkDoorRightRender->CreateAnimation({ .AnimationName = "Door_R_Idle",  .ImageName = "Map_Door_Right.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
@@ -215,4 +220,10 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			break;
 		}
 	}
+}
+
+void Room::Render(float _DeltaTime)
+{
+	//ThisDoorCollision->DebugRender();
+	//LinkDoorCollision->DebugRender();
 }

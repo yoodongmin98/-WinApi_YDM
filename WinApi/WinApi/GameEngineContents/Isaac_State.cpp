@@ -71,7 +71,6 @@ void Isaac::IdleUpdate(float _Time)
 	DirCheck("Idle");
 	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove") || GameEngineInput::IsPress("DownMove") || GameEngineInput::IsPress("UpMove"))
 	{
-		ClearAcceleration();
 		ChangeState(IsaacState::MOVE);
 		DamageUpdate(_Time);
 	}
@@ -94,7 +93,7 @@ void Isaac::MoveUpdate(float _Time)
 		false == GameEngineInput::IsPress("UpMove")
 		)
 	{
-		ClearAcceleration();
+		
 		DamageUpdate(_Time); //가만히서있어도 깜빡임이 적용되게끔
 		ChangeState(IsaacState::IDLE);
 		
@@ -106,14 +105,12 @@ void Isaac::MoveUpdate(float _Time)
 	{
 		DamageUpdate(_Time);
 		MoveRange += float4::Left;
-		LeftAcceleration = 200.0f;
 	}
 
 	if (true == GameEngineInput::IsPress("RightMove"))
 	{
 		DamageUpdate(_Time);
 		MoveRange += float4::Right;
-		RightAcceleration = 200.0f;
 	}
 
 	if (true == GameEngineInput::IsPress("UpMove"))

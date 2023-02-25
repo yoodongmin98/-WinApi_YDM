@@ -192,6 +192,9 @@
     <ClCompile Include="Spike.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\Spike</Filter>
     </ClCompile>
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>Play\Playlevel\Loader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Play">

@@ -15,7 +15,7 @@ public:
 	UpTears& operator=(const UpTears& _Other) = delete;
 	UpTears& operator=(UpTears&& _Other) noexcept = delete;
 
-
+	
 	void PlopSounds();
 protected:
 	GameEngineSoundPlayer PLOPSOUND;
@@ -31,5 +31,5 @@ private:
 
 	float GravityTimeU = 0.0f;
 
-	float4 MoveDir = float4::Zero;
+	float4 MoveDir=float4::Zero;
 };

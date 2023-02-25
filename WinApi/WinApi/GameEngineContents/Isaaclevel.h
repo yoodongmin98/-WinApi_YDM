@@ -20,6 +20,7 @@ public:
 	void MapMoveUpdate();
 	void SettingMenuUpdate();
 	void SoundLoad();
+	void ImageLoad();
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;
