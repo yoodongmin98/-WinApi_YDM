@@ -97,9 +97,9 @@ void Fire::CollisionCheck(float _DeltaTime)
 	CollisionCheckParameter CheckF2 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_U), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 	CollisionCheckParameter CheckF3 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_D), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
-	if (true == Fire_Coll->Collision(CheckF, FCollisions)&&
-		true == Fire_Coll->Collision(CheckF1, FCollisions)&&
-		true == Fire_Coll->Collision(CheckF2, FCollisions)&&
+	if (true == Fire_Coll->Collision(CheckF, FCollisions) ||
+		true == Fire_Coll->Collision(CheckF1, FCollisions) ||
+		true == Fire_Coll->Collision(CheckF2, FCollisions) ||
 		true == Fire_Coll->Collision(CheckF3, FCollisions)) //PlayerAtt에 닿았을때
 	{
 		FCollisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고

@@ -68,6 +68,7 @@ void UpTears::MoveCalculation(float _DeltaTime)
 		MoveDir = float4::Up * (Isaac::MainPlayer->GetTearSpeed());
 	}
 	
+	
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
@@ -91,7 +92,7 @@ void UpTears::MoveCalculation(float _DeltaTime)
 void UpTears::PlopSounds()
 {
 	PLOPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Plop.wav");
-	PLOPSOUND.Volume(0.2);
+	PLOPSOUND.Volume(0.2f);
 	PLOPSOUND.LoopCount(1);
 }
 

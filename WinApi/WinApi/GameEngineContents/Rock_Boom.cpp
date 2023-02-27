@@ -100,9 +100,9 @@ void Rock_Boom::CollisionCheck(float _DeltaTime)
 			DropBool = false;
 		}
 	}
-	if (true == Rock_Boom_Coll->Collision(CheckR_PA_B, RCollisions)&&
-		true == Rock_Boom_Coll->Collision(CheckR_PA_B1, RCollisions)&&
-		true == Rock_Boom_Coll->Collision(CheckR_PA_B2, RCollisions)&&
+	if (true == Rock_Boom_Coll->Collision(CheckR_PA_B, RCollisions) ||
+		true == Rock_Boom_Coll->Collision(CheckR_PA_B1, RCollisions) ||
+		true == Rock_Boom_Coll->Collision(CheckR_PA_B2, RCollisions) ||
 		true == Rock_Boom_Coll->Collision(CheckR_PA_B3, RCollisions)) //플레이어공격이닿으면
 	{
 		RCollisions[0]->GetActor()->Death();

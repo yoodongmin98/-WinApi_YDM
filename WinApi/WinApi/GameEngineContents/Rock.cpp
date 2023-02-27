@@ -90,9 +90,9 @@ void Rock::CollisionCheck(float _DeltaTime)
 		R_Rock->ChangeAnimation("Rock_Break");
 		Rock_Coll->Off();
 	}
-	if (true == Rock_Coll->Collision(CheckR_PA, RCollisions)&&
-		true == Rock_Coll->Collision(CheckR_PA1, RCollisions)&&
-		true == Rock_Coll->Collision(CheckR_PA2, RCollisions)&&
+	if (true == Rock_Coll->Collision(CheckR_PA, RCollisions) ||
+		true == Rock_Coll->Collision(CheckR_PA1, RCollisions) ||
+		true == Rock_Coll->Collision(CheckR_PA2, RCollisions) ||
 		true == Rock_Coll->Collision(CheckR_PA3, RCollisions)) //플레이어공격이닿으면
 	{
 		RCollisions[0]->GetActor()->Death();

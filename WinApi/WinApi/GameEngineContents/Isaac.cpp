@@ -32,6 +32,7 @@ Isaac::~Isaac()
 }
 
 bool DebugBool = true;
+
 void Isaac::Start()
 {
 	MainPlayer = this;  //이 클래스 자체가 메인플레이어다
@@ -128,7 +129,12 @@ void Isaac::TearsAttack(float _DeltaTime)
 		return;
 	}
 
-	if (ResetTime_T > 0.3f) { ResetTime_T = 0.0f; } //다음공격까지의 딜레이는 0.3
+	if (ResetTime_T > 0.3f)
+	{
+		ResetTime_T = 0.0f;
+	} 
+	//다음공격까지의 딜레이는 0.3
+
 	else { return; } //그사이에 누르는값은 리턴
 
 	if (true == GameEngineInput::IsDown("LeftTears"))
@@ -176,6 +182,7 @@ void Isaac::Movecalculation(float _DeltaTime)
 	{
 		MoveDir = float4::Zero;
 	}
+	
 }
 
 //collision 체크

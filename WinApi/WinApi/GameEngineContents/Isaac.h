@@ -79,10 +79,8 @@ public:
 	{
 		return LeftAcceleration;
 	}
-	float4 GetIsaacMoveDir()
-	{
-		return MoveDir;
-	}
+	
+	
 
 	
 	///////////////////////////////////////
@@ -98,7 +96,7 @@ protected:
 	void Render(float _DeltaTime);
 	void DebugSet();
 	void TEARSOUNDS();
-	void ClearAcceleration();
+
 
 private:
 	GameEngineRender* DeadMenu = nullptr;

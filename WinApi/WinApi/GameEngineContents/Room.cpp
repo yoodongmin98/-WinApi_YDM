@@ -224,6 +224,5 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 
 void Room::Render(float _DeltaTime)
 {
-	//ThisDoorCollision->DebugRender();
-	//LinkDoorCollision->DebugRender();
+	
 }
