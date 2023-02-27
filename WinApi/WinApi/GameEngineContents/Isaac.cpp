@@ -147,6 +147,23 @@ void Isaac::TearsAttack(float _DeltaTime)
 	{
 		TEARSOUNDS();
 		UpTears* NewUpTears = GetLevel()->CreateActor<UpTears>(IsaacOrder::R_Player);
+
+		float4 FireDir = float4::Up;
+
+		if (true == GameEngineInput::IsPress("RightMove") && true == GameEngineInput::IsPress("LeftMove"))
+		{
+
+		}
+		else if (true == GameEngineInput::IsPress("RightMove"))
+		{
+			FireDir.x += 0.2;
+		}
+		else if (true == GameEngineInput::IsPress("LeftMove"))
+		{
+			FireDir.x -= 0.2;
+		}
+
+		NewUpTears->SetMoveDir(FireDir);
 		NewUpTears->SetPos(GetPos());
 	}
 	if (true == GameEngineInput::IsDown("DownTears"))

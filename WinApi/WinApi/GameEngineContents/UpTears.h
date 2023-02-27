@@ -15,6 +15,11 @@ public:
 	UpTears& operator=(const UpTears& _Other) = delete;
 	UpTears& operator=(UpTears&& _Other) noexcept = delete;
 
+	void SetMoveDir(float4 _MoveDir) 
+	{
+		MoveDir = _MoveDir;
+		MoveDir.Normalize();
+	}
 	
 	void PlopSounds();
 protected:
@@ -30,6 +35,8 @@ private:
 	GameEngineCollision* Collision = nullptr;
 
 	float GravityTimeU = 0.0f;
+	float Speed = 300.0f;
+	float AccStopSpeed = 0.0f;
 
 	float4 MoveDir=float4::Zero;
 };

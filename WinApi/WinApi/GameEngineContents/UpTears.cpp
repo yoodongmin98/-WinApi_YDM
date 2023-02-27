@@ -56,19 +56,17 @@ void UpTears::Update(float _DeltaTime)
 			Death();
 		}
 	}
+
+
+	AccStopSpeed += _DeltaTime;
+	Speed -= AccStopSpeed;
+
 	MoveCalculation(_DeltaTime);
-	SetMove(MoveDir * _DeltaTime);
+	SetMove(MoveDir * Speed * _DeltaTime);
 }
 
 void UpTears::MoveCalculation(float _DeltaTime)
 {
-	
-	if (true == GameEngineInput::IsDown("UpTears"))
-	{
-		MoveDir = float4::Up * (Isaac::MainPlayer->GetTearSpeed());
-	}
-	
-	
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");

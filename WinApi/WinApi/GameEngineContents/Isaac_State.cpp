@@ -125,6 +125,9 @@ void Isaac::MoveUpdate(float _Time)
 		DamageUpdate(_Time);
 		MoveRange += float4::Down;
 	}
+
+	MoveRange.Normalize();
+
 	MoveDir = MoveRange * MoveSpeed;
 
 	
