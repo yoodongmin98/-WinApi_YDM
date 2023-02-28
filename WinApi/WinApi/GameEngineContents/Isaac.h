@@ -63,6 +63,10 @@ public:
 	{
 		return TearRange;
 	}
+	int GetTearDamage()
+	{
+		return TearDamage;
+	}
 	float GetUpAcceleration()
 	{
 		return UpAcceleration;
@@ -80,7 +84,10 @@ public:
 		return LeftAcceleration;
 	}
 	
-	
+	GameEngineCollision* GetIsaacCollision()
+	{
+		return IsaacCollision;
+	}
 
 	
 	///////////////////////////////////////
@@ -118,9 +125,10 @@ private:
 	float DownAcceleration = 0.0f;
 	float RightAcceleration = 200.0f;
 	float LeftAcceleration = 0.0f;
-	float GravityValue = 200.f;
+	float GravityValue = 0.4f;
 	float TearSpeed = 400.0f;
 	float TearRange = 0.8f;
+	int TearDamage = 1;
 	
 	//////////Idle
 	std::string DirString = "Right_";

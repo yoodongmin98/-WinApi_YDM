@@ -109,7 +109,7 @@ void Isaac::Update(float _DeltaTime)
 		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
 		TearsAttack(_DeltaTime);
-		//Movecalculation(_DeltaTime);
+		Movecalculation(_DeltaTime);
 		CollisionCheck(_DeltaTime);
 		SetMove(MoveDir * _DeltaTime);
 	}
@@ -150,11 +150,11 @@ void Isaac::TearsAttack(float _DeltaTime)
 		}
 		else if (true == GameEngineInput::IsPress("UpMove"))
 		{
-			FireDir3.y -= 0.4;
+			FireDir3.y -= 0.2f;
 		}
 		else if (true == GameEngineInput::IsPress("DownMove"))
 		{
-			FireDir3.y += 0.4;
+			FireDir3.y += 0.2f;
 		}
 		NewTears->SetLeftMoveDir(FireDir3); //방향설정
 		NewTears->SetPos(GetPos()); //플레이어위치에 Set하고 Tears내부 코드가실행
@@ -173,11 +173,11 @@ void Isaac::TearsAttack(float _DeltaTime)
 		}
 		else if (true == GameEngineInput::IsPress("RightMove"))
 		{
-			FireDir.x += 0.4;
+			FireDir.x += 0.2f;
 		}
 		else if (true == GameEngineInput::IsPress("LeftMove"))
 		{
-			FireDir.x -= 0.4;
+			FireDir.x -= 0.2f;
 		}
 		NewUpTears->SetUpMoveDir(FireDir); //방향설정
 		NewUpTears->SetPos(GetPos()); //나오는 위치설정
@@ -195,11 +195,11 @@ void Isaac::TearsAttack(float _DeltaTime)
 		}
 		else if (true == GameEngineInput::IsPress("RightMove"))
 		{
-			FireDir2.x += 0.4;
+			FireDir2.x += 0.4f;
 		}
 		else if (true == GameEngineInput::IsPress("LeftMove"))
 		{
-			FireDir2.x -= 0.4;
+			FireDir2.x -= 0.4f;
 		}
 		NewDownTears->SetDownMoveDir(FireDir2); //방향설정
 		
@@ -218,11 +218,11 @@ void Isaac::TearsAttack(float _DeltaTime)
 		}
 		else if (true == GameEngineInput::IsPress("UpMove"))
 		{
-			FireDir4.y -= 0.4;
+			FireDir4.y -= 0.4f;
 		}
 		else if (true == GameEngineInput::IsPress("DownMove"))
 		{
-			FireDir4.y += 0.4;
+			FireDir4.y += 0.4f;
 		}
 		NewRightTears->SetRightMoveDir(FireDir4); //방향설정
 		NewRightTears->SetPos(GetPos());

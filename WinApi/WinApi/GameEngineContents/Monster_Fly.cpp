@@ -34,7 +34,7 @@ void Monster_Fly::ImageLoad()
 		Dir.Move("Monster");
 
 		GameEngineImage* Monster1 = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_fly.BMP"));
-		Monster1->Cut(2, 1);
+		Monster1->Cut(4, 2);
 		GameEngineImage* Monster1D = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_fly_Dead.BMP"));
 		Monster1D->Cut(5, 3);
 }
@@ -44,11 +44,11 @@ void Monster_Fly::Start()
 {
 	ImageLoad();
 	M_fly = CreateRender(IsaacOrder::R_Monster);
-	M_fly->SetScale({ 150, 150 });
-	SetPos({ 200,200 });
+	M_fly->SetScale({ 80, 80 });
 	
 	
 	M_fly->CreateAnimation({ .AnimationName = "M_fly_Idle",  .ImageName = "M_fly.bmp", .Start = 0, .End = 1, .InterTime = 0.1f });
+	M_fly->CreateAnimation({ .AnimationName = "M_fly_Damage",  .ImageName = "M_fly.bmp", .Start = 5, .End = 6, .InterTime = 0.1f });
 	M_fly->CreateAnimation({ .AnimationName = "M_fly_Dead",  .ImageName = "M_fly_Dead.bmp", .Start = 0, .End = 11, .InterTime = 0.03f, .Loop = false});
 	//처음엔 그냥 날아다니게
 	M_fly->ChangeAnimation("M_fly_Idle");
@@ -82,8 +82,9 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 void Monster_Fly::CollisionCheck(float _DeltaTime)
 {
 	NowTime += _DeltaTime;
-	if (NowTime >= 0.4f) //다음상호작용이 되려면 이만큼의 시간이 흘러야한다(몬스터가 죽는애니메이션시간보다는 길어야함)
+	if (NowTime >= 0.5f) //다음상호작용이 되려면 이만큼의 시간이 흘러야한다(몬스터가 죽는애니메이션시간보다는 길어야함)
 	{
+		M_fly->ChangeAnimation("M_fly_Idle"); //다시 idle로바꾸고
 		NowTime = 0.0f;
 		M_fly_Coll->On();  //시간이지나면 다시collision을킨다
 		RESET = 1;
@@ -102,13 +103,13 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	//함수짤 시간에 그냥 복붙을하겠노라
 	if (true == M_fly_Coll->Collision(Check, FCollisions)) //PlayerAtt에 닿았을때
 	{
-	
+		M_fly->ChangeAnimation("M_fly_Damage");
 		FCollisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
 		SetMove(float4::Left * 20); //맞으면 밀려남(매끄럽게안밀려남) 방향에따른 설정도해야할듯
 
 		if (1 == RESET)
 		{
-			FlyHp = FlyHp - 1;
+			FlyHp = FlyHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;
 			M_fly_Coll->Off(); //맞아도 일정시간동안 상호작용이안된다.
 		}
@@ -120,12 +121,13 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	}
 	if (true == M_fly_Coll->Collision(Check1, FCollisions)) 
 	{
+		M_fly->ChangeAnimation("M_fly_Damage");
 		FCollisions[0]->GetActor()->Death();
 		SetMove(float4::Right * 20); 
 
 		if (1 == RESET)
 		{
-			FlyHp = FlyHp - 1;
+			FlyHp = FlyHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;
 			M_fly_Coll->Off(); 
 		}
@@ -137,12 +139,13 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	}
 	if (true == M_fly_Coll->Collision(Check2, FCollisions)) 
 	{
+		M_fly->ChangeAnimation("M_fly_Damage");
 		FCollisions[0]->GetActor()->Death(); 
 		SetMove(float4::Up * 20); 
 
 		if (1 == RESET)
 		{
-			FlyHp = FlyHp - 1;
+			FlyHp = FlyHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;
 			M_fly_Coll->Off(); 
 		}
@@ -154,12 +157,13 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	}
 	if (true == M_fly_Coll->Collision(Check3, FCollisions)) 
 	{
+		M_fly->ChangeAnimation("M_fly_Damage");
 		FCollisions[0]->GetActor()->Death(); 
 		SetMove(float4::Down * 20); 
 
 		if (1 == RESET)
 		{
-			FlyHp = FlyHp - 1;
+			FlyHp = FlyHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;
 			M_fly_Coll->Off(); 
 		}

@@ -18,6 +18,7 @@
 
 //Drop
 #include "Heart.h"
+#include "Coin.h"
 
 
 Fire* Fire::MainFire;
@@ -132,6 +133,8 @@ void Fire::CollisionCheck(float _DeltaTime)
 		}
 		if (0 == FireHp)
 		{
+			Coin* FireCoin=GetLevel()->CreateActor<Coin>();
+			FireCoin->SetPos(GetPos());
 			//FIRESOUND.Stop();
 			Death();
 		}

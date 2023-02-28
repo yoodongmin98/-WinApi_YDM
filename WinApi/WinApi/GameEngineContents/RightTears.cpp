@@ -51,7 +51,7 @@ void RightTears::Update(float _DeltaTime)
 	GravityTimeR += _DeltaTime;
 	if (GravityTimeR > Isaac::MainPlayer->GetTearRange())
 	{
-		MoveDir = float4::Right * 300.0f + float4::Down * (Isaac::MainPlayer->GetGravityValue());
+		MoveDir = float4::Right * TearfallValue + float4::Down * (Isaac::MainPlayer->GetGravityValue());
 	}
 	if (GravityTimeR > Isaac::MainPlayer->GetTearRange() + 0.1f)
 	{

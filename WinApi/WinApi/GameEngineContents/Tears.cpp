@@ -51,7 +51,7 @@ void Tears::Update(float _DeltaTime)
 	GravityTime += _DeltaTime;
 	if (GravityTime > Isaac::MainPlayer->GetTearRange())
 	{
-		MoveDir = float4::Left * 300.0f + float4::Down*(Isaac::MainPlayer->GetGravityValue());
+		MoveDir = float4::Left * LTearfallValue + float4::Down*(Isaac::MainPlayer->GetGravityValue());
 	}
 	if (GravityTime > Isaac::MainPlayer->GetTearRange()+0.1f)
 	{
@@ -69,7 +69,6 @@ void Tears::Update(float _DeltaTime)
 
 void Tears::MoveCalculation(float _DeltaTime)
 {
-	
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 	
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");

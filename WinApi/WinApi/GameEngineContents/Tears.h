@@ -38,6 +38,6 @@ private:
 	GameEngineRender* AnimationRender = nullptr;
 	GameEngineCollision* Collision = nullptr;
 	
-
+	float LTearfallValue = 0.3f;
 	float4 MoveDir = float4::Zero;
 };

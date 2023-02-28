@@ -40,6 +40,8 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Monster_Boil.h" />
+    <ClInclude Include="Monster_Gaper.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="HP.h">
       <SubType>
@@ -58,6 +60,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Monster_Blob.h" />
     <ClInclude Include="Poop.h">
       <SubType>
       </SubType>
@@ -135,6 +138,8 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Monster_Boil.cpp" />
+    <ClCompile Include="Monster_Gaper.cpp" />
     <ClCompile Include="Heart.cpp">
       <SubType>
       </SubType>
@@ -160,6 +165,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Monster_Blob.cpp" />
     <ClCompile Include="Poop.cpp">
       <SubType>
       </SubType>

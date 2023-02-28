@@ -39,7 +39,7 @@ void LoadLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	LODINGSOUND = GameEngineResources::GetInst().SoundPlayToControl("Loading.ogg");
 	LODINGSOUND.LoopCount(1);
-	LODINGSOUND.Volume(0.2);
+	LODINGSOUND.Volume(0.2f);
 }
 
 //////////////////////////////////////////////////////

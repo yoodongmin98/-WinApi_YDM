@@ -25,6 +25,13 @@
 
 
 #include "Monster_Fly.h"
+#include "Monster_Blob.h"
+#include "Monster_Gaper.h"
+#include "Monster_Boil.h"
+
+
+
+
 #include "Poop.h"
 #include "Heart.h"
 #include "FireWood.h"
@@ -84,7 +91,19 @@ void IsaacLevel::Loading()
 		CreateActor<KeyNumber>();
 
 		///////////////////테스트용 Actor///////////////////
-		CreateActor<Monster_Fly>();
+
+
+		//몬스터
+		//Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
+		//TestMonster->SetPos({ 200,200 });
+		//Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
+		//TestMonster1->SetPos({ 200,300 });
+		//Gaper* NewGaper= CreateActor<Gaper>();
+		//NewGaper->SetPos({ 200,400 });
+		Boil* TestBoil = CreateActor<Boil>();
+		TestBoil->SetPos({ 300,400 });
+
+		//액터
 		CreateActor<Poop>();
 		Heart* TestHeart=CreateActor<Heart>();
 		TestHeart->SetPos({ 180,230 });
