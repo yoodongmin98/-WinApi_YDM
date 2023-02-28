@@ -392,5 +392,8 @@
     <Filter Include="Play\Isaac\Monster\Bodys">
       <UniqueIdentifier>{e46daa37-abd3-41f4-b173-744d8cc91488}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Play\Isaac\Monster\.MonsterAtt">
+      <UniqueIdentifier>{d8ce8c62-1e73-4d75-bc3f-5e2fe2fe7c71}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
