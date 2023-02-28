@@ -28,8 +28,10 @@ private:
 	
 	GameEngineCollision* M_Boil_Coll = nullptr;
 
+	float BoilAttTime = 0.0f;
 	float HpPlusTime = 0.0f;
 	float NowTime = 0.0f;
+
 	int MaxBoilHp = 10;
 	int BoilHp = 1;
 	int RESET = 1;

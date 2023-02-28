@@ -75,6 +75,7 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop = false });
 
 	}
+	
 		ChangeState(IsaacState::IDLE);
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
@@ -109,7 +110,7 @@ void Isaac::Update(float _DeltaTime)
 		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
 		TearsAttack(_DeltaTime);
-		Movecalculation(_DeltaTime);
+		//Movecalculation(_DeltaTime);
 		CollisionCheck(_DeltaTime);
 		SetMove(MoveDir * _DeltaTime);
 	}

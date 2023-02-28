@@ -100,6 +100,18 @@
     <ClInclude Include="Monster_Boil.h">
       <Filter>Play\Isaac\Monster\Boil</Filter>
     </ClInclude>
+    <ClInclude Include="BloodTear.h">
+      <Filter>Play\Isaac\Monster\.MonsterAtt</Filter>
+    </ClInclude>
+    <ClInclude Include="Charger.h">
+      <Filter>Play\Isaac\Monster\Charger</Filter>
+    </ClInclude>
+    <ClInclude Include="Pooter.h">
+      <Filter>Play\Isaac\Monster\Pooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Muliboom.h">
+      <Filter>Play\Isaac\Monster\Muliboom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -212,6 +224,18 @@
     </ClCompile>
     <ClCompile Include="Monster_Boil.cpp">
       <Filter>Play\Isaac\Monster\Boil</Filter>
+    </ClCompile>
+    <ClCompile Include="BloodTear.cpp">
+      <Filter>Play\Isaac\Monster\.MonsterAtt</Filter>
+    </ClCompile>
+    <ClCompile Include="Charger.cpp">
+      <Filter>Play\Isaac\Monster\Charger</Filter>
+    </ClCompile>
+    <ClCompile Include="Pooter.cpp">
+      <Filter>Play\Isaac\Monster\Pooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Muliboom.cpp">
+      <Filter>Play\Isaac\Monster\Muliboom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

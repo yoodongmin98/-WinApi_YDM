@@ -28,6 +28,9 @@
 #include "Monster_Blob.h"
 #include "Monster_Gaper.h"
 #include "Monster_Boil.h"
+#include "Charger.h"
+#include "Pooter.h"
+#include "Muliboom.h"
 
 
 
@@ -94,14 +97,22 @@ void IsaacLevel::Loading()
 
 
 		//몬스터
-		//Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
-		//TestMonster->SetPos({ 200,200 });
-		//Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
-		//TestMonster1->SetPos({ 200,300 });
-		//Gaper* NewGaper= CreateActor<Gaper>();
-		//NewGaper->SetPos({ 200,400 });
+		Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
+		TestMonster->SetPos({ 200,200 });
+		Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
+		TestMonster1->SetPos({ 200,300 });
+		Gaper* NewGaper= CreateActor<Gaper>();
+		NewGaper->SetPos({ 200,400 });
 		Boil* TestBoil = CreateActor<Boil>();
 		TestBoil->SetPos({ 300,400 });
+		Charger* NewCharger = CreateActor<Charger>();
+		NewCharger->SetPos({ 300,500 });
+		Pooter* NewPooter = CreateActor<Pooter>();
+		NewPooter->SetPos({ 300,400 });
+		MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
+		NewMuliBoom->SetPos({ 300,400 });
+
+
 
 		//액터
 		CreateActor<Poop>();

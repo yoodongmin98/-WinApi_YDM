@@ -23,7 +23,7 @@ Monster_Fly::~Monster_Fly()
 {
 }
 
-
+bool FlyLoad = true;
 void Monster_Fly::ImageLoad()
 {
 		GameEngineDirectory Dir;
@@ -42,7 +42,11 @@ void Monster_Fly::ImageLoad()
 
 void Monster_Fly::Start()
 {
-	ImageLoad();
+	if (true == FlyLoad)
+	{
+		ImageLoad();
+		FlyLoad = false;
+	}
 	M_fly = CreateRender(IsaacOrder::R_Monster);
 	M_fly->SetScale({ 80, 80 });
 	
@@ -66,6 +70,10 @@ void Monster_Fly::Start()
 bool Deathcheck = false;
 void Monster_Fly::Update(float _DeltaTime)
 {
+	if (true == Deathcheck) //hp가 떨어진게 확인되면
+	{
+		Death(); //없앤다
+	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
 }
@@ -88,10 +96,6 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 		NowTime = 0.0f;
 		M_fly_Coll->On();  //시간이지나면 다시collision을킨다
 		RESET = 1;
-		if (true == Deathcheck) //hp가 떨어진게 확인되면
-		{
-			Death(); //없앤다
-		}
 	}
 
 	std::vector<GameEngineCollision*> FCollisions;

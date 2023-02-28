@@ -23,7 +23,7 @@ Monster_Blob::~Monster_Blob()
 {
 }
 
-
+bool BlobLoad = true;
 void Monster_Blob::ImageLoad()
 {
 	GameEngineDirectory Dir;
@@ -42,7 +42,11 @@ void Monster_Blob::ImageLoad()
 
 void Monster_Blob::Start()
 {
-	ImageLoad();
+	if (true == BlobLoad)
+	{
+		ImageLoad();
+		BlobLoad = false;
+	}
 	M_Blob = CreateRender(IsaacOrder::R_Monster);
 	M_Blob->SetScale({ 100, 100 });
 
@@ -63,7 +67,7 @@ void Monster_Blob::Start()
 
 		M_Blob_SetColl_R = CreateCollision(IsaacCollisionOrder::C_Moster_Set);
 		M_Blob_SetColl_R->SetScale({ 1000, 800 });
-		M_Blob_SetColl_R->SetPosition({ 500,0 });
+		M_Blob_SetColl_R->SetPosition({ 50,0 });
 		M_Blob_SetColl_R->On();
 		M_Blob_SetColl_R->SetDebugRenderType(CollisionType::CT_Rect);
 	}				   
@@ -73,6 +77,10 @@ void Monster_Blob::Start()
 bool BlobDeathcheck = false;
 void Monster_Blob::Update(float _DeltaTime)
 {
+	if (true == BlobDeathcheck)
+	{
+		Death();
+	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
 }
@@ -103,10 +111,6 @@ void Monster_Blob::CollisionCheck(float _DeltaTime)
 		NowTime = 0.0f;
 		M_Blob_Coll->On();  //시간이지나면 다시collision을킨다
 		RESET = 1;
-		if (true == BlobDeathcheck)
-		{
-			Death();
-		}
 	}
 
 	std::vector<GameEngineCollision*> FCollisions;
@@ -216,5 +220,6 @@ void Monster_Blob::CollisionCheck(float _DeltaTime)
 
 void Monster_Blob::Render(float _DeltaTime)
 {
+	//M_Blob_Coll->DebugRender();
 	//M_Blob_SetColl_R->DebugRender();
 }

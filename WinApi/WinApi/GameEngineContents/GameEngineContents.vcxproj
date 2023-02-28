@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BloodTear.h" />
     <ClInclude Include="Bomb.h">
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Charger.h" />
     <ClInclude Include="Coin.h">
       <SubType>
       </SubType>
@@ -61,10 +63,12 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Monster_Blob.h" />
+    <ClInclude Include="Muliboom.h" />
     <ClInclude Include="Poop.h">
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Pooter.h" />
     <ClInclude Include="RightTears.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="Rock_Boom.h" />
@@ -117,10 +121,12 @@
     <ClInclude Include="UpTears.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BloodTear.cpp" />
     <ClCompile Include="Bomb.cpp">
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Charger.cpp" />
     <ClCompile Include="Coin.cpp">
       <SubType>
       </SubType>
@@ -166,10 +172,12 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Monster_Blob.cpp" />
+    <ClCompile Include="Muliboom.cpp" />
     <ClCompile Include="Poop.cpp">
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Pooter.cpp" />
     <ClCompile Include="RightTears.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Rock_Boom.cpp" />

@@ -9,6 +9,10 @@
 #include <GameEngineCore/GameEngineCollision.h>
 
 
+
+
+#include "BloodTear.h"
+
 #include "Isaac.h"
 #include "IsaacEnum.h"
 #include "Monster_Boil.h"
@@ -23,7 +27,7 @@ Boil::~Boil()
 {
 }
 
-
+bool BoilLoad = true;
 void Boil::ImageLoad()
 {
 	GameEngineDirectory Dir;
@@ -35,17 +39,20 @@ void Boil::ImageLoad()
 
 	GameEngineImage* Boils = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_Boil.BMP"));
 	Boils->Cut(4, 3);
-	
 }
 
 
 void Boil::Start()
 {
-	ImageLoad();
+	if (true == BoilLoad)
+	{
+		ImageLoad();
+		BoilLoad = false;
+	}
 	
 	M_Boil = CreateRender(IsaacOrder::R_Monster);
 	M_Boil->SetScale({ 70, 70 });
-
+	
 
 
 	M_Boil->CreateAnimation({ .AnimationName = "BoilHp10",  .ImageName = "M_Boil.bmp", .Start = 0, .End = 0, .InterTime = 0.1f });
@@ -80,14 +87,24 @@ void Boil::Start()
 bool BoilDeathcheck = false;
 void Boil::Update(float _DeltaTime)
 {
-	
+	BoilAttTime += _DeltaTime;
+	if (BoilAttTime > 3.0f && 10==BoilHp)
+	{
+		float4 PlayerPos = Isaac::MainPlayer->GetPos();
+		BoilAttTime = 0.0f;
+		BloodTear* NewBloodTear = GetLevel()->CreateActor<BloodTear>();
+		NewBloodTear->SetBloodMoveDir(PlayerPos);
+		//float4 Getrasd = GetPos();
+		NewBloodTear->SetPos(GetPos());
+	}
 	CollisionCheck(_DeltaTime);
 	HpCheck(_DeltaTime);
 }
 
 void Boil::HpCheck(float _DeltaTime)
 {
-	if (10 == BoilHp) { M_Boil->ChangeAnimation("BoilHp10"); }
+	
+	if (10 == BoilHp){ M_Boil->ChangeAnimation("BoilHp10");}
 	if (9 == BoilHp) { M_Boil->ChangeAnimation("BoilHp9"); }
 	if (8 == BoilHp) { M_Boil->ChangeAnimation("BoilHp8"); }
 	if (7 == BoilHp) { M_Boil->ChangeAnimation("BoilHp7"); }
@@ -113,6 +130,18 @@ void Boil::CollisionCheck(float _DeltaTime)
 		RESET = 1;
 		if (true == BoilDeathcheck)
 		{
+			BloodTear* NewBloodTear = GetLevel()->CreateActor<BloodTear>();
+			NewBloodTear->SetBloodMoveDir(float4::Up);
+			NewBloodTear->SetPos(GetPos());
+			BloodTear* NewBloodTear1 = GetLevel()->CreateActor<BloodTear>();
+			NewBloodTear1->SetBloodMoveDir(float4::Down);
+			NewBloodTear1->SetPos(GetPos());
+			BloodTear* NewBloodTear2 = GetLevel()->CreateActor<BloodTear>();
+			NewBloodTear2->SetBloodMoveDir(float4::Left);
+			NewBloodTear2->SetPos(GetPos());
+			BloodTear* NewBloodTear3 = GetLevel()->CreateActor<BloodTear>();
+			NewBloodTear3->SetBloodMoveDir(float4::Right);
+			NewBloodTear3->SetPos(GetPos());
 			Death();
 		}
 	}

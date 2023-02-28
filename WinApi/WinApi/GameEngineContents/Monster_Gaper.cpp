@@ -13,7 +13,6 @@
 #include "IsaacEnum.h"
 #include "Monster_Gaper.h"
 
-
 Gaper::Gaper()
 {
 
@@ -24,6 +23,7 @@ Gaper::~Gaper()
 }
 
 
+bool GaperLoad = true;
 void Gaper::ImageLoad()
 {
 	GameEngineDirectory Dir;
@@ -44,7 +44,11 @@ void Gaper::ImageLoad()
 
 void Gaper::Start()
 {
-	ImageLoad();
+	if (true == GaperLoad)
+	{
+		ImageLoad();
+		GaperLoad = false;
+	}
 	M_GaperBodys = CreateRender(IsaacOrder::R_Monster);
 	M_GaperBodys->SetScale({ 50, 50 });
 	M_GaperBodys->SetPosition({ 0,32 });
@@ -90,6 +94,10 @@ void Gaper::Start()
 bool GaperDeathcheck = false;
 void Gaper::Update(float _DeltaTime)
 {
+	if (true == GaperDeathcheck)
+	{
+		Death();
+	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
 	HpCheck(_DeltaTime);
@@ -137,10 +145,7 @@ void Gaper::CollisionCheck(float _DeltaTime)
 		
 
 		RESET = 1;
-		if (true == GaperDeathcheck)
-		{
-			Death();
-		}
+		
 	}
 
 	std::vector<GameEngineCollision*> FCollisions;
