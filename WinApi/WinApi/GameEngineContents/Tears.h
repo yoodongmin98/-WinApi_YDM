@@ -17,6 +17,11 @@ public:
 
 	void PlopSounds();
 
+	void SetLeftMoveDir(float4 _MoveDir)
+	{
+		MoveDir = _MoveDir;
+		MoveDir.Normalize();
+	}
 	
 protected:
 	GameEngineSoundPlayer PLOPSOUND;

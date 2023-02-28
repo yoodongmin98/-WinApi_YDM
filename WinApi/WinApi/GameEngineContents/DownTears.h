@@ -15,6 +15,12 @@ public:
 	DownTears& operator=(const DownTears& _Other) = delete;
 	DownTears& operator=(DownTears&& _Other) noexcept = delete;
 
+
+	void SetDownMoveDir(float4 _MoveDir)
+	{
+		MoveDir = _MoveDir;
+		MoveDir.Normalize();
+	}
 	void PlopSounds();
 protected:
 	GameEngineSoundPlayer PLOPSOUND;

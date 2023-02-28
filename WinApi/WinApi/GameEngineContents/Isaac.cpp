@@ -118,6 +118,7 @@ void Isaac::Update(float _DeltaTime)
 //아이작 공격(Tears)관리
 void Isaac::TearsAttack(float _DeltaTime)
 {
+	
 	ResetTime_T += _DeltaTime;
 	
 	//방향키를 눌렀을때만 작동함
@@ -133,16 +134,32 @@ void Isaac::TearsAttack(float _DeltaTime)
 	{
 		ResetTime_T = 0.0f;
 	} 
-	//다음공격까지의 딜레이는 0.3
+	//다음공격까지의 딜레이는 0.3초
 
 	else { return; } //그사이에 누르는값은 리턴
-
+	///////////////////왼쪽공격//////////////////
 	if (true == GameEngineInput::IsDown("LeftTears"))
 	{
 		TEARSOUNDS();
 		Tears* NewTears = GetLevel()->CreateActor<Tears>(IsaacOrder::R_Player);
+		float4 FireDir3 = float4::Left;
+
+		if (true == GameEngineInput::IsPress("UpMove") && true == GameEngineInput::IsPress("DownMove"))
+		{
+			//둘다누르는경우는 아무것도 안들어오게만든다.
+		}
+		else if (true == GameEngineInput::IsPress("UpMove"))
+		{
+			FireDir3.y -= 0.4;
+		}
+		else if (true == GameEngineInput::IsPress("DownMove"))
+		{
+			FireDir3.y += 0.4;
+		}
+		NewTears->SetLeftMoveDir(FireDir3); //방향설정
 		NewTears->SetPos(GetPos()); //플레이어위치에 Set하고 Tears내부 코드가실행
 	}
+	/////////////////윗공격////////////////////
 	if (true == GameEngineInput::IsDown("UpTears"))
 	{
 		TEARSOUNDS();
@@ -152,31 +169,63 @@ void Isaac::TearsAttack(float _DeltaTime)
 
 		if (true == GameEngineInput::IsPress("RightMove") && true == GameEngineInput::IsPress("LeftMove"))
 		{
-
+			//둘다누르는경우는 아무것도 안들어오게만든다.
 		}
 		else if (true == GameEngineInput::IsPress("RightMove"))
 		{
-			FireDir.x += 0.2;
+			FireDir.x += 0.4;
 		}
 		else if (true == GameEngineInput::IsPress("LeftMove"))
 		{
-			FireDir.x -= 0.2;
+			FireDir.x -= 0.4;
 		}
-
-		NewUpTears->SetMoveDir(FireDir);
-		NewUpTears->SetPos(GetPos());
+		NewUpTears->SetUpMoveDir(FireDir); //방향설정
+		NewUpTears->SetPos(GetPos()); //나오는 위치설정
 	}
+	////////////////////아래공격/////////////////////////
 	if (true == GameEngineInput::IsDown("DownTears"))
 	{
 		TEARSOUNDS();
-		DownTears* NewUpTears = GetLevel()->CreateActor<DownTears>(IsaacOrder::R_Player);
-		NewUpTears->SetPos(GetPos());
+		DownTears* NewDownTears = GetLevel()->CreateActor<DownTears>(IsaacOrder::R_Player);
+		float4 FireDir2 = float4::Down;
+
+		if (true == GameEngineInput::IsPress("RightMove") && true == GameEngineInput::IsPress("LeftMove"))
+		{
+			//둘다누르는경우는 아무것도 안들어오게만든다.
+		}
+		else if (true == GameEngineInput::IsPress("RightMove"))
+		{
+			FireDir2.x += 0.4;
+		}
+		else if (true == GameEngineInput::IsPress("LeftMove"))
+		{
+			FireDir2.x -= 0.4;
+		}
+		NewDownTears->SetDownMoveDir(FireDir2); //방향설정
+		
+		NewDownTears->SetPos(GetPos());
 	}
+	/////////////////오른쪽공격/////////////////
 	if (true == GameEngineInput::IsDown("RightTears"))
 	{
 		TEARSOUNDS();
-		RightTears* NewUpTears = GetLevel()->CreateActor<RightTears>(IsaacOrder::R_Player);
-		NewUpTears->SetPos(GetPos());
+		RightTears* NewRightTears = GetLevel()->CreateActor<RightTears>(IsaacOrder::R_Player);
+		float4 FireDir4 = float4::Right;
+
+		if (true == GameEngineInput::IsPress("UpMove") && true == GameEngineInput::IsPress("DownMove"))
+		{
+			//둘다누르는경우는 아무것도 안들어오게만든다.
+		}
+		else if (true == GameEngineInput::IsPress("UpMove"))
+		{
+			FireDir4.y -= 0.4;
+		}
+		else if (true == GameEngineInput::IsPress("DownMove"))
+		{
+			FireDir4.y += 0.4;
+		}
+		NewRightTears->SetRightMoveDir(FireDir4); //방향설정
+		NewRightTears->SetPos(GetPos());
 	}
 }
 

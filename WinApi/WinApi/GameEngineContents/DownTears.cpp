@@ -59,16 +59,14 @@ void DownTears::Update(float _DeltaTime)
 			Death();
 		}
 	}
+
+
 	MoveCalculation(_DeltaTime);
-	SetMove(MoveDir * _DeltaTime);
+	SetMove(MoveDir * Isaac::MainPlayer->GetTearSpeed()* _DeltaTime);
 }
 
 void DownTears::MoveCalculation(float _DeltaTime)
 {
-	if (true == GameEngineInput::IsDown("DownTears"))
-	{
-		MoveDir = float4::Down *(Isaac::MainPlayer->GetTearSpeed());
-	}
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");

@@ -58,11 +58,11 @@ void UpTears::Update(float _DeltaTime)
 	}
 
 
-	AccStopSpeed += _DeltaTime;
-	Speed -= AccStopSpeed;
+	/*AccStopSpeed += _DeltaTime;
+	 -= AccStopSpeed;*/ //여기서 속도설정을 해버리면 아이템먹었을때 공격속도를 조절못함
 
 	MoveCalculation(_DeltaTime);
-	SetMove(MoveDir * Speed * _DeltaTime);
+	SetMove(MoveDir * Isaac::MainPlayer->GetTearSpeed() * _DeltaTime);
 }
 
 void UpTears::MoveCalculation(float _DeltaTime)

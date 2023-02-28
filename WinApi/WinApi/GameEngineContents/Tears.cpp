@@ -64,15 +64,12 @@ void Tears::Update(float _DeltaTime)
 		}
 	}
 	MoveCalculation(_DeltaTime);
-	SetMove(MoveDir * _DeltaTime);
+	SetMove(MoveDir * Isaac::MainPlayer->GetTearSpeed()* _DeltaTime);
 }
 
 void Tears::MoveCalculation(float _DeltaTime)
 {
-	if (true == GameEngineInput::IsDown("LeftTears"))
-	{
-		MoveDir = float4::Left * (Isaac::MainPlayer->GetTearSpeed());
-	}
+	
 	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 	
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");

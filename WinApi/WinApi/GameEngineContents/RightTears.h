@@ -15,7 +15,11 @@ public:
 	RightTears& operator=(const RightTears& _Other) = delete;
 	RightTears& operator=(RightTears&& _Other) noexcept = delete;
 
-
+	void SetRightMoveDir(float4 _MoveDir)
+	{
+		MoveDir = _MoveDir;
+		MoveDir.Normalize();
+	}
 	void PlopSounds();
 protected:
 	GameEngineSoundPlayer PLOPSOUND;
