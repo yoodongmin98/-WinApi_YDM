@@ -25,6 +25,7 @@ protected:
 
 private:
 	GameEngineRender* M_Charger = nullptr;
+	GameEngineRender* DeadCharger = nullptr;
 	GameEngineCollision* M_Charger_Coll = nullptr;
 
 	GameEngineCollision* M_Charger_SetColl_U = nullptr;

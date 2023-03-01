@@ -25,6 +25,7 @@ protected:
 
 private:
 	GameEngineRender* M_fly = nullptr;
+	GameEngineRender* DeadRender = nullptr;
 	GameEngineCollision* M_fly_Coll = nullptr;
 
 	float NowTime = 0.0f;

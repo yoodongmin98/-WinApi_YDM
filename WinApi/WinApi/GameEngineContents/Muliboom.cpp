@@ -39,8 +39,7 @@ void MuliBoom::ImageLoad()
 
 	GameEngineImage* DeadEffect = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_Bomb_Effect.BMP"));
 	DeadEffect->Cut(4, 3);
-	GameEngineImage* DeadBoomEffect = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_Boom.BMP"));
-	DeadBoomEffect->Cut(3, 3);
+
 }
 
 

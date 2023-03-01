@@ -25,6 +25,7 @@ protected:
 
 private:
 	GameEngineRender* M_Blob = nullptr;
+	GameEngineRender* DeadRender_Blob = nullptr;
 	GameEngineCollision* M_Blob_Coll = nullptr;
 	GameEngineCollision* M_Blob_SetColl_R = nullptr;
 

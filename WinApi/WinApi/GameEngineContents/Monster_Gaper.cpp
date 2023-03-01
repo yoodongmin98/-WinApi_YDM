@@ -49,14 +49,17 @@ void Gaper::Start()
 		ImageLoad();
 		GaperLoad = false;
 	}
-	M_GaperBodys = CreateRender(IsaacOrder::R_Monster);
-	M_GaperBodys->SetScale({ 50, 50 });
-	M_GaperBodys->SetPosition({ 0,32 });
+	M_GaperBodys = CreateRender(IsaacOrder::R_Monster); //¸ö
+	M_GaperBodys->SetScale({ 50, 50 }); //Å©±â
+	M_GaperBodys->SetPosition({ 0,32 }); //À§Ä¡
 
-	M_Gaper = CreateRender(IsaacOrder::R_Monster);
-	M_Gaper->SetScale({ 70, 70 });
+	M_Gaper = CreateRender(IsaacOrder::R_Monster); //¾ó±¼
+	M_Gaper->SetScale({ 70, 70 }); 
 
-
+	GaperDeadRender = CreateRender(IsaacOrder::R_MonsterDead);
+	GaperDeadRender->SetScale({ 50, 50 });
+	GaperDeadRender->SetPosition({ 0,20 });
+	
 
 	M_Gaper->CreateAnimation({ .AnimationName = "M_GaperIdle",  .ImageName = "M_Gaper.bmp", .Start = 1, .End = 1, .InterTime = 0.2f });
 	M_Gaper->CreateAnimation({ .AnimationName = "M_GaperDamaged",  .ImageName = "M_Gaper.bmp", .Start = 3, .End = 3, .InterTime = 0.3f });
@@ -66,6 +69,11 @@ void Gaper::Start()
 	M_GaperBodys->CreateAnimation({ .AnimationName = "M_GaperBodys_L",  .ImageName = "M_Bodys_L.bmp", .Start = 10, .End = 19, .InterTime = 0.1f });
 	M_GaperBodys->CreateAnimation({ .AnimationName = "M_GaperBodys_R",  .ImageName = "M_Bodys_R.bmp", .Start = 10, .End = 19, .InterTime = 0.1f });
 	M_GaperBodys->ChangeAnimation("M_GaperBodys");
+
+	GaperDeadRender->CreateAnimation({ .AnimationName = "GaperDead",  .ImageName = "M_Blood_deadbody.bmp", .Start = 9, .End = 9, .InterTime = 0.1f });
+	GaperDeadRender->ChangeAnimation("GaperDead");
+	GaperDeadRender->Off();
+
 
 	{
 
@@ -96,7 +104,12 @@ void Gaper::Update(float _DeltaTime)
 {
 	if (true == GaperDeathcheck)
 	{
-		Death();
+		M_Gaper_Coll->Death();
+		M_GaperBody_Coll->Death();
+		M_GaperBodys_SetColl_R->Death();
+		M_GaperBodys->Death();
+		M_Gaper->Death();
+		GaperDeadRender->On();
 	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
@@ -107,6 +120,10 @@ void Gaper::Movecalculation(float _DeltaTime)
 {
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
+	if (true == GaperDeathcheck)
+	{
+		M_Move = float4::Zero;
+	}
 
 	SetMove(M_Move * GaperSpeed * _DeltaTime);
 }

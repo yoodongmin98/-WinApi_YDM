@@ -5,8 +5,9 @@ enum class IsaacOrder
 	R_BackGround_Black, //1
 	R_BackGround, //2
 
-	R_Door, //3
-	R_Wall, 
+	R_Door, 
+	R_MonsterDead,
+	R_Wall,
 	R_Player,
 	R_Monster,
 	R_Menu

@@ -37,6 +37,10 @@ void Bomb::ImageLoad()
 	Bomb->Cut(3, 1);
 	GameEngineImage* Bomb_E = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Bomb_Effect.bmp"));
 	Bomb_E->Cut(4, 3);
+
+	Dir.Move("Monster");
+	GameEngineImage* Bomb_Dead = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_Boom.bmp"));
+	Bomb_Dead->Cut(3, 3);
 }
 
 bool LoadBomb = true;
@@ -51,11 +55,18 @@ void Bomb::Start()
 	R_Bomb->SetScale({ 70, 70 });
 	SetPos(Isaac::MainPlayer->GetPos()); //플레이어의 위치에 세팅
 
+	R_Bomb_Dead = CreateRender(IsaacOrder::R_Wall);
+	R_Bomb_Dead->SetScale({ 100, 100 });
+
+	
 
 	R_Bomb->CreateAnimation({ .AnimationName = "Bomb",  .ImageName = "Bomb.bmp", .Start = 0, .End = 2, .InterTime = 0.5f , .Loop=false});
 	R_Bomb->CreateAnimation({ .AnimationName = "Bomb_Effect",  .ImageName = "Bomb_Effect.bmp", .Start = 0, .End = 11, .InterTime = 0.02f , .Loop = false });
 	R_Bomb->ChangeAnimation("Bomb");
 
+	R_Bomb_Dead->CreateAnimation({ .AnimationName = "BombDead",  .ImageName = "M_Boom.bmp", .Start = 0, .End = 0 ,.InterTime = 0.5f , .Loop = false });
+	R_Bomb_Dead->ChangeAnimation("BombDead");
+	R_Bomb_Dead->Off();
 	{
 		Bomb_Coll = CreateCollision(IsaacCollisionOrder::C_Isaac_Bomb);
 		Bomb_Coll->SetScale({ 30, 30 });
@@ -65,7 +76,7 @@ void Bomb::Start()
 
 }
 
-
+bool BoomSoundLoad = true;
 void Bomb::Update(float _DeltaTime)
 {
 	NowTime += _DeltaTime;
@@ -80,10 +91,17 @@ void Bomb::Update(float _DeltaTime)
 	}
 	if (NowTime > 2.1f)
 	{
-		BoomPlayer = GameEngineResources::GetInst().SoundPlayToControl("explosions.wav");
-		BoomPlayer.Volume(0.2f);
-		BoomPlayer.LoopCount(1);
-		Death();
+		if (true == BoomSoundLoad)
+		{
+			BoomPlayer = GameEngineResources::GetInst().SoundPlayToControl("explosions.wav");
+			BoomPlayer.Volume(0.2f);
+			BoomPlayer.LoopCount(1);
+			BoomSoundLoad = false;
+		}
+		
+		R_Bomb_Dead->On();
+		R_Bomb->Death();
+		Bomb_Coll->Death();
 	}
 }
 

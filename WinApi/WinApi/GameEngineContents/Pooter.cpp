@@ -52,6 +52,8 @@ void Pooter::Start()
 	M_Pooter = CreateRender(IsaacOrder::R_Monster);
 	M_Pooter->SetScale({ 80, 80 });
 
+	M_PooterDead = CreateRender(IsaacOrder::R_MonsterDead);
+	M_PooterDead->SetScale({ 80, 80 });
 
 	M_Pooter->CreateAnimation({ .AnimationName = "M_Pooter_Idle",  .ImageName = "M_Pooter.bmp", .Start = 0, .End = 1, .InterTime = 0.1f });
 	M_Pooter->CreateAnimation({ .AnimationName = "M_Pooter_Damage",  .ImageName = "M_Pooter.bmp", .Start = 14, .End = 15, .InterTime = 0.1f });
@@ -60,11 +62,13 @@ void Pooter::Start()
 	M_Pooter->CreateAnimation({ .AnimationName = "M_Pooter_L_Idle",  .ImageName = "M_Pooter_L.bmp", .Start = 0, .End = 1, .InterTime = 0.1f });
 	M_Pooter->CreateAnimation({ .AnimationName = "M_Pooter_L_Damage",  .ImageName = "M_Pooter_L.bmp", .Start = 14, .End = 15, .InterTime = 0.1f });
 	M_Pooter->CreateAnimation({ .AnimationName = "M_Pooter_L_Shoot",  .ImageName = "M_Pooter_L.bmp", .Start = 2, .End = 11, .InterTime = 0.03f , .Loop = false });
-
-
 	M_Pooter->CreateAnimation({ .AnimationName = "M_Pooter_Dead",  .ImageName = "M_fly_Dead.bmp", .Start = 0, .End = 11, .InterTime = 0.03f, .Loop = false });
-
 	M_Pooter->ChangeAnimation("M_Pooter_Idle");
+
+
+	M_PooterDead->CreateAnimation({ .AnimationName = "PooterDead",  .ImageName = "M_Blood.bmp", .Start = 5, .End = 5, .InterTime = 0.1f });
+	M_PooterDead->ChangeAnimation("PooterDead");
+	M_PooterDead->Off();
 
 	{
 
@@ -89,27 +93,38 @@ void Pooter::Update(float _DeltaTime)
 {
 	if (true == PooterDeathcheck) //hp가 떨어진게 확인되면
 	{
-		Death(); //없앤다
+		M_Pooter->ChangeAnimation("M_Pooter_Dead");
+		if (true == M_Pooter->IsAnimationEnd())
+		{
+			M_PooterDead->On();
+			M_Pooter->Death();
+		}
+		M_fly_Pooter->Death(); //없앤다
+		M_fly_Pooter_Set->Death();
 	}
 	PooterAttTime += _DeltaTime;
 	if (PooterAttTime > 3.0f)
 	{
 		PooterAttTime = 0.0f;
-		if (true == M_fly_Pooter_Set->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+		if (false == PooterDeathcheck)
 		{
-			M_Pooter->ChangeAnimation("M_Pooter_Shoot");
-			float4 PlayerPos_P = Isaac::MainPlayer->GetPos();
-			BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
-			PooterAtt->SetBloodMoveDir(PlayerPos_P);
-			PooterAtt->SetPos(GetPos());
-		}
-		else
-		{
-			M_Pooter->ChangeAnimation("M_Pooter_L_Shoot");
-			float4 PlayerPos_P = Isaac::MainPlayer->GetPos();
-			BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
-			PooterAtt->SetBloodMoveDir(PlayerPos_P);
-			PooterAtt->SetPos(GetPos());
+
+			if (true == M_fly_Pooter_Set->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+			{
+				M_Pooter->ChangeAnimation("M_Pooter_Shoot");
+				float4 PlayerPos_P = Isaac::MainPlayer->GetPos();
+				BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
+				PooterAtt->SetBloodMoveDir(PlayerPos_P);
+				PooterAtt->SetPos(GetPos());
+			}
+			else
+			{
+				M_Pooter->ChangeAnimation("M_Pooter_L_Shoot");
+				float4 PlayerPos_P = Isaac::MainPlayer->GetPos();
+				BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
+				PooterAtt->SetBloodMoveDir(PlayerPos_P);
+				PooterAtt->SetPos(GetPos());
+			}
 		}
 	}
 	if (true == M_Pooter->IsAnimationEnd())
@@ -132,6 +147,10 @@ void Pooter::Movecalculation(float _DeltaTime)
 {
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
+	if (true == PooterDeathcheck)
+	{
+		M_Move = float4::Zero;
+	}
 
 	SetMove(M_Move * 50.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
 }
@@ -170,7 +189,6 @@ void Pooter::CollisionCheck(float _DeltaTime)
 		}
 		if (0 >= PooterHp)
 		{
-			M_Pooter->ChangeAnimation("M_Pooter_Dead");
 			PooterDeathcheck = true;
 		}
 	}

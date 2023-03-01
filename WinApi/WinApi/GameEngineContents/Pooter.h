@@ -25,6 +25,7 @@ protected:
 
 private:
 	GameEngineRender* M_Pooter = nullptr;
+	GameEngineRender* M_PooterDead = nullptr;
 	GameEngineCollision* M_fly_Pooter = nullptr;
 	GameEngineCollision* M_fly_Pooter_Set = nullptr;
 

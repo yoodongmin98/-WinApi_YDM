@@ -31,6 +31,9 @@
 #include "Charger.h"
 #include "Pooter.h"
 #include "Muliboom.h"
+#include "Host.h"
+#include "Clot.h"
+#include "Clotty.h"
 
 
 
@@ -97,7 +100,7 @@ void IsaacLevel::Loading()
 
 
 		//∏ÛΩ∫≈Õ
-		Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
+	/*	Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
 		TestMonster->SetPos({ 200,200 });
 		Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
 		TestMonster1->SetPos({ 200,300 });
@@ -111,6 +114,12 @@ void IsaacLevel::Loading()
 		NewPooter->SetPos({ 300,400 });
 		MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
 		NewMuliBoom->SetPos({ 300,400 });
+		Host* TestHost = CreateActor<Host>();
+		TestHost->SetPos({ 300,100 });
+		Clot* TestClot = CreateActor<Clot>();
+		TestClot->SetPos({ 500,500 });
+		Clotty* TestClotty = CreateActor<Clotty>();
+		TestClotty->SetPos({ 500,300 });*/
 
 
 

@@ -27,6 +27,7 @@ protected:
 private:
 	GameEngineRender* M_Gaper = nullptr;
 	GameEngineRender* M_GaperBodys = nullptr;
+	GameEngineRender* GaperDeadRender = nullptr;
 	GameEngineCollision* M_Gaper_Coll = nullptr;
 	GameEngineCollision* M_GaperBody_Coll = nullptr;
 	GameEngineCollision* M_GaperBodys_SetColl_R = nullptr;

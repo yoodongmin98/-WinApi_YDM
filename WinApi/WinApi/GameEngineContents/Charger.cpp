@@ -53,6 +53,13 @@ void Charger::Start()
 	M_Charger = CreateRender(IsaacOrder::R_Monster);
 	M_Charger->SetScale({ 70, 70 });
 
+	DeadCharger = CreateRender(IsaacOrder::R_MonsterDead);
+	DeadCharger->SetScale({ 30, 30 });
+
+
+
+	//DeadCharger
+
 
 	M_Charger->CreateAnimation({ .AnimationName = "M_Charger_Idle_Left",  .ImageName = "M_Charger_L.bmp", .Start = 0, .End = 3, .InterTime = 0.15f });
 	M_Charger->CreateAnimation({ .AnimationName = "M_Charger_Idle_Down",  .ImageName = "M_Charger_L.bmp", .Start = 8, .End = 11, .InterTime = 0.1f });
@@ -64,7 +71,11 @@ void Charger::Start()
 	M_Charger->CreateAnimation({ .AnimationName = "M_Charger_LeftDash",  .ImageName = "M_Charger_L.bmp", .Start = 13, .End = 13, .InterTime = 0.15f });
 	M_Charger->CreateAnimation({ .AnimationName = "M_Charger_RightDash",  .ImageName = "M_Charger_R.bmp", .Start = 13, .End = 13, .InterTime = 0.15f });
 
-	//M_Blob->CreateAnimation({ .AnimationName = "M_Blob_Idle",  .ImageName = "M_fly_Dead.bmp", .Start = 0, .End = 11, .InterTime = 0.03f, .Loop = false });
+	DeadCharger->CreateAnimation({ .AnimationName = "ChargerDead",  .ImageName = "M_Blood_deadbody.bmp", .Start = 2, .End = 2, .InterTime = 0.15f });
+	DeadCharger->ChangeAnimation("ChargerDead");
+	DeadCharger->Off();
+
+	
 	M_Charger->ChangeAnimation("M_Charger_Idle_Up");
 	{
 		M_Charger_Coll = CreateCollision(IsaacCollisionOrder::C_Monster);
@@ -105,7 +116,14 @@ void Charger::Update(float _DeltaTime)
 {
 	if (true == ChargerDeathcheck)
 	{
-		Death();
+		M_Charger_SetColl_U->Death();
+		M_Charger_SetColl_D->Death();
+		M_Charger_SetColl_L->Death();
+		M_Charger_SetColl_R->Death();
+		M_Charger->Death();
+		M_Charger_Coll->Death();
+		DeadCharger->On();
+		MoveDir = float4::Zero;
 	}
 	SetTime += _DeltaTime;
 	if (SetTime > 1.0)
@@ -176,6 +194,10 @@ void Charger::Movecalculation(float _DeltaTime)
 	{
 		M_Charger->ChangeAnimation("M_Charger_LeftDash");
 		MoveRange = float4::Left * 5.0f;
+	}
+	if (true == ChargerDeathcheck)
+	{
+		MoveRange = float4::Zero;
 	}
 	MoveDir = MoveRange * 50.0f; //움직임을 미리 정해놓고
 

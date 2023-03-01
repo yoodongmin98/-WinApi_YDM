@@ -27,6 +27,7 @@ protected:
 	
 private:
 	GameEngineRender* R_Bomb = nullptr;
+	GameEngineRender* R_Bomb_Dead = nullptr;
 	GameEngineCollision* Bomb_Coll = nullptr;
 
 	float NowTime = 0.0f;

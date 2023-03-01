@@ -25,6 +25,8 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Charger.h" />
+    <ClInclude Include="Clot.h" />
+    <ClInclude Include="Clotty.h" />
     <ClInclude Include="Coin.h">
       <SubType>
       </SubType>
@@ -42,6 +44,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Host.h" />
     <ClInclude Include="Monster_Boil.h" />
     <ClInclude Include="Monster_Gaper.h" />
     <ClInclude Include="Heart.h" />
@@ -127,6 +130,8 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Charger.cpp" />
+    <ClCompile Include="Clot.cpp" />
+    <ClCompile Include="Clotty.cpp" />
     <ClCompile Include="Coin.cpp">
       <SubType>
       </SubType>
@@ -144,6 +149,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Host.cpp" />
     <ClCompile Include="Monster_Boil.cpp" />
     <ClCompile Include="Monster_Gaper.cpp" />
     <ClCompile Include="Heart.cpp">

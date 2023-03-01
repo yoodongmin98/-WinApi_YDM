@@ -25,6 +25,7 @@ protected:
 
 private:
 	GameEngineRender* M_Boil = nullptr;
+	GameEngineRender* DeadBoil = nullptr;
 	
 	GameEngineCollision* M_Boil_Coll = nullptr;
 

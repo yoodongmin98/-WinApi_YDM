@@ -37,6 +37,12 @@ void Monster_Fly::ImageLoad()
 		Monster1->Cut(4, 2);
 		GameEngineImage* Monster1D = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_fly_Dead.BMP"));
 		Monster1D->Cut(5, 3);
+
+		////////////////////Dead Defalut
+		GameEngineImage* MonsterDeads = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_Blood.BMP"));
+		MonsterDeads->Cut(5, 4);
+		GameEngineImage* MonsterBodys = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("M_Blood_deadbody.BMP"));
+		MonsterBodys->Cut(4, 4);
 }
 
 
@@ -49,6 +55,9 @@ void Monster_Fly::Start()
 	}
 	M_fly = CreateRender(IsaacOrder::R_Monster);
 	M_fly->SetScale({ 80, 80 });
+
+	DeadRender = CreateRender(IsaacOrder::R_MonsterDead);
+	DeadRender->SetScale({ 80, 80 });
 	
 	
 	M_fly->CreateAnimation({ .AnimationName = "M_fly_Idle",  .ImageName = "M_fly.bmp", .Start = 0, .End = 1, .InterTime = 0.1f });
@@ -56,6 +65,11 @@ void Monster_Fly::Start()
 	M_fly->CreateAnimation({ .AnimationName = "M_fly_Dead",  .ImageName = "M_fly_Dead.bmp", .Start = 0, .End = 11, .InterTime = 0.03f, .Loop = false});
 	//처음엔 그냥 날아다니게
 	M_fly->ChangeAnimation("M_fly_Idle");
+
+
+	DeadRender->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "M_Blood.bmp", .Start = 0, .End = 0, .InterTime = 0.1f, .Loop = false });
+	DeadRender->ChangeAnimation("Dead");
+	DeadRender->Off();
 	
 	{
 		
@@ -72,7 +86,10 @@ void Monster_Fly::Update(float _DeltaTime)
 {
 	if (true == Deathcheck) //hp가 떨어진게 확인되면
 	{
-		Death(); //없앤다
+		M_fly->Death();
+		M_fly_Coll->Death();
+		DeadRender->On();
+		
 	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
@@ -82,7 +99,10 @@ void Monster_Fly::Movecalculation(float _DeltaTime)
 {
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
-
+	if (true == Deathcheck) //hp가 떨어진게 확인되면
+	{
+		M_Move = float4::Zero;
+	}
 	SetMove(M_Move * 100.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
 }
 

@@ -50,14 +50,18 @@ void Monster_Blob::Start()
 	M_Blob = CreateRender(IsaacOrder::R_Monster);
 	M_Blob->SetScale({ 100, 100 });
 
-
+	DeadRender_Blob = CreateRender(IsaacOrder::R_MonsterDead);
+	DeadRender_Blob->SetScale({ 30, 30 });
+	
 	M_Blob->CreateAnimation({ .AnimationName = "M_Blob_Idle_L",  .ImageName = "M_Blob_L.bmp", .Start = 0, .End = 7, .InterTime = 0.15f });
 	M_Blob->CreateAnimation({ .AnimationName = "M_Blob_Damage",  .ImageName = "M_Blob_L.bmp", .Start = 10, .End = 11, .InterTime = 0.1f });
 	M_Blob->CreateAnimation({ .AnimationName = "M_Blob_Idle_R",  .ImageName = "M_Blob_R.bmp", .Start = 0, .End = 7, .InterTime = 0.15f });
-	//M_Blob->CreateAnimation({ .AnimationName = "M_Blob_Idle",  .ImageName = "M_fly_Dead.bmp", .Start = 0, .End = 11, .InterTime = 0.03f, .Loop = false });
-
 	M_Blob->ChangeAnimation("M_Blob_Idle_L");
 
+
+	DeadRender_Blob->CreateAnimation({ .AnimationName = "DeadBlob",  .ImageName = "M_Blood_deadbody.bmp", .Start = 0, .End = 0, .InterTime = 0.15f });
+	DeadRender_Blob->ChangeAnimation("DeadBlob");
+	DeadRender_Blob->Off();
 	{
 
 		M_Blob_Coll = CreateCollision(IsaacCollisionOrder::C_Monster);
@@ -67,7 +71,7 @@ void Monster_Blob::Start()
 
 		M_Blob_SetColl_R = CreateCollision(IsaacCollisionOrder::C_Moster_Set);
 		M_Blob_SetColl_R->SetScale({ 1000, 800 });
-		M_Blob_SetColl_R->SetPosition({ 50,0 });
+		M_Blob_SetColl_R->SetPosition({ 500,0 });
 		M_Blob_SetColl_R->On();
 		M_Blob_SetColl_R->SetDebugRenderType(CollisionType::CT_Rect);
 	}				   
@@ -79,7 +83,10 @@ void Monster_Blob::Update(float _DeltaTime)
 {
 	if (true == BlobDeathcheck)
 	{
-		Death();
+		M_Blob->Death();
+		M_Blob_Coll->Death();
+		M_Blob_SetColl_R->Death();
+		DeadRender_Blob->On();
 	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
@@ -89,6 +96,10 @@ void Monster_Blob::Movecalculation(float _DeltaTime)
 {
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
+	if (true == BlobDeathcheck)
+	{
+		M_Move = float4::Zero;
+	}
 
 	SetMove(M_Move * 70.0f * _DeltaTime); 
 }

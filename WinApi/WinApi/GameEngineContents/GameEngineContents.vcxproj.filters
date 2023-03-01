@@ -59,7 +59,7 @@
       <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
     </ClInclude>
     <ClInclude Include="Monster_Fly.h">
-      <Filter>Play\Isaac\Monster\Fly</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Fly</Filter>
     </ClInclude>
     <ClInclude Include="Key.h">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\Key</Filter>
@@ -92,25 +92,34 @@
       <Filter>Play\Isaac\Item&amp;actor\MapActor\Spike</Filter>
     </ClInclude>
     <ClInclude Include="Monster_Blob.h">
-      <Filter>Play\Isaac\Monster\Blob</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Blob</Filter>
     </ClInclude>
     <ClInclude Include="Monster_Gaper.h">
-      <Filter>Play\Isaac\Monster\Gaper</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Gaper</Filter>
     </ClInclude>
     <ClInclude Include="Monster_Boil.h">
-      <Filter>Play\Isaac\Monster\Boil</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Boil</Filter>
     </ClInclude>
     <ClInclude Include="BloodTear.h">
       <Filter>Play\Isaac\Monster\.MonsterAtt</Filter>
     </ClInclude>
     <ClInclude Include="Charger.h">
-      <Filter>Play\Isaac\Monster\Charger</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Charger</Filter>
     </ClInclude>
     <ClInclude Include="Pooter.h">
-      <Filter>Play\Isaac\Monster\Pooter</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Pooter</Filter>
     </ClInclude>
     <ClInclude Include="Muliboom.h">
-      <Filter>Play\Isaac\Monster\Muliboom</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Muliboom</Filter>
+    </ClInclude>
+    <ClInclude Include="Host.h">
+      <Filter>Play\Isaac\Monster\NormalMonster\Host</Filter>
+    </ClInclude>
+    <ClInclude Include="Clot.h">
+      <Filter>Play\Isaac\Monster\NormalMonster\Clot</Filter>
+    </ClInclude>
+    <ClInclude Include="Clotty.h">
+      <Filter>Play\Isaac\Monster\NormalMonster\Clotty</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +187,7 @@
       <Filter>Play\Isaac\Isaac_Main\Isaac</Filter>
     </ClCompile>
     <ClCompile Include="Monster_Fly.cpp">
-      <Filter>Play\Isaac\Monster\Fly</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Fly</Filter>
     </ClCompile>
     <ClCompile Include="Key.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\Key</Filter>
@@ -217,25 +226,34 @@
       <Filter>Play\Playlevel\Loader</Filter>
     </ClCompile>
     <ClCompile Include="Monster_Blob.cpp">
-      <Filter>Play\Isaac\Monster\Blob</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Blob</Filter>
     </ClCompile>
     <ClCompile Include="Monster_Gaper.cpp">
-      <Filter>Play\Isaac\Monster\Gaper</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Gaper</Filter>
     </ClCompile>
     <ClCompile Include="Monster_Boil.cpp">
-      <Filter>Play\Isaac\Monster\Boil</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Boil</Filter>
     </ClCompile>
     <ClCompile Include="BloodTear.cpp">
       <Filter>Play\Isaac\Monster\.MonsterAtt</Filter>
     </ClCompile>
     <ClCompile Include="Charger.cpp">
-      <Filter>Play\Isaac\Monster\Charger</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Charger</Filter>
     </ClCompile>
     <ClCompile Include="Pooter.cpp">
-      <Filter>Play\Isaac\Monster\Pooter</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Pooter</Filter>
     </ClCompile>
     <ClCompile Include="Muliboom.cpp">
-      <Filter>Play\Isaac\Monster\Muliboom</Filter>
+      <Filter>Play\Isaac\Monster\NormalMonster\Muliboom</Filter>
+    </ClCompile>
+    <ClCompile Include="Host.cpp">
+      <Filter>Play\Isaac\Monster\NormalMonster\Host</Filter>
+    </ClCompile>
+    <ClCompile Include="Clot.cpp">
+      <Filter>Play\Isaac\Monster\NormalMonster\Clot</Filter>
+    </ClCompile>
+    <ClCompile Include="Clotty.cpp">
+      <Filter>Play\Isaac\Monster\NormalMonster\Clotty</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -311,9 +329,6 @@
     <Filter Include="Play\Isaac\Isaac_Main\Isaac">
       <UniqueIdentifier>{30f2bc80-a20f-4a87-bc76-53c4f137405b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Isaac\Monster\Fly">
-      <UniqueIdentifier>{82c3766b-f39b-4fb6-a7fe-48be49c97f7d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI\HP">
       <UniqueIdentifier>{501b9aad-defa-49d3-afdc-65aa87691008}</UniqueIdentifier>
     </Filter>
@@ -368,56 +383,44 @@
     <Filter Include="Play\Isaac\Item&amp;actor\MapItem">
       <UniqueIdentifier>{7063b382-b6ed-472b-a8ed-a841b7541bae}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Isaac\Monster\Blob">
-      <UniqueIdentifier>{3ce74471-360e-46c3-9909-7e81cbbd98cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Gaper">
-      <UniqueIdentifier>{560fff46-03f3-47c0-83ef-9780c9d2a84d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Boil">
-      <UniqueIdentifier>{dca40e7c-5638-4565-ba4d-c1572fe92df2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\BoomFly">
-      <UniqueIdentifier>{f2979aa0-098d-4544-9635-6b4920586981}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Charger">
-      <UniqueIdentifier>{057906bd-d794-4d52-b8ac-5b07bc82e79b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Clot">
-      <UniqueIdentifier>{0a27f9b6-687f-4bf6-9c0b-9bd96ab27d69}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Clotty">
-      <UniqueIdentifier>{4b5b4ab6-9a5b-4bfb-a2bd-bc40e68ba3a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Host">
-      <UniqueIdentifier>{15e05480-10b7-4497-9a7b-6f54ce7d2240}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Kight">
-      <UniqueIdentifier>{47dd41c2-97b5-4065-9bb8-b64beb480da7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Muliboom">
-      <UniqueIdentifier>{912b9d1d-8a65-4977-83a6-540c39e084f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Pooter">
-      <UniqueIdentifier>{affd6b66-b264-441c-a061-e5a24c7c858d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Roundwarm">
-      <UniqueIdentifier>{f6ae2222-99ae-4daf-86f2-0bba430db2c6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Sucker">
-      <UniqueIdentifier>{0cf7af29-56e3-4a21-9ea9-cdcbadad4d36}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\BoomSucker">
-      <UniqueIdentifier>{06609142-f84f-4398-948e-61a7c927ed86}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\BossMonster">
-      <UniqueIdentifier>{58e0a4d7-91a4-4408-90c1-bce17eae1647}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Isaac\Monster\Bodys">
-      <UniqueIdentifier>{e46daa37-abd3-41f4-b173-744d8cc91488}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Isaac\Monster\.MonsterAtt">
       <UniqueIdentifier>{d8ce8c62-1e73-4d75-bc3f-5e2fe2fe7c71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\BossMonster">
+      <UniqueIdentifier>{58e0a4d7-91a4-4408-90c1-bce17eae1647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster">
+      <UniqueIdentifier>{be468c18-da8b-4b0a-9c5f-08141403f3e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Pooter">
+      <UniqueIdentifier>{affd6b66-b264-441c-a061-e5a24c7c858d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Muliboom">
+      <UniqueIdentifier>{912b9d1d-8a65-4977-83a6-540c39e084f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Host">
+      <UniqueIdentifier>{15e05480-10b7-4497-9a7b-6f54ce7d2240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Gaper">
+      <UniqueIdentifier>{560fff46-03f3-47c0-83ef-9780c9d2a84d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Charger">
+      <UniqueIdentifier>{057906bd-d794-4d52-b8ac-5b07bc82e79b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Clot">
+      <UniqueIdentifier>{0a27f9b6-687f-4bf6-9c0b-9bd96ab27d69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Clotty">
+      <UniqueIdentifier>{4b5b4ab6-9a5b-4bfb-a2bd-bc40e68ba3a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Fly">
+      <UniqueIdentifier>{82c3766b-f39b-4fb6-a7fe-48be49c97f7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Blob">
+      <UniqueIdentifier>{3ce74471-360e-46c3-9909-7e81cbbd98cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Boil">
+      <UniqueIdentifier>{dca40e7c-5638-4565-ba4d-c1572fe92df2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
