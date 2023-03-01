@@ -422,5 +422,8 @@
     <Filter Include="Play\Isaac\Monster\NormalMonster\Boil">
       <UniqueIdentifier>{dca40e7c-5638-4565-ba4d-c1572fe92df2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapItem\leo">
+      <UniqueIdentifier>{4b277463-a38b-4801-9fe7-675d3ea2b78e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
