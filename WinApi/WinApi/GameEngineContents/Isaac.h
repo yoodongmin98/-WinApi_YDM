@@ -7,6 +7,8 @@ enum class IsaacState
 {
 	IDLE,
 	MOVE,
+	LEOIDLE,
+	LEOMOVE,
 	DAMAGED,
 };
 class Isaac : public GameEngineActor
@@ -133,6 +135,7 @@ private:
 	//////////Idle
 	std::string DirString = "Right_";
 	IsaacState StateValue = IsaacState::IDLE;
+	
 
 
 	//////// Isaac /////////

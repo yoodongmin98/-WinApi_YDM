@@ -121,6 +121,12 @@
     <ClInclude Include="Clotty.h">
       <Filter>Play\Isaac\Monster\NormalMonster\Clotty</Filter>
     </ClInclude>
+    <ClInclude Include="Altar.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Altar</Filter>
+    </ClInclude>
+    <ClInclude Include="Leo.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\leo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -254,6 +260,12 @@
     </ClCompile>
     <ClCompile Include="Clotty.cpp">
       <Filter>Play\Isaac\Monster\NormalMonster\Clotty</Filter>
+    </ClCompile>
+    <ClCompile Include="Altar.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Altar</Filter>
+    </ClCompile>
+    <ClCompile Include="Leo.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\leo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

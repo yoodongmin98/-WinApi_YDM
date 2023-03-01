@@ -23,7 +23,7 @@
 #include "KeyNumber.h"
 
 
-
+/////Monster
 #include "Monster_Fly.h"
 #include "Monster_Blob.h"
 #include "Monster_Gaper.h"
@@ -37,7 +37,7 @@
 
 
 
-
+////Map Actor
 #include "Poop.h"
 #include "Heart.h"
 #include "FireWood.h"
@@ -48,6 +48,10 @@
 #include "Rock.h"
 #include "Rock_Boom.h"
 #include "Spike.h"
+
+////Item
+#include "Altar.h"
+#include "Leo.h"
 
 
 IsaacLevel::IsaacLevel()
@@ -97,7 +101,8 @@ void IsaacLevel::Loading()
 		CreateActor<KeyNumber>();
 
 		///////////////////테스트용 Actor///////////////////
-
+		CreateActor<Altar>();
+		CreateActor<Leo>();
 
 		//몬스터
 	/*	Monster_Fly* TestMonster=CreateActor<Monster_Fly>();

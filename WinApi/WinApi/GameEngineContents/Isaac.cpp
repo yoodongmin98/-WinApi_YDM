@@ -76,7 +76,6 @@ void Isaac::Start()
 
 	}
 	
-		ChangeState(IsaacState::IDLE);
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
 		IsaacCollision->SetScale({ 50, 50 });
@@ -307,6 +306,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		CollisionCheckParameter CheckKey = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Key), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckBomb = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_ItemBomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckCoin = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Coin), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckLeo = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Leo), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		//Heart
 		if (true == IsaacCollision->Collision(CheckHeart, ICollisions) && 6 != HP)
 		{
@@ -341,6 +341,15 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			ICollisions[0]->GetActor()->Death();
 			CoinCount += 1;
 		}
+		//Item Leo
+		if (true == IsaacCollision->Collision(CheckLeo, ICollisions))
+		{
+			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
+			//COINDROP.Volume(0.2f);
+			//COINDROP.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			TearDamage += 1;
+		}
 	}
 }
 
@@ -349,7 +358,7 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 {
 	std::string PrevDirString = DirString;
 	Head->ChangeAnimation(DirString + _AnimationName.data());
-
+	
 	if (GameEngineInput::IsPress("LeftMove"))
 	{
 		DirString = "Left_";
@@ -372,6 +381,7 @@ void Isaac::DirCheck(const std::string_view& _AnimationName)
 		Head->ChangeAnimation(DirString + _AnimationName.data());
 	}
 }
+
 
 //Á×Àº°Å Ã¼Å© ¤·¤· ¾ÆÁ÷ Àß¾ÈµÊ..
 void Isaac::DeathCheck(float _DeltaTime)

@@ -55,7 +55,7 @@ void Bomb::Start()
 	R_Bomb->SetScale({ 70, 70 });
 	SetPos(Isaac::MainPlayer->GetPos()); //플레이어의 위치에 세팅
 
-	R_Bomb_Dead = CreateRender(IsaacOrder::R_Wall);
+	R_Bomb_Dead = CreateRender(IsaacOrder::R_BoomDead);
 	R_Bomb_Dead->SetScale({ 100, 100 });
 
 	
@@ -84,6 +84,7 @@ void Bomb::Update(float _DeltaTime)
 	CollisionCheck(_DeltaTime);
 	if (NowTime > 2.0f)
 	{
+		
 		Bomb_Coll->On();
 		R_Bomb->SetScale({ 200, 200 });
 		Bomb_Coll->SetScale({ 100, 100 });

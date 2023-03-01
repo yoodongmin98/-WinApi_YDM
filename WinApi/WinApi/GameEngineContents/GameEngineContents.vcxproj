@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Altar.h" />
     <ClInclude Include="BloodTear.h" />
     <ClInclude Include="Bomb.h">
       <SubType>
@@ -45,6 +46,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Host.h" />
+    <ClInclude Include="Leo.h" />
     <ClInclude Include="Monster_Boil.h" />
     <ClInclude Include="Monster_Gaper.h" />
     <ClInclude Include="Heart.h" />
@@ -124,6 +126,7 @@
     <ClInclude Include="UpTears.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Altar.cpp" />
     <ClCompile Include="BloodTear.cpp" />
     <ClCompile Include="Bomb.cpp">
       <SubType>
@@ -150,6 +153,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Host.cpp" />
+    <ClCompile Include="Leo.cpp" />
     <ClCompile Include="Monster_Boil.cpp" />
     <ClCompile Include="Monster_Gaper.cpp" />
     <ClCompile Include="Heart.cpp">
