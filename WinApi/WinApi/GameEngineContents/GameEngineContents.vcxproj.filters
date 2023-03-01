@@ -425,5 +425,17 @@
     <Filter Include="Play\Isaac\Item&amp;actor\MapItem\leo">
       <UniqueIdentifier>{4b277463-a38b-4801-9fe7-675d3ea2b78e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapItem\Blacklotus">
+      <UniqueIdentifier>{528ca133-cbfb-4ecf-b3a8-87e39e5109c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapItem\Glasses">
+      <UniqueIdentifier>{88da1683-9774-49f2-b511-c21ff48580f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapItem\Heart">
+      <UniqueIdentifier>{d61b13e8-bb49-42eb-a334-2bb030b89522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapItem\Altar">
+      <UniqueIdentifier>{da9e14af-4c8f-4e3c-95c0-8b4e1f67dc6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
