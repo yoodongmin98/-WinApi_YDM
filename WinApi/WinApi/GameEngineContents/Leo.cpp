@@ -68,5 +68,5 @@ void Leo::Update(float _DeltaTime)
 
 void Leo::Render(float _DeltaTime)
 {
-	LeoCollision->DebugRender();
+	//LeoCollision->DebugRender();
 }

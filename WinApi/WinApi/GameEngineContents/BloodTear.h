@@ -22,6 +22,8 @@ public:
 		MoveDir = _MoveDir;
 		MoveDir.Normalize();
 	}
+	
+	
 
 protected:
 	GameEngineSoundPlayer PLOPSOUND;
