@@ -112,7 +112,7 @@ void Pooter::Update(float _DeltaTime)
 			if (true == M_fly_Pooter_Set->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 			{
 				M_Pooter->ChangeAnimation("M_Pooter_Shoot");
-				float4 PlayerPos_P = Isaac::MainPlayer->GetPos();
+				float4 PlayerPos_P = Isaac::MainPlayer->GetPos() - GetPos();
 				BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
 				PooterAtt->SetBloodMoveDir(PlayerPos_P);
 				PooterAtt->SetPos(GetPos());
@@ -121,7 +121,7 @@ void Pooter::Update(float _DeltaTime)
 			else
 			{
 				M_Pooter->ChangeAnimation("M_Pooter_L_Shoot");
-				float4 PlayerPos_P1 = Isaac::MainPlayer->GetPos();
+				float4 PlayerPos_P1 = Isaac::MainPlayer->GetPos()-GetPos();
 				BloodTear* PooterAtt1 = GetLevel()->CreateActor<BloodTear>();
 				PooterAtt1->SetBloodMoveDir(PlayerPos_P1);
 				PooterAtt1->SetPos(GetPos());

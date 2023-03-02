@@ -127,6 +127,15 @@
     <ClInclude Include="Leo.h">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\leo</Filter>
     </ClInclude>
+    <ClInclude Include="ItemHeart.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Heart</Filter>
+    </ClInclude>
+    <ClInclude Include="Glasses.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Glasses</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackLotus.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -266,6 +275,15 @@
     </ClCompile>
     <ClCompile Include="Leo.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\leo</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemHeart.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Heart</Filter>
+    </ClCompile>
+    <ClCompile Include="Glasses.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Glasses</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackLotus.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

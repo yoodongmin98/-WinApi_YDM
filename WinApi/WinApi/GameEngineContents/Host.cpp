@@ -105,7 +105,7 @@ void Host::CollisionCheck(float _DeltaTime)
 			RESET = 1;
 			if (true == HostTearbool&&false== HostDeathcheck)
 			{
-				float4 PlayerPos = Isaac::MainPlayer->GetPos();
+				float4 PlayerPos = Isaac::MainPlayer->GetPos() - GetPos();
 				BloodTear* NewBloodTear = GetLevel()->CreateActor<BloodTear>();
 				NewBloodTear->SetBloodMoveDir(PlayerPos);
 				NewBloodTear->SetPos(GetPos());

@@ -1,4 +1,4 @@
-#include "Leo.h"
+#include "ItemHeart.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEnginePlatform/GameEngineImage.h>
 #include <GameEnginePlatform/GameEngineInput.h>
@@ -11,22 +11,21 @@
 
 #include "IsaacEnum.h"
 #include "isaac.h"
-#include "Altar.h"
 
 
 
-Leo::Leo()
+ItemHeart::ItemHeart()
 {
 
 }
 
-Leo::~Leo()
+ItemHeart::~ItemHeart()
 {
 
 }
 
-bool LeoLoad = true;
-void Leo::ImageLoad()
+bool ItemHeartLoad = true;
+void ItemHeart::ImageLoad()
 {
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
@@ -35,40 +34,37 @@ void Leo::ImageLoad()
 	Dir.Move("Play");
 	Dir.Move("Item");
 
-	GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Item_Leo.BMP"));
+	GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Item_Heart.BMP"));
 }
 
-void Leo::Start()
+void ItemHeart::Start()
 {
-
-	if (true == LeoLoad)
+	if (true == ItemHeartLoad)
 	{
 		ImageLoad();
-		LeoLoad = false;
+		ItemHeartLoad = false;
 	}
 	// 兄希 持失
 	{
-		LeoRender = CreateRender(IsaacOrder::R_Item);
-		LeoRender->SetScale({ 60, 60 });
-		LeoRender->SetImage("Item_Leo.BMP");
+		ItemHeartRender = CreateRender(IsaacOrder::R_Item);
+		ItemHeartRender->SetScale({ 60, 60 });
+		ItemHeartRender->SetImage("Item_Heart.BMP");
 	}
 	//Colliison持失
 	{
-		LeoCollision = CreateCollision(IsaacCollisionOrder::C_Item_Leo);
-		LeoCollision->SetScale({ 30,30 });
-		LeoCollision->SetDebugRenderType(CollisionType::CT_Rect);
+		ItemHeartCollision = CreateCollision(IsaacCollisionOrder::C_Item_Heart);
+		ItemHeartCollision->SetScale({ 30,30 });
+		ItemHeartCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-
-	
 }
 
-void Leo::Update(float _DeltaTime)
+void ItemHeart::Update(float _DeltaTime)
 {
 
 }
 
 
-void Leo::Render(float _DeltaTime)
+void ItemHeart::Render(float _DeltaTime)
 {
 	//LeoCollision->DebugRender();
 }

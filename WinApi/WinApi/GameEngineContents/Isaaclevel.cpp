@@ -52,6 +52,9 @@
 ////Item
 #include "Altar.h"
 #include "Leo.h"
+#include "ItemHeart.h"
+#include "Glasses.h"
+#include "BlackLotus.h"
 
 
 IsaacLevel::IsaacLevel()
@@ -101,10 +104,21 @@ void IsaacLevel::Loading()
 		CreateActor<KeyNumber>();
 
 		///////////////////테스트용 Actor///////////////////
+
+		/////////아이템
 		Altar* NewAltar=CreateActor<Altar>();
 		NewAltar->SetPos({ 300,240 });
 		Leo* NewLeo=CreateActor<Leo>();
 		NewLeo->SetPos({ 300,210 });
+		ItemHeart* NewItemHeart= CreateActor<ItemHeart>();
+		NewItemHeart->SetPos({ 300,300});
+		Glasses* NewGlasses= CreateActor<Glasses>();
+		NewGlasses->SetPos({ 300,400 });
+		BlackLotus* NewBlackLotus = CreateActor<BlackLotus>();
+		NewBlackLotus->SetPos({ 300,500 });
+
+
+
 
 		//몬스터
 		Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
@@ -113,16 +127,16 @@ void IsaacLevel::Loading()
 		//TestMonster1->SetPos({ 200,300 });
 		//Gaper* NewGaper= CreateActor<Gaper>();
 		//NewGaper->SetPos({ 200,400 });
-		//Boil* TestBoil = CreateActor<Boil>();
-		//TestBoil->SetPos({ 300,400 });
+		Boil* TestBoil = CreateActor<Boil>();
+		TestBoil->SetPos({ 300,400 });
 		//Charger* NewCharger = CreateActor<Charger>();
 		//NewCharger->SetPos({ 300,500 });
 		Pooter* NewPooter = CreateActor<Pooter>();
 		NewPooter->SetPos({ 300,400 });
 		//MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
 		//NewMuliBoom->SetPos({ 300,400 });
-		//Host* TestHost = CreateActor<Host>();
-		//TestHost->SetPos({ 300,100 });
+		Host* TestHost = CreateActor<Host>();
+		TestHost->SetPos({ 300,100 });
 		//Clot* TestClot = CreateActor<Clot>();
 		//TestClot->SetPos({ 500,500 });
 		//Clotty* TestClotty = CreateActor<Clotty>();

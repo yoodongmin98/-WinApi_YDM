@@ -130,7 +130,7 @@ void Isaac::TearsAttack(float _DeltaTime)
 		return;
 	}
 
-	if (ResetTime_T > 0.3f)
+	if (ResetTime_T > TearUseTime)
 	{
 		ResetTime_T = 0.0f;
 	} 
@@ -307,6 +307,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		CollisionCheckParameter CheckBomb = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_ItemBomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckCoin = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Coin), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckLeo = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Leo), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckGlasses = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Glasses), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckItemHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckBlackLotus = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Blacklotus), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		//Heart
 		if (true == IsaacCollision->Collision(CheckHeart, ICollisions) && 6 != HP)
 		{
@@ -349,6 +352,30 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			//COINDROP.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			TearDamage += 1;
+		}
+		if (true == IsaacCollision->Collision(CheckGlasses, ICollisions))
+		{
+			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
+			//COINDROP.Volume(0.2f);
+			//COINDROP.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			TearSpeed += 200.0f;
+		}
+		if (true == IsaacCollision->Collision(CheckItemHeart, ICollisions))
+		{
+			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
+			//COINDROP.Volume(0.2f);
+			//COINDROP.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			TearUseTime -=0.2f;
+		}
+		if (true == IsaacCollision->Collision(CheckBlackLotus, ICollisions))
+		{
+			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
+			//COINDROP.Volume(0.2f);
+			//COINDROP.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			TearRange += 0.5f;
 		}
 	}
 }

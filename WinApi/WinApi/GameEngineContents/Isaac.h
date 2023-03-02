@@ -69,22 +69,7 @@ public:
 	{
 		return TearDamage;
 	}
-	float GetUpAcceleration()
-	{
-		return UpAcceleration;
-	}
-	float GetDownAcceleration()
-	{
-		return DownAcceleration;
-	}
-	float GetRightAcceleration()
-	{
-		return RightAcceleration;
-	}
-	float GetLeftAcceleration()
-	{
-		return LeftAcceleration;
-	}
+	
 	
 	GameEngineCollision* GetIsaacCollision()
 	{
@@ -123,10 +108,8 @@ private:
 
 	////////Tear관련 가속도,중력,속도,사거리//////////
 
-	float UpAcceleration = 0.0f;
-	float DownAcceleration = 0.0f;
-	float RightAcceleration = 200.0f;
-	float LeftAcceleration = 0.0f;
+	
+	float TearUseTime = 0.3f;
 	float GravityValue = 0.4f;
 	float TearSpeed = 400.0f;
 	float TearRange = 0.8f;

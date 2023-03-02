@@ -90,10 +90,10 @@ bool BoilDeathcheck = false;
 void Boil::Update(float _DeltaTime)
 {
 	BoilAttTime += _DeltaTime;
-	if (BoilAttTime > 3.0f && 10==BoilHp)
+	if (BoilAttTime > 3.0f && 10==BoilHp&&false== BoilDeathcheck)
 	{
 		BoilAttTime = 0.0f;
-		float4 PlayerPos = Isaac::MainPlayer->GetPos();
+		float4 PlayerPos = Isaac::MainPlayer->GetPos() - GetPos();
 		BloodTear* NewBloodTear = GetLevel()->CreateActor<BloodTear>();
 		NewBloodTear->SetBloodMoveDir(PlayerPos);
 		NewBloodTear->SetPos(GetPos());

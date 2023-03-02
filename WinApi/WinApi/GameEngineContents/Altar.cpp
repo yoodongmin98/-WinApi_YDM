@@ -39,8 +39,6 @@ void Altar::ImageLoad()
 
 void Altar::Start()
 {
-	SetMove(GameEngineWindow::GetScreenSize().half());  
-	SetPos(GameEngineWindow::GetScreenSize().half());
 	if (true == AltarLoad)
 	{
 		ImageLoad();

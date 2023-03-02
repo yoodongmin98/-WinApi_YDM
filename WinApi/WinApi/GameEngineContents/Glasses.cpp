@@ -1,4 +1,4 @@
-#include "Leo.h"
+#include "Glasses.h"
 #include <GameEnginePlatform/GameEngineWindow.h>
 #include <GameEnginePlatform/GameEngineImage.h>
 #include <GameEnginePlatform/GameEngineInput.h>
@@ -11,22 +11,21 @@
 
 #include "IsaacEnum.h"
 #include "isaac.h"
-#include "Altar.h"
 
 
 
-Leo::Leo()
+Glasses::Glasses()
 {
 
 }
 
-Leo::~Leo()
+Glasses::~Glasses()
 {
 
 }
 
-bool LeoLoad = true;
-void Leo::ImageLoad()
+bool GlassesLoad = true;
+void Glasses::ImageLoad()
 {
 	GameEngineDirectory Dir;
 	Dir.MoveParentToDirectory("ContentsResources");
@@ -35,40 +34,37 @@ void Leo::ImageLoad()
 	Dir.Move("Play");
 	Dir.Move("Item");
 
-	GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Item_Leo.BMP"));
+	GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Item_Glasses.BMP"));
 }
 
-void Leo::Start()
+void Glasses::Start()
 {
-
-	if (true == LeoLoad)
+	if (true == GlassesLoad)
 	{
 		ImageLoad();
-		LeoLoad = false;
+		GlassesLoad = false;
 	}
 	// 兄希 持失
 	{
-		LeoRender = CreateRender(IsaacOrder::R_Item);
-		LeoRender->SetScale({ 60, 60 });
-		LeoRender->SetImage("Item_Leo.BMP");
+		GlassesRender = CreateRender(IsaacOrder::R_Item);
+		GlassesRender->SetScale({ 60, 60 });
+		GlassesRender->SetImage("Item_Glasses.BMP");
 	}
 	//Colliison持失
 	{
-		LeoCollision = CreateCollision(IsaacCollisionOrder::C_Item_Leo);
-		LeoCollision->SetScale({ 30,30 });
-		LeoCollision->SetDebugRenderType(CollisionType::CT_Rect);
+		GlassesCollision = CreateCollision(IsaacCollisionOrder::C_Item_Glasses);
+		GlassesCollision->SetScale({ 30,30 });
+		GlassesCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-
-	
 }
 
-void Leo::Update(float _DeltaTime)
+void Glasses::Update(float _DeltaTime)
 {
 
 }
 
 
-void Leo::Render(float _DeltaTime)
+void Glasses::Render(float _DeltaTime)
 {
 	//LeoCollision->DebugRender();
 }
