@@ -81,5 +81,5 @@ void Spike::CollisionCheck(float _DeltaTime)
 
 void Spike::Render(float _DeltaTime)
 {
-	//Poop_Coll->DebugRender();
+	//Spike_Coll->DebugRender();
 }

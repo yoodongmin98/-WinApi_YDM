@@ -21,6 +21,7 @@
 #include "BombNumber.h"
 #include "CoinNumber.h"
 #include "KeyNumber.h"
+#include "RoomSetCollision.h"
 
 
 /////Monster
@@ -57,6 +58,7 @@
 #include "BlackLotus.h"
 
 
+
 IsaacLevel::IsaacLevel()
 {
 	
@@ -68,6 +70,10 @@ IsaacLevel::~IsaacLevel()
 void IsaacLevel::Loading()
 {
 	ImageLoad();
+	if (false == GameEngineInput::IsKey("LoadMenu"))
+	{
+		GameEngineInput::CreateKey("LoadMenu", VK_ESCAPE);
+	}
 	AllBack* Image = CreateActor<AllBack>();
 	BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
 	BackDrop->SetScale({ 600,150 });
@@ -75,12 +81,8 @@ void IsaacLevel::Loading()
 	{
 		CreateActor<Isaac>();
 
-
-		// 이걸 해줘야 기존에 혹시 방을 만든게 있다면
-		// 그걸 다 정리하고 새롭게 시작할수 있다.
 		Room::RoomCreateStart();
-
-		//만약 시연회를 한다면?                            (Start) (obj) (item)
+		                        //						 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ㅁ  ㅁ  ㅁ 
 		CreateRoom(0, 1, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
 		CreateRoom(1, 1, 1); //Monster2						    ㅁㅁㅁ
@@ -93,11 +95,6 @@ void IsaacLevel::Loading()
 		CreateRoom(4, 0, 3); //SecretRoom
 		CreateRoom(5, 1, 4); //Boss Room 
 
-		//key
-		// 1>BaseMent
-		// 2>Library
-		// 3>Depth
-		// 4>BossRoom
 		CreateActor<HP>();
 		CreateActor<BombNumber>();
 		CreateActor<CoinNumber>();
@@ -106,7 +103,7 @@ void IsaacLevel::Loading()
 		///////////////////테스트용 Actor///////////////////
 
 		/////////아이템
-		Altar* NewAltar=CreateActor<Altar>();
+		/*Altar* NewAltar=CreateActor<Altar>();
 		NewAltar->SetPos({ 300,240 });
 		Leo* NewLeo=CreateActor<Leo>();
 		NewLeo->SetPos({ 300,210 });
@@ -115,37 +112,37 @@ void IsaacLevel::Loading()
 		Glasses* NewGlasses= CreateActor<Glasses>();
 		NewGlasses->SetPos({ 300,400 });
 		BlackLotus* NewBlackLotus = CreateActor<BlackLotus>();
-		NewBlackLotus->SetPos({ 300,500 });
+		NewBlackLotus->SetPos({ 300,500 });*/
 
 
 
 
 		//몬스터
-		//Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
-		//TestMonster->SetPos({ 200,200 });
-		//Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
-		//TestMonster1->SetPos({ 200,300 });
-		//Gaper* NewGaper= CreateActor<Gaper>();
-		//NewGaper->SetPos({ 200,400 });
-		//Boil* TestBoil = CreateActor<Boil>();
-		//TestBoil->SetPos({ 300,400 });
-		//Charger* NewCharger = CreateActor<Charger>();
-		//NewCharger->SetPos({ 300,500 });
-		//Pooter* NewPooter = CreateActor<Pooter>();
-		//NewPooter->SetPos({ 300,400 });
-		//MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
-		//NewMuliBoom->SetPos({ 300,400 });
-		//Host* TestHost = CreateActor<Host>();
-		//TestHost->SetPos({ 300,100 });
-		//Clot* TestClot = CreateActor<Clot>();
-		//TestClot->SetPos({ 500,500 });
-		//Clotty* TestClotty = CreateActor<Clotty>();
-		//TestClotty->SetPos({ 500,300 });
+		/*Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
+		TestMonster->SetPos({ 200,200 });
+		Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
+		TestMonster1->SetPos({ 200,300 });
+		Gaper* NewGaper= CreateActor<Gaper>();
+		NewGaper->SetPos({ 200,400 });
+		Boil* TestBoil = CreateActor<Boil>();
+		TestBoil->SetPos({ 300,400 });
+		Charger* NewCharger = CreateActor<Charger>();
+		NewCharger->SetPos({ 300,500 });
+		Pooter* NewPooter = CreateActor<Pooter>();
+		NewPooter->SetPos({ 300,400 });
+		MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
+		NewMuliBoom->SetPos({ 300,400 });
+		Host* TestHost = CreateActor<Host>();
+		TestHost->SetPos({ 300,100 });
+		Clot* TestClot = CreateActor<Clot>();
+		TestClot->SetPos({ 500,500 });
+		Clotty* TestClotty = CreateActor<Clotty>();
+		TestClotty->SetPos({ 500,300 });*/
 
 
 
 		//액터
-		CreateActor<Poop>();
+		/*CreateActor<Poop>();
 		Heart* TestHeart=CreateActor<Heart>();
 		TestHeart->SetPos({ 180,230 });
 		FireWood* NewWood= CreateActor<FireWood>();
@@ -163,29 +160,20 @@ void IsaacLevel::Loading()
 		Rock_Boom* NewRock_B = CreateActor<Rock_Boom>();
 		NewRock_B->SetPos({ 350,550 });
 		Spike* NewSpike = CreateActor<Spike>();
-		NewSpike->SetPos({ 420,550 });
+		NewSpike->SetPos({ 420,550 });*/
 		////////////////////////////////////////////////////
-		
-		
-		//맵의 이동은level에서 관리(이거는 됨)  >>Actor가 관리해서 업데이트하니까 작동안했음 왜인지는 아직몰루?
-
-		//현재 만들어진 스테이지는 결국 하나의 레벨에서 진행되기떄문에 Actor별로 알아야할것이 많음.
-
-		//몬스터의수가0이되면 문이열린다>>결국 문 또는 Room쪽에서 관리해야함(열리는모션이있음)
-		//create monster가되면 몬스터의Count가 늘어나고 특정조건이되면 열림 >> Room에서 Actor들(벽,몬스터 등등)을 만들고 그에따른 조건을 만들어야함
-
-		//위 조건을 충족하면서 플레이어<->문 의 collision이 만나면 맵이이동해야한다
-		
-
-
-
-		
 	}	
-	//>>Collision MAX value=1090,600 >>나중에바꿔야함
-	if (false == GameEngineInput::IsKey("LoadMenu"))
-	{
-		GameEngineInput::CreateKey("LoadMenu", VK_ESCAPE);
-	}
+
+	//if (true == Room1Value &&
+	//	true == Isaac::MainPlayer->GetIsaacCollision()->Collision
+	//	({ .TargetGroup = static_cast<int>(RoomCollisionOrder::Room1), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	//{
+	//	Room1Value = false;
+	//	//Isaac::MainPlayer->SetIsaacMapMovefalse();
+	//	Isaac::MainPlayer->SetMonsterCount(1);
+	//	Monster_Fly* Room1Host = GetLevel()->CreateActor<Monster_Fly>();
+	//	Room1Host->SetPos({ 300,720 + 300 });
+
 	
 }
 
@@ -212,11 +200,6 @@ void IsaacLevel::Update(float _DeltaTime)
 			SettingValue = SettingValue + 1;
 		}
 	}
-	/*if (1 == SettingValue && true == GameEngineInput::IsDown("LoadMenuTitle"))
-	{
-		GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
-	}*/ //버그가 너무많아서 이건 나중에하자
-
 }
 void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {

@@ -17,7 +17,7 @@
       <Filter>Play\Playlevel</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Play\Room</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\Room</Filter>
     </ClInclude>
     <ClInclude Include="TitleChapter.h">
       <Filter>Title\TitleBackGround</Filter>
@@ -151,7 +151,7 @@
       <Filter>Play\Playlevel</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
-      <Filter>Play\Room</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\Room</Filter>
     </ClCompile>
     <ClCompile Include="TitleChapter.cpp">
       <Filter>Title\TitleBackGround</Filter>
@@ -332,9 +332,6 @@
     <Filter Include="Play\Playlevel\MapRenderSet\MapMove">
       <UniqueIdentifier>{d0c61e26-141a-49fa-80d6-d007ee4283a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Room">
-      <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\UI">
       <UniqueIdentifier>{ee260920-7eef-41ac-877b-18c60a7be8ca}</UniqueIdentifier>
     </Filter>
@@ -466,6 +463,9 @@
     </Filter>
     <Filter Include="Play\Isaac\Item&amp;actor\MapItem\Altar">
       <UniqueIdentifier>{da9e14af-4c8f-4e3c-95c0-8b4e1f67dc6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\Room">
+      <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

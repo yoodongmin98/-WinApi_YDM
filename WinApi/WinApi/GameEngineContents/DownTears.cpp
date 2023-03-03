@@ -67,7 +67,7 @@ void DownTears::Update(float _DeltaTime)
 
 void DownTears::MoveCalculation(float _DeltaTime)
 {
-	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
+	float4 NextPos = GetPos() - GetLevel()->GetCameraPos() + MoveDir * _DeltaTime;
 
 	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
 	if (nullptr == ColImage)

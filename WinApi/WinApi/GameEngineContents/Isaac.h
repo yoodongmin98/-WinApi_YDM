@@ -76,6 +76,23 @@ public:
 		return IsaacCollision;
 	}
 
+	int GetMonsterCount()
+	{
+		return MonsterCount;
+	}
+	int SetMonsterCount(int _Count)
+	{
+		return MonsterCount = _Count;
+	}
+
+	bool GetIsaacMapMove()
+	{
+		return IsaacMapMove;
+	}
+	void SetIsaacMapMovefalse()
+	{
+		IsaacMapMove = false;
+	}
 	
 
 	
@@ -160,5 +177,12 @@ private:
 	
 	void DamageUpdate(float _Time);
 	void TearsAttack(float _DeltaTime);
+
+
+
+
+	int MonsterCount = 0;
+
+	bool IsaacMapMove = true;
 };
 

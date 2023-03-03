@@ -1,12 +1,15 @@
 #include "Room.h"
 #include"IsaacEnum.h"
+#include <string_view>
+#include "Isaaclevel.h"
+#include "Isaac.h"
+
 #include<GameEnginePlatform/GameEngineWindow.h>
 #include<GameEnginePlatform/GameEngineInput.h>
+
 #include<GameEngineCore/GameEngineRender.h>
-#include "Isaaclevel.h"
 #include <GameEngineCore/GameEngineRender.h>
 #include <GameEngineCore/GameEngineCollision.h>
-#include <string_view>
 
 
 //monster
@@ -36,7 +39,7 @@ Room::Room()
 }
 Room::~Room()
 {
-
+	
 }
 
 void Room::Start()
@@ -46,11 +49,7 @@ void Room::Start()
 		Render->SetPosition(Render->GetImage()->GetImageScale().half());
 		Render->SetScaleToImage();
 	}
-	{
-		GameEngineRender* Renderc = CreateRender("BackGround_CS.BMP", IsaacOrder::R_BackGround_Black);
-		Renderc->SetPosition(Renderc->GetImage()->GetImageScale().half());
-		Renderc->SetScaleToImage();
-	}
+	
 }
 
 void Room::RoomCreateStart()
@@ -58,19 +57,18 @@ void Room::RoomCreateStart()
 	AllRoom.clear();
 }
 
-//void Room::Update() 
-//{
-//	// 여기서 방이 계속 플레이어를 충돌체크 하고 있어야 한다.
-//	// 문에 닿았나? 문에 닿았나? 문에 닿았나?
-//	
-//	if (true)
-//	{
-//
-//	}
-//}
+
+///////////////////////////////////////////////////
+
+void Room::Update(float _DeltaTime)
+{
+
+}
+
 
 void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 {
+	
 	switch (_MapKey)
 	{
 		case 1:
@@ -142,46 +140,32 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 		Room* LinkRoom = FindIter->second;
 
 		///////////////// 액터 배치부분
-		
-
-
 		//0,0								    //Start                        ㅁ  ㅁ  ㅁ 
-		if (_X == 0 && _Y == 1) 
-		{
-			float4 RoomPos = ThisRoom->GetPos();
-			Monster_Fly* NewFly = ThisRoom->GetLevel()->CreateActor<Monster_Fly>();
-			NewFly->SetPos({ RoomPos .x+300,RoomPos.y+600});
-			RoomSet1(); 
-		} //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
-		if (_X == 1 && _Y == 1) { RoomSet2(); } //Monster2						    ㅁㅁㅁ
-		if (_X == 2 && _Y == 1) { RoomSet3(); } //item설명
-		if (_X == 2 && _Y == 0) { RoomSet4(); } //오브젝트끼리의 상호구조 설명
-		if (_X == 2 && _Y == 2) { RoomSet5(); } //Monster3
-		if (_X == 3 && _Y == 2) { RoomSet6(); } //Monster4
-		if (_X == 4 && _Y == 2) { RoomSet7(); } //바위또는 부술수있는물체들(모닥불,똥무더기 등)
-		if (_X == 4 && _Y == 1) { RoomSet8(); } //Empty room
-		if (_X == 4 && _Y == 0) { RoomSet9(); } //SecretRoom
-		if (_X == 5 && _Y == 1) { RoomSet10(); } //Boss Room 
-											
+		
+	
 		ROOMDIR EnumDir = static_cast<ROOMDIR>(i);
 		//This room
-		GameEngineRender* ThisDoorUpRender = ThisRoom->CreateRender("Map_Door_Up.BMP", IsaacOrder::R_Door);
-		GameEngineRender* ThisDoorLeftRender = ThisRoom->CreateRender("Map_Door_Left.BMP", IsaacOrder::R_Door);
-		GameEngineRender* ThisDoorRightRender = ThisRoom->CreateRender("Map_Door_Right.BMP", IsaacOrder::R_Door);
-		GameEngineRender* ThisDoorDownRender = ThisRoom->CreateRender("Map_Door_Down.BMP", IsaacOrder::R_Door);
+		 ThisDoorUpRender			 = ThisRoom->CreateRender("Map_Door_Up.BMP", IsaacOrder::R_Door);
+		 ThisDoorLeftRender		 = ThisRoom->CreateRender("Map_Door_Left.BMP", IsaacOrder::R_Door);
+		 ThisDoorRightRender		 = ThisRoom->CreateRender("Map_Door_Right.BMP", IsaacOrder::R_Door);
+		 ThisDoorDownRender		= ThisRoom->CreateRender("Map_Door_Down.BMP", IsaacOrder::R_Door);
 
-		GameEngineRender* ThisBossDoorLeftRender = ThisRoom->CreateRender("Map_BossDoor_Left.BMP", IsaacOrder::R_Door);
-		GameEngineRender* ThisBossDoorRightRender = ThisRoom->CreateRender("Map_BossDoor_Right.BMP", IsaacOrder::R_Door);
-		//LinkRoom
-		GameEngineRender* LinkDoorUpRender = LinkRoom->CreateRender("Map_Door_Up.BMP", IsaacOrder::R_Door);
-		GameEngineRender* LinkDoorLeftRender = LinkRoom->CreateRender("Map_Door_Left.BMP", IsaacOrder::R_Door);
-		GameEngineRender* LinkDoorRightRender = LinkRoom->CreateRender("Map_Door_Right.BMP", IsaacOrder::R_Door);
-		GameEngineRender* LinkDoorDownRender = LinkRoom->CreateRender("Map_Door_Down.BMP", IsaacOrder::R_Door);
-
-		GameEngineRender* LinkBossDoorRightRender = LinkRoom->CreateRender("Map_BossDoor_Right.BMP", IsaacOrder::R_Door);
-		GameEngineRender* LinkBossDoorLeftRender = LinkRoom->CreateRender("Map_BossDoor_Left.BMP", IsaacOrder::R_Door);
-		// ////////////////////////////
+		 ThisBossDoorLeftRender	 = ThisRoom->CreateRender("Map_BossDoor_Left.BMP", IsaacOrder::R_Door);
+		 ThisBossDoorRightRender	 = ThisRoom->CreateRender("Map_BossDoor_Right.BMP", IsaacOrder::R_Door);
 		
+		 LinkDoorUpRender			= LinkRoom->CreateRender("Map_Door_Up.BMP", IsaacOrder::R_Door);
+		 LinkDoorLeftRender		 = LinkRoom->CreateRender("Map_Door_Left.BMP", IsaacOrder::R_Door);
+		 LinkDoorRightRender		= LinkRoom->CreateRender("Map_Door_Right.BMP", IsaacOrder::R_Door);
+		 LinkDoorDownRender		= LinkRoom->CreateRender("Map_Door_Down.BMP", IsaacOrder::R_Door);
+
+		 LinkBossDoorRightRender	 = LinkRoom->CreateRender("Map_BossDoor_Right.BMP", IsaacOrder::R_Door);
+		 LinkBossDoorLeftRender	= LinkRoom->CreateRender("Map_BossDoor_Left.BMP", IsaacOrder::R_Door);
+		// /////Collision
+		LinkDoorCollision = LinkRoom->CreateCollision(IsaacCollisionOrder::C_Door);
+		ThisDoorCollision = ThisRoom->CreateCollision(IsaacCollisionOrder::C_Door);
+		LinkDoorCollision->SetDebugRenderType(CollisionType::CT_Rect);
+		ThisDoorCollision->SetDebugRenderType(CollisionType::CT_Rect);
+	
 
 		switch (EnumDir)
 		{
@@ -208,6 +192,15 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 				LinkDoorRightRender->CreateAnimation({ .AnimationName = "Door_R_Idle",  .ImageName = "Map_Door_Right.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
 				LinkDoorRightRender->CreateAnimation({ .AnimationName = "Door_R_Open",  .ImageName = "Map_Door_Right.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 				LinkDoorRightRender->ChangeAnimation("Door_R_Idle");
+				{
+					{
+						ThisDoorCollision->SetPosition({ 130,380 });
+						ThisDoorCollision->SetScale({ 15,15});
+
+						LinkDoorCollision->SetPosition({ 1150,380 });
+						LinkDoorCollision->SetScale({ 15,15});
+					}
+				}
 			}
 			
 			break;
@@ -224,16 +217,26 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			ThisDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Idle",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
 			ThisDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Open",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			ThisDoorUpRender->ChangeAnimation("Door_U_Idle");
+			
 
 			LinkDoorDownRender->SetPosition({ 640,600 });
 			LinkDoorDownRender->SetScale({ 350,270 });
 			LinkDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Idle",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
 			LinkDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Open",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			LinkDoorDownRender->ChangeAnimation("Door_D_Idle");
+
+			{
+				ThisDoorCollision->SetPosition({ 640,120 });
+				ThisDoorCollision->SetScale({ 15,15 });
+
+				LinkDoorCollision->SetPosition({ 640,600 });
+				LinkDoorCollision->SetScale({ 15,15});
+			}
 			break;
 		}
 		case ROOMDIR::DOWN:
 		{
+			
 			ThisDoorDownRender->SetPosition({ 640,600 });
 			ThisDoorDownRender->SetScale({ 350,270 });
 			ThisDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Idle",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
@@ -245,6 +248,15 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			LinkDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Idle",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
 			LinkDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Open",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			LinkDoorUpRender->ChangeAnimation("Door_U_Idle");
+			{
+				{
+					LinkDoorCollision->SetPosition({ 640,120 });
+					LinkDoorCollision->SetScale({ 15,15 });
+
+					ThisDoorCollision->SetPosition({ 640,600 });
+					ThisDoorCollision->SetScale({ 15,15 });
+				}
+			}
 			break;
 		}
 		case ROOMDIR::MAX:
@@ -256,53 +268,18 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			break;
 		}
 	}
+	if (1 == Isaac::MainPlayer->GetMonsterCount())
+	{
+		ThisDoorUpRender->ChangeAnimation("Door_U_Open");
+
+	}
 }
 
 void Room::Render(float _DeltaTime)
 {
-	
+	//LinkDoorCollision->DebugRender();
+	//ThisDoorCollision->DebugRender();
+	Room1Collision->DebugRender();
 }
 
 
-
-
-void Room::RoomSet1()
-{
-	
-}
-void Room::RoomSet2()
-{
-
-}
-void Room::RoomSet3()
-{
-
-}
-void Room::RoomSet4()
-{
-
-}
-void Room::RoomSet5()
-{
-
-}
-void Room::RoomSet6()
-{
-
-}
-void Room::RoomSet7()
-{
-
-}
-void Room::RoomSet8()
-{
-
-}
-void Room::RoomSet9()
-{
-
-}
-void Room::RoomSet10()
-{
-
-}

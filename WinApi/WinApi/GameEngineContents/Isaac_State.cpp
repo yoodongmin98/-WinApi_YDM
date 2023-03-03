@@ -108,14 +108,14 @@ void Isaac::MoveUpdate(float _Time)
 	
 	}
 
-	if (true == GameEngineInput::IsPress("RightMove"))
+	else if (true == GameEngineInput::IsPress("RightMove"))
 	{
 		DamageUpdate(_Time);
 		MoveRange += float4::Right;
 		
 	}
 
-	if (true == GameEngineInput::IsPress("UpMove"))
+	 if (true == GameEngineInput::IsPress("UpMove"))
 	{
 		DamageUpdate(_Time);
 		MoveRange += float4::Up;

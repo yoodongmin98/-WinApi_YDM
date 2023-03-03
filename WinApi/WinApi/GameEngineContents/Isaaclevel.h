@@ -21,6 +21,18 @@ public:
 	void SettingMenuUpdate();
 	void SoundLoad();
 	void ImageLoad();
+
+
+	void Room1Set();
+
+
+
+
+
+
+
+
+
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;
@@ -55,10 +67,10 @@ private:
 
 
 	//Collision에따라 설정해줘야하는값(Isacc을 문앞으로 위치시키는값)
-	float LeftSetValue=130.0f;
-	float RightSetValue = 1150.0f;
-	float DownSetValue = 610.0f;
-	float UpSetValue = 120.0f;
+	float LeftSetValue=150.0f;
+	float RightSetValue = 1130.0f;
+	float DownSetValue = 600.0f;
+	float UpSetValue = 130.0f;
 
 	void CreateRoom(int _X, int _Y, int _MapKey);
 	void CreateDoor();

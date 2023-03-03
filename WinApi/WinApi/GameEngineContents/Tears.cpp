@@ -69,9 +69,10 @@ void Tears::Update(float _DeltaTime)
 
 void Tears::MoveCalculation(float _DeltaTime)
 {
-	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
 	
-	GameEngineImage* ColImage = GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
+	float4 NextPos =GetPos()-GetLevel()->GetCameraPos()+ MoveDir * _DeltaTime;
+	GameEngineImage* ColImage =GameEngineResources::GetInst().ImageFind("BackGround_CS.BMP");
+	
 	if (nullptr == ColImage)
 	{
 		MsgAssert("충돌용 맵 이미지가 없습니다.");

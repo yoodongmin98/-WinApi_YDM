@@ -39,31 +39,41 @@ void IsaacLevel::MapMoveUpdate()
 		MapS = Pos;
 	}
 	SetCameraPos(Pos);
+
+	
+	
 	//////////////////////////Map Move
-	if (false == Map_Move)
+	if (false == Map_Move&&true==Isaac::MainPlayer->GetIsaacMapMove())
 	{
-		if (PlayerXPos > RightSetValue && GameEngineInput::IsPress("RightMove"))
+		if (PlayerXPos > RightSetValue && GameEngineInput::IsPress("RightMove")
+			&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			MapE = MapS + float4(SizeValue, 0);
 			Map_Move = true;
 			CountX = CountX + 1;
 			Isaac::MainPlayer->SetPos({ LeftSetValue + (SizeValue * (float)CountX) ,MiddieYValue+(SizeValueY * (float)CountY) });
 		}
-		if (PlayerXPos < LeftSetValue && GameEngineInput::IsPress("LeftMove"))
+
+		if (PlayerXPos < LeftSetValue && GameEngineInput::IsPress("LeftMove")
+			&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			MapE = MapS + float4(-SizeValue, 0);
 			Map_Move = true;
 			CountX = CountX - 1;
 			Isaac::MainPlayer->SetPos({ RightSetValue + (SizeValue * (float)CountX),MiddieYValue+(SizeValueY * (float)CountY) });
 		}
-		if (PlayerYPos > DownSetValue && GameEngineInput::IsPress("DownMove"))
+
+		if (PlayerYPos > DownSetValue && GameEngineInput::IsPress("DownMove")
+			&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			MapE = MapS + float4(0, SizeValueY);
 			Map_Move = true;
 			CountY = CountY + 1;
 			Isaac::MainPlayer->SetPos({ MiddieXValue+ (SizeValue * (float)CountX),UpSetValue + (SizeValueY * (float)CountY) });
 		}
-		if (PlayerYPos < UpSetValue && GameEngineInput::IsPress("UpMove"))
+
+		if (PlayerYPos < UpSetValue && GameEngineInput::IsPress("UpMove")
+			&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 		{
 			MapE = MapS + float4(0, -SizeValueY);
 			Map_Move = true;

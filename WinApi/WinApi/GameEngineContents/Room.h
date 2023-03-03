@@ -52,7 +52,7 @@ public:
 	void Render(float _DeltaTime);
 protected:
 	void Start() override;
-	//void Update(float _DeltaTime) override;
+	void Update(float _DeltaTime) override;
 
 private:
 	TileIndex Index;
@@ -65,20 +65,23 @@ private:
 	GameEngineCollision* ThisDoorCollision = nullptr;
 	GameEngineCollision* LinkDoorCollision = nullptr;
 
-	void RoomSet1();
-	void RoomSet2();
-	void RoomSet3();
-	void RoomSet4();
-	void RoomSet5();
-	void RoomSet6();
-	void RoomSet7();
-	void RoomSet8();
-	void RoomSet9();
-	void RoomSet10();
-
-	bool RoomSetStartBool = false;
 
 
-	
+
+	GameEngineRender* ThisDoorUpRender = nullptr;
+	GameEngineRender* ThisDoorLeftRender		= nullptr;
+	GameEngineRender* ThisDoorRightRender		= nullptr;
+	GameEngineRender* ThisDoorDownRender		= nullptr;
+												
+	GameEngineRender* ThisBossDoorLeftRender	= nullptr;
+	GameEngineRender* ThisBossDoorRightRender	= nullptr;
+												
+	GameEngineRender* LinkDoorUpRender			= nullptr;
+	GameEngineRender* LinkDoorLeftRender		= nullptr;
+	GameEngineRender* LinkDoorRightRender		= nullptr;
+	GameEngineRender* LinkDoorDownRender		= nullptr;
+												
+	GameEngineRender* LinkBossDoorRightRender	= nullptr;
+	GameEngineRender* LinkBossDoorLeftRender	= nullptr;
 };
 

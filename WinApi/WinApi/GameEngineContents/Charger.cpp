@@ -201,7 +201,7 @@ void Charger::Movecalculation(float _DeltaTime)
 	}
 	MoveDir = MoveRange * 50.0f; //움직임을 미리 정해놓고
 
-	float4 NextPos = GetPos() + MoveDir * _DeltaTime; //다음포스를 정의한다음
+	float4 NextPos = GetPos() - GetLevel()->GetCameraPos() + MoveDir * _DeltaTime; //다음포스를 정의한다음
 
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0))) //그위치가 0,0,0이면
 	{

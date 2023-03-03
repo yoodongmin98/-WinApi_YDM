@@ -79,8 +79,8 @@ void Isaac::Start()
 	
 	{
 		IsaacCollision = CreateCollision(IsaacCollisionOrder::C_Player);
-		IsaacCollision->SetScale({ 50, 50 });
-		IsaacCollision->SetPosition({ 0,-30 });
+		IsaacCollision->SetScale({ 40, 40 });
+		IsaacCollision->SetPosition({ 0,-20 });
 		IsaacCollision->On();
 		IsaacCollision->SetDebugRenderType(CollisionType::CT_Rect);
 	}
@@ -100,11 +100,7 @@ void Isaac::Update(float _DeltaTime)
 	{
 		MoveDir = float4::Zero;
 	}
-	/*if (true == GameEngineInput::IsPress("RightMove") && true == GameEngineInput::IsPress("LeftMove"))
-	{
-
-	}*/
-
+	
 	DeadMenu->Off(); //업데이트에서 꼭 해야하나??
 	DeathCheck(_DeltaTime);
 	if (0 != GetPlayerHP())
@@ -243,16 +239,16 @@ void Isaac::Movecalculation(float _DeltaTime)
 		MsgAssert("충돌용 맵 이미지가 없습니다.");
 	}
 	bool Check = true;
-	float4 NextPos = GetPos() + MoveDir * _DeltaTime;
+	float4 NextPos = GetPos()-GetLevel()->GetCameraPos() + MoveDir * _DeltaTime;
 
 	if (RGB(0, 0, 0) == ColImage->GetPixelColor(NextPos, RGB(0, 0, 0)))
 	{
 		Check = false;
 	}
-	/*if (false == Check)
+	if (false == Check)
 	{
 		MoveDir = float4::Zero;
-	}*/  
+	}
 	//이건 일단 다음맵 넘어가려고 잠시 주석걸어두었습니다
 }
 
@@ -502,5 +498,5 @@ void Isaac::TEARSOUNDS()
 }
 void Isaac::Render(float _DeltaTime)
 {
-	//IsaacCollision->DebugRender();
+	IsaacCollision->DebugRender();
 }
