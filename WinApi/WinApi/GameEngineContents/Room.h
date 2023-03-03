@@ -65,7 +65,18 @@ private:
 	GameEngineCollision* ThisDoorCollision = nullptr;
 	GameEngineCollision* LinkDoorCollision = nullptr;
 
+	void RoomSet1();
+	void RoomSet2();
+	void RoomSet3();
+	void RoomSet4();
+	void RoomSet5();
+	void RoomSet6();
+	void RoomSet7();
+	void RoomSet8();
+	void RoomSet9();
+	void RoomSet10();
 
+	bool RoomSetStartBool = false;
 
 
 	

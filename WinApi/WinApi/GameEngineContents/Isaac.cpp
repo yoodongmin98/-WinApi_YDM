@@ -41,6 +41,7 @@ void Isaac::Start()
 	SetMove(GameEngineWindow::GetScreenSize().half());  //시작하면위치는 가운데로
 	SetPos(GameEngineWindow::GetScreenSize().half());
 	
+	
 
 	if (false == GameEngineInput::IsKey("LeftMove"))
 	{
@@ -99,6 +100,10 @@ void Isaac::Update(float _DeltaTime)
 	{
 		MoveDir = float4::Zero;
 	}
+	/*if (true == GameEngineInput::IsPress("RightMove") && true == GameEngineInput::IsPress("LeftMove"))
+	{
+
+	}*/
 
 	DeadMenu->Off(); //업데이트에서 꼭 해야하나??
 	DeathCheck(_DeltaTime);
@@ -109,7 +114,7 @@ void Isaac::Update(float _DeltaTime)
 		BombCheck(_DeltaTime);
 		UpdateState(_DeltaTime);
 		TearsAttack(_DeltaTime);
-		//Movecalculation(_DeltaTime);
+		Movecalculation(_DeltaTime);
 		CollisionCheck(_DeltaTime);
 		SetMove(MoveDir * _DeltaTime);
 	}
@@ -244,10 +249,10 @@ void Isaac::Movecalculation(float _DeltaTime)
 	{
 		Check = false;
 	}
-	if (false == Check)
+	/*if (false == Check)
 	{
 		MoveDir = float4::Zero;
-	}
+	}*/
 	
 }
 

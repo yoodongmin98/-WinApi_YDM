@@ -77,6 +77,8 @@ public:
 	}
 
 	
+
+	
 	///////////////////////////////////////
 protected:
 	GameEngineSoundPlayer TEARSOUND;
@@ -94,7 +96,7 @@ protected:
 
 private:
 	GameEngineRender* DeadMenu = nullptr;
-
+	
 
 	
 	float FlickerTime =0.0f;
