@@ -252,8 +252,8 @@ void Isaac::Movecalculation(float _DeltaTime)
 	/*if (false == Check)
 	{
 		MoveDir = float4::Zero;
-	}*/
-	
+	}*/  
+	//이건 일단 다음맵 넘어가려고 잠시 주석걸어두었습니다
 }
 
 //collision 체크
