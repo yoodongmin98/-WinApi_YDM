@@ -525,19 +525,19 @@ void TitleLevel::RightSound()
 {
 	SELECTRIGHT = GameEngineResources::GetInst().SoundPlayToControl("characterselectright.wav");
 	SELECTRIGHT.LoopCount(1);
-	SELECTRIGHT.Volume(0.2);
+	SELECTRIGHT.Volume(0.2f);
 }
 void TitleLevel::LeftSound()
 {
 	SELECTLEFT = GameEngineResources::GetInst().SoundPlayToControl("characterselectleft.wav");
 	SELECTLEFT.LoopCount(1);
-	SELECTLEFT.Volume(0.2);
+	SELECTLEFT.Volume(0.2f);
 }
 void TitleLevel::PageSound()
 {
 	PAGESOUND= GameEngineResources::GetInst().SoundPlayToControl("bookpageturn.wav");
 	PAGESOUND.LoopCount(1);
-	PAGESOUND.Volume(0.2);
+	PAGESOUND.Volume(0.2f);
 }
 
 

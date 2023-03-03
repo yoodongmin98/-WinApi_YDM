@@ -230,6 +230,7 @@ void IsaacLevel::CreateRoom(int _X, int _Y, int _MapKey)
 {
 	Room* NewRoom = CreateActor<Room>();
 	NewRoom->SetTileIndex(_X, _Y, _MapKey);
+
 }
 
 void IsaacLevel::CreateDoor()
