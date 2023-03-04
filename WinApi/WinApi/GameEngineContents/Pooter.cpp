@@ -88,7 +88,7 @@ void Pooter::Start()
 
 }
 
-bool PooterDeathcheck = false;
+
 void Pooter::Update(float _DeltaTime)
 {
 	if (true == PooterDeathcheck) //hp가 떨어진게 확인되면
@@ -114,7 +114,7 @@ void Pooter::Update(float _DeltaTime)
 				M_Pooter->ChangeAnimation("M_Pooter_Shoot");
 				float4 PlayerPos_P = Isaac::MainPlayer->GetPos() - GetPos();
 				BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
-				PooterAtt->SetBloodMoveDir(PlayerPos_P - GetPos());
+				PooterAtt->SetBloodMoveDir(PlayerPos_P);
 				PooterAtt->SetPos(GetPos());
 				int a = 0;
 			}
@@ -123,7 +123,7 @@ void Pooter::Update(float _DeltaTime)
 				M_Pooter->ChangeAnimation("M_Pooter_L_Shoot");
 				float4 PlayerPos_P1 = Isaac::MainPlayer->GetPos()-GetPos();
 				BloodTear* PooterAtt1 = GetLevel()->CreateActor<BloodTear>();
-				PooterAtt1->SetBloodMoveDir(PlayerPos_P1 - GetPos());
+				PooterAtt1->SetBloodMoveDir(PlayerPos_P1);
 				PooterAtt1->SetPos(GetPos());
 			}
 		}

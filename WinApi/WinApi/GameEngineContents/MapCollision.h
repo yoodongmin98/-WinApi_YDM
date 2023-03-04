@@ -22,13 +22,15 @@ private:
 
 	GameEngineCollision* Room1Collision = nullptr;
 	GameEngineCollision* Room2Collision = nullptr;
-	GameEngineCollision* Room3Collision = nullptr;
-	GameEngineCollision* Room4Collision = nullptr;
 	GameEngineCollision* Room5Collision = nullptr;
 	GameEngineCollision* Room6Collision = nullptr;
+	GameEngineCollision* Room7Collision = nullptr;
+	GameEngineCollision* Room8Collision = nullptr;
 
 
-	
+	bool Room1 = true;
+	bool Room2 = true;
+	bool Room5 = true;
 
 };
 

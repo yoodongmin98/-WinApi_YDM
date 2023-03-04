@@ -80,19 +80,16 @@ public:
 	{
 		return MonsterCount;
 	}
-	int SetMonsterCount(int _Count)
+	void SetMonsterCount(int _Count)
 	{
-		return MonsterCount = _Count;
+		MonsterCount = _Count;
+	}
+	void MinusMonsterCount(int _DeathCount)
+	{
+		MonsterCount -= _DeathCount;
 	}
 
-	bool GetIsaacMapMove()
-	{
-		return IsaacMapMove;
-	}
-	void SetIsaacMapMovefalse()
-	{
-		IsaacMapMove = false;
-	}
+	
 	
 
 	

@@ -291,6 +291,9 @@
     <ClCompile Include="MapCollision.cpp">
       <Filter>Play\Playlevel\MapCollision</Filter>
     </ClCompile>
+    <ClCompile Include="RoomSet.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Play">
@@ -475,6 +478,9 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapCollision">
       <UniqueIdentifier>{96306726-8fbe-4da3-b718-166784ce8145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting">
+      <UniqueIdentifier>{ac50218d-416e-4870-8e9f-3fb7814c26f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

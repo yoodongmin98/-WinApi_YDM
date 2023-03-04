@@ -32,5 +32,6 @@ private:
 	float NowTime = 0.0f;
 	int BlobHp = 3;
 	int RESET = 1;
+	bool BlobDeathcheck = false;
 };
 

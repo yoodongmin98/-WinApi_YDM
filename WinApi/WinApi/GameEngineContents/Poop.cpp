@@ -51,7 +51,7 @@ void Poop::Start()
 	}
 	R_Poop = CreateRender(IsaacOrder::R_Wall);
 	R_Poop->SetScale({ 70, 70 });
-	R_Poop->SetPosition({ 180,160 });
+	
 
 
 	R_Poop->CreateAnimation({ .AnimationName = "Poop4",  .ImageName = "Poop.bmp", .Start = 0, .End = 0, .InterTime = 1.0f , .Loop = false });
@@ -68,7 +68,6 @@ void Poop::Start()
 
 		Poop_Coll = CreateCollision(IsaacCollisionOrder::C_Wall);
 		Poop_Coll->SetScale({ 50, 50 });
-		Poop_Coll->SetPosition({ 180,160 });
 		Poop_Coll->On();
 		Poop_Coll->SetDebugRenderType(CollisionType::CT_Rect);
 	}

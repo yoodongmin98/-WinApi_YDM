@@ -62,7 +62,7 @@ void Room::RoomCreateStart()
 
 void Room::Update(float _DeltaTime)
 {
-
+	
 }
 
 
@@ -267,11 +267,7 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			break;
 		}
 	}
-	if (1 == Isaac::MainPlayer->GetMonsterCount())
-	{
-		ThisDoorUpRender->ChangeAnimation("Door_U_Open");
-
-	}
+	
 }
 
 void Room::Render(float _DeltaTime)

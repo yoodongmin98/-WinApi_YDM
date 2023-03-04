@@ -33,5 +33,7 @@ private:
 	float NowTime = 0.0f;
 	int ClotHp = 3;
 	int RESET = 1;
+
+	bool ClotDeathcheck = false;
 };
 

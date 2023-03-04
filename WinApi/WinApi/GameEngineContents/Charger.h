@@ -43,5 +43,7 @@ private:
 	float NowTime = 0.0f;
 	int ChargerHp = 3;
 	int RESET = 1;
+
+	bool ChargerDeathcheck = false;
 };
 

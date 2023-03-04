@@ -86,7 +86,7 @@ void Boil::Start()
 
 }
 
-bool BoilDeathcheck = false;
+
 void Boil::Update(float _DeltaTime)
 {
 	BoilAttTime += _DeltaTime;

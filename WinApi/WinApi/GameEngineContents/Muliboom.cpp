@@ -93,7 +93,7 @@ void MuliBoom::Start()
 
 }
 
-bool MuliBoomDeathcheck = false;
+
 void MuliBoom::Update(float _DeltaTime)
 {
 	if (true == MuliBoomDeathcheck)

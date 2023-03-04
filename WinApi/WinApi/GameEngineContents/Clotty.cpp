@@ -80,7 +80,7 @@ void Clotty::Start()
 
 }
 
-bool ClottyDeathcheck = false;
+
 void Clotty::Update(float _DeltaTime)
 {
 	ClottyAttTime += _DeltaTime;

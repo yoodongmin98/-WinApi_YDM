@@ -231,6 +231,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="RoomSet.cpp" />
     <ClCompile Include="SettingMenu.cpp">
       <SubType>
       </SubType>

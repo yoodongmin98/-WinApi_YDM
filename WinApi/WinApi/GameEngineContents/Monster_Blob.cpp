@@ -78,7 +78,7 @@ void Monster_Blob::Start()
 
 }
 
-bool BlobDeathcheck = false;
+
 void Monster_Blob::Update(float _DeltaTime)
 {
 	if (true == BlobDeathcheck)

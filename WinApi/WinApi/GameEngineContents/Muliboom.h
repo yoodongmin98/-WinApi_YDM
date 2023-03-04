@@ -36,5 +36,6 @@ private:
 	float NowTime = 0.0f;
 	int MuliBoomHp = 6;
 	int RESET = 1;
+	bool MuliBoomDeathcheck = false;
 };
 

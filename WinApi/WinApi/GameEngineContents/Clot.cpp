@@ -80,7 +80,7 @@ void Clot::Start()
 
 }
 
-bool ClotDeathcheck = false;
+
 void Clot::Update(float _DeltaTime)
 {
 	ClotAttTime += _DeltaTime;

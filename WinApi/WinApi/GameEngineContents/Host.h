@@ -21,7 +21,7 @@ protected:
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime);
-	void Movecalculation(float _DeltaTime);
+	
 
 private:
 	GameEngineRender* M_Host = nullptr;
@@ -31,5 +31,6 @@ private:
 	float NowTime = 0.0f;
 	int HostHp = 5;
 	int RESET = 1;
+	bool HostDeathcheck = false;
 };
 

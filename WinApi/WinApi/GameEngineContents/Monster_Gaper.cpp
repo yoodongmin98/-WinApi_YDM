@@ -99,7 +99,7 @@ void Gaper::Start()
 
 }
 
-bool GaperDeathcheck = false;
+
 void Gaper::Update(float _DeltaTime)
 {
 	if (true == GaperDeathcheck)

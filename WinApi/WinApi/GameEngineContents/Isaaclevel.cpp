@@ -59,6 +59,7 @@
 
 
 
+
 IsaacLevel::IsaacLevel()
 {
 	
@@ -81,9 +82,9 @@ void IsaacLevel::Loading()
 	{
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>();
-
+		
 		Room::RoomCreateStart();
-		                        //						 (Start) (obj) (item)
+		//						 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ㅁ  ㅁ  ㅁ 
 		CreateRoom(0, 1, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
 		CreateRoom(1, 1, 1); //Monster2						    ㅁㅁㅁ
@@ -101,86 +102,20 @@ void IsaacLevel::Loading()
 		CreateActor<CoinNumber>();
 		CreateActor<KeyNumber>();
 
-		///////////////////테스트용 Actor///////////////////
-
-		/////////아이템
-		/*Altar* NewAltar=CreateActor<Altar>();
-		NewAltar->SetPos({ 300,240 });
-		Leo* NewLeo=CreateActor<Leo>();
-		NewLeo->SetPos({ 300,210 });
-		ItemHeart* NewItemHeart= CreateActor<ItemHeart>();
-		NewItemHeart->SetPos({ 300,300});
-		Glasses* NewGlasses= CreateActor<Glasses>();
-		NewGlasses->SetPos({ 300,400 });
-		BlackLotus* NewBlackLotus = CreateActor<BlackLotus>();
-		NewBlackLotus->SetPos({ 300,500 });*/
-
-
-
-
-		//몬스터
-		//Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
-		//TestMonster->SetPos({ 200,200 });
-		//Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
-		//TestMonster1->SetPos({ 200,300 });
-		//Gaper* NewGaper= CreateActor<Gaper>();
-		//NewGaper->SetPos({ 200,400 });
-		//Boil* TestBoil = CreateActor<Boil>();
-		//TestBoil->SetPos({ 300,400 });
-		//Charger* NewCharger = CreateActor<Charger>();
-		//NewCharger->SetPos({ 300,500 });
-		//Pooter* NewPooter = CreateActor<Pooter>();
-		//NewPooter->SetPos({ 300,400 });
-		//MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
-		//NewMuliBoom->SetPos({ 300,400 });
-		//Host* TestHost = CreateActor<Host>();
-		//TestHost->SetPos({ 300,100 });
-		//Clot* TestClot = CreateActor<Clot>();
-		//TestClot->SetPos({ 500,500 });
-		//Clotty* TestClotty = CreateActor<Clotty>();
-		//TestClotty->SetPos({ 500,300 });
-
-
-
-		//액터
-		/*CreateActor<Poop>();
-		Heart* TestHeart=CreateActor<Heart>();
-		TestHeart->SetPos({ 180,230 });
-		FireWood* NewWood= CreateActor<FireWood>();
-		NewWood->SetPos({180,300});
-		Fire* NewFire = CreateActor<Fire>();
-		NewFire->SetPos({ 180,270 });
-		Key* NewKey = CreateActor<Key>();
-		NewKey->SetPos({ 180,360 });
-		ItemBomb* NewItemBomb = CreateActor<ItemBomb>();
-		NewItemBomb->SetPos({ 180,430 });
-		Coin* NewCoin = CreateActor<Coin>();
-		NewCoin->SetPos({ 180,490 });
-		Rock* NewRock = CreateActor<Rock>();
-		NewRock->SetPos({ 180,550 });
-		Rock_Boom* NewRock_B = CreateActor<Rock_Boom>();
-		NewRock_B->SetPos({ 350,550 });
-		Spike* NewSpike = CreateActor<Spike>();
-		NewSpike->SetPos({ 420,550 });*/
-		////////////////////////////////////////////////////
-	}	
-
-	//if (true == Room1Value &&
-	//	true == Isaac::MainPlayer->GetIsaacCollision()->Collision
-	//	({ .TargetGroup = static_cast<int>(RoomCollisionOrder::Room1), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
-	//{
-	//	Room1Value = false;
-	//	//Isaac::MainPlayer->SetIsaacMapMovefalse();
-	//	Isaac::MainPlayer->SetMonsterCount(1);
-	//	Monster_Fly* Room1Host = GetLevel()->CreateActor<Monster_Fly>();
-	//	Room1Host->SetPos({ 300,720 + 300 });
-
-	
+		Room1Set();
+		Room2Set();
+		Room3Set();
+		Room4Set();
+		Room5Set();
+		Room6Set();
+		Room7Set();
+	}
 }
 
 
 void IsaacLevel::Update(float _DeltaTime)
 {
+	
 	MapMoveUpdate();
 	
 	if (true == Map_Move)
@@ -188,7 +123,7 @@ void IsaacLevel::Update(float _DeltaTime)
 		P_Time += _DeltaTime * MapMoveSpeed;
 	}
 	
-	if (true == GameEngineInput::IsDown("LoadMenu"))
+	/*if (true == GameEngineInput::IsDown("LoadMenu"))
 	{
 		if (2 == SettingValue)
 		{
@@ -200,7 +135,7 @@ void IsaacLevel::Update(float _DeltaTime)
 			SettingMenu->Off();
 			SettingValue = SettingValue + 1;
 		}
-	}
+	}*/ //이것도 하나의 클래스(액터)로 만들었어야했는데 멍청했다 나란놈
 }
 void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
@@ -214,7 +149,6 @@ void IsaacLevel::CreateRoom(int _X, int _Y, int _MapKey)
 {
 	Room* NewRoom = CreateActor<Room>();
 	NewRoom->SetTileIndex(_X, _Y, _MapKey);
-
 }
 
 void IsaacLevel::CreateDoor()

@@ -82,7 +82,7 @@ void Monster_Fly::Start()
 	FlyHp = 3;
 }
 
-bool Deathcheck = false;
+
 void Monster_Fly::Update(float _DeltaTime)
 {
 	if (0 >= FlyHp)
@@ -95,7 +95,6 @@ void Monster_Fly::Update(float _DeltaTime)
 		M_fly->Death();
 		M_fly_Coll->Death();
 		DeadRender->On();
-		
 	}
 	Movecalculation(_DeltaTime);
 	CollisionCheck(_DeltaTime);
@@ -130,11 +129,6 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	CollisionCheckParameter Check2 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_U), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 	CollisionCheckParameter Check3 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_D), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
-
-
-
-
-
 	//함수짤 시간에 그냥 복붙을하겠노라
 	if (true == M_fly_Coll->Collision(Check, FCollisions)) //PlayerAtt에 닿았을때
 	{
@@ -150,12 +144,6 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 		}
 		
 	}
-
-
-
-
-
-
 
 	if (true == M_fly_Coll->Collision(Check1, FCollisions)) 
 	{

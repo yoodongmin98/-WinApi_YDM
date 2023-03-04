@@ -31,5 +31,6 @@ private:
 	float NowTime = 0.0f;
 	int FlyHp = 3;
 	int RESET = 1;
+	bool Deathcheck = false;
 };
 

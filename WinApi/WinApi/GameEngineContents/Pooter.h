@@ -33,5 +33,6 @@ private:
 	float NowTime = 0.0f;
 	int PooterHp = 3;
 	int RESET = 1;
+	bool PooterDeathcheck = false;
 };
 

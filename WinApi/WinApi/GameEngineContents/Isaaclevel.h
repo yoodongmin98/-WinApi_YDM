@@ -22,7 +22,15 @@ public:
 	void SoundLoad();
 	void ImageLoad();
 
-
+	void Room1Set();
+	void Room2Set();
+	void Room3Set();
+	void Room4Set();
+	void Room5Set();
+	void Room6Set();
+	void Room7Set();
+	void Room8Set();
+	void Room9Set();
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;
@@ -64,6 +72,5 @@ private:
 
 	void CreateRoom(int _X, int _Y, int _MapKey);
 	void CreateDoor();
-
 };
 

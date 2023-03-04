@@ -110,7 +110,7 @@ void Charger::Start()
 
 }
 
-bool ChargerDeathcheck = false;
+
 bool Check = true;
 void Charger::Update(float _DeltaTime)
 {

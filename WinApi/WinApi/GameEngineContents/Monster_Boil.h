@@ -36,5 +36,6 @@ private:
 	int MaxBoilHp = 10;
 	int BoilHp = 1;
 	int RESET = 1;
+	bool BoilDeathcheck = false;
 };
 
