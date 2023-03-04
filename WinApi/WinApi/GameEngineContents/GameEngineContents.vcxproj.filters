@@ -139,6 +139,9 @@
     <ClInclude Include="MapCollision.h">
       <Filter>Play\Playlevel\MapCollision</Filter>
     </ClInclude>
+    <ClInclude Include="BossLoding.h">
+      <Filter>BossLoding</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -293,6 +296,9 @@
     </ClCompile>
     <ClCompile Include="RoomSet.cpp">
       <Filter>Play\Playlevel\MapRenderSet\RoomSetting</Filter>
+    </ClCompile>
+    <ClCompile Include="BossLoding.cpp">
+      <Filter>BossLoding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +487,9 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting">
       <UniqueIdentifier>{ac50218d-416e-4870-8e9f-3fb7814c26f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BossLoding">
+      <UniqueIdentifier>{af6ede56-4379-4a79-8a79-a87f9e7264d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

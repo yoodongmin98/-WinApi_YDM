@@ -47,9 +47,12 @@ void MapCollision::Start()
 
 	//Room5Collision->SetPosition({ 2560 + 640,1440 + 130 });
 	
-	//Room6Collision = CreateCollision(RoomCollisionOrder::Room6);
-	//Room6Collision->SetDebugRenderType(CollisionType::CT_Rect);
-	//Room6Collision->SetScale({ 20, 200 });
+
+	Room6Collision = CreateCollision(RoomCollisionOrder::Room6);
+	Room6Collision->SetDebugRenderType(CollisionType::CT_Rect);
+	Room6Collision->SetScale({ 200, 20 });
+	Room6Collision->SetPosition({ 300, 600 });
+	 
 	//Room6Collision->SetPosition({ 3840 + 180,1440 + 340 });
 	//
 	//Room7Collision = CreateCollision(RoomCollisionOrder::Room7);
@@ -121,7 +124,7 @@ void MapCollision::Render(float _DeltaTime)
 	//Room1Collision->DebugRender();
 	//Room2Collision->DebugRender();
 	Room5Collision->DebugRender();
-	//Room6Collision->DebugRender();
+	Room6Collision->DebugRender();
 	//Room7Collision->DebugRender();
 	//Room6Collision->DebugRender();
 	

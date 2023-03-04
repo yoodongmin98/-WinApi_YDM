@@ -26,6 +26,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="BossLoding.h" />
     <ClInclude Include="Charger.h" />
     <ClInclude Include="Clot.h" />
     <ClInclude Include="Clotty.h" />
@@ -137,6 +138,7 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="BossLoding.cpp" />
     <ClCompile Include="Charger.cpp" />
     <ClCompile Include="Clot.cpp" />
     <ClCompile Include="Clotty.cpp" />
