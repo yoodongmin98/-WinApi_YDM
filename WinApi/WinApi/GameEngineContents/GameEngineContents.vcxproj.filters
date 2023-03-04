@@ -136,6 +136,9 @@
     <ClInclude Include="BlackLotus.h">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClInclude>
+    <ClInclude Include="MapCollision.h">
+      <Filter>Play\Playlevel\MapCollision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -284,6 +287,9 @@
     </ClCompile>
     <ClCompile Include="BlackLotus.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
+    </ClCompile>
+    <ClCompile Include="MapCollision.cpp">
+      <Filter>Play\Playlevel\MapCollision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -466,6 +472,9 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\Room">
       <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapCollision">
+      <UniqueIdentifier>{96306726-8fbe-4da3-b718-166784ce8145}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

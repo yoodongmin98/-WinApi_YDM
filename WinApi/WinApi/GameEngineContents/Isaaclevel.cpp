@@ -21,7 +21,7 @@
 #include "BombNumber.h"
 #include "CoinNumber.h"
 #include "KeyNumber.h"
-#include "RoomSetCollision.h"
+#include "MapCollision.h"
 
 
 /////Monster
@@ -80,6 +80,7 @@ void IsaacLevel::Loading()
 	// 액터 생성
 	{
 		CreateActor<Isaac>();
+		CreateActor<MapCollision>();
 
 		Room::RoomCreateStart();
 		                        //						 (Start) (obj) (item)
@@ -118,26 +119,26 @@ void IsaacLevel::Loading()
 
 
 		//몬스터
-		/*Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
-		TestMonster->SetPos({ 200,200 });
-		Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
-		TestMonster1->SetPos({ 200,300 });
-		Gaper* NewGaper= CreateActor<Gaper>();
-		NewGaper->SetPos({ 200,400 });
-		Boil* TestBoil = CreateActor<Boil>();
-		TestBoil->SetPos({ 300,400 });
-		Charger* NewCharger = CreateActor<Charger>();
-		NewCharger->SetPos({ 300,500 });
-		Pooter* NewPooter = CreateActor<Pooter>();
-		NewPooter->SetPos({ 300,400 });
-		MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
-		NewMuliBoom->SetPos({ 300,400 });
-		Host* TestHost = CreateActor<Host>();
-		TestHost->SetPos({ 300,100 });
-		Clot* TestClot = CreateActor<Clot>();
-		TestClot->SetPos({ 500,500 });
-		Clotty* TestClotty = CreateActor<Clotty>();
-		TestClotty->SetPos({ 500,300 });*/
+		//Monster_Fly* TestMonster=CreateActor<Monster_Fly>();
+		//TestMonster->SetPos({ 200,200 });
+		//Monster_Blob* TestMonster1 = CreateActor<Monster_Blob>();
+		//TestMonster1->SetPos({ 200,300 });
+		//Gaper* NewGaper= CreateActor<Gaper>();
+		//NewGaper->SetPos({ 200,400 });
+		//Boil* TestBoil = CreateActor<Boil>();
+		//TestBoil->SetPos({ 300,400 });
+		//Charger* NewCharger = CreateActor<Charger>();
+		//NewCharger->SetPos({ 300,500 });
+		//Pooter* NewPooter = CreateActor<Pooter>();
+		//NewPooter->SetPos({ 300,400 });
+		//MuliBoom* NewMuliBoom = CreateActor<MuliBoom>();
+		//NewMuliBoom->SetPos({ 300,400 });
+		//Host* TestHost = CreateActor<Host>();
+		//TestHost->SetPos({ 300,100 });
+		//Clot* TestClot = CreateActor<Clot>();
+		//TestClot->SetPos({ 500,500 });
+		//Clotty* TestClotty = CreateActor<Clotty>();
+		//TestClotty->SetPos({ 500,300 });
 
 
 

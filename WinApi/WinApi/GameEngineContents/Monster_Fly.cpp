@@ -78,12 +78,18 @@ void Monster_Fly::Start()
 		M_fly_Coll->On();
 		M_fly_Coll->SetDebugRenderType(CollisionType::CT_Rect);
 	}
-	
+
+	FlyHp = 3;
 }
 
 bool Deathcheck = false;
 void Monster_Fly::Update(float _DeltaTime)
 {
+	if (0 >= FlyHp)
+	{
+		M_fly->ChangeAnimation("M_fly_Dead");
+		Deathcheck = true;
+	}
 	if (true == Deathcheck) //hp가 떨어진게 확인되면
 	{
 		M_fly->Death();
@@ -124,12 +130,17 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 	CollisionCheckParameter Check2 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_U), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 	CollisionCheckParameter Check3 = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_PlayerAtt_D), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 
+
+
+
+
+
 	//함수짤 시간에 그냥 복붙을하겠노라
 	if (true == M_fly_Coll->Collision(Check, FCollisions)) //PlayerAtt에 닿았을때
 	{
 		M_fly->ChangeAnimation("M_fly_Damage");
 		FCollisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
-		SetMove(float4::Left * 20); //맞으면 밀려남(매끄럽게안밀려남) 방향에따른 설정도해야할듯
+		SetMove(float4::Left * 20); //맞으면 밀려남(매끄럽게안밀려남)
 
 		if (1 == RESET)
 		{
@@ -137,12 +148,15 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 			RESET = 0;
 			M_fly_Coll->Off(); //맞아도 일정시간동안 상호작용이안된다.
 		}
-		if (0 >= FlyHp)
-		{
-			M_fly->ChangeAnimation("M_fly_Dead");
-			Deathcheck = true;
-		}
+		
 	}
+
+
+
+
+
+
+
 	if (true == M_fly_Coll->Collision(Check1, FCollisions)) 
 	{
 		M_fly->ChangeAnimation("M_fly_Damage");
@@ -154,11 +168,6 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 			FlyHp = FlyHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;
 			M_fly_Coll->Off(); 
-		}
-		if (0 >= FlyHp)
-		{
-			M_fly->ChangeAnimation("M_fly_Dead");
-			Deathcheck = true;
 		}
 	}
 	if (true == M_fly_Coll->Collision(Check2, FCollisions)) 
@@ -173,11 +182,6 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 			RESET = 0;
 			M_fly_Coll->Off(); 
 		}
-		if (0 >= FlyHp)
-		{
-			M_fly->ChangeAnimation("M_fly_Dead");
-			Deathcheck = true;
-		}
 	}
 	if (true == M_fly_Coll->Collision(Check3, FCollisions)) 
 	{
@@ -190,11 +194,6 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 			FlyHp = FlyHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;
 			M_fly_Coll->Off(); 
-		}
-		if (0 >= FlyHp)
-		{
-			M_fly->ChangeAnimation("M_fly_Dead");
-			Deathcheck = true;
 		}
 	}
 	

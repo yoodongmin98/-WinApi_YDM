@@ -23,16 +23,6 @@ public:
 	void ImageLoad();
 
 
-	void Room1Set();
-
-
-
-
-
-
-
-
-
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;

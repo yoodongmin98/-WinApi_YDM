@@ -50,6 +50,7 @@
     <ClInclude Include="Host.h" />
     <ClInclude Include="ItemHeart.h" />
     <ClInclude Include="Leo.h" />
+    <ClInclude Include="MapCollision.h" />
     <ClInclude Include="Monster_Boil.h" />
     <ClInclude Include="Monster_Gaper.h" />
     <ClInclude Include="Heart.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Host.cpp" />
     <ClCompile Include="ItemHeart.cpp" />
     <ClCompile Include="Leo.cpp" />
+    <ClCompile Include="MapCollision.cpp" />
     <ClCompile Include="Monster_Boil.cpp" />
     <ClCompile Include="Monster_Gaper.cpp" />
     <ClCompile Include="Heart.cpp">
@@ -336,6 +338,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -351,6 +354,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -366,6 +370,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -381,6 +386,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

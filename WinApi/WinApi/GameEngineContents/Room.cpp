@@ -140,7 +140,6 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 		Room* LinkRoom = FindIter->second;
 
 		///////////////// 액터 배치부분
-		//0,0								    //Start                        ㅁ  ㅁ  ㅁ 
 		
 	
 		ROOMDIR EnumDir = static_cast<ROOMDIR>(i);
@@ -279,7 +278,7 @@ void Room::Render(float _DeltaTime)
 {
 	//LinkDoorCollision->DebugRender();
 	//ThisDoorCollision->DebugRender();
-	Room1Collision->DebugRender();
+	
 }
 
 
