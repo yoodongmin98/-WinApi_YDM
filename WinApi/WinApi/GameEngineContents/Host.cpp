@@ -91,7 +91,7 @@ void Host::Update(float _DeltaTime)
 
 
 
-bool HostTearbool = true;
+
 void Host::CollisionCheck(float _DeltaTime)
 {
 	NowTime += _DeltaTime;
@@ -106,9 +106,20 @@ void Host::CollisionCheck(float _DeltaTime)
 			if (true == HostTearbool&&false== HostDeathcheck)
 			{
 				float4 PlayerPos = Isaac::MainPlayer->GetPos() - GetPos();
+
 				BloodTear* NewBloodTear = GetLevel()->CreateActor<BloodTear>();
 				NewBloodTear->SetBloodMoveDir(PlayerPos);
 				NewBloodTear->SetPos(GetPos());
+
+				BloodTear* NewBloodTear1 = GetLevel()->CreateActor<BloodTear>();
+				NewBloodTear1->SetBloodMoveDir(PlayerPos + float4::Up * 60);
+				NewBloodTear1->SetPos(GetPos());
+
+				BloodTear* NewBloodTear2 = GetLevel()->CreateActor<BloodTear>();
+				NewBloodTear2->SetBloodMoveDir(PlayerPos + float4::Down * 60);
+				NewBloodTear2->SetPos(GetPos());
+
+
 				HostTearbool = false;
 			}
 			

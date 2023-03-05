@@ -46,10 +46,6 @@ enum class IsaacCollisionOrder
 
 	C_Isaac_Bomb,
 
-};
-
-enum class RoomCollisionOrder
-{
 	Room1,
 	Room2,
 	Room3,
@@ -60,5 +56,5 @@ enum class RoomCollisionOrder
 	Room8,
 	Room9,
 	Room10,
-
 };
+

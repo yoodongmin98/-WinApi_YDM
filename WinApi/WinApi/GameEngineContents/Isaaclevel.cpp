@@ -81,7 +81,7 @@ void IsaacLevel::Loading()
 	// 액터 생성
 	{
 		CreateActor<Isaac>();
-		CreateActor<MapCollision>();
+		CreateActor<MapCollision>(); //<<이녀석입니당
 		
 		Room::RoomCreateStart();
 		//						 (Start) (obj) (item)
@@ -115,9 +115,22 @@ void IsaacLevel::Loading()
 
 void IsaacLevel::Update(float _DeltaTime)
 {
-	
+	LevelUpdateTime += _DeltaTime;
 	MapMoveUpdate();
-	
+	if (true == BossLoadBool &&
+		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room8), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	{
+		BossLoadBool = false;
+		LevelUpdateTime = 0.0f;
+		GameEngineCore::GetInst()->ChangeLevel("BossLoad");
+		PLAYBGMPLAYER.Stop();	
+	}
+	if (LevelUpdateTime > 0.2f&& false==BossLoadBool&& true==BossSoundBool)
+	{
+		BossSoundBool = false;
+		PLAYBGMBOSS = GameEngineResources::GetInst().SoundPlayToControl("basicbossfight.ogg");
+		PLAYBGMBOSS.Volume(0.1f);
+	}
 	if (true == Map_Move)
 	{
 		P_Time += _DeltaTime * MapMoveSpeed;

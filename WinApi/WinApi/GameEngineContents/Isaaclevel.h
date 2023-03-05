@@ -39,6 +39,7 @@ protected:
 	void LevelChangeStart(GameEngineLevel* _PrevLevel) override;
 
 	GameEngineSoundPlayer PLAYBGMPLAYER;
+	GameEngineSoundPlayer PLAYBGMBOSS;
 private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
@@ -50,11 +51,16 @@ private:
 
 
 	bool Map_Move = false;
+	bool BossLoadBool = true;
+	bool BossSoundBool = true;
+
+
 	
 	float4 MapS = float4::Zero;
 	float4 MapE = float4::Zero;
 
 	float P_Time = 0.0f;
+	float LevelUpdateTime = 0.0f;
 
 	float MapMaxXvalue = 1050.f;
 

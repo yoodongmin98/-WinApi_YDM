@@ -112,7 +112,7 @@ void MuliBoom::Movecalculation(float _DeltaTime)
 	float4 M_Move = Isaac::MainPlayer->GetPos() - GetPos();
 	M_Move.Normalize();
 
-	SetMove(M_Move * 50.0f * _DeltaTime);
+	SetMove(M_Move * 40.0f * _DeltaTime);
 }
 
 void MuliBoom::HpCheck(float _DeltaTime)

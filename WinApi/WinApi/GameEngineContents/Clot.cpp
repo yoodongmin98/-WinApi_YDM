@@ -125,7 +125,7 @@ void Clot::Movecalculation(float _DeltaTime)
 		M_Move = float4::Zero;
 	}
 
-	SetMove(M_Move * 50.0f * _DeltaTime);
+	SetMove(M_Move * 40.0f * _DeltaTime);
 }
 
 

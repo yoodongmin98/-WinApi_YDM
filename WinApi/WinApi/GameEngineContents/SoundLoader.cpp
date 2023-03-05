@@ -24,10 +24,11 @@ void IsaacLevel::SoundLoad()
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("hurtgrunt1.wav"));//아이작이아파요2
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("hurtgrunt2.wav"));//아이작이아파요3
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("dimepickup.wav"));//동전주움
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("basicbossfight.ogg"));//보스방 브금 ㅇㅇ
 		}
 		
+		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
+		PLAYBGMPLAYER.Volume(0.05f); //죽고 메인메뉴로 돌아가는거때문에 아이작이관리 해야되는디.. static이라 귀찬타 나중에
 		PlayBool = false;
 	}
-	PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
-	PLAYBGMPLAYER.Volume(0.05f); //죽고 메인메뉴로 돌아가는거때문에 아이작이관리 해야되는디.. static이라 귀찬타 나중에
 }

@@ -153,7 +153,7 @@ void Pooter::Movecalculation(float _DeltaTime)
 		M_Move = float4::Zero;
 	}
 
-	SetMove(M_Move * 50.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
+	SetMove(M_Move * 15.0f * _DeltaTime); //안따라다니게할때는 M_Move를 다르게설정하면될듯 >>움직이는 제한pos를 BackGround_CS로 해야함
 }
 
 

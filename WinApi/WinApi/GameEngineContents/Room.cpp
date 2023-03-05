@@ -177,6 +177,12 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 
 				LinkBossDoorRightRender->SetPosition({ 1180,380 });
 				LinkBossDoorRightRender->SetScale({ 200,150 });
+
+				ThisDoorCollision->SetPosition({ 130,380 });
+				ThisDoorCollision->SetScale({ 15,15 });
+
+				LinkDoorCollision->SetPosition({ 1150,380 });
+				LinkDoorCollision->SetScale({ 15,15 });
 			}
 			else
 			{

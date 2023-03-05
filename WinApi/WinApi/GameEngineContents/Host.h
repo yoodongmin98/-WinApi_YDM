@@ -32,5 +32,6 @@ private:
 	int HostHp = 5;
 	int RESET = 1;
 	bool HostDeathcheck = false;
+	bool HostTearbool = true;
 };
 

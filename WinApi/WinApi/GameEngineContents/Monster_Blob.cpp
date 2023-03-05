@@ -101,7 +101,7 @@ void Monster_Blob::Movecalculation(float _DeltaTime)
 		M_Move = float4::Zero;
 	}
 
-	SetMove(M_Move * 70.0f * _DeltaTime); 
+	SetMove(M_Move * 50.0f * _DeltaTime); 
 }
 
 

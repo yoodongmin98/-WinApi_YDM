@@ -31,6 +31,9 @@ private:
 	bool Room1 = true;
 	bool Room2 = true;
 	bool Room5 = true;
+	bool Room6 = true;
+	bool Room7 = true;
+	
 
 };
 

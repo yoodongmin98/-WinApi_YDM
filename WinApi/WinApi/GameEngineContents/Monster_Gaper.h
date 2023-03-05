@@ -32,7 +32,7 @@ private:
 	GameEngineCollision* M_GaperBody_Coll = nullptr;
 	GameEngineCollision* M_GaperBodys_SetColl_R = nullptr;
 
-	float GaperSpeed = 100.0f;
+	float GaperSpeed = 60.0f;
 	float NowTime = 0.0f;
 	int GaperHp = 6;
 	int RESET = 1;

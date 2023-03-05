@@ -4,6 +4,7 @@
 #include "IsaacIntro.h"
 #include "TitleLevel.h"
 #include "LoadLevel.h"
+#include "BossLoding.h"
 
 
 
@@ -37,9 +38,8 @@ void IsaacCore::Start()
 	CreateLevel<TitleLevel>("TitleLevel");
 	CreateLevel<LoadLevel>("Loading");
 	CreateLevel<IsaacLevel>("PlayIsaac");
-	//보스몬스터방 들어가기전로딩
-	//보스몬스터로딩후 다시 playlevel로돌아갈건지
-	//아니면 새로운level을만들어서 넘어갈건지 >>편한대로
+	CreateLevel<BossLoadLevel>("BossLoad");
+	
 	ChangeLevel("PlayIsaac");
 }
 
