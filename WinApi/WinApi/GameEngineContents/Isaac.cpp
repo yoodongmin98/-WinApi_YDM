@@ -498,5 +498,5 @@ void Isaac::TEARSOUNDS()
 }
 void Isaac::Render(float _DeltaTime)
 {
-	IsaacCollision->DebugRender();
+	//IsaacCollision->DebugRender();
 }

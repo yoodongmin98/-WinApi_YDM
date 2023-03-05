@@ -35,5 +35,6 @@ private:
 	int RESET = 1;
 
 	bool ClotDeathcheck = false;
+	bool Countbool = true;
 };
 

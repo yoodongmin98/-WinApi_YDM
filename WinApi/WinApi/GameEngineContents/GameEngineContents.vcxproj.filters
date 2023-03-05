@@ -142,6 +142,12 @@
     <ClInclude Include="BossLoding.h">
       <Filter>BossLoding</Filter>
     </ClInclude>
+    <ClInclude Include="Monstro.h">
+      <Filter>Play\Isaac\Monster\BossMonster\Monstro</Filter>
+    </ClInclude>
+    <ClInclude Include="MonstroHpBar.h">
+      <Filter>Play\Isaac\Monster\BossMonster\BossHp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -294,11 +300,17 @@
     <ClCompile Include="MapCollision.cpp">
       <Filter>Play\Playlevel\MapCollision</Filter>
     </ClCompile>
-    <ClCompile Include="RoomSet.cpp">
+    <ClCompile Include="RoomActorSet.cpp">
       <Filter>Play\Playlevel\MapRenderSet\RoomSetting</Filter>
     </ClCompile>
     <ClCompile Include="BossLoding.cpp">
       <Filter>BossLoding</Filter>
+    </ClCompile>
+    <ClCompile Include="Monstro.cpp">
+      <Filter>Play\Isaac\Monster\BossMonster\Monstro</Filter>
+    </ClCompile>
+    <ClCompile Include="MonstroHpbar.cpp">
+      <Filter>Play\Isaac\Monster\BossMonster\BossHp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -490,6 +502,12 @@
     </Filter>
     <Filter Include="BossLoding">
       <UniqueIdentifier>{af6ede56-4379-4a79-8a79-a87f9e7264d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\BossMonster\Monstro">
+      <UniqueIdentifier>{81293573-ac00-45f5-9fae-d30e1c961971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\BossMonster\BossHp">
+      <UniqueIdentifier>{619e0c44-6d6a-4b39-8fa9-02e55b1822bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

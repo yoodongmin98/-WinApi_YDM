@@ -104,6 +104,11 @@ void Gaper::Update(float _DeltaTime)
 {
 	if (true == GaperDeathcheck)
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Gaper_Coll->Death();
 		M_GaperBody_Coll->Death();
 		M_GaperBodys_SetColl_R->Death();

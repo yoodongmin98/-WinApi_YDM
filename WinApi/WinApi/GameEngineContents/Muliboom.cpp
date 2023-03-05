@@ -98,6 +98,11 @@ void MuliBoom::Update(float _DeltaTime)
 {
 	if (true == MuliBoomDeathcheck)
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		Bomb* MuliBoomBomb = GetLevel()->CreateActor<Bomb>();
 		MuliBoomBomb->SetPos(GetPos());
 		Death();

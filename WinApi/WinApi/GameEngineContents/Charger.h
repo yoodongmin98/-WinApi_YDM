@@ -45,5 +45,6 @@ private:
 	int RESET = 1;
 
 	bool ChargerDeathcheck = false;
+	bool Countbool = true;
 };
 

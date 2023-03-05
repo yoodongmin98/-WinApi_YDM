@@ -117,12 +117,12 @@ void Boil::HpCheck(float _DeltaTime)
 	if (1 == BoilHp) { M_Boil->ChangeAnimation("BoilHp1"); }
 }
 
-bool RenderCheck = true;
+
 void Boil::CollisionCheck(float _DeltaTime)
 {
 	NowTime += _DeltaTime;
 
-	if (NowTime >= 0.3f) //상호작용시간
+	if (NowTime >= 0.1f) //상호작용시간
 	{
 		NowTime = 0.0f;
 		
@@ -131,6 +131,11 @@ void Boil::CollisionCheck(float _DeltaTime)
 		RESET = 1;
 		if (true == BoilDeathcheck)
 		{
+			if (true == Countbool)
+			{
+				Isaac::MainPlayer->MinusMonsterCount(1);
+				Countbool = false;
+			}
 			
 			if(true==RenderCheck)
 			{

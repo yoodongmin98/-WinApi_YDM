@@ -16,7 +16,7 @@ public:
 	IsaacLevel& operator=(const IsaacLevel& _Other) = delete;
 	IsaacLevel& operator=(IsaacLevel&& _Other) noexcept = delete;
 
-	
+	void BaseMentUpdate(float _DeltaTime);
 	void MapMoveUpdate();
 	void SettingMenuUpdate();
 	void SoundLoad();
@@ -44,6 +44,7 @@ private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
 	GameEngineRender* BackDrop = nullptr;
+	GameEngineRender* BaseMent = nullptr;
 	
 
 
@@ -77,6 +78,5 @@ private:
 	float UpSetValue = 130.0f;
 
 	void CreateRoom(int _X, int _Y, int _MapKey);
-	void CreateDoor();
 };
 

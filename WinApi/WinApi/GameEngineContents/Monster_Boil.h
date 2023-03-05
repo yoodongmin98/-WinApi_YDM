@@ -37,5 +37,7 @@ private:
 	int BoilHp = 1;
 	int RESET = 1;
 	bool BoilDeathcheck = false;
+	bool RenderCheck = true;
+	bool Countbool = true;
 };
 

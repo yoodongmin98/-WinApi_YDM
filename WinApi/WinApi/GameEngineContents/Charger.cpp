@@ -116,6 +116,11 @@ void Charger::Update(float _DeltaTime)
 {
 	if (true == ChargerDeathcheck)
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Charger_SetColl_U->Death();
 		M_Charger_SetColl_D->Death();
 		M_Charger_SetColl_L->Death();

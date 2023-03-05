@@ -35,6 +35,7 @@
 #include "Host.h"
 #include "Clot.h"
 #include "Clotty.h"
+#include "Monstro.h"
 
 
 
@@ -78,11 +79,18 @@ void IsaacLevel::Loading()
 	AllBack* Image = CreateActor<AllBack>();
 	BackDrop = Image->CreateRender("BackDrop.BMP", IsaacOrder::R_Door);
 	BackDrop->SetScale({ 600,150 });
+
+	BaseMent = Image->CreateRender("Basement1.BMP", IsaacOrder::R_Door);
+	BaseMent->SetScale({ 600,100 });
+	BaseMent->SetPosition({ -800,-250 });
+
+	
 	// 액터 생성
 	{
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); //<<이녀석입니당
 		
+
 		Room::RoomCreateStart();
 		//						 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ㅁ  ㅁ  ㅁ 
@@ -112,29 +120,34 @@ void IsaacLevel::Loading()
 	}
 }
 
-
 void IsaacLevel::Update(float _DeltaTime)
 {
 	LevelUpdateTime += _DeltaTime;
+
+	BaseMentUpdate(_DeltaTime);
 	MapMoveUpdate();
 	if (true == BossLoadBool &&
 		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room8), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 	{
 		BossLoadBool = false;
+		Isaac::MainPlayer->SetMonsterCount(1);
 		LevelUpdateTime = 0.0f;
 		GameEngineCore::GetInst()->ChangeLevel("BossLoad");
-		PLAYBGMPLAYER.Stop();	
+		PLAYBGMPLAYER.Stop();
+		
 	}
 	if (LevelUpdateTime > 0.2f&& false==BossLoadBool&& true==BossSoundBool)
 	{
 		BossSoundBool = false;
-		PLAYBGMBOSS = GameEngineResources::GetInst().SoundPlayToControl("basicbossfight.ogg");
-		PLAYBGMBOSS.Volume(0.1f);
+		PLAYBGMBOSS.PauseOff();
+		Monstro* BossMonstro = CreateActor<Monstro>();
+		BossMonstro->SetPos({ 5120 + 1280 + 900,720 + 300 });
 	}
 	if (true == Map_Move)
 	{
 		P_Time += _DeltaTime * MapMoveSpeed;
 	}
+	
 	
 	/*if (true == GameEngineInput::IsDown("LoadMenu"))
 	{
@@ -162,9 +175,26 @@ void IsaacLevel::CreateRoom(int _X, int _Y, int _MapKey)
 {
 	Room* NewRoom = CreateActor<Room>();
 	NewRoom->SetTileIndex(_X, _Y, _MapKey);
+	
 }
 
-void IsaacLevel::CreateDoor()
-{
 
+void IsaacLevel::BaseMentUpdate(float _DeltaTime)
+{
+	float4 BaseMentPos = BaseMent->GetPosition();
+	BaseMentPos += float4::Right * 10.0f * LevelUpdateTime;
+
+	if (BaseMentPos.x >= 0.0f)
+	{
+		BaseMentPos = BaseMent->GetPosition();
+	}
+	if (LevelUpdateTime > 3.0f)
+	{
+		BaseMentPos += float4::Right * 3.0f * LevelUpdateTime;
+	}
+	BaseMent->SetPosition(BaseMentPos);
+	if (BaseMentPos.x > 1000.0) //화면넘어가면 없애버린다
+	{
+		BaseMent->Death();
+	}
 }

@@ -107,6 +107,11 @@ void Clot::Update(float _DeltaTime)
 	
 	if (true == ClotDeathcheck)
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Clot->Death();
 		M_Clot_Coll->Death();
 		M_Clot_SetColl_R->Death();

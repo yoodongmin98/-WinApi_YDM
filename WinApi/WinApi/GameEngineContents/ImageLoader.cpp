@@ -50,7 +50,7 @@ void IsaacLevel::ImageLoad()
 			Number_UI->Cut(3, 2);
 			GameEngineImage* Number_ = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Number.bmp"));
 			Number_->Cut(10, 1);
-
+			GameEngineImage* BaseMent = GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Basement1.bmp"));
 
 
 

@@ -83,6 +83,11 @@ void Monster_Blob::Update(float _DeltaTime)
 {
 	if (true == BlobDeathcheck)
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Blob->Death();
 		M_Blob_Coll->Death();
 		M_Blob_SetColl_R->Death();

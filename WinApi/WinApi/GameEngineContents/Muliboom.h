@@ -37,5 +37,6 @@ private:
 	int MuliBoomHp = 6;
 	int RESET = 1;
 	bool MuliBoomDeathcheck = false;
+	bool Countbool = true;
 };
 

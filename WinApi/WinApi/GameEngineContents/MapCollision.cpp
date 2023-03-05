@@ -75,7 +75,7 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room1 = false;
 		Room1Collision->Death(); //한번만 작용하게끔
-
+		Isaac::MainPlayer->SetMonsterCount(4);
 		Monster_Fly* Room1Fly = GetLevel()->CreateActor<Monster_Fly>();
 		Room1Fly->SetPos({300,720+400});
 		Monster_Fly* Room1Fly2 = GetLevel()->CreateActor<Monster_Fly>();
@@ -91,7 +91,7 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room2 = false;
 		Room2Collision->Death();
-
+		Isaac::MainPlayer->SetMonsterCount(4);
 		Charger* Room2Charger1 = GetLevel()->CreateActor<Charger>();
 		Room2Charger1->SetPos({ 1280+600,720 + 200 });
 		Charger* Room2Charger2 = GetLevel()->CreateActor<Charger>();
@@ -106,7 +106,7 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room5 = false;
 		Room5Collision->Death();
-
+		Isaac::MainPlayer->SetMonsterCount(4);
 		Host* Room5Host1 = GetLevel()->CreateActor<Host>();
 		Room5Host1->SetPos({ 2560 + 560,1440 + 290 });
 		Host* Room5Host2 = GetLevel()->CreateActor<Host>();
@@ -122,7 +122,7 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room6 = false;
 		Room6Collision->Death();
-
+		Isaac::MainPlayer->SetMonsterCount(4);
 		Gaper* Room6Gaper = GetLevel()->CreateActor<Gaper>();
 		Room6Gaper->SetPos({ 3840 + 500,1440 + 250 });
 		Gaper* Room6Gaper2 = GetLevel()->CreateActor<Gaper>();
@@ -140,7 +140,7 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room7 = false;
 		Room7Collision->Death();
-
+		Isaac::MainPlayer->SetMonsterCount(4);
 		Boil* Room7Boil1 = GetLevel()->CreateActor<Boil>();
 		Room7Boil1->SetPos({ 5120 + 170,1440 + 130 });
 		Boil* Room7Boil2 = GetLevel()->CreateActor<Boil>();

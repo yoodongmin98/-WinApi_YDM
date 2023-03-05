@@ -46,6 +46,7 @@ void IsaacLevel::MapMoveUpdate()
 		if (false == Map_Move)
 		{
 			if (PlayerXPos > RightSetValue && GameEngineInput::IsPress("RightMove")
+				&&0==Isaac::MainPlayer->GetMonsterCount()
 				&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 			{
 				MapE = MapS + float4(SizeValue, 0);
@@ -55,6 +56,7 @@ void IsaacLevel::MapMoveUpdate()
 			}
 
 			if (PlayerXPos < LeftSetValue && GameEngineInput::IsPress("LeftMove")
+				&& 0 == Isaac::MainPlayer->GetMonsterCount()
 				&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 			{
 				MapE = MapS + float4(-SizeValue, 0);
@@ -64,6 +66,7 @@ void IsaacLevel::MapMoveUpdate()
 			}
 
 			if (PlayerYPos > DownSetValue && GameEngineInput::IsPress("DownMove")
+				&& 0 == Isaac::MainPlayer->GetMonsterCount()
 				&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 			{
 				MapE = MapS + float4(0, SizeValueY);
@@ -73,6 +76,7 @@ void IsaacLevel::MapMoveUpdate()
 			}
 
 			if (PlayerYPos < UpSetValue && GameEngineInput::IsPress("UpMove")
+				&& 0 == Isaac::MainPlayer->GetMonsterCount()
 				&& true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Door), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 			{
 				MapE = MapS + float4(0, -SizeValueY);

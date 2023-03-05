@@ -73,6 +73,8 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="Monster_Blob.h" />
+    <ClInclude Include="Monstro.h" />
+    <ClInclude Include="MonstroHpBar.h" />
     <ClInclude Include="Muliboom.h" />
     <ClInclude Include="Poop.h">
       <SubType>
@@ -192,6 +194,8 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="Monster_Blob.cpp" />
+    <ClCompile Include="Monstro.cpp" />
+    <ClCompile Include="MonstroHpbar.cpp" />
     <ClCompile Include="Muliboom.cpp" />
     <ClCompile Include="Poop.cpp">
       <SubType>
@@ -233,7 +237,7 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="RoomSet.cpp" />
+    <ClCompile Include="RoomActorSet.cpp" />
     <ClCompile Include="SettingMenu.cpp">
       <SubType>
       </SubType>

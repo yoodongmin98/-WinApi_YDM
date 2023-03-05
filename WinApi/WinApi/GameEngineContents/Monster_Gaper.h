@@ -37,5 +37,6 @@ private:
 	int GaperHp = 6;
 	int RESET = 1;
 	bool GaperDeathcheck = false;
+	bool Countbool = true;
 };
 

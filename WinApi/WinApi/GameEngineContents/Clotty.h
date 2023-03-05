@@ -34,5 +34,6 @@ private:
 	int ClottyHp = 4;
 	int RESET = 1;
 	bool ClottyDeathcheck = false;
+	bool Countbool = true;
 };
 

@@ -133,6 +133,11 @@ void Clotty::Update(float _DeltaTime)
 
 	if (true == ClottyDeathcheck)
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Clotty->Death();
 		M_Clotty_Coll->Death();
 		M_Clotty_SetColl_R->Death();

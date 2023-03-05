@@ -33,6 +33,7 @@ private:
 	bool Room5 = true;
 	bool Room6 = true;
 	bool Room7 = true;
+	bool Room8 = true;
 	
 
 };

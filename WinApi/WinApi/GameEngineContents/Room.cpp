@@ -49,6 +49,7 @@ void Room::Start()
 		Render->SetPosition(Render->GetImage()->GetImageScale().half());
 		Render->SetScaleToImage();
 	}
+
 	
 }
 

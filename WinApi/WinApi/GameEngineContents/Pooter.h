@@ -34,5 +34,6 @@ private:
 	int PooterHp = 3;
 	int RESET = 1;
 	bool PooterDeathcheck = false;
+	bool Countbool = true;
 };
 

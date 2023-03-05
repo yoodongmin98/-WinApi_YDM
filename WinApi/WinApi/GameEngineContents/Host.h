@@ -33,5 +33,6 @@ private:
 	int RESET = 1;
 	bool HostDeathcheck = false;
 	bool HostTearbool = true;
+	bool Countbool = true;
 };
 

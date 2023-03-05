@@ -32,5 +32,6 @@ private:
 	int FlyHp = 3;
 	int RESET = 1;
 	bool Deathcheck = false;
+	bool Countbool = true;
 };
 

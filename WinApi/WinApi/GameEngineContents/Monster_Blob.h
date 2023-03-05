@@ -33,5 +33,6 @@ private:
 	int BlobHp = 3;
 	int RESET = 1;
 	bool BlobDeathcheck = false;
+	bool Countbool = true;
 };
 

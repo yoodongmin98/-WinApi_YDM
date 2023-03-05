@@ -29,6 +29,9 @@ void IsaacLevel::SoundLoad()
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg");
 		PLAYBGMPLAYER.Volume(0.05f); //죽고 메인메뉴로 돌아가는거때문에 아이작이관리 해야되는디.. static이라 귀찬타 나중에
+		PLAYBGMBOSS = GameEngineResources::GetInst().SoundPlayToControl("basicbossfight.ogg");
+		PLAYBGMBOSS.Volume(0.1f);
+		PLAYBGMBOSS.PauseOn();
 		PlayBool = false;
 	}
 }

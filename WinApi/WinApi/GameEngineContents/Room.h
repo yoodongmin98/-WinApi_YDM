@@ -68,7 +68,7 @@ private:
 
 
 
-	GameEngineRender* ThisDoorUpRender = nullptr;
+	GameEngineRender* ThisDoorUpRender			= nullptr;
 	GameEngineRender* ThisDoorLeftRender		= nullptr;
 	GameEngineRender* ThisDoorRightRender		= nullptr;
 	GameEngineRender* ThisDoorDownRender		= nullptr;

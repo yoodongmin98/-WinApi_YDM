@@ -21,6 +21,7 @@ Monster_Fly::Monster_Fly()
 
 Monster_Fly::~Monster_Fly()
 {
+	
 }
 
 bool FlyLoad = true;
@@ -90,8 +91,14 @@ void Monster_Fly::Update(float _DeltaTime)
 		M_fly->ChangeAnimation("M_fly_Dead");
 		Deathcheck = true;
 	}
+	
 	if (true == Deathcheck) //hp가 떨어진게 확인되면
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_fly->Death();
 		M_fly_Coll->Death();
 		DeadRender->On();

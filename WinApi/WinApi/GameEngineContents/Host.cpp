@@ -82,6 +82,11 @@ void Host::Update(float _DeltaTime)
 {
 	if (true == HostDeathcheck) //hp가 떨어진게 확인되면
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Host->Death();
 		M_Host_Coll->Death();
 		DeadHost->On();

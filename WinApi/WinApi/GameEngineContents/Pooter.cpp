@@ -93,6 +93,11 @@ void Pooter::Update(float _DeltaTime)
 {
 	if (true == PooterDeathcheck) //hp가 떨어진게 확인되면
 	{
+		if (true == Countbool)
+		{
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			Countbool = false;
+		}
 		M_Pooter->ChangeAnimation("M_Pooter_Dead");
 		if (true == M_Pooter->IsAnimationEnd())
 		{
@@ -116,7 +121,6 @@ void Pooter::Update(float _DeltaTime)
 				BloodTear* PooterAtt = GetLevel()->CreateActor<BloodTear>();
 				PooterAtt->SetBloodMoveDir(PlayerPos_P);
 				PooterAtt->SetPos(GetPos());
-				int a = 0;
 			}
 			else
 			{
