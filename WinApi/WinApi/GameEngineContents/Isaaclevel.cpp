@@ -88,7 +88,7 @@ void IsaacLevel::Loading()
 	// 액터 생성
 	{
 		CreateActor<Isaac>();
-		CreateActor<MapCollision>(); //<<이녀석입니당
+		CreateActor<MapCollision>(); 
 		
 
 		Room::RoomCreateStart();
