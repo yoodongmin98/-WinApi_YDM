@@ -102,7 +102,7 @@ void Isaac::Update(float _DeltaTime)
 	}
 	
 	DeadMenu->Off(); //업데이트에서 꼭 해야하나??
-	DeathCheck(_DeltaTime);
+	//DeathCheck(_DeltaTime);
 	if (0 != GetPlayerHP())
 	{
 		Render(_DeltaTime);
