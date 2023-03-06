@@ -29,6 +29,9 @@ void IsaacCore::Start()
 	//폭탄 E
 	//공격키 상하좌우
 	//숫자1 = 폭탄,열쇠,하트 디버그
+	//숫자2 = 무적모드(근데맵이동을못함 ㅋㅋ)
+	//숫자3 = 무적모드해제
+	// R	= 플레이어 이동속도 빨라짐
 
 	new int();//릭이 제대로동작하는지 체크용
 	GameEngineWindow::SettingWindowSize({ 1280, 720 });
@@ -40,7 +43,7 @@ void IsaacCore::Start()
 	CreateLevel<IsaacLevel>("PlayIsaac");
 	CreateLevel<BossLoadLevel>("BossLoad");
 	
-	ChangeLevel("PlayIsaac");
+	ChangeLevel("IsaacIntro");
 }
 
 void IsaacCore::Update()

@@ -15,6 +15,7 @@
 
 #include "BloodTear.h"
 
+Monstro* Monstro::MainMonstro;
 
 Monstro::Monstro()
 {
@@ -44,6 +45,7 @@ void Monstro::ImageLoad()
 
 void Monstro::Start()
 {
+	MainMonstro = this;
 	if (true == MonstroLoad)
 	{
 		ImageLoad();

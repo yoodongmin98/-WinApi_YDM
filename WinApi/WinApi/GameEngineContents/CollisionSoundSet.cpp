@@ -2,7 +2,7 @@
 #include "Isaac.h"
 #include "Monstro.h"
 #include "IsaacEnum.h"
-
+#include "MonstroHpBar.h"
 
 
 
@@ -32,9 +32,10 @@ void IsaacLevel::CollisionSoundSet(float _DeltaTime)
 		PLAYBGMBOSS.PauseOff();
 		Monstro* BossMonstro = CreateActor<Monstro>();
 		BossMonstro->SetPos({ 5120 + 1280 + 900,720 + 300 });
+		BossHpbar* BossHpbars = CreateActor<BossHpbar>();
+		BossHpbars->SetPos({ 5120 + 1280 + 640,720 + 100 });
 	}
 
-	
 }
 
 

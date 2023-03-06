@@ -22,6 +22,7 @@
 #include "CoinNumber.h"
 #include "KeyNumber.h"
 #include "MapCollision.h"
+#include "MonstroHpBar.h"
 
 
 /////Monster
@@ -94,6 +95,7 @@ void IsaacLevel::Loading()
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); 
 
+
 		Room::RoomCreateStart();
 							 //							 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ¤±  ¤±  ¤± 
@@ -126,7 +128,6 @@ void IsaacLevel::Loading()
 
 void IsaacLevel::Update(float _DeltaTime)
 {
-
 	BaseMentUpdate(_DeltaTime);
 	MapMoveUpdate();
 
@@ -150,7 +151,7 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 void IsaacLevel::CreateRoom(int _X, int _Y, int _MapKey)
 {
 	Room* NewRoom = CreateActor<Room>();
-	NewRoom->SetTileIndex(_X, _Y, _MapKey);
+	NewRoom->SetTileIndex(_X, _Y, _MapKey); 
 	
 }
 

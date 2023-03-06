@@ -82,7 +82,7 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 		}
 		case 2:
 		{
-			GameEngineRender* Render = CreateRender("Room.BMP", IsaacOrder::R_BackGround);
+			GameEngineRender* Render = CreateRender("Room_Library.BMP", IsaacOrder::R_BackGround);
 			Render->SetPosition(Render->GetImage()->GetImageScale().half());
 			Render->SetScaleToImage();
 			break;

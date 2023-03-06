@@ -6,6 +6,7 @@
 class Monstro : public GameEngineActor
 {
 public:
+	static Monstro* MainMonstro;
 	Monstro();
 	~Monstro();
 
@@ -42,7 +43,7 @@ private:
 	float JumpCheckTime = 0.0f;
 
 
-	int MonstroHp = 50;
+	int MonstroHp = 33;
 	int RESET = 1;
 	bool MonstroDeathcheck = false;
 	bool AttackBool = true;

@@ -104,7 +104,7 @@ void MapCollision::Update(float _DeltaTime)
 		Room1 = false;
 		Room1Collision->Death(); //한번만 작용하게끔
 
-		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
 		Monster_Fly* Room1Fly = GetLevel()->CreateActor<Monster_Fly>();
 		Room1Fly->SetPos({300,720+400});
@@ -122,7 +122,7 @@ void MapCollision::Update(float _DeltaTime)
 		Room2 = false;
 		Room2Collision->Death();
 
-		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
 		Charger* Room2Charger1 = GetLevel()->CreateActor<Charger>();
 		Room2Charger1->SetPos({ 1280+600,720 + 200 });
@@ -139,7 +139,7 @@ void MapCollision::Update(float _DeltaTime)
 		Room5 = false;
 		Room5Collision->Death();
 
-		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
 		Host* Room5Host1 = GetLevel()->CreateActor<Host>();
 		Room5Host1->SetPos({ 2560 + 560,1440 + 290 });
@@ -157,7 +157,7 @@ void MapCollision::Update(float _DeltaTime)
 		Room6 = false;
 		Room6Collision->Death();
 
-		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
 		Gaper* Room6Gaper = GetLevel()->CreateActor<Gaper>();
 		Room6Gaper->SetPos({ 3840 + 500,1440 + 250 });
@@ -177,7 +177,7 @@ void MapCollision::Update(float _DeltaTime)
 		Room7 = false;
 		Room7Collision->Death();
 
-		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(여기가끝임)
+		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(여기가끝임)
 
 		Boil* Room7Boil1 = GetLevel()->CreateActor<Boil>();
 		Room7Boil1->SetPos({ 5120 + 170,1440 + 130 });
@@ -197,15 +197,15 @@ void MapCollision::Update(float _DeltaTime)
 }
 void MapCollision::Render(float _DeltaTime)
 {
-	Room1Collision->DebugRender();
-	Room2Collision->DebugRender();
-	Room3Collision->DebugRender();
-	Room4Collision->DebugRender();
-	Room5Collision->DebugRender();
-	Room6Collision->DebugRender();
-	Room7Collision->DebugRender();
-	Room8Collision->DebugRender();
-	Room8Collision2->DebugRender();
-	Room9Collision->DebugRender();
+	//Room1Collision->DebugRender();
+	//Room2Collision->DebugRender();
+	//Room3Collision->DebugRender();
+	//Room4Collision->DebugRender();
+	//Room5Collision->DebugRender();
+	//Room6Collision->DebugRender();
+	//Room7Collision->DebugRender();
+	//Room8Collision->DebugRender();
+	//Room8Collision2->DebugRender();
+	//Room9Collision->DebugRender();
 
 }

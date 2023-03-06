@@ -75,15 +75,15 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 
-		Head->CreateAnimation({ .AnimationName = "Up_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
-		Head->CreateAnimation({ .AnimationName = "Right_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
-		Head->CreateAnimation({ .AnimationName = "Down_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
-		Head->CreateAnimation({ .AnimationName = "Left_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Up_Pick",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 40 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Right_Pick",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 40 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Down_Pick",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 40 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Left_Pick",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 40 , .InterTime = 1.5f , .Loop = false });
 
-		Head->CreateAnimation({ .AnimationName = "Up_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
-		Head->CreateAnimation({ .AnimationName = "Right_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
-		Head->CreateAnimation({ .AnimationName = "Down_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
-		Head->CreateAnimation({ .AnimationName = "Left_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Up_Damaged",  .ImageName = "Isaac_Face.bmp", .Start = 41, .End = 41 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Right_Damaged",  .ImageName = "Isaac_Face.bmp", .Start = 41, .End = 41 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Down_Damaged",  .ImageName = "Isaac_Face.bmp", .Start = 41, .End = 41 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Left_Damaged",  .ImageName = "Isaac_Face.bmp", .Start = 41, .End = 41 , .InterTime = 1.0f , .Loop = false });
 
 		Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop = false });
 

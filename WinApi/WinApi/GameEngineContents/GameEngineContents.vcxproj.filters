@@ -136,9 +136,6 @@
     <ClInclude Include="BlackLotus.h">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClInclude>
-    <ClInclude Include="MapCollision.h">
-      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29</Filter>
-    </ClInclude>
     <ClInclude Include="BossLoding.h">
       <Filter>BossLoding</Filter>
     </ClInclude>
@@ -159,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="ShopKeeper.h">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\ShopKeeper</Filter>
+    </ClInclude>
+    <ClInclude Include="MapCollision.h">
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -309,9 +309,6 @@
     <ClCompile Include="BlackLotus.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClCompile>
-    <ClCompile Include="MapCollision.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29</Filter>
-    </ClCompile>
     <ClCompile Include="BossLoding.cpp">
       <Filter>BossLoding</Filter>
     </ClCompile>
@@ -338,6 +335,9 @@
     </ClCompile>
     <ClCompile Include="CollisionSoundSet.cpp">
       <Filter>Play\Playlevel\MapRenderSet\RoomSetting\CollisionSoundSet</Filter>
+    </ClCompile>
+    <ClCompile Include="MapCollision.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -553,6 +553,12 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\CollisionSoundSet">
       <UniqueIdentifier>{a56a8bc1-30d4-465c-93d1-95d2152162c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet">
+      <UniqueIdentifier>{9643ce5d-4baf-4545-a726-73100ff9d65c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\DoorAnimation">
+      <UniqueIdentifier>{93ec3c4f-07fa-4b62-acec-7e8bcd08e6b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
