@@ -26,6 +26,12 @@ void Isaac::ChangeState(IsaacState _State)
 	case IsaacState::MOVE:
 		MoveStart();
 		break;
+	case IsaacState::PICK:
+		PickStart();
+		break;
+	case IsaacState::DAMAGED:
+		DamagedStart();
+		break;
 	default:
 		break;
 	}
@@ -37,6 +43,12 @@ void Isaac::ChangeState(IsaacState _State)
 		break;
 	case IsaacState::MOVE:
 		MoveEnd();
+		break;
+	case IsaacState::PICK:
+		PickEnd();
+		break;
+	case IsaacState::DAMAGED:
+		DamagedEnd();
 		break;
 	default:
 		break;
@@ -53,6 +65,12 @@ void Isaac::UpdateState(float _Time)
 		break;
 	case IsaacState::MOVE:
 		MoveUpdate(_Time);
+		break;
+	case IsaacState::PICK:
+		PickUpdate(_Time);
+		break;
+	case IsaacState::DAMAGED:
+		DamagedUpdate(_Time);
 		break;
 	default:
 		break;
@@ -71,8 +89,8 @@ void Isaac::IdleUpdate(float _Time)
 	DirCheck("Idle");
 	if (GameEngineInput::IsPress("LeftMove") || GameEngineInput::IsPress("RightMove") || GameEngineInput::IsPress("DownMove") || GameEngineInput::IsPress("UpMove"))
 	{
-		ChangeState(IsaacState::MOVE);
 		DamageUpdate(_Time);
+		ChangeState(IsaacState::MOVE);
 	}
 }
 void Isaac::IdleEnd() {
@@ -93,8 +111,7 @@ void Isaac::MoveUpdate(float _Time)
 		false == GameEngineInput::IsPress("UpMove")
 		)
 	{
-		
-		DamageUpdate(_Time); //가만히서있어도 깜빡임이 적용되게끔
+		DamageUpdate(_Time);
 		ChangeState(IsaacState::IDLE);
 		
 		return;
@@ -117,12 +134,12 @@ void Isaac::MoveUpdate(float _Time)
 
 	 if (true == GameEngineInput::IsPress("UpMove"))
 	{
-		DamageUpdate(_Time);
+		 DamageUpdate(_Time);
 		MoveRange += float4::Up;
 	}
 	else if (true == GameEngineInput::IsPress("DownMove"))
 	{
-		DamageUpdate(_Time);
+		 DamageUpdate(_Time);
 		MoveRange += float4::Down;
 	}
 
@@ -138,6 +155,46 @@ void Isaac::MoveEnd()
 }
 
 
+void Isaac::PickStart()
+{
+	DirCheck("Pick");
+}
+void Isaac::PickUpdate(float _Time)
+{
+	PickUpTime += _Time;
+	DirCheck("Pick");
+	if (1.0f < PickUpTime)
+	{
+		ChangeState(IsaacState::IDLE);
+	}
+	
+}
+void Isaac::PickEnd()
+{
+	PickUpTime = 0.0f;
+}
+
+
+
+void Isaac::DamagedStart()
+{
+	DirCheck("Damaged");
+}
+void Isaac::DamagedUpdate(float _Time)
+{
+	DamagedTime += _Time;
+	DirCheck("Damaged");
+	DamageUpdate(_Time);
+	if (0.2f < DamagedTime)
+	{
+		ChangeState(IsaacState::IDLE);
+	}
+	
+}
+void Isaac::DamagedEnd()
+{
+	DamagedTime = 0.0f;
+}
 //일단 생각하기귀찮으니까 노가다로 해놓자....ㅋㅋ
 void Isaac::DamageUpdate(float _Time)
 {
@@ -255,5 +312,5 @@ void Isaac::DamageUpdate(float _Time)
 			Head->On();
 		}
 	}
-	}
+}
 

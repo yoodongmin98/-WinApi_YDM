@@ -62,3 +62,38 @@ void IsaacLevel::CollisionSoundSet3(float _DeltaTime)
 
 	}
 }
+
+
+void IsaacLevel::CollisionSoundSet4(float _DeltaTime)
+{
+	if (true == ItemRoomBool &&
+		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room4), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	{
+		ItemRoomBool = false;
+		PLAYBGMPLAYER.PauseOn();
+		PLAYBGMITEMROOM.PauseOff();
+
+	}
+}
+
+
+void IsaacLevel::CollisionSoundSet5(float _DeltaTime)
+{
+	if (false == ItemRoomBool &&
+		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room3), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	{
+		ItemRoomBool = true;
+		PLAYBGMPLAYER.PauseOff();
+		PLAYBGMITEMROOM.PauseOn();
+
+	}
+}
+
+void IsaacLevel::ALLCollisionSoundSet(float _DeltaTime)
+{
+	CollisionSoundSet(_DeltaTime);
+	CollisionSoundSet2(_DeltaTime);
+	CollisionSoundSet3(_DeltaTime);
+	CollisionSoundSet4(_DeltaTime);
+	CollisionSoundSet5(_DeltaTime);
+}

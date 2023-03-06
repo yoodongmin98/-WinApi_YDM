@@ -39,11 +39,25 @@ void MapCollision::Start()
 	Room1Collision->SetScale({ 200, 20 });
 	Room1Collision->SetPosition({ 640,720 + 120 });
 	
+
 	Room2Collision = CreateCollision(IsaacCollisionOrder::Room2);
 	Room2Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	Room2Collision->SetScale({ 20, 200 });
 	Room2Collision->SetPosition({ 1280 + 150,720 + 380 });
-	
+
+
+	Room3Collision = CreateCollision(IsaacCollisionOrder::Room3);
+	Room3Collision->SetDebugRenderType(CollisionType::CT_Rect);
+	Room3Collision->SetScale({ 200, 20 });
+	Room3Collision->SetPosition({ 2560+640,720 + 120 });
+
+
+	Room4Collision = CreateCollision(IsaacCollisionOrder::Room4);
+	Room4Collision->SetDebugRenderType(CollisionType::CT_Rect);
+	Room4Collision->SetScale({ 200, 20});
+	Room4Collision->SetPosition({ 2560 + 640, 600 });
+
+
 	Room5Collision = CreateCollision(IsaacCollisionOrder::Room5);
 	Room5Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	Room5Collision->SetScale({ 200, 20 });
@@ -55,20 +69,24 @@ void MapCollision::Start()
 	Room6Collision->SetScale({ 20, 200 });
 	Room6Collision->SetPosition({ 3840 + 150,1440 + 380 });
 	
+
 	Room7Collision = CreateCollision(IsaacCollisionOrder::Room7);
 	Room7Collision->SetDebugRenderType(CollisionType::CT_Rect);
 	Room7Collision->SetScale({ 20, 200 });
 	Room7Collision->SetPosition({ 5120+150,1440 + 380 });
 	
+
 	Room8Collision = CreateCollision(IsaacCollisionOrder::Room8);//보스
 	Room8Collision->SetScale({ 20, 200 });
 	Room8Collision->SetPosition({ 5120+1280+150,720 + 380 });
 	Room8Collision->SetDebugRenderType(CollisionType::CT_Rect);
 
+
 	Room8Collision2 = CreateCollision(IsaacCollisionOrder::Room8_2);
 	Room8Collision2->SetScale({ 200, 20 });
 	Room8Collision2->SetPosition({ 5120 + 640 ,720 + 130 });
 	Room8Collision2->SetDebugRenderType(CollisionType::CT_Rect);
+
 
 	Room9Collision = CreateCollision(IsaacCollisionOrder::Room9);//Shop //배경음악 바꾸기용
 	Room9Collision->SetScale({ 200, 20 });
@@ -181,11 +199,13 @@ void MapCollision::Render(float _DeltaTime)
 {
 	Room1Collision->DebugRender();
 	Room2Collision->DebugRender();
+	Room3Collision->DebugRender();
+	Room4Collision->DebugRender();
 	Room5Collision->DebugRender();
 	Room6Collision->DebugRender();
 	Room7Collision->DebugRender();
 	Room8Collision->DebugRender();
 	Room8Collision2->DebugRender();
 	Room9Collision->DebugRender();
-	
+
 }

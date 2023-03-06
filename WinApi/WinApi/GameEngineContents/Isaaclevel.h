@@ -18,9 +18,12 @@ public:
 
 	void BaseMentUpdate(float _DeltaTime);
 
+	void ALLCollisionSoundSet(float _DeltaTime);
 	void CollisionSoundSet(float _DeltaTime);
 	void CollisionSoundSet2(float _DeltaTime);
 	void CollisionSoundSet3(float _DeltaTime);
+	void CollisionSoundSet4(float _DeltaTime);
+	void CollisionSoundSet5(float _DeltaTime);
 
 	void SettingMenuUpdate();
 
@@ -50,6 +53,7 @@ protected:
 	GameEngineSoundPlayer PLAYBGMPLAYER;
 	GameEngineSoundPlayer PLAYBGMBOSS;
 	GameEngineSoundPlayer PLAYBGMSHOP;
+	GameEngineSoundPlayer PLAYBGMITEMROOM;
 private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
@@ -65,6 +69,7 @@ private:
 	bool BossLoadBool = true;
 	bool BossSoundBool = true;
 	bool ShopSoundBool = true;
+	bool ItemRoomBool = true;
 
 
 	

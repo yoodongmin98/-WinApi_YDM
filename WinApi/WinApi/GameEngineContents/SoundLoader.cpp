@@ -26,6 +26,7 @@ void IsaacLevel::SoundLoad()
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("dimepickup.wav"));//동전주움
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("basicbossfight.ogg"));//보스방 브금 ㅇㅇ
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Shop.ogg"));//Shop브금 ㅇㅇ
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Itemroom.ogg"));//ItemRoom BGM
 		}
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg"); //기본배경음악
@@ -38,6 +39,10 @@ void IsaacLevel::SoundLoad()
 		PLAYBGMSHOP = GameEngineResources::GetInst().SoundPlayToControl("Shop.ogg"); //Shop room에들어가면 ㅇㅇ
 		PLAYBGMSHOP.Volume(0.1f);
 		PLAYBGMSHOP.PauseOn();
+
+		PLAYBGMITEMROOM = GameEngineResources::GetInst().SoundPlayToControl("Itemroom.ogg"); //Shop room에들어가면 ㅇㅇ
+		PLAYBGMITEMROOM.Volume(0.1f);
+		PLAYBGMITEMROOM.PauseOn();
 
 		PlayBool = false;
 	}

@@ -94,9 +94,6 @@ void IsaacLevel::Loading()
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); 
 
-		ShopKeeper* Test = CreateActor<ShopKeeper>();
-		Test->SetPos({ 300,400 });
-
 		Room::RoomCreateStart();
 							 //							 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ¤±  ¤±  ¤± 
@@ -133,9 +130,7 @@ void IsaacLevel::Update(float _DeltaTime)
 	BaseMentUpdate(_DeltaTime);
 	MapMoveUpdate();
 
-	CollisionSoundSet(_DeltaTime);
-	CollisionSoundSet2(_DeltaTime);
-	CollisionSoundSet3(_DeltaTime);
+	ALLCollisionSoundSet(_DeltaTime);
 	
 	if (true == Map_Move)
 	{

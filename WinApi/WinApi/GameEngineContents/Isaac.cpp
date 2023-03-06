@@ -75,6 +75,16 @@ void Isaac::Start()
 		Head->CreateAnimation({ .AnimationName = "Down_Idle",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 0, .InterTime = 0.3f });
 		Head->CreateAnimation({ .AnimationName = "Down_Move",  .ImageName = "Isaac_Face.bmp", .Start = 0, .End = 9 , .InterTime = 0.06f });
 
+		Head->CreateAnimation({ .AnimationName = "Up_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Right_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Down_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Left_Pick",  .ImageName = "Isaac_Ani.bmp", .Start = 5, .End = 5 , .InterTime = 1.5f , .Loop = false });
+
+		Head->CreateAnimation({ .AnimationName = "Up_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Right_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Down_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
+		Head->CreateAnimation({ .AnimationName = "Left_Damaged",  .ImageName = "Isaac_Ani.bmp", .Start = 6, .End = 6 , .InterTime = 1.0f , .Loop = false });
+
 		Head->CreateAnimation({ .AnimationName = "Dead",  .ImageName = "Isaac_Face.bmp", .Start = 40, .End = 43 , .InterTime = 0.3f , .Loop = false });
 
 	}
@@ -276,7 +286,8 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt2.wav");
 			ISAACHURT.Volume(0.2f);
 			ISAACHURT.LoopCount(1);
-			CollTime += _DeltaTime;
+			ChangeState(IsaacState::DAMAGED);
+			//CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
 			DamagedIsaac = true;
@@ -286,7 +297,8 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt0.wav");
 			ISAACHURT.Volume(0.2f);
 			ISAACHURT.LoopCount(1);
-			CollTime += _DeltaTime;
+			ChangeState(IsaacState::DAMAGED);
+			//CollTime += _DeltaTime;
 			HP -= 2;
 			IsaacCollision->Off();
 			DamagedIsaac = true;
@@ -296,7 +308,8 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			ISAACHURT = GameEngineResources::GetInst().SoundPlayToControl("hurtgrunt1.wav");
 			ISAACHURT.Volume(0.2f);
 			ISAACHURT.LoopCount(1);
-			CollTime += _DeltaTime;
+			ChangeState(IsaacState::DAMAGED);
+			//CollTime += _DeltaTime;
 			HP -= 1;
 			IsaacCollision->Off();
 			DamagedIsaac = true;
@@ -356,6 +369,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		//Item Leo
 		if (true == IsaacCollision->Collision(CheckLeo, ICollisions))
 		{
+			ChangeState(IsaacState::PICK);
 			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
 			//COINDROP.Volume(0.2f);
 			//COINDROP.LoopCount(1);
@@ -364,6 +378,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision(CheckGlasses, ICollisions))
 		{
+			ChangeState(IsaacState::PICK);
 			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
 			//COINDROP.Volume(0.2f);
 			//COINDROP.LoopCount(1);
@@ -372,6 +387,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision(CheckItemHeart, ICollisions))
 		{
+			ChangeState(IsaacState::PICK);
 			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
 			//COINDROP.Volume(0.2f);
 			//COINDROP.LoopCount(1);
@@ -380,6 +396,7 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision(CheckBlackLotus, ICollisions))
 		{
+			ChangeState(IsaacState::PICK);
 			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
 			//COINDROP.Volume(0.2f);
 			//COINDROP.LoopCount(1);

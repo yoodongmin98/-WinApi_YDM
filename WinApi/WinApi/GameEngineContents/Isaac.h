@@ -7,8 +7,7 @@ enum class IsaacState
 {
 	IDLE,
 	MOVE,
-	LEOIDLE,
-	LEOMOVE,
+	PICK,
 	DAMAGED,
 };
 class Isaac : public GameEngineActor
@@ -122,8 +121,9 @@ protected:
 private:
 	GameEngineRender* DeadMenu = nullptr;
 	
+	float DamagedTime = 0.0f;
+	float PickUpTime = 0.0f;
 
-	
 	float FlickerTime =0.0f;
 	float DeadTime = 0.0f;
 	float CollTime = 0.0f;
@@ -181,6 +181,14 @@ private:
 	void MoveStart();
 	void MoveUpdate(float _Time);
 	void MoveEnd();
+
+	void PickStart();
+	void PickUpdate(float _Time);
+	void PickEnd();
+
+	void DamagedStart();
+	void DamagedUpdate(float _Time);
+	void DamagedEnd();
 
 	
 	void DamageUpdate(float _Time);

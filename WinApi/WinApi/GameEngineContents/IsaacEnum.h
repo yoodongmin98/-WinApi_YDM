@@ -21,7 +21,7 @@ enum class IsaacCollisionOrder
 {
 	C_Door,
 	C_Wall,
-
+	
 	C_Item_Leo,
 	C_Item_Heart,
 	C_Item_Blacklotus,
