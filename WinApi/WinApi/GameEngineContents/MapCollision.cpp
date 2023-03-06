@@ -64,6 +64,16 @@ void MapCollision::Start()
 	Room8Collision->SetScale({ 20, 200 });
 	Room8Collision->SetPosition({ 5120+1280+150,720 + 380 });
 	Room8Collision->SetDebugRenderType(CollisionType::CT_Rect);
+
+	Room8Collision2 = CreateCollision(IsaacCollisionOrder::Room8_2);
+	Room8Collision2->SetScale({ 200, 20 });
+	Room8Collision2->SetPosition({ 5120 + 640 ,720 + 130 });
+	Room8Collision2->SetDebugRenderType(CollisionType::CT_Rect);
+
+	Room9Collision = CreateCollision(IsaacCollisionOrder::Room9);//Shop //배경음악 바꾸기용
+	Room9Collision->SetScale({ 200, 20 });
+	Room9Collision->SetPosition({ 5120 + 640, 580 });
+	Room9Collision->SetDebugRenderType(CollisionType::CT_Rect);
 }
 
 
@@ -75,7 +85,9 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room1 = false;
 		Room1Collision->Death(); //한번만 작용하게끔
-		Isaac::MainPlayer->SetMonsterCount(4);
+
+		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+
 		Monster_Fly* Room1Fly = GetLevel()->CreateActor<Monster_Fly>();
 		Room1Fly->SetPos({300,720+400});
 		Monster_Fly* Room1Fly2 = GetLevel()->CreateActor<Monster_Fly>();
@@ -91,7 +103,9 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room2 = false;
 		Room2Collision->Death();
-		Isaac::MainPlayer->SetMonsterCount(4);
+
+		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+
 		Charger* Room2Charger1 = GetLevel()->CreateActor<Charger>();
 		Room2Charger1->SetPos({ 1280+600,720 + 200 });
 		Charger* Room2Charger2 = GetLevel()->CreateActor<Charger>();
@@ -106,7 +120,9 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room5 = false;
 		Room5Collision->Death();
-		Isaac::MainPlayer->SetMonsterCount(4);
+
+		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+
 		Host* Room5Host1 = GetLevel()->CreateActor<Host>();
 		Room5Host1->SetPos({ 2560 + 560,1440 + 290 });
 		Host* Room5Host2 = GetLevel()->CreateActor<Host>();
@@ -122,7 +138,9 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room6 = false;
 		Room6Collision->Death();
-		Isaac::MainPlayer->SetMonsterCount(4);
+
+		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
+
 		Gaper* Room6Gaper = GetLevel()->CreateActor<Gaper>();
 		Room6Gaper->SetPos({ 3840 + 500,1440 + 250 });
 		Gaper* Room6Gaper2 = GetLevel()->CreateActor<Gaper>();
@@ -140,7 +158,9 @@ void MapCollision::Update(float _DeltaTime)
 	{
 		Room7 = false;
 		Room7Collision->Death();
-		Isaac::MainPlayer->SetMonsterCount(4);
+
+		//Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(여기가끝임)
+
 		Boil* Room7Boil1 = GetLevel()->CreateActor<Boil>();
 		Room7Boil1->SetPos({ 5120 + 170,1440 + 130 });
 		Boil* Room7Boil2 = GetLevel()->CreateActor<Boil>();
@@ -165,5 +185,7 @@ void MapCollision::Render(float _DeltaTime)
 	Room6Collision->DebugRender();
 	Room7Collision->DebugRender();
 	Room8Collision->DebugRender();
+	Room8Collision2->DebugRender();
+	Room9Collision->DebugRender();
 	
 }

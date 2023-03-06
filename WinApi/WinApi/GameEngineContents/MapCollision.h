@@ -26,6 +26,8 @@ private:
 	GameEngineCollision* Room6Collision = nullptr;
 	GameEngineCollision* Room7Collision = nullptr;
 	GameEngineCollision* Room8Collision = nullptr;
+	GameEngineCollision* Room8Collision2 = nullptr;
+	GameEngineCollision* Room9Collision = nullptr;
 
 
 	bool Room1 = true;

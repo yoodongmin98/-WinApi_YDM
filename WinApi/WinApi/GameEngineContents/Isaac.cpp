@@ -59,6 +59,8 @@ void Isaac::Start()
 		GameEngineInput::CreateKey("DebugItem", '1');
 		GameEngineInput::CreateKey("DebugCollOff", '2');
 		GameEngineInput::CreateKey("DebugCollOn", '3');
+		GameEngineInput::CreateKey("IsaacMoveSpeed", 'R');
+
 	}
 
 	{
@@ -103,8 +105,8 @@ void Isaac::Update(float _DeltaTime)
 	
 	DeadMenu->Off(); //업데이트에서 꼭 해야하나??
 	//DeathCheck(_DeltaTime);
-	if (0 != GetPlayerHP())
-	{
+	//if (0 != GetPlayerHP())
+	//{
 		Render(_DeltaTime);
 		DebugSet();
 		BombCheck(_DeltaTime);
@@ -113,7 +115,7 @@ void Isaac::Update(float _DeltaTime)
 		Movecalculation(_DeltaTime);
 		CollisionCheck(_DeltaTime);
 		SetMove(MoveDir * _DeltaTime);
-	}
+	//}
 }
 
 //아이작 공격(Tears)관리
@@ -311,6 +313,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		CollisionCheckParameter CheckGlasses = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Glasses), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckItemHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Heart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckBlackLotus = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Item_Blacklotus), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckCoinBomb = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_CoinBomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckCoinHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_CoinHeart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckCoinKey = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_CoinKey), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		//Heart
 		if (true == IsaacCollision->Collision(CheckHeart, ICollisions) && 6 != HP)
 		{
@@ -333,6 +338,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		//Bomb
 		if (true == IsaacCollision->Collision(CheckBomb, ICollisions))
 		{
+			COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
+			COINDROP.Volume(0.2f);
+			COINDROP.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			BombCount += 1;
 		}
@@ -377,6 +385,39 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			//COINDROP.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			TearRange += 0.5f;
+		}
+		if (true == IsaacCollision->Collision(CheckCoinBomb, ICollisions)&&3<=CoinCount)
+		{
+			KEYDROPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Keydrop.wav");
+			KEYDROPSOUND.Volume(0.2f);
+			KEYDROPSOUND.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			CoinCount -= 3;
+
+			BombCount += 2;
+			IsCoinBombCount -= 1;
+		}
+		if (true == IsaacCollision->Collision(CheckCoinHeart, ICollisions) && 5 <= CoinCount && HP != MaxHP)
+		{
+			KEYDROPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Keydrop.wav");
+			KEYDROPSOUND.Volume(0.2f);
+			KEYDROPSOUND.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			CoinCount -= 5;
+
+			HP += 4;
+			IsCoinHeartCount -= 1;
+		}
+		if (true == IsaacCollision->Collision(CheckCoinKey, ICollisions) && 7 <= CoinCount)
+		{
+			KEYDROPSOUND = GameEngineResources::GetInst().SoundPlayToControl("Keydrop.wav");
+			KEYDROPSOUND.Volume(0.2f);
+			KEYDROPSOUND.LoopCount(1);
+			ICollisions[0]->GetActor()->Death();
+			CoinCount -= 7;
+
+			KeyCount += 2;
+			IsCoinKeyCount -= 1;
 		}
 	}
 }
@@ -467,6 +508,7 @@ void Isaac::BombCheck(float _DeltaTime)
 
 void Isaac::DebugSet()
 {
+	//Heart,ItemBomb,Coin,Key
 	if (true == GameEngineInput::IsDown("DebugItem"))
 	{
 		Heart* DebugHeart = GetLevel()->CreateActor<Heart>(IsaacOrder::R_Wall);
@@ -478,14 +520,22 @@ void Isaac::DebugSet()
 		Coin* DebugCoin = GetLevel()->CreateActor<Coin>(IsaacOrder::R_Wall);
 		DebugCoin->SetPos(GetPos() + float4::Up * 80 + float4::Left * 115);
 	}
+	//Collision off
 	if (true == GameEngineInput::IsDown("DebugCollOff"))
 	{
 		IsaacCollision->Off();
 		DebugBool = false;
 	}
+	//Collision on
 	if (true == GameEngineInput::IsDown("DebugCollOn"))
 	{
 		IsaacCollision->On();
+		DebugBool = true;
+	}
+	//Speed up
+	if (true == GameEngineInput::IsDown("IsaacMoveSpeed"))
+	{
+		MoveSpeed = 600.0f;
 		DebugBool = true;
 	}
 }

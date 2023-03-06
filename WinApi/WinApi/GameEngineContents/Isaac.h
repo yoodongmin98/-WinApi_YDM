@@ -90,7 +90,18 @@ public:
 	}
 
 	
-	
+	int GetIsCoinBombCount()
+	{
+		return IsCoinBombCount;
+	}
+	int GetIsCoinHeartCount()
+	{
+		return IsCoinHeartCount;
+	}
+	int GetIsCoinKeyCount()
+	{
+		return IsCoinKeyCount;
+	}
 
 	
 	///////////////////////////////////////
@@ -181,5 +192,10 @@ private:
 	int MonsterCount = 0;
 
 	bool IsaacMapMove = true;
+
+
+	int IsCoinBombCount = 1;
+	int IsCoinHeartCount = 1;
+	int IsCoinKeyCount = 1;
 };
 

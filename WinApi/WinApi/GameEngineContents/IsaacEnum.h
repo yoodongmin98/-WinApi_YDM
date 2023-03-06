@@ -32,6 +32,10 @@ enum class IsaacCollisionOrder
 	C_Key,
 	C_ItemBomb,
 	C_Coin,
+
+	C_CoinBomb,
+	C_CoinHeart,
+	C_CoinKey,
 	
 
 	C_Player,
@@ -54,6 +58,7 @@ enum class IsaacCollisionOrder
 	Room6,
 	Room7,
 	Room8,
+	Room8_2,
 	Room9,
 	Room10,
 };

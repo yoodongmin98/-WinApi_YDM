@@ -50,6 +50,10 @@
 #include "Rock.h"
 #include "Rock_Boom.h"
 #include "Spike.h"
+#include "CoinBomb.h"
+#include "CoinHeart.h"
+#include "CoinKey.h"
+#include "ShopKeeper.h"
 
 ////Item
 #include "Altar.h"
@@ -89,10 +93,12 @@ void IsaacLevel::Loading()
 	{
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); 
-		
+
+		ShopKeeper* Test = CreateActor<ShopKeeper>();
+		Test->SetPos({ 300,400 });
 
 		Room::RoomCreateStart();
-		//						 (Start) (obj) (item)
+							 //							 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ㅁ  ㅁ  ㅁ 
 		CreateRoom(0, 1, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
 		CreateRoom(1, 1, 1); //Monster2						    ㅁㅁㅁ
@@ -117,52 +123,27 @@ void IsaacLevel::Loading()
 		Room5Set();
 		Room6Set();
 		Room7Set();
+		Room9Set();
 	}
 }
 
 void IsaacLevel::Update(float _DeltaTime)
 {
-	LevelUpdateTime += _DeltaTime;
 
 	BaseMentUpdate(_DeltaTime);
 	MapMoveUpdate();
-	if (true == BossLoadBool &&
-		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room8), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
-	{
-		BossLoadBool = false;
-		Isaac::MainPlayer->SetMonsterCount(1);
-		LevelUpdateTime = 0.0f;
-		GameEngineCore::GetInst()->ChangeLevel("BossLoad");
-		PLAYBGMPLAYER.Stop();
-		
-	}
-	if (LevelUpdateTime > 0.2f&& false==BossLoadBool&& true==BossSoundBool)
-	{
-		BossSoundBool = false;
-		PLAYBGMBOSS.PauseOff();
-		Monstro* BossMonstro = CreateActor<Monstro>();
-		BossMonstro->SetPos({ 5120 + 1280 + 900,720 + 300 });
-	}
+
+	CollisionSoundSet(_DeltaTime);
+	CollisionSoundSet2(_DeltaTime);
+	CollisionSoundSet3(_DeltaTime);
+	
 	if (true == Map_Move)
 	{
 		P_Time += _DeltaTime * MapMoveSpeed;
 	}
-	
-	
-	/*if (true == GameEngineInput::IsDown("LoadMenu"))
-	{
-		if (2 == SettingValue)
-		{
-			SettingMenu->On();
-			SettingValue = SettingValue - 1;
-		}
-		else
-		{
-			SettingMenu->Off();
-			SettingValue = SettingValue + 1;
-		}
-	}*/ //이것도 하나의 클래스(액터)로 만들었어야했는데 멍청했다 나란놈
 }
+
+
 void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	SettingMenuUpdate();

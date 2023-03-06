@@ -33,6 +33,8 @@ private:
 	float NowTime = 0.0f;
 
 	float FTime = 0.0f;
+	bool BoomSoundLoad = true;
+	bool IsaacBombDeathCheck = false;
 	
 };
 

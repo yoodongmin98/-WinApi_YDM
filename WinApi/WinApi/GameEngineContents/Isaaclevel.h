@@ -17,8 +17,15 @@ public:
 	IsaacLevel& operator=(IsaacLevel&& _Other) noexcept = delete;
 
 	void BaseMentUpdate(float _DeltaTime);
-	void MapMoveUpdate();
+
+	void CollisionSoundSet(float _DeltaTime);
+	void CollisionSoundSet2(float _DeltaTime);
+	void CollisionSoundSet3(float _DeltaTime);
+
 	void SettingMenuUpdate();
+
+	void MapMoveUpdate();
+
 	void SoundLoad();
 	void ImageLoad();
 
@@ -31,6 +38,8 @@ public:
 	void Room7Set();
 	void Room8Set();
 	void Room9Set();
+
+
 protected:
 	void Loading() override;
 	void Update(float _DeltaTime) override;
@@ -40,6 +49,7 @@ protected:
 
 	GameEngineSoundPlayer PLAYBGMPLAYER;
 	GameEngineSoundPlayer PLAYBGMBOSS;
+	GameEngineSoundPlayer PLAYBGMSHOP;
 private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
@@ -54,6 +64,7 @@ private:
 	bool Map_Move = false;
 	bool BossLoadBool = true;
 	bool BossSoundBool = true;
+	bool ShopSoundBool = true;
 
 
 	

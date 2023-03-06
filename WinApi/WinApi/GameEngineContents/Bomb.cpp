@@ -76,7 +76,7 @@ void Bomb::Start()
 
 }
 
-bool BoomSoundLoad = true;
+
 void Bomb::Update(float _DeltaTime)
 {
 	NowTime += _DeltaTime;
@@ -84,26 +84,20 @@ void Bomb::Update(float _DeltaTime)
 	CollisionCheck(_DeltaTime);
 	if (NowTime > 2.0f)
 	{
-		
+		BoomSoundLoad = true;
 		Bomb_Coll->On();
 		R_Bomb->SetScale({ 200, 200 });
 		Bomb_Coll->SetScale({ 100, 100 });
+		
 		R_Bomb->ChangeAnimation("Bomb_Effect");
-	}
-	if (NowTime > 2.1f)
-	{
-		if (true == BoomSoundLoad)
+		if (R_Bomb->IsAnimationEnd())
 		{
 			BoomPlayer = GameEngineResources::GetInst().SoundPlayToControl("explosions.wav");
 			BoomPlayer.Volume(0.2f);
 			BoomPlayer.LoopCount(1);
-			BoomSoundLoad = false;
+			Death();
 		}
-		
-		R_Bomb_Dead->On();
-		R_Bomb->Death();
-		Bomb_Coll->Death();
-	}
+	}	
 }
 
 void Bomb::CollisionCheck(float _DeltaTime)

@@ -12,7 +12,10 @@
 #include "Rock.h"
 #include "Rock_Boom.h"
 #include "Spike.h"
-
+#include "CoinBomb.h"
+#include "CoinHeart.h"
+#include "CoinKey.h"
+#include "ShopKeeper.h"
 
 ////Item
 #include "Altar.h"
@@ -173,5 +176,32 @@ void IsaacLevel::Room8Set()
 }
 void IsaacLevel::Room9Set()
 {
+	CoinBomb* ShopBomb = CreateActor<CoinBomb>();
+	ShopBomb->SetPos({ 5120 + 540, 400 });
+	CoinHeart* ShopHeart = CreateActor<CoinHeart>();
+	ShopHeart->SetPos({ 5120 + 640, 400 });
+	CoinKey* ShopKey = CreateActor<CoinKey>();
+	ShopKey->SetPos({ 5120 + 740, 400 });
 
+	ShopKeeper* ShopKeepers = CreateActor<ShopKeeper>();
+	ShopKeepers->SetPos({ 5120 + 640, 250 });
+
+	Fire* Room9Fire1 = CreateActor<Fire>();
+	Room9Fire1->SetPos({ 5120 + 170,130 });
+	Fire* Room9Fire2 = CreateActor<Fire>();
+	Room9Fire2->SetPos({ 5120 + 170,535 });
+	Fire* Room9Fire3 = CreateActor<Fire>();
+	Room9Fire3->SetPos({ 5120 + 1110,130 });
+	Fire* Room9Fire4 = CreateActor<Fire>();
+	Room9Fire4->SetPos({ 5120 + 1110,535 });
+
+	FireWood* Room9FireWood1 = CreateActor<FireWood>();
+	Room9FireWood1->SetPos({ 5120 + 170,170 });
+	FireWood* Room9FireWood2 = CreateActor<FireWood>();
+	Room9FireWood2->SetPos({ 5120 + 170,575 });
+	FireWood* Room9FireWood3 = CreateActor<FireWood>();
+	Room9FireWood3->SetPos({ 5120 + 1110,170 });
+	FireWood* Room9FireWood4 = CreateActor<FireWood>();
+	Room9FireWood4->SetPos({ 5120 + 1110,575 });
+	
 }

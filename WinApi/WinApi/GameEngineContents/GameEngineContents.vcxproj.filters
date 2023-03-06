@@ -137,7 +137,7 @@
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClInclude>
     <ClInclude Include="MapCollision.h">
-      <Filter>Play\Playlevel\MapCollision</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29</Filter>
     </ClInclude>
     <ClInclude Include="BossLoding.h">
       <Filter>BossLoding</Filter>
@@ -147,6 +147,18 @@
     </ClInclude>
     <ClInclude Include="MonstroHpBar.h">
       <Filter>Play\Isaac\Monster\BossMonster\BossHp</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinBomb.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinHeart.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinHeart</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinKey.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinKey</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopKeeper.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\ShopKeeper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -298,10 +310,7 @@
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClCompile>
     <ClCompile Include="MapCollision.cpp">
-      <Filter>Play\Playlevel\MapCollision</Filter>
-    </ClCompile>
-    <ClCompile Include="RoomActorSet.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\RoomSetting</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29</Filter>
     </ClCompile>
     <ClCompile Include="BossLoding.cpp">
       <Filter>BossLoding</Filter>
@@ -311,6 +320,24 @@
     </ClCompile>
     <ClCompile Include="MonstroHpbar.cpp">
       <Filter>Play\Isaac\Monster\BossMonster\BossHp</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinBomb.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinHeart.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinHeart</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinKey.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinKey</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomActorSet.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\RoomActor</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopKeeper.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\ShopKeeper</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionSoundSet.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\CollisionSoundSet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -494,9 +521,6 @@
     <Filter Include="Play\Playlevel\MapRenderSet\Room">
       <UniqueIdentifier>{eb873084-9e51-4038-9490-2805ce41e43e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Playlevel\MapCollision">
-      <UniqueIdentifier>{96306726-8fbe-4da3-b718-166784ce8145}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting">
       <UniqueIdentifier>{ac50218d-416e-4870-8e9f-3fb7814c26f5}</UniqueIdentifier>
     </Filter>
@@ -508,6 +532,27 @@
     </Filter>
     <Filter Include="Play\Isaac\Monster\BossMonster\BossHp">
       <UniqueIdentifier>{619e0c44-6d6a-4b39-8fa9-02e55b1822bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\CoinBomb">
+      <UniqueIdentifier>{1cc5495a-c429-4698-b38d-1f49aa77422e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\CoinHeart">
+      <UniqueIdentifier>{8f0379d5-9bb4-4bcf-b387-f754a5536eb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\CoinKey">
+      <UniqueIdentifier>{d2f0391f-7a7c-4ec0-acf7-67c23654ec59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\RoomActor">
+      <UniqueIdentifier>{50dacca1-b3d0-41f8-9626-7c395ef89326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\ShopKeeper">
+      <UniqueIdentifier>{17897382-90d0-4fa7-8928-5f2c6e9844e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29">
+      <UniqueIdentifier>{96306726-8fbe-4da3-b718-166784ce8145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\CollisionSoundSet">
+      <UniqueIdentifier>{a56a8bc1-30d4-465c-93d1-95d2152162c5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

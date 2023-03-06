@@ -190,13 +190,11 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 				ThisDoorLeftRender->SetPosition({ 100,440 });
 				ThisDoorLeftRender->SetScale({ 350,270 });
 				ThisDoorLeftRender->CreateAnimation({ .AnimationName = "Door_L_Idle",  .ImageName = "Map_Door_Left.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-				ThisDoorLeftRender->CreateAnimation({ .AnimationName = "Door_L_Open",  .ImageName = "Map_Door_Left.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 				ThisDoorLeftRender->ChangeAnimation("Door_L_Idle");
 			
 				LinkDoorRightRender->SetPosition({ 1180,440 });
 				LinkDoorRightRender->SetScale({ 350,270 });
 				LinkDoorRightRender->CreateAnimation({ .AnimationName = "Door_R_Idle",  .ImageName = "Map_Door_Right.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-				LinkDoorRightRender->CreateAnimation({ .AnimationName = "Door_R_Open",  .ImageName = "Map_Door_Right.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 				LinkDoorRightRender->ChangeAnimation("Door_R_Idle");
 				{
 					{
@@ -221,14 +219,12 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			ThisDoorUpRender->SetPosition({ 640,120 });
 			ThisDoorUpRender->SetScale({ 350,270 });
 			ThisDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Idle",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-			ThisDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Open",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			ThisDoorUpRender->ChangeAnimation("Door_U_Idle");
 			
 
 			LinkDoorDownRender->SetPosition({ 640,600 });
 			LinkDoorDownRender->SetScale({ 350,270 });
 			LinkDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Idle",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-			LinkDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Open",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			LinkDoorDownRender->ChangeAnimation("Door_D_Idle");
 
 			{
@@ -246,13 +242,11 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			ThisDoorDownRender->SetPosition({ 640,600 });
 			ThisDoorDownRender->SetScale({ 350,270 });
 			ThisDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Idle",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-			ThisDoorDownRender->CreateAnimation({ .AnimationName = "Door_D_Open",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			ThisDoorDownRender->ChangeAnimation("Door_D_Idle");
 
 			LinkDoorUpRender->SetPosition({ 640,120 });
 			LinkDoorUpRender->SetScale({ 350,270 });
 			LinkDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Idle",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-			LinkDoorUpRender->CreateAnimation({ .AnimationName = "Door_U_Open",  .ImageName = "Map_Door_Up.BMP", .Start = 0, .End = 3, .InterTime = 0.1f, .Loop = false });
 			LinkDoorUpRender->ChangeAnimation("Door_U_Idle");
 			{
 				{
