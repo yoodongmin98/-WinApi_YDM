@@ -106,6 +106,7 @@ void MapCollision::Update(float _DeltaTime)
 
 		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
+		DoorSoundSet();
 		Monster_Fly* Room1Fly = GetLevel()->CreateActor<Monster_Fly>();
 		Room1Fly->SetPos({300,720+400});
 		Monster_Fly* Room1Fly2 = GetLevel()->CreateActor<Monster_Fly>();
@@ -123,7 +124,8 @@ void MapCollision::Update(float _DeltaTime)
 		Room2Collision->Death();
 
 		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
-
+		
+		DoorSoundSet();
 		Charger* Room2Charger1 = GetLevel()->CreateActor<Charger>();
 		Room2Charger1->SetPos({ 1280+600,720 + 200 });
 		Charger* Room2Charger2 = GetLevel()->CreateActor<Charger>();
@@ -141,6 +143,7 @@ void MapCollision::Update(float _DeltaTime)
 
 		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
+		DoorSoundSet();
 		Host* Room5Host1 = GetLevel()->CreateActor<Host>();
 		Room5Host1->SetPos({ 2560 + 560,1440 + 290 });
 		Host* Room5Host2 = GetLevel()->CreateActor<Host>();
@@ -159,6 +162,7 @@ void MapCollision::Update(float _DeltaTime)
 
 		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(밑에도있음)
 
+		DoorSoundSet();
 		Gaper* Room6Gaper = GetLevel()->CreateActor<Gaper>();
 		Room6Gaper->SetPos({ 3840 + 500,1440 + 250 });
 		Gaper* Room6Gaper2 = GetLevel()->CreateActor<Gaper>();
@@ -179,6 +183,7 @@ void MapCollision::Update(float _DeltaTime)
 
 		Isaac::MainPlayer->SetMonsterCount(4); //이부분주석걸면 안죽여도 맵이동가능(여기가끝임)
 
+		DoorSoundSet();
 		Boil* Room7Boil1 = GetLevel()->CreateActor<Boil>();
 		Room7Boil1->SetPos({ 5120 + 170,1440 + 130 });
 		Boil* Room7Boil2 = GetLevel()->CreateActor<Boil>();
@@ -208,4 +213,14 @@ void MapCollision::Render(float _DeltaTime)
 	//Room8Collision2->DebugRender();
 	//Room9Collision->DebugRender();
 
+}
+
+void MapCollision::DoorSoundSet()
+{
+	if (0 != Isaac::MainPlayer->GetMonsterCount())
+	{
+		DOORCLOSE = GameEngineResources::GetInst().SoundPlayToControl("doorheavyclose.wav");
+		DOORCLOSE.Volume(0.3f);
+		DOORCLOSE.LoopCount(1);
+	}
 }

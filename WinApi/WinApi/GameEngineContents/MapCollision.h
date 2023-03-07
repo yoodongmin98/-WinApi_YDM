@@ -1,6 +1,7 @@
 #pragma once
 #include <GameEngineCore/GameEngineActor.h>
 #include <GameEnginePlatform/GameEngineImage.h>
+#include <GameEngineCore/GameEngineResources.h>
 
 
 class MapCollision : public GameEngineActor
@@ -14,7 +15,11 @@ public:
 	MapCollision(MapCollision&& _Other) noexcept = delete;
 	MapCollision& operator=(const MapCollision& _Other) = delete;
 	MapCollision& operator=(MapCollision&& _Other) noexcept = delete;
+
+	void DoorSoundSet();
 protected:
+	GameEngineSoundPlayer DOOROPEN;
+	GameEngineSoundPlayer DOORCLOSE;
 	void Start() override;
 	void Update(float _DeltaTime) override;
 	void Render(float _DeltaTime);

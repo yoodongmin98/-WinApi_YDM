@@ -64,6 +64,9 @@
 #include "BlackLotus.h"
 
 
+#include "NextLevelDoor.h"
+
+
 
 
 IsaacLevel::IsaacLevel()
@@ -94,6 +97,9 @@ void IsaacLevel::Loading()
 	{
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); 
+		
+		
+		
 
 
 		Room::RoomCreateStart();
@@ -115,6 +121,8 @@ void IsaacLevel::Loading()
 		CreateActor<CoinNumber>();
 		CreateActor<KeyNumber>();
 
+		DoorAnimationSetandUpdate();
+
 		Room1Set();
 		Room2Set();
 		Room3Set();
@@ -125,12 +133,13 @@ void IsaacLevel::Loading()
 		Room9Set();
 	}
 }
-
+bool DoorSoundLoad = true;
 void IsaacLevel::Update(float _DeltaTime)
 {
 	BaseMentUpdate(_DeltaTime);
 	MapMoveUpdate();
-
+	DoorRenderUpdate();
+	
 	ALLCollisionSoundSet(_DeltaTime);
 	
 	if (true == Map_Move)
@@ -145,14 +154,6 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 	SettingMenuUpdate();
 	SettingMenu->Off();
 	SoundLoad();
-}
-
-
-void IsaacLevel::CreateRoom(int _X, int _Y, int _MapKey)
-{
-	Room* NewRoom = CreateActor<Room>();
-	NewRoom->SetTileIndex(_X, _Y, _MapKey); 
-	
 }
 
 

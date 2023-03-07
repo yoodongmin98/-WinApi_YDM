@@ -26,6 +26,8 @@ public:
 	void CollisionSoundSet5(float _DeltaTime);
 
 	void SettingMenuUpdate();
+	void DoorAnimationSetandUpdate();
+	void DoorRenderUpdate();
 
 	void MapMoveUpdate();
 
@@ -54,12 +56,33 @@ protected:
 	GameEngineSoundPlayer PLAYBGMBOSS;
 	GameEngineSoundPlayer PLAYBGMSHOP;
 	GameEngineSoundPlayer PLAYBGMITEMROOM;
+	GameEngineSoundPlayer BOSSDEATH;
+	
 private:
 	GameEngineRender* SettingMenu = nullptr;
 	GameEngineRender* SettingMenuCursor1 = nullptr;
 	GameEngineRender* BackDrop = nullptr;
 	GameEngineRender* BaseMent = nullptr;
-	
+
+
+	GameEngineRender* Room0door = nullptr;
+	GameEngineRender* Room1door = nullptr;
+	GameEngineRender* Room2door = nullptr;
+	GameEngineRender* Room3door = nullptr;
+	GameEngineRender* Room4door = nullptr;
+	GameEngineRender* Room5door = nullptr;
+	GameEngineRender* Room6door = nullptr;
+	GameEngineRender* Room7door = nullptr;
+	GameEngineRender* Room8door = nullptr;
+	GameEngineRender* Room9door = nullptr;
+	GameEngineRender* Room10door = nullptr;
+	GameEngineRender* Room11door = nullptr;
+	GameEngineRender* Room12door = nullptr;
+	GameEngineRender* Room13door = nullptr;
+	GameEngineRender* Room14door = nullptr;
+	GameEngineRender* Room15door = nullptr;
+	GameEngineRender* Room16door = nullptr;
+	GameEngineRender* Room17door = nullptr;
 
 
 	int SettingValue = 2;

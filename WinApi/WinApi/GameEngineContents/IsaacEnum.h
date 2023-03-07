@@ -6,6 +6,7 @@ enum class IsaacOrder
 	R_BackGround, //2
 
 	R_Door, 
+	R_OpenDoor,
 	R_BoomDead,
 	R_MonsterDead,
 	R_Wall,
@@ -61,5 +62,10 @@ enum class IsaacCollisionOrder
 	Room8_2,
 	Room9,
 	Room10,
+
+
+
+
+	NextLevel,
 };
 

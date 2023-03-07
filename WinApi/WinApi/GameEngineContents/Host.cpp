@@ -103,7 +103,7 @@ void Host::CollisionCheck(float _DeltaTime)
 	if (NowTime > 1.0f)
 	{
 		M_Host->ChangeAnimation("HostIdle");
-		if (NowTime >= 6.0f)
+		if (NowTime >= 4.0f)
 		{
 			M_Host->ChangeAnimation("HostOn");
 			M_Host_Coll->On();
@@ -128,7 +128,7 @@ void Host::CollisionCheck(float _DeltaTime)
 				HostTearbool = false;
 			}
 			
-			if (NowTime >= 10.0f)
+			if (NowTime >= 8.0f)
 			{
 				M_Host->ChangeAnimation("HostIdle");
 				NowTime = 0.0f;

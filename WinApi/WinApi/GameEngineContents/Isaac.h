@@ -124,6 +124,7 @@ private:
 	float DamagedTime = 0.0f;
 	float PickUpTime = 0.0f;
 
+	float PickTime = 0.0f;
 	float FlickerTime =0.0f;
 	float DeadTime = 0.0f;
 	float CollTime = 0.0f;
@@ -136,11 +137,11 @@ private:
 	////////Tear관련 가속도,중력,속도,사거리//////////
 
 	
-	float TearUseTime = 0.3f;
+	float TearUseTime = 0.1f; //원래0.3
 	float GravityValue = 0.4f;
 	float TearSpeed = 400.0f;
 	float TearRange = 0.8f;
-	int TearDamage = 1;
+	int TearDamage = 5; //원래1
 	
 	//////////Idle
 	std::string DirString = "Right_";

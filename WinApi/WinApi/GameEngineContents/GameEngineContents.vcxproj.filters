@@ -160,6 +160,12 @@
     <ClInclude Include="MapCollision.h">
       <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet</Filter>
     </ClInclude>
+    <ClInclude Include="NextLevelLoding.h">
+      <Filter>NextLevelLoading</Filter>
+    </ClInclude>
+    <ClInclude Include="NextLevelDoor.h">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\NextLevelDoor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -338,6 +344,15 @@
     </ClCompile>
     <ClCompile Include="MapCollision.cpp">
       <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorAnimation.cpp">
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\DoorAnimation</Filter>
+    </ClCompile>
+    <ClCompile Include="NextLevelLoding.cpp">
+      <Filter>NextLevelLoading</Filter>
+    </ClCompile>
+    <ClCompile Include="NextLevelDoor.cpp">
+      <Filter>Play\Isaac\Item&amp;actor\MapActor\NextLevelDoor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -559,6 +574,12 @@
     </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\DoorAnimation">
       <UniqueIdentifier>{93ec3c4f-07fa-4b62-acec-7e8bcd08e6b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Item&amp;actor\MapActor\NextLevelDoor">
+      <UniqueIdentifier>{217341bd-a551-458a-a0ae-c9c0f4df409d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NextLevelLoading">
+      <UniqueIdentifier>{4c06b2ce-6a0c-4cf9-8b1c-9497dcc45488}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -14,6 +14,7 @@
 #include "Monstro.h"
 
 #include "BloodTear.h"
+#include "NextLevelDoor.h"
 
 Monstro* Monstro::MainMonstro;
 
@@ -100,6 +101,8 @@ void Monstro::Update(float _DeltaTime)
 			Isaac::MainPlayer->MinusMonsterCount(1);
 			Countbool = false;
 		}
+		NextLevelDoor* NextDoor = GetLevel()->CreateActor<NextLevelDoor>();
+		NextDoor->SetPos(GetPos());
 		Death();
 	}
 

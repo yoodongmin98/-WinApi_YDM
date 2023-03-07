@@ -329,7 +329,9 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		CollisionCheckParameter CheckCoinBomb = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_CoinBomb), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckCoinHeart = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_CoinHeart), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		CollisionCheckParameter CheckCoinKey = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_CoinKey), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
+		CollisionCheckParameter CheckNextLevel = { .TargetGroup = static_cast<int>(IsaacCollisionOrder::NextLevel), .TargetColType = CT_Rect, .ThisColType = CT_Rect };
 		//Heart
+		PickTime += _DeltaTime;
 		if (true == IsaacCollision->Collision(CheckHeart, ICollisions) && 6 != HP)
 		{
 			ICollisions[0]->GetActor()->Death();
@@ -396,11 +398,13 @@ void Isaac::CollisionCheck(float _DeltaTime)
 		}
 		if (true == IsaacCollision->Collision(CheckBlackLotus, ICollisions))
 		{
+			
 			ChangeState(IsaacState::PICK);
 			//COINDROP = GameEngineResources::GetInst().SoundPlayToControl("dimepickup.wav");
 			//COINDROP.Volume(0.2f);
 			//COINDROP.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
+			
 			TearRange += 0.5f;
 		}
 		if (true == IsaacCollision->Collision(CheckCoinBomb, ICollisions)&&3<=CoinCount)
@@ -435,6 +439,16 @@ void Isaac::CollisionCheck(float _DeltaTime)
 
 			KeyCount += 2;
 			IsCoinKeyCount -= 1;
+		}
+
+
+
+
+
+		if (true == IsaacCollision->Collision(CheckNextLevel, ICollisions))
+		{
+			
+			GameEngineCore::GetInst()->ChangeLevel("NextLevelLoad");
 		}
 	}
 }

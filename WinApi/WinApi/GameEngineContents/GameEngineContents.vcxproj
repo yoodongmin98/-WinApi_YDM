@@ -79,6 +79,8 @@
     <ClInclude Include="Monstro.h" />
     <ClInclude Include="MonstroHpBar.h" />
     <ClInclude Include="Muliboom.h" />
+    <ClInclude Include="NextLevelDoor.h" />
+    <ClInclude Include="NextLevelLoding.h" />
     <ClInclude Include="Poop.h">
       <SubType>
       </SubType>
@@ -160,6 +162,7 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="CollisionSoundSet.cpp" />
+    <ClCompile Include="DoorAnimation.cpp" />
     <ClCompile Include="DownTears.cpp" />
     <ClCompile Include="Fire.cpp">
       <SubType>
@@ -205,6 +208,8 @@
     <ClCompile Include="Monstro.cpp" />
     <ClCompile Include="MonstroHpbar.cpp" />
     <ClCompile Include="Muliboom.cpp" />
+    <ClCompile Include="NextLevelDoor.cpp" />
+    <ClCompile Include="NextLevelLoding.cpp" />
     <ClCompile Include="Poop.cpp">
       <SubType>
       </SubType>
@@ -354,7 +359,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -370,7 +375,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -386,7 +391,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -402,7 +407,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

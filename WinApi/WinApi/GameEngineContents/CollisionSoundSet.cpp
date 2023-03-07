@@ -3,6 +3,7 @@
 #include "Monstro.h"
 #include "IsaacEnum.h"
 #include "MonstroHpBar.h"
+#include "NextLevelDoor.h"
 
 
 
@@ -11,7 +12,7 @@
 
 
 ////////////////깔아놓은 Collision에대한 사운드세팅은 여기서/////////////////////
-
+bool LoopBool = true;
 void IsaacLevel::CollisionSoundSet(float _DeltaTime)
 {
 	//보스소환용
@@ -35,6 +36,20 @@ void IsaacLevel::CollisionSoundSet(float _DeltaTime)
 		BossHpbar* BossHpbars = CreateActor<BossHpbar>();
 		BossHpbars->SetPos({ 5120 + 1280 + 640,720 + 100 });
 	}
+	
+	if (false == BossLoadBool && 0 == Isaac::MainPlayer->GetMonsterCount())
+	{
+		if (true == LoopBool)
+		{
+			BOSSDEATH = GameEngineResources::GetInst().SoundPlayToControl("deathburstsmall3.wav"); 
+			BOSSDEATH.Volume(0.3f);
+			BOSSDEATH.LoopCount(1);
+			LoopBool = false;
+		}
+		PLAYBGMBOSS.Stop();
+	}
+	
+	
 
 }
 

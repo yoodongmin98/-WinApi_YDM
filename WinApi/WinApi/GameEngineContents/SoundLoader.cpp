@@ -27,6 +27,9 @@ void IsaacLevel::SoundLoad()
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("basicbossfight.ogg"));//보스방 브금 ㅇㅇ
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Shop.ogg"));//Shop브금 ㅇㅇ
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Itemroom.ogg"));//ItemRoom BGM
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("doorheavyclose.wav"));//문이닫혀요
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("doorheavyopen.wav"));//문이열려요
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall3.wav"));//문이열려요
 		}
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg"); //기본배경음악
@@ -40,7 +43,7 @@ void IsaacLevel::SoundLoad()
 		PLAYBGMSHOP.Volume(0.1f);
 		PLAYBGMSHOP.PauseOn();
 
-		PLAYBGMITEMROOM = GameEngineResources::GetInst().SoundPlayToControl("Itemroom.ogg"); //Shop room에들어가면 ㅇㅇ
+		PLAYBGMITEMROOM = GameEngineResources::GetInst().SoundPlayToControl("Itemroom.ogg"); //Item room에들어가면 ㅇㅇ
 		PLAYBGMITEMROOM.Volume(0.1f);
 		PLAYBGMITEMROOM.PauseOn();
 
