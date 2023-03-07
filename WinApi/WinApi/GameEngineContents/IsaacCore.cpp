@@ -5,11 +5,13 @@
 #include "TitleLevel.h"
 #include "LoadLevel.h"
 #include "BossLoding.h"
+#include "MomBossLoad.h"
 #include "NextLevelLoding.h"
 
 
 
 #include "IsaacLevel.h"
+
 
 IsaacCore IsaacCore::Core;
 
@@ -45,11 +47,18 @@ void IsaacCore::Start()
 	CreateLevel<IsaacLevel>("PlayIsaac"); //Stage1
 
 	CreateLevel<BossLoadLevel>("BossLoad");
+	CreateLevel<MomBossLoadLevel>("MomBossLoad");
+
+
 	CreateLevel<NextLevelLoding>("NextLevelLoad");
+
 	
 
 
-	ChangeLevel("NextLevelLoad");
+	
+
+
+	ChangeLevel("PlayIsaac");
 }
 
 void IsaacCore::Update()

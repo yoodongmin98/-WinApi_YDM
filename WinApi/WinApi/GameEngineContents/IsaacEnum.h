@@ -62,6 +62,7 @@ enum class IsaacCollisionOrder
 	Room8_2,
 	Room9,
 	Room10,
+	Room11,
 
 
 

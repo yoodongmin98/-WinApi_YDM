@@ -105,7 +105,7 @@ void IsaacLevel::Loading()
 		Room::RoomCreateStart();
 							 //							 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ㅁ  ㅁ  ㅁ 
-		CreateRoom(0, 1, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁ(Boss)
+		CreateRoom(0, 1, 1); //Monster와 door               ㅁㅁㅁ  ㅁㅁㅁ(Boss)
 		CreateRoom(1, 1, 1); //Monster2						    ㅁㅁㅁ
 		CreateRoom(2, 1, 1); //item설명
 		CreateRoom(2, 0, 2); //오브젝트끼리의 상호구조 설명
@@ -115,6 +115,7 @@ void IsaacLevel::Loading()
 		CreateRoom(4, 1, 1); //Empty room
 		CreateRoom(4, 0, 3); //SecretRoom
 		CreateRoom(5, 1, 4); //Boss Room 
+		CreateRoom(6, 1, 5); //Boss2 Room 
 
 		CreateActor<HP>();
 		CreateActor<BombNumber>();

@@ -136,9 +136,6 @@
     <ClInclude Include="BlackLotus.h">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClInclude>
-    <ClInclude Include="BossLoding.h">
-      <Filter>BossLoding</Filter>
-    </ClInclude>
     <ClInclude Include="Monstro.h">
       <Filter>Play\Isaac\Monster\BossMonster\Monstro</Filter>
     </ClInclude>
@@ -158,13 +155,19 @@
       <Filter>Play\Isaac\Item&amp;actor\MapActor\ShopKeeper</Filter>
     </ClInclude>
     <ClInclude Include="MapCollision.h">
-      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\C_Load+Monster Set</Filter>
     </ClInclude>
     <ClInclude Include="NextLevelLoding.h">
       <Filter>NextLevelLoading</Filter>
     </ClInclude>
     <ClInclude Include="NextLevelDoor.h">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\NextLevelDoor</Filter>
+    </ClInclude>
+    <ClInclude Include="BossLoding.h">
+      <Filter>BossLoding\MonstroBossLoding</Filter>
+    </ClInclude>
+    <ClInclude Include="MomBossLoad.h">
+      <Filter>BossLoding\MomBossLoding</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -315,9 +318,6 @@
     <ClCompile Include="BlackLotus.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapItem\Blacklotus</Filter>
     </ClCompile>
-    <ClCompile Include="BossLoding.cpp">
-      <Filter>BossLoding</Filter>
-    </ClCompile>
     <ClCompile Include="Monstro.cpp">
       <Filter>Play\Isaac\Monster\BossMonster\Monstro</Filter>
     </ClCompile>
@@ -340,10 +340,10 @@
       <Filter>Play\Isaac\Item&amp;actor\MapActor\ShopKeeper</Filter>
     </ClCompile>
     <ClCompile Include="CollisionSoundSet.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\CollisionSoundSet</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\CollisionSound+BossSet</Filter>
     </ClCompile>
     <ClCompile Include="MapCollision.cpp">
-      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet</Filter>
+      <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\C_Load+Monster Set</Filter>
     </ClCompile>
     <ClCompile Include="DoorAnimation.cpp">
       <Filter>Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\DoorAnimation</Filter>
@@ -353,6 +353,12 @@
     </ClCompile>
     <ClCompile Include="NextLevelDoor.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\NextLevelDoor</Filter>
+    </ClCompile>
+    <ClCompile Include="BossLoding.cpp">
+      <Filter>BossLoding\MonstroBossLoding</Filter>
+    </ClCompile>
+    <ClCompile Include="MomBossLoad.cpp">
+      <Filter>BossLoding\MomBossLoding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -566,12 +572,6 @@
     <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29">
       <UniqueIdentifier>{96306726-8fbe-4da3-b718-166784ce8145}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\CollisionSoundSet">
-      <UniqueIdentifier>{a56a8bc1-30d4-465c-93d1-95d2152162c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\Sound&amp;MonsterSet">
-      <UniqueIdentifier>{9643ce5d-4baf-4545-a726-73100ff9d65c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\DoorAnimation">
       <UniqueIdentifier>{93ec3c4f-07fa-4b62-acec-7e8bcd08e6b9}</UniqueIdentifier>
     </Filter>
@@ -580,6 +580,18 @@
     </Filter>
     <Filter Include="NextLevelLoading">
       <UniqueIdentifier>{4c06b2ce-6a0c-4cf9-8b1c-9497dcc45488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\CollisionSound+BossSet">
+      <UniqueIdentifier>{a56a8bc1-30d4-465c-93d1-95d2152162c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Playlevel\MapRenderSet\RoomSetting\MapCollision%28MosterSet%29\C_Load+Monster Set">
+      <UniqueIdentifier>{9643ce5d-4baf-4545-a726-73100ff9d65c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BossLoding\MomBossLoding">
+      <UniqueIdentifier>{26c3c18c-af76-4ab9-8a6e-47699d9867c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BossLoding\MonstroBossLoding">
+      <UniqueIdentifier>{af319f71-f9ff-464a-b6f8-75e60094b579}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

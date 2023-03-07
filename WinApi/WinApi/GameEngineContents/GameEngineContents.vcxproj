@@ -55,6 +55,7 @@
     <ClInclude Include="ItemHeart.h" />
     <ClInclude Include="Leo.h" />
     <ClInclude Include="MapCollision.h" />
+    <ClInclude Include="MomBossLoad.h" />
     <ClInclude Include="Monster_Boil.h" />
     <ClInclude Include="Monster_Gaper.h" />
     <ClInclude Include="Heart.h" />
@@ -177,6 +178,7 @@
     <ClCompile Include="ItemHeart.cpp" />
     <ClCompile Include="Leo.cpp" />
     <ClCompile Include="MapCollision.cpp" />
+    <ClCompile Include="MomBossLoad.cpp" />
     <ClCompile Include="Monster_Boil.cpp" />
     <ClCompile Include="Monster_Gaper.cpp" />
     <ClCompile Include="Heart.cpp">

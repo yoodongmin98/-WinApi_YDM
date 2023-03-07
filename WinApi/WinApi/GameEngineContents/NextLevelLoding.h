@@ -7,7 +7,8 @@
 enum class NextLevelOrder
 {
 	BackGround,
-	Ground,
+	Balloon,
+	BalloonBack,
 	Animation,
 
 };
@@ -33,6 +34,28 @@ protected:
 
 private:
 	GameEngineRender* BackGround = nullptr;
+	GameEngineRender* Isaac_NextLevel = nullptr;
+	GameEngineRender* Balloon1 = nullptr;
+	GameEngineRender* Balloon2 = nullptr;
+	GameEngineRender* Balloon3 = nullptr;
+
+	GameEngineRender* Box1 = nullptr;
+	GameEngineRender* Box2 = nullptr;
+	GameEngineRender* Box3 = nullptr;
+
+	GameEngineRender* Line1 = nullptr;
+
+	GameEngineRender* MiniIsaac = nullptr;
+
+	GameEngineRender* BalloonBack = nullptr;
+
+	GameEngineRender* HappyIsaac = nullptr;
+	GameEngineRender* DamagedIsaac = nullptr;
+	GameEngineRender* SickIsaac = nullptr;
+
+	GameEngineRender* ThrowBall = nullptr;
+
+
 
 	float NowTime = 0.0f;
 };

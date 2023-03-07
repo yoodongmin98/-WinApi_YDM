@@ -92,6 +92,13 @@ void MapCollision::Start()
 	Room9Collision->SetScale({ 200, 20 });
 	Room9Collision->SetPosition({ 5120 + 640, 580 });
 	Room9Collision->SetDebugRenderType(CollisionType::CT_Rect);
+
+	Room10Collision = CreateCollision(IsaacCollisionOrder::Room10);
+	Room10Collision->SetScale({ 20, 200 });
+	Room10Collision->SetPosition({ 5120+2560+150, 720+380 });
+	Room10Collision->SetDebugRenderType(CollisionType::CT_Rect);
+	Room10Collision->Off();
+
 }
 
 
@@ -198,6 +205,10 @@ void MapCollision::Update(float _DeltaTime)
 		ItemBomb* Room7ItemBomb2 = GetLevel()->CreateActor<ItemBomb>();
 		Room7ItemBomb2->SetPos({ 5120 + 1110,1440 + 550 });
 	}
+	if (true == Isaac::MainPlayer->GetMomBossRenderValue())
+	{
+		Room10Collision->On();
+	}
 	
 }
 void MapCollision::Render(float _DeltaTime)
@@ -212,6 +223,7 @@ void MapCollision::Render(float _DeltaTime)
 	//Room8Collision->DebugRender();
 	//Room8Collision2->DebugRender();
 	//Room9Collision->DebugRender();
+	Room10Collision->DebugRender();
 
 }
 

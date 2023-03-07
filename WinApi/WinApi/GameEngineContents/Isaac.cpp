@@ -425,8 +425,11 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			KEYDROPSOUND.LoopCount(1);
 			ICollisions[0]->GetActor()->Death();
 			CoinCount -= 5;
-
 			HP += 4;
+			if (HP > MaxHP)
+			{
+				HP = MaxHP;
+			}
 			IsCoinHeartCount -= 1;
 		}
 		if (true == IsaacCollision->Collision(CheckCoinKey, ICollisions) && 7 <= CoinCount)
@@ -441,14 +444,11 @@ void Isaac::CollisionCheck(float _DeltaTime)
 			IsCoinKeyCount -= 1;
 		}
 
-
-
-
-
 		if (true == IsaacCollision->Collision(CheckNextLevel, ICollisions))
 		{
-			
+			ICollisions[0]->GetActor()->Death();
 			GameEngineCore::GetInst()->ChangeLevel("NextLevelLoad");
+			MomBossRenderValue = true;
 		}
 	}
 }

@@ -107,6 +107,14 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			Render->SetScaleToImage();
 			break;
 		}
+		case 5:
+		{
+			//이미지세팅
+			GameEngineRender* Render = CreateRender("Room_Boss.BMP", IsaacOrder::R_BackGround);
+			Render->SetPosition(Render->GetImage()->GetImageScale().half());
+			Render->SetScaleToImage();
+			break;
+		}
 		default:
 			break;
 	}
@@ -193,15 +201,6 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 			}
 			else
 			{
-				ThisDoorLeftRender->SetPosition({ 100,440 });
-				ThisDoorLeftRender->SetScale({ 350,270 });
-				ThisDoorLeftRender->CreateAnimation({ .AnimationName = "Door_L_Idle",  .ImageName = "Map_Door_Left.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-				ThisDoorLeftRender->ChangeAnimation("Door_L_Idle");
-			
-				LinkDoorRightRender->SetPosition({ 1180,440 });
-				LinkDoorRightRender->SetScale({ 350,270 });
-				LinkDoorRightRender->CreateAnimation({ .AnimationName = "Door_R_Idle",  .ImageName = "Map_Door_Right.BMP", .Start = 0, .End = 0, .InterTime = 0.1f });
-				LinkDoorRightRender->ChangeAnimation("Door_R_Idle");
 				{
 					{
 						ThisDoorCollision->SetPosition({ 130,380 });

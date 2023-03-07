@@ -29,7 +29,8 @@ void IsaacLevel::SoundLoad()
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Itemroom.ogg"));//ItemRoom BGM
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("doorheavyclose.wav"));//문이닫혀요
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("doorheavyopen.wav"));//문이열려요
-			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall3.wav"));//문이열려요
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall3.wav"));//보스죽음
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("momfight.ogg"));//보스죽음
 		}
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg"); //기본배경음악
@@ -47,6 +48,11 @@ void IsaacLevel::SoundLoad()
 		PLAYBGMITEMROOM.Volume(0.1f);
 		PLAYBGMITEMROOM.PauseOn();
 
+		PLAYMOMBOSS = GameEngineResources::GetInst().SoundPlayToControl("momfight.ogg"); //Mom room에들어가면 ㅇㅇ
+		PLAYMOMBOSS.Volume(0.1f);
+		PLAYMOMBOSS.PauseOn();
+
+		
 		PlayBool = false;
 	}
 }

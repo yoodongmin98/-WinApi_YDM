@@ -24,6 +24,8 @@ public:
 	void CollisionSoundSet3(float _DeltaTime);
 	void CollisionSoundSet4(float _DeltaTime);
 	void CollisionSoundSet5(float _DeltaTime);
+	void CollisionSoundSetBoss(float _DeltaTime);
+
 
 	void SettingMenuUpdate();
 	void DoorAnimationSetandUpdate();
@@ -54,6 +56,7 @@ protected:
 
 	GameEngineSoundPlayer PLAYBGMPLAYER;
 	GameEngineSoundPlayer PLAYBGMBOSS;
+	GameEngineSoundPlayer PLAYMOMBOSS;
 	GameEngineSoundPlayer PLAYBGMSHOP;
 	GameEngineSoundPlayer PLAYBGMITEMROOM;
 	GameEngineSoundPlayer BOSSDEATH;
@@ -83,6 +86,8 @@ private:
 	GameEngineRender* Room15door = nullptr;
 	GameEngineRender* Room16door = nullptr;
 	GameEngineRender* Room17door = nullptr;
+	GameEngineRender* Room18door = nullptr;
+
 
 
 	int SettingValue = 2;
@@ -91,8 +96,12 @@ private:
 	bool Map_Move = false;
 	bool BossLoadBool = true;
 	bool BossSoundBool = true;
+	bool MomBossSoundBool = true;
 	bool ShopSoundBool = true;
 	bool ItemRoomBool = true;
+
+	bool BossEnterBool = true;
+	bool BossinBool = true;
 
 
 	
@@ -101,6 +110,7 @@ private:
 
 	float P_Time = 0.0f;
 	float LevelUpdateTime = 0.0f;
+	float MomSoundUpdateTime = 0.0f;
 
 	float MapMaxXvalue = 1050.f;
 

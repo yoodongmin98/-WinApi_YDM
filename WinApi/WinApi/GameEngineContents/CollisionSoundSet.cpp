@@ -105,6 +105,29 @@ void IsaacLevel::CollisionSoundSet5(float _DeltaTime)
 	}
 }
 
+void IsaacLevel::CollisionSoundSetBoss(float _DeltaTime)
+{
+	MomSoundUpdateTime += _DeltaTime;
+	if (true == BossEnterBool &&
+		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room10), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	{
+		BossEnterBool = false;
+		MomSoundUpdateTime = 0.0f;
+		GameEngineCore::GetInst()->ChangeLevel("MomBossLoad");
+	}
+	if (MomSoundUpdateTime > 0.2f&& false==BossEnterBool&&true== MomBossSoundBool)
+	{
+		MomBossSoundBool = false;
+		PLAYMOMBOSS.PauseOff();
+		//CreateMom
+	}
+	//여기서 mom보스로드
+}
+
+
+
+
+
 void IsaacLevel::ALLCollisionSoundSet(float _DeltaTime)
 {
 	CollisionSoundSet(_DeltaTime);
@@ -112,4 +135,6 @@ void IsaacLevel::ALLCollisionSoundSet(float _DeltaTime)
 	CollisionSoundSet3(_DeltaTime);
 	CollisionSoundSet4(_DeltaTime);
 	CollisionSoundSet5(_DeltaTime);
+	CollisionSoundSetBoss(_DeltaTime);
+	
 }

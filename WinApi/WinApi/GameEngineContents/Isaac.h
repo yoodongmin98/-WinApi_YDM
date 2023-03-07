@@ -102,6 +102,11 @@ public:
 		return IsCoinKeyCount;
 	}
 
+	bool GetMomBossRenderValue()
+	{
+		return MomBossRenderValue;
+	}
+
 	
 	///////////////////////////////////////
 protected:
@@ -206,5 +211,7 @@ private:
 	int IsCoinBombCount = 1;
 	int IsCoinHeartCount = 1;
 	int IsCoinKeyCount = 1;
+
+	bool MomBossRenderValue = false;
 };
 

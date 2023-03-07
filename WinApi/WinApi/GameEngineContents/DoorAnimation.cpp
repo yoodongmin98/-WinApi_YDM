@@ -121,7 +121,15 @@ void IsaacLevel::DoorAnimationSetandUpdate()
 	Room17door->SetScale({ 350,270 });
 	Room17door->CreateAnimation({ .AnimationName = "Door_D_Idle",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 0, .InterTime = 0.5f });
 	Room17door->CreateAnimation({ .AnimationName = "Door_D_Open",  .ImageName = "Map_Door_Down.BMP", .Start = 0, .End = 3, .InterTime = 0.1f ,.Loop = false });
+	
+	Room18door = Door->CreateRender("Map_BossDoor_Right.BMP", IsaacOrder::R_OpenDoor);
+	Room18door->SetPosition({ 5120 + 1280 + 540,360 +380 });
+	Room18door->SetScale({ 200,150 });
+	Room18door->Off();
 
+
+
+	//여기다가 mom보스 문 4개 렌더.
 }
 
 
@@ -170,5 +178,9 @@ void IsaacLevel::DoorRenderUpdate()
 		Room15door->ChangeAnimation("Door_D_Open");
 		Room16door->ChangeAnimation("Door_U_Open");
 		Room17door->ChangeAnimation("Door_D_Open");
+	}
+	if (true == Isaac::MainPlayer->GetMomBossRenderValue())
+	{
+		Room18door->On();
 	}
 }
