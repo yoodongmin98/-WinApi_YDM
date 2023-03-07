@@ -110,7 +110,7 @@ void Room::SetTileIndex(int _X, int _Y, int _MapKey)
 		case 5:
 		{
 			//이미지세팅
-			GameEngineRender* Render = CreateRender("Room_Boss.BMP", IsaacOrder::R_BackGround);
+			GameEngineRender* Render = CreateRender("Room_MomBoss.BMP", IsaacOrder::R_BackGround);
 			Render->SetPosition(Render->GetImage()->GetImageScale().half());
 			Render->SetScaleToImage();
 			break;

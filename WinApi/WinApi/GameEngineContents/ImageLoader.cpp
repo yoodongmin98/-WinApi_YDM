@@ -22,6 +22,7 @@ void IsaacLevel::ImageLoad()
 			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Library.BMP"));
 			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Depth.BMP"));
 			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_Boss.BMP"));
+			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Room_MomBoss.BMP"));
 			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("BackGround_CS.BMP"));
 			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_BlackGround.BMP"));
 			GameEngineResources::GetInst().ImageLoad(Dir.GetPlusFileName("Play_Settingmenu.BMP"));

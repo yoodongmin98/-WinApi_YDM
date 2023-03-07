@@ -97,10 +97,6 @@ void IsaacLevel::Loading()
 	{
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); 
-		
-		
-		
-
 
 		Room::RoomCreateStart();
 							 //							 (Start) (obj) (item)
@@ -134,7 +130,7 @@ void IsaacLevel::Loading()
 		Room9Set();
 	}
 }
-bool DoorSoundLoad = true;
+
 void IsaacLevel::Update(float _DeltaTime)
 {
 	BaseMentUpdate(_DeltaTime);
