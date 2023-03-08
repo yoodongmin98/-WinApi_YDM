@@ -214,7 +214,7 @@ void MapCollision::Render(float _DeltaTime)
 	//Room8Collision->DebugRender();
 	//Room8Collision2->DebugRender();
 	//Room9Collision->DebugRender();
-	Room10Collision->DebugRender();
+	//Room10Collision->DebugRender();
 
 }
 

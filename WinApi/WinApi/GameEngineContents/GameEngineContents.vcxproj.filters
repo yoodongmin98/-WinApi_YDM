@@ -139,9 +139,6 @@
     <ClInclude Include="Monstro.h">
       <Filter>Play\Isaac\Monster\BossMonster\Monstro</Filter>
     </ClInclude>
-    <ClInclude Include="MonstroHpBar.h">
-      <Filter>Play\Isaac\Monster\BossMonster\BossHp</Filter>
-    </ClInclude>
     <ClInclude Include="CoinBomb.h">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinBomb</Filter>
     </ClInclude>
@@ -171,6 +168,15 @@
     </ClInclude>
     <ClInclude Include="MomsHeart.h">
       <Filter>Play\Isaac\Monster\BossMonster\MomsHeart</Filter>
+    </ClInclude>
+    <ClInclude Include="Target.h">
+      <Filter>Play\Isaac\Monster\NormalMonster\Target</Filter>
+    </ClInclude>
+    <ClInclude Include="MonstroHpBar.h">
+      <Filter>Play\Isaac\Monster\BossMonster\BossHp\MonstroHpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="MomsHeartHpbar.h">
+      <Filter>Play\Isaac\Monster\BossMonster\BossHp\MomsHeartHpBar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -324,9 +330,6 @@
     <ClCompile Include="Monstro.cpp">
       <Filter>Play\Isaac\Monster\BossMonster\Monstro</Filter>
     </ClCompile>
-    <ClCompile Include="MonstroHpbar.cpp">
-      <Filter>Play\Isaac\Monster\BossMonster\BossHp</Filter>
-    </ClCompile>
     <ClCompile Include="CoinBomb.cpp">
       <Filter>Play\Isaac\Item&amp;actor\MapActor\CoinBomb</Filter>
     </ClCompile>
@@ -365,6 +368,15 @@
     </ClCompile>
     <ClCompile Include="MomsHeart.cpp">
       <Filter>Play\Isaac\Monster\BossMonster\MomsHeart</Filter>
+    </ClCompile>
+    <ClCompile Include="Target.cpp">
+      <Filter>Play\Isaac\Monster\NormalMonster\Target</Filter>
+    </ClCompile>
+    <ClCompile Include="MonstroHpbar.cpp">
+      <Filter>Play\Isaac\Monster\BossMonster\BossHp\MonstroHpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="MomsHeartHpbar.cpp">
+      <Filter>Play\Isaac\Monster\BossMonster\BossHp\MomsHeartHpBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -601,6 +613,15 @@
     </Filter>
     <Filter Include="Play\Isaac\Monster\BossMonster\MomsHeart">
       <UniqueIdentifier>{49eec27a-2eb9-43e2-a9f6-2b982abfe388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\NormalMonster\Target">
+      <UniqueIdentifier>{054a0d3c-ad18-41cf-aaab-c8c8a53c36d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\BossMonster\BossHp\MonstroHpBar">
+      <UniqueIdentifier>{9f82e4f4-4082-4952-87d8-d754de79ba43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\BossMonster\BossHp\MomsHeartHpBar">
+      <UniqueIdentifier>{87a0ff20-e318-4b65-b92d-fa8bd93fea4a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

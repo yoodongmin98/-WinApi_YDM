@@ -5,7 +5,7 @@
 #include "MonstroHpBar.h"
 #include "NextLevelDoor.h"
 #include "MomsHeart.h"
-
+#include "MomsHeartHpbar.h"
 
 #include <GameEngineCore/GameEngineCore.h>
 #include <GameEngineCore/GameEngineCollision.h>
@@ -46,10 +46,35 @@ void IsaacLevel::CollisionSoundSet(float _DeltaTime)
 			BOSSDEATH.LoopCount(1);
 			LoopBool = false;
 		}
-		PLAYBGMBOSS.Stop();
+		PLAYBGMBOSS.Stop(); //죽으면노래멈추기
 	}
-	
-	
+}
+
+void IsaacLevel::CollisionSoundSetBoss(float _DeltaTime)
+{
+	MomSoundUpdateTime += _DeltaTime;
+	if (true == BossEnterBool &&
+		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room10), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+	{
+		BossEnterBool = false;
+		Isaac::MainPlayer->SetMonsterCount(1);
+		MomSoundUpdateTime = 0.0f;
+		GameEngineCore::GetInst()->ChangeLevel("MomBossLoad");
+	}
+	if (MomSoundUpdateTime > 0.2f && false == BossEnterBool && true == MomBossSoundBool)
+	{
+		MomBossSoundBool = false;
+		PLAYMOMBOSS.PauseOff();
+
+		MomsHeart* NewMomsHeart = CreateActor<MomsHeart>();
+		NewMomsHeart->SetPos({ 5120 + 2560 + 1000,720 + 200 });
+		MomsHpbar* MomsHpbars = CreateActor<MomsHpbar>();
+		MomsHpbars->SetPos({ 5120 + 1280 + 1280 + 640,720 + 100 });
+	}
+	if (false == BossEnterBool && 0 == Isaac::MainPlayer->GetMonsterCount())
+	{
+		PLAYMOMBOSS.Stop(); //죽으면노래멈추기
+	}
 
 }
 
@@ -105,27 +130,7 @@ void IsaacLevel::CollisionSoundSet5(float _DeltaTime)
 	}
 }
 
-void IsaacLevel::CollisionSoundSetBoss(float _DeltaTime)
-{
-	MomSoundUpdateTime += _DeltaTime;
-	if (true == BossEnterBool &&
-		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room10), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
-	{
-		BossEnterBool = false;
-		MomSoundUpdateTime = 0.0f;
-		GameEngineCore::GetInst()->ChangeLevel("MomBossLoad");
-	}
-	if (MomSoundUpdateTime > 0.2f&& false==BossEnterBool&&true== MomBossSoundBool)
-	{
-		MomBossSoundBool = false;
-		PLAYMOMBOSS.PauseOff();
 
-		MomsHeart* NewMomsHeart = CreateActor<MomsHeart>();
-		NewMomsHeart->SetPos({ 5120 + 2560 + 1000,720 + 200 });
-		//CreateMom
-	}
-	//여기서 mom보스로드
-}
 
 
 

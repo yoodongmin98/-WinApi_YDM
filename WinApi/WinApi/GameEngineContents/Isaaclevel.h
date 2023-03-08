@@ -127,5 +127,6 @@ private:
 	float UpSetValue = 130.0f;
 
 	void CreateRoom(int _X, int _Y, int _MapKey);
+
 };
 

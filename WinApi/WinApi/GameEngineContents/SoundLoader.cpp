@@ -34,6 +34,7 @@ void IsaacLevel::SoundLoad()
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Callisaac.wav")); 
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("evillaugh.wav"));
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall2.wav"));
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall1.wav"));
 		}
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg"); //기본배경음악

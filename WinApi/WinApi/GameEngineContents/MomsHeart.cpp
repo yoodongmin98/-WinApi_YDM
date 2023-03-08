@@ -7,6 +7,7 @@
 #include <GameEngineCore/GameEngineResources.h>
 #include <GameEngineCore/GameEngineLevel.h>
 #include <GameEngineCore/GameEngineCollision.h>
+#include <GameEngineCore/GameEngineCore.h>
 
 
 
@@ -20,6 +21,15 @@
 #include "Pooter.h"
 
 #include "Clotty.h"
+
+#include "Target.h"
+
+
+
+
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
 
 MomsHeart* MomsHeart::MainMomsHeart;
 
@@ -50,6 +60,7 @@ void MomsHeart::ImageLoad()
 void MomsHeart::Start()
 {
 	MainMomsHeart = this;
+	
 	if (true == MomsHeartLoad)
 	{
 		ImageLoad();
@@ -59,6 +70,7 @@ void MomsHeart::Start()
 	M_MomsHeart->SetScale({ 300, 400 });
 
 	M_MomsHeart->CreateAnimation({ .AnimationName = "M_MomsHeart_Idle",  .ImageName = "MomsHeart.bmp", .Start = 2, .End = 3, .InterTime = 0.15f , });
+	M_MomsHeart->CreateAnimation({ .AnimationName = "M_MomsHeart_Stop",  .ImageName = "MomsHeart.bmp", .Start = 0, .End = 0, .InterTime = 0.15f , });
 	M_MomsHeart->CreateAnimation({ .AnimationName = "M_MomsHeart_Attack",  .ImageName = "MomsHeart.bmp", .Start = 0, .End = 4, .InterTime = 0.1f });
 	M_MomsHeart->CreateAnimation({ .AnimationName = "M_Monstro_Attack",  .ImageName = "MomsHeart.bmp", .Start = 3, .End = 3, .InterTime = 0.5f });
 	M_MomsHeart->ChangeAnimation("M_MomsHeart_Idle");
@@ -75,43 +87,60 @@ void MomsHeart::Start()
 }
 
 bool MonsterSoundBool = true;
+
 void MomsHeart::Update(float _DeltaTime)
 {
-	NewMonsterTime += _DeltaTime;
-	
-	if (NewMonsterTime > 5.0f)
+	if (true == MomsHeartDeathcheck)
 	{
-		MonsterSoundBool=true;
-	}
-	if (NewMonsterTime > 10.0f)
-	{
-		if(true==MonsterSoundBool)
+		if (true == asdasdasdasd)
 		{
-			DEATHBURST = GameEngineResources::GetInst().SoundPlayToControl("deathburstsmall2.wav");
-			DEATHBURST.Volume(0.3f);
-			DEATHBURST.LoopCount(1);
-			MonsterSoundBool=false;
+			Isaac::MainPlayer->MinusMonsterCount(1);
+			
+			asdasdasdasd =false;
 		}
-		
-		NewMonsterTime = 0.0f;
-		Clotty* MomClotty1 = GetLevel()->CreateActor<Clotty>();
-		MomClotty1->SetPos(GetPos()+float4::Left*70);
-		Clotty* MomClotty2 = GetLevel()->CreateActor<Clotty>();
-		MomClotty2->SetPos(GetPos() + float4::Down * 150);
+		//여기에요!
+		//GameEngineCore::GetInst()->ChangeLevel("TitleLevel");
+		Death();
 	}
+
+
+
+
+
+	UpdateTime += _DeltaTime;
+	if (UpdateTime > 30.0f)
+	{
+		Pattern1Bool = false;
+		UpdateTime = 0.0f;
+	}
+	MonsterSet(_DeltaTime);
 
 	if (true == Pattern1Bool)
 	{
 		Pattern1(_DeltaTime);
 	}
-	if (true == Pattern2Bool)
+	else
 	{
-		Pattern2(_DeltaTime);
+		Pattern2EndTime += _DeltaTime;
+		PatternTime2 += _DeltaTime;
+		M_MomsHeart->ChangeAnimation("M_MomsHeart_Stop");
+		M_MomsHeart_Coll->Off();
+		if (PatternTime2 > 0.5f)
+		{
+			Target* TestTarget = GetLevel()->CreateActor<Target>();
+			srand((unsigned int)time(NULL));
+			float num = rand()%10;
+			TestTarget->SetPos(GetPos() - float4{ num * (num*10),-(num * (num*4)) });
+			PatternTime2 = 0.0f;
+		}
+		if (Pattern2EndTime > 10.0f)
+		{
+			Pattern1Bool = true;
+			M_MomsHeart_Coll->On();
+			Pattern2EndTime = 0.0f;
+		}
 	}
-	if (true == Pattern3Bool)
-	{
-		Pattern3(_DeltaTime);
-	}
+	
 
 
 	CollisionCheck(_DeltaTime);
@@ -150,14 +179,33 @@ void MomsHeart::Pattern1(float _DeltaTime)
 	}
 }
 
-void MomsHeart::Pattern2(float _DeltaTime)
+
+
+
+void MomsHeart::MonsterSet(float _DeltaTime)
 {
+	NewMonsterTime += _DeltaTime;
 
-}
+	if (NewMonsterTime > 5.0f)
+	{
+		MonsterSoundBool = true;
+	}
+	if (NewMonsterTime > 10.0f)
+	{
+		if (true == MonsterSoundBool)
+		{
+			DEATHBURST = GameEngineResources::GetInst().SoundPlayToControl("deathburstsmall2.wav");
+			DEATHBURST.Volume(0.3f);
+			DEATHBURST.LoopCount(1);
+			MonsterSoundBool = false;
+		}
 
-void MomsHeart::Pattern3(float _DeltaTime)
-{
-
+		NewMonsterTime = 0.0f;
+		Clotty* MomClotty1 = GetLevel()->CreateActor<Clotty>();
+		MomClotty1->SetPos(GetPos() + float4::Left * 70);
+		Clotty* MomClotty2 = GetLevel()->CreateActor<Clotty>();
+		MomClotty2->SetPos(GetPos() + float4::Down * 150);
+	}
 }
 
 
@@ -295,5 +343,5 @@ void MomsHeart::Attack1()
 
 void MomsHeart::Render(float _DeltaTime)
 {
-	M_MomsHeart_Coll->DebugRender();
+	//M_MomsHeart_Coll->DebugRender();
 }

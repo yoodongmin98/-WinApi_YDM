@@ -148,11 +148,11 @@ private:
 	////////Tear관련 가속도,중력,속도,사거리//////////
 
 	
-	float TearUseTime = 0.1f; //원래0.3
+	float TearUseTime = 0.3f; 
 	float GravityValue = 0.4f;
 	float TearSpeed = 400.0f;
 	float TearRange = 0.8f;
-	int TearDamage = 5; //원래1
+	int TearDamage = 1;
 	
 	//////////Idle
 	std::string DirString = "Right_";
@@ -219,5 +219,6 @@ private:
 	int IsCoinKeyCount = 1;
 
 	bool MomBossRenderValue = false;
+
 };
 
