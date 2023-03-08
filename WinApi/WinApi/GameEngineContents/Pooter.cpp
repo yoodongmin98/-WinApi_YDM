@@ -187,7 +187,7 @@ void Pooter::CollisionCheck(float _DeltaTime)
 		FCollisions[0]->GetActor()->Death(); //닿은 ATT는 지워버리고
 		SetMove(float4::Left * 20); //맞으면 밀려남(매끄럽게안밀려남) 방향에따른 설정도해야할듯
 
-		if (1 == RESET)
+		if (1 == RESET) 
 		{
 			PooterHp = PooterHp - Isaac::MainPlayer->GetTearDamage();
 			RESET = 0;

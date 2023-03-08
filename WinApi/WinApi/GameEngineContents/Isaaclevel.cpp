@@ -37,6 +37,7 @@
 #include "Clot.h"
 #include "Clotty.h"
 #include "Monstro.h"
+#include "MomsHeart.h"
 
 
 
@@ -80,6 +81,7 @@ IsaacLevel::~IsaacLevel()
 void IsaacLevel::Loading()
 {
 	ImageLoad();
+	SoundLoad();
 	if (false == GameEngineInput::IsKey("LoadMenu"))
 	{
 		GameEngineInput::CreateKey("LoadMenu", VK_ESCAPE);
@@ -101,7 +103,7 @@ void IsaacLevel::Loading()
 		//TEST
 	/*	Monstro* TestMonstro= CreateActor<Monstro>();
 		TestMonstro->SetPos({ 300,300 });*/
-
+		
 
 		Room::RoomCreateStart();
 							 //							 (Start) (obj) (item)
@@ -155,7 +157,7 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	SettingMenuUpdate();
 	SettingMenu->Off();
-	SoundLoad();
+	
 }
 
 

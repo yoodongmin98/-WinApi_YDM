@@ -31,6 +31,9 @@ void IsaacLevel::SoundLoad()
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("doorheavyopen.wav"));//문이열려요
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall3.wav"));//보스죽음
 			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("momfight.ogg"));//보스죽음
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("Callisaac.wav")); 
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("evillaugh.wav"));
+			GameEngineResources::GetInst().SoundLoad(Dir.GetPlusFileName("deathburstsmall2.wav"));
 		}
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg"); //기본배경음악

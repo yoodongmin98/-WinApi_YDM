@@ -169,6 +169,9 @@
     <ClInclude Include="MomBossLoad.h">
       <Filter>BossLoding\MomBossLoding</Filter>
     </ClInclude>
+    <ClInclude Include="MomsHeart.h">
+      <Filter>Play\Isaac\Monster\BossMonster\MomsHeart</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AllBack.cpp">
@@ -359,6 +362,9 @@
     </ClCompile>
     <ClCompile Include="MomBossLoad.cpp">
       <Filter>BossLoding\MomBossLoding</Filter>
+    </ClCompile>
+    <ClCompile Include="MomsHeart.cpp">
+      <Filter>Play\Isaac\Monster\BossMonster\MomsHeart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -592,6 +598,9 @@
     </Filter>
     <Filter Include="BossLoding\MonstroBossLoding">
       <UniqueIdentifier>{af319f71-f9ff-464a-b6f8-75e60094b579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Isaac\Monster\BossMonster\MomsHeart">
+      <UniqueIdentifier>{49eec27a-2eb9-43e2-a9f6-2b982abfe388}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

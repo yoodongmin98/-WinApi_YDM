@@ -4,7 +4,7 @@
 #include "IsaacEnum.h"
 #include "MonstroHpBar.h"
 #include "NextLevelDoor.h"
-
+#include "MomsHeart.h"
 
 
 #include <GameEngineCore/GameEngineCore.h>
@@ -119,6 +119,9 @@ void IsaacLevel::CollisionSoundSetBoss(float _DeltaTime)
 	{
 		MomBossSoundBool = false;
 		PLAYMOMBOSS.PauseOff();
+
+		MomsHeart* NewMomsHeart = CreateActor<MomsHeart>();
+		NewMomsHeart->SetPos({ 5120 + 2560 + 1000,720 + 200 });
 		//CreateMom
 	}
 	//여기서 mom보스로드
