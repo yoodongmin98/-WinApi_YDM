@@ -45,6 +45,7 @@ void MuliBoom::ImageLoad()
 
 void MuliBoom::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == MuliBoomLoad)
 	{
 		ImageLoad();

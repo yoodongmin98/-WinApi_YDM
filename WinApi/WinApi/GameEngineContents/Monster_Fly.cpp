@@ -49,6 +49,7 @@ void Monster_Fly::ImageLoad()
 
 void Monster_Fly::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == FlyLoad)
 	{
 		ImageLoad();

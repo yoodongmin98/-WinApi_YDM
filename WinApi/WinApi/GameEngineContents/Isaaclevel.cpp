@@ -98,6 +98,11 @@ void IsaacLevel::Loading()
 		CreateActor<Isaac>();
 		CreateActor<MapCollision>(); 
 
+		//TEST
+	/*	Monstro* TestMonstro= CreateActor<Monstro>();
+		TestMonstro->SetPos({ 300,300 });*/
+
+
 		Room::RoomCreateStart();
 							 //							 (Start) (obj) (item)
 		CreateRoom(0, 0, 1); //Start                        ¤±  ¤±  ¤± 

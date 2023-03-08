@@ -44,6 +44,7 @@ void Clotty::ImageLoad()
 
 void Clotty::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == ClottyLoad)
 	{
 		ImageLoad();

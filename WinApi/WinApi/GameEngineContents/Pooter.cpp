@@ -44,6 +44,7 @@ void Pooter::ImageLoad()
 
 void Pooter::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == PooterLoad)
 	{
 		ImageLoad();

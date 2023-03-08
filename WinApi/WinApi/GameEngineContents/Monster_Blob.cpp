@@ -42,6 +42,7 @@ void Monster_Blob::ImageLoad()
 
 void Monster_Blob::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == BlobLoad)
 	{
 		ImageLoad();

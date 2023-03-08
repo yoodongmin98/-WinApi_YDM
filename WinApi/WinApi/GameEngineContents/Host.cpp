@@ -43,6 +43,7 @@ void Host::ImageLoad()
 
 void Host::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 
 	if (true == HostLoad)
 	{

@@ -16,6 +16,7 @@
 #include "BloodTear.h"
 #include "NextLevelDoor.h"
 
+#include "Pooter.h"
 Monstro* Monstro::MainMonstro;
 
 Monstro::Monstro()
@@ -66,6 +67,8 @@ void Monstro::Start()
 	M_Monstro->CreateAnimation({ .AnimationName = "M_Monstro_Attack_L",  .ImageName = "Monstro_Left.bmp", .Start = 3, .End = 3, .InterTime = 0.5f });
 	M_Monstro->CreateAnimation({ .AnimationName = "M_Monstro_Attack_R",  .ImageName = "Monstro_Right.bmp", .Start = 3, .End = 3, .InterTime = 0.5f });
 
+	M_Monstro->CreateAnimation({ .AnimationName = "M_Monstro_Jump_R",  .ImageName = "Monstro_Left.bmp", .Start = 5, .End = 6, .InterTime = 0.5f , .Loop = false });
+
 
 
 	M_Monstro->ChangeAnimation("M_Monstro_Idle_L");
@@ -92,68 +95,94 @@ void Monstro::Start()
 
 void Monstro::Update(float _DeltaTime)
 {
+	
 	PatternTime += _DeltaTime;
 	AttackTime += _DeltaTime;
+	
 	if (true == MonstroDeathcheck)
 	{
+		PatternTime = 0.0f;
+		AttackTime=0.0f;
 		if (true == Countbool)
 		{
 			Isaac::MainPlayer->MinusMonsterCount(1);
 			Countbool = false;
 		}
-		NextLevelDoor* NextDoor = GetLevel()->CreateActor<NextLevelDoor>();
-		NextDoor->SetPos(GetPos());
-		Death();
+		M_Monstro->Off();
+		M_Monstro_Coll->Off();
+		if (0 == Isaac::MainPlayer->GetMonsterCount())
+		{
+			NextLevelDoor* NextDoor = GetLevel()->CreateActor<NextLevelDoor>();
+			NextDoor->SetPos(GetPos());
+			Death();
+		}
+		
+		
 	}
 
-	if (PatternTime > 1.0f)
-	{
-		
-		Movecalculation(_DeltaTime);
-		if (PatternTime > 2.0f)
+		if (PatternTime > 1.0f)
 		{
+
+			Movecalculation(_DeltaTime);
+			if (PatternTime > 2.0f)
+			{
+				PatternTime = 0.0f;
+				if (true == M_Monstro_SetColl_R->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+				{
+					M_Monstro->ChangeAnimation("M_Monstro_Idle_R");
+				}
+				else
+				{
+					M_Monstro->ChangeAnimation("M_Monstro_Idle_L");
+				}
+			}
+		}
+
+		if (AttackTime > 7.0f)
+		{
+
 			PatternTime = 0.0f;
 			if (true == M_Monstro_SetColl_R->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
 			{
-				M_Monstro->ChangeAnimation("M_Monstro_Idle_R"); 
+				M_Monstro->ChangeAnimation("M_Monstro_Attack_R");
+				Attack1();
+				if (true == MonsterLoad)
+				{
+					Pooter* MonstroPooter = GetLevel()->CreateActor<Pooter>();
+					MonstroPooter->SetPos(GetPos() + float4::Right * 70);
+					MonsterLoad = false;
+				}
 			}
 			else
 			{
-				M_Monstro->ChangeAnimation("M_Monstro_Idle_L");
+				M_Monstro->ChangeAnimation("M_Monstro_Attack_L");
+				
+				if (true == MonsterLoad)
+				{
+					Pooter* MonstroPooter = GetLevel()->CreateActor<Pooter>();
+					MonstroPooter->SetPos(GetPos() + float4::Left * 70);
+					MonsterLoad = false;
+				}
+				Attack1();
+
+			}
+			if (AttackTime > 8.0f)
+			{
+				AttackBool = true;
+				AttackTime = 0.0f;
+				MonsterLoad = true;
+				if (true == M_Monstro_SetColl_R->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
+				{
+					M_Monstro->ChangeAnimation("M_Monstro_Idle_R");
+				}
+				else
+				{
+					M_Monstro->ChangeAnimation("M_Monstro_Idle_L");
+				}
+
 			}
 		}
-	}
 	
-	if (AttackTime > 7.0f)
-	{
-		
-		PatternTime = 0.0f;
-		if (true == M_Monstro_SetColl_R->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
-		{
-			M_Monstro->ChangeAnimation("M_Monstro_Attack_R");
-			Attack1();
-			
-		}
-		else
-		{
-			M_Monstro->ChangeAnimation("M_Monstro_Attack_L");
-			Attack1();
-			
-		}
-		if (AttackTime > 8.0f)
-		{
-			AttackBool = true;
-			AttackTime = 0.0f;
-			if (true == M_Monstro_SetColl_R->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::C_Player), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
-			{
-				M_Monstro->ChangeAnimation("M_Monstro_Idle_R");
-			}
-			else
-			{
-				M_Monstro->ChangeAnimation("M_Monstro_Idle_L");
-			}
-		}
-	}
 
 	CollisionCheck(_DeltaTime);
 }

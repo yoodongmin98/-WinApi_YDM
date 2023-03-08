@@ -44,6 +44,7 @@ void Boil::ImageLoad()
 
 void Boil::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == BoilLoad)
 	{
 		ImageLoad();

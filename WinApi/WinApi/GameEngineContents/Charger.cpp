@@ -45,6 +45,7 @@ void Charger::ImageLoad()
 
 void Charger::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == ChargerLoad)
 	{
 		ImageLoad();	

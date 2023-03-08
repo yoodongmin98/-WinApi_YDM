@@ -44,6 +44,7 @@ void Gaper::ImageLoad()
 
 void Gaper::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == GaperLoad)
 	{
 		ImageLoad();

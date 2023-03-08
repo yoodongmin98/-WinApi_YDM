@@ -48,5 +48,7 @@ private:
 	bool MonstroDeathcheck = false;
 	bool AttackBool = true;
 	bool Countbool = true;
+
+	bool MonsterLoad = true;
 };
 

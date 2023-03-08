@@ -74,7 +74,9 @@ public:
 	{
 		return IsaacCollision;
 	}
-
+	
+	/////////MonsterCount
+	
 	int GetMonsterCount()
 	{
 		return MonsterCount;
@@ -86,6 +88,10 @@ public:
 	void MinusMonsterCount(int _DeathCount)
 	{
 		MonsterCount -= _DeathCount;
+	}
+	void PlusMOnsterCount(int _CreateCount)
+	{
+		MonsterCount += _CreateCount;
 	}
 
 	

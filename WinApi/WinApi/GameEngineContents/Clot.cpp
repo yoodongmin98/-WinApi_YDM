@@ -44,6 +44,7 @@ void Clot::ImageLoad()
 
 void Clot::Start()
 {
+	Isaac::MainPlayer->PlusMOnsterCount(1);
 	if (true == ClotLoad)
 	{
 		ImageLoad();
