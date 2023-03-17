@@ -144,5 +144,9 @@ void Fire::CollisionCheck(float _DeltaTime)
 
 void Fire::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Fire_Coll->DebugRender();
+	}
 	//Fire_Coll->DebugRender();
 }

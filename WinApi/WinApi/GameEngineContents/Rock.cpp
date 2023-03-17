@@ -101,5 +101,9 @@ void Rock::CollisionCheck(float _DeltaTime)
 
 void Rock::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Rock_Coll->DebugRender();
+	}
 	//Rock_Coll->DebugRender();
 }

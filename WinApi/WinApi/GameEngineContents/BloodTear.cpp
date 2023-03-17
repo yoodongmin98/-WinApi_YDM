@@ -104,5 +104,9 @@ void BloodTear::MoveCalculation(float _DeltaTime)
 
 void BloodTear::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		BloodTearCollision->DebugRender();
+	}
 	//Collision->DebugRender();
 }

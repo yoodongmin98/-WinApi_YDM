@@ -220,5 +220,9 @@ void Monster_Fly::CollisionCheck(float _DeltaTime)
 
 void Monster_Fly::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		M_fly_Coll->DebugRender();
+	}
 	//M_fly_Coll->DebugRender();
 }

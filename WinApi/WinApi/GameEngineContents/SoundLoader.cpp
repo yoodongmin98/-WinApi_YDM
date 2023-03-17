@@ -38,7 +38,8 @@ void IsaacLevel::SoundLoad()
 		}
 		
 		PLAYBGMPLAYER = GameEngineResources::GetInst().SoundPlayToControl("BasementBGM.ogg"); //±âº»¹è°æÀ½¾Ç
-		PLAYBGMPLAYER.Volume(0.05f); 
+		PLAYBGMPLAYER.Volume(0.05f);
+		PLAYBGMPLAYER.PauseOn();
 
 		PLAYBGMBOSS = GameEngineResources::GetInst().SoundPlayToControl("basicbossfight.ogg"); //º¸½º¶û ½Î¿ï¶§
 		PLAYBGMBOSS.Volume(0.1f);

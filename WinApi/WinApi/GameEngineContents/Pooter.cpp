@@ -268,6 +268,10 @@ void Pooter::CollisionCheck(float _DeltaTime)
 
 void Pooter::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		M_fly_Pooter->DebugRender();
+	}
 	//M_fly_Pooter->DebugRender();
 	//M_fly_Pooter_Set->DebugRender();
 }

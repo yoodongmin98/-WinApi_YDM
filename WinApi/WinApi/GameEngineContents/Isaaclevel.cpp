@@ -79,8 +79,31 @@ IsaacLevel::IsaacLevel()
 IsaacLevel::~IsaacLevel()
 {
 }
+
+void IsaacLevel::KeyLoad()
+{
+	if (false == GameEngineInput::IsKey("LeftMove"))
+	{
+		GameEngineInput::CreateKey("MapCollisionSwitch", VK_SPACE);
+		/*GameEngineInput::CreateKey("RightMove", 'D');
+		GameEngineInput::CreateKey("DownMove", 'S');
+		GameEngineInput::CreateKey("UpMove", 'W');
+		GameEngineInput::CreateKey("Bomb", 'E');
+		GameEngineInput::CreateKey("LeftTears", VK_LEFT);
+		GameEngineInput::CreateKey("RightTears", VK_RIGHT);
+		GameEngineInput::CreateKey("UpTears", VK_UP);
+		GameEngineInput::CreateKey("DownTears", VK_DOWN);*/
+
+
+		
+
+	}
+}
+
+
 void IsaacLevel::Loading()
 {
+	KeyLoad();
 	ImageLoad();
 	SoundLoad();
 	if (false == GameEngineInput::IsKey("LoadMenu"))
@@ -158,7 +181,7 @@ void IsaacLevel::LevelChangeStart(GameEngineLevel* _PrevLevel)
 {
 	SettingMenuUpdate();
 	SettingMenu->Off();
-	
+	PLAYBGMPLAYER.PauseOff();
 }
 
 

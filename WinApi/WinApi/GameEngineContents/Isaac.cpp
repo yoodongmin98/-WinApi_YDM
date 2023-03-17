@@ -56,7 +56,7 @@ void Isaac::Start()
 		GameEngineInput::CreateKey("DownTears", VK_DOWN);
 
 
-		GameEngineInput::CreateKey("DebugItem", '1');
+		GameEngineInput::CreateKey("DebugItem", '4');
 		GameEngineInput::CreateKey("DebugCollOff", '2');
 		GameEngineInput::CreateKey("DebugCollOn", '3');
 		GameEngineInput::CreateKey("IsaacMoveSpeed", 'R');
@@ -579,5 +579,8 @@ void Isaac::TEARSOUNDS()
 }
 void Isaac::Render(float _DeltaTime)
 {
-	//IsaacCollision->DebugRender();
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		IsaacCollision->DebugRender();
+	}
 }

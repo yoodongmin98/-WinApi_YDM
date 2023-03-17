@@ -124,5 +124,9 @@ void Poop::CollisionCheck(float _DeltaTime)
 
 void Poop::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Poop_Coll->DebugRender();
+	}
 	//Poop_Coll->DebugRender();
 }

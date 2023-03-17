@@ -20,6 +20,7 @@
 
 //Item
 #include "ItemBomb.h"
+#include <GameEnginePlatform/GameEngineInput.h>
 
 MapCollision::MapCollision()
 {
@@ -104,6 +105,8 @@ void MapCollision::Start()
 
 void MapCollision::Update(float _DeltaTime)
 {
+
+	Render(_DeltaTime);
 	//몬스터를 만들때 한번만로드되도록 bool값을넣음
 	if (true== Room1&&
 		true == Isaac::MainPlayer->GetIsaacCollision()->Collision({ .TargetGroup = static_cast<int>(IsaacCollisionOrder::Room1), .TargetColType = CT_Rect, .ThisColType = CT_Rect }))
@@ -204,17 +207,21 @@ void MapCollision::Update(float _DeltaTime)
 }
 void MapCollision::Render(float _DeltaTime)
 {
-	//Room1Collision->DebugRender();
-	//Room2Collision->DebugRender();
-	//Room3Collision->DebugRender();
-	//Room4Collision->DebugRender();
-	//Room5Collision->DebugRender();
-	//Room6Collision->DebugRender();
-	//Room7Collision->DebugRender();
-	//Room8Collision->DebugRender();
-	//Room8Collision2->DebugRender();
-	//Room9Collision->DebugRender();
-	//Room10Collision->DebugRender();
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Room1Collision->DebugRender();
+		Room2Collision->DebugRender();
+		Room3Collision->DebugRender();
+		Room4Collision->DebugRender();
+		Room5Collision->DebugRender();
+		Room6Collision->DebugRender();
+		Room7Collision->DebugRender();
+		Room8Collision->DebugRender();
+		Room8Collision2->DebugRender();
+		Room9Collision->DebugRender();
+		Room10Collision->DebugRender();
+	}
+	
 
 }
 

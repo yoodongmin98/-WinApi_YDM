@@ -99,5 +99,9 @@ void Tears::PlopSounds()
 }
 void Tears::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Collision->DebugRender();
+	}
 	//Collision->DebugRender();
 }

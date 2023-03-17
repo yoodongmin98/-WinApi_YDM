@@ -142,5 +142,9 @@ void Bomb::FlikerSet(float _DeltaTime)
 
 void Bomb::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Bomb_Coll->DebugRender();
+	}
 	//Bomb_Coll->DebugRender();
 }

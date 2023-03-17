@@ -96,5 +96,9 @@ void UpTears::PlopSounds()
 
 void UpTears::Render(float _DeltaTime)
 {
+	if (GameEngineInput::IsPress("MapCollisionSwitch"))
+	{
+		Collision->DebugRender();
+	}
 	//Collision->DebugRender();
 }

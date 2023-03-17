@@ -35,6 +35,7 @@ public:
 
 	void SoundLoad();
 	void ImageLoad();
+	void KeyLoad();
 
 	void Room1Set();
 	void Room2Set();
